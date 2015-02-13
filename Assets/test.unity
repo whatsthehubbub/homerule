@@ -244,7 +244,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 10631879179ed9d4cbb7a89254c88955, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 10631879179ed9d4cbb7a89254c88955, type: 2}
       propertyPath: regions.Array.data[0].UUID

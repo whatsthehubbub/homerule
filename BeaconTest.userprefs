@@ -1,11 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Source/iBeacon/iBeaconReceiver.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/MuseumReceiver.cs">
     <Files>
-      <File FileName="Assets/Source/iBeacon/iBeaconReceiver.cs" Line="51" Column="7" />
-      <File FileName="Assets/Source/iBeacon/iBeaconReceiverExample.cs" Line="16" Column="3" />
+      <File FileName="Assets/Source/iBeacon/iBeaconReceiver.cs" Line="22" Column="22" />
+      <File FileName="Assets/Source/iBeacon/iBeaconReceiverExample.cs" Line="1" Column="1" />
       <File FileName="Assets/Source/iBeacon/iBeaconRegion.cs" Line="1" Column="1" />
-      <File FileName="Assets/Source/iBeacon/Beacon.cs" Line="1" Column="1" />
+      <File FileName="Assets/Source/iBeacon/Beacon.cs" Line="5" Column="1" />
+      <File FileName="Assets/MuseumReceiver.cs" Line="71" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -63,6 +63,8 @@ public class MuseumReceiver : MonoBehaviour {
 
 			// We got a new beacon
 			if (b.range == BeaconRange.NEAR) {
+				NewBeacon (b.minor);
+
 				if (b.minor == 15) {
 					this.location = MuseumState.HOME;
 				} else if (b.minor == 16) {
@@ -86,6 +88,12 @@ public class MuseumReceiver : MonoBehaviour {
 				mybeacons.Remove(b);
 			}
 		}
+	}
+
+	void NewBeacon(int minor) {
+		GameObject rocket = GameObject.Find("RocketSprite");
+
+		rocket.GetComponent<RocketManager>().NewBeacon(minor);
 	}
 	
 	void OnGUI() {

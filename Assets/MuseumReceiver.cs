@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System;
 
 
-public enum MuseumState {
+public enum PlayerLocation {
 	HOME,
-	OFFICE
+	OFFICE,
+	SQUARE
 }
 
 public class MuseumReceiver : MonoBehaviour {
@@ -15,7 +16,7 @@ public class MuseumReceiver : MonoBehaviour {
 	private List<Beacon> mybeacons = new List<Beacon>();
 	private bool scanning = true;
 
-	private MuseumState location = MuseumState.HOME;
+	private PlayerLocation location = PlayerLocation.HOME;
 
 	// Use this for initialization
 	void Start () {
@@ -32,6 +33,10 @@ public class MuseumReceiver : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	void Awake() {
+		DontDestroyOnLoad(this.gameObject);
 	}
 	
 	private void OnBluetoothStateChanged(BluetoothLowEnergyState newstate) {
@@ -63,12 +68,10 @@ public class MuseumReceiver : MonoBehaviour {
 
 			// We got a new beacon
 			if (b.range == BeaconRange.NEAR) {
-				NewBeacon (b.minor);
-
 				if (b.minor == 15) {
-					this.location = MuseumState.HOME;
+					NewLocation(PlayerLocation.HOME);
 				} else if (b.minor == 16) {
-					this.location = MuseumState.OFFICE;
+					NewLocation (PlayerLocation.OFFICE);
 				}
 			}
 
@@ -90,10 +93,14 @@ public class MuseumReceiver : MonoBehaviour {
 		}
 	}
 
-	void NewBeacon(int minor) {
+	void NewLocation(PlayerLocation location) {
 		GameObject rocket = GameObject.Find("RocketSprite");
 
-		rocket.GetComponent<RocketManager>().NewBeacon(minor);
+		rocket.GetComponent<RocketManager>().NewBeacon(location);
+	}
+
+	public void ButtonPressed() {
+		Application.LoadLevel ("Office Scene");
 	}
 	
 	void OnGUI() {
@@ -102,9 +109,9 @@ public class MuseumReceiver : MonoBehaviour {
 		labelStyle.fontSize = 25;
 
 		string locationText = "";
-		if (this.location == MuseumState.HOME) {
+		if (this.location == PlayerLocation.HOME) {
 			locationText = "Je bent thuis.";
-		} else if (this.location == MuseumState.OFFICE) {
+		} else if (this.location == PlayerLocation.OFFICE) {
 			locationText = "Je bent op kantoor.";
 		}
 

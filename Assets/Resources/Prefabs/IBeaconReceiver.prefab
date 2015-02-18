@@ -39,8 +39,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40ff212c9cb4f4e559f1c187a5694ca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  regions: []
-  NSLocationUsageDescription: 
+  regions:
+  - regionName: eu.hubbub.HomeRule
+    UUID: B9407F30-F5F8-466E-AFF9-25556B57FE6D
+  NSLocationUsageDescription: We willen weten waar je in het museum bent.
   updateDescription: 0
 --- !u!1001 &100100000
 Prefab:

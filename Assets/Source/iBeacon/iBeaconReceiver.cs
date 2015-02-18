@@ -34,6 +34,8 @@ public class iBeaconReceiver : MonoBehaviour {
 	void Awake()
 	{
 		m_instance = this;
+
+		DontDestroyOnLoad(this.gameObject);
 	}
 	
 	#if UNITY_IOS	

@@ -5,9 +5,10 @@ using System;
 
 
 public enum PlayerLocation {
-	HOME,
-	OFFICE,
-	SQUARE
+	HOME = 15,
+	OFFICE = 16,
+	SQUARE = 17,
+	UNDERWAY = -1
 }
 
 public class MuseumReceiver : MonoBehaviour {
@@ -16,7 +17,7 @@ public class MuseumReceiver : MonoBehaviour {
 	private List<Beacon> mybeacons = new List<Beacon>();
 	private bool scanning = true;
 
-	private PlayerLocation location = PlayerLocation.HOME;
+	private PlayerLocation location;
 
 	// Use this for initialization
 	void Start () {
@@ -38,6 +39,7 @@ public class MuseumReceiver : MonoBehaviour {
 	void Awake() {
 		DontDestroyOnLoad(this.gameObject);
 	}
+
 	
 	private void OnBluetoothStateChanged(BluetoothLowEnergyState newstate) {
 		switch (newstate) {
@@ -65,16 +67,6 @@ public class MuseumReceiver : MonoBehaviour {
 	
 	private void OnBeaconRangeChanged(List<Beacon> beacons) { // 
 		foreach (Beacon b in beacons) {
-
-			// We got a new beacon
-			if (b.range == BeaconRange.NEAR) {
-				if (b.minor == 15) {
-					NewLocation(PlayerLocation.HOME);
-				} else if (b.minor == 16) {
-					NewLocation (PlayerLocation.OFFICE);
-				}
-			}
-
 			if (mybeacons.Contains(b)) {
 				mybeacons[mybeacons.IndexOf(b)] = b;
 			} else {
@@ -91,16 +83,43 @@ public class MuseumReceiver : MonoBehaviour {
 				mybeacons.Remove(b);
 			}
 		}
+
+
+		bool found = false;
+		foreach (Beacon b in mybeacons) {
+			if (b.range == BeaconRange.NEAR || b.range == BeaconRange.IMMEDIATE) {
+				if (b.minor == (int)PlayerLocation.HOME) {
+					NewLocation(PlayerLocation.HOME);
+					found = true;
+				} else if (b.minor == (int)PlayerLocation.OFFICE) {
+					NewLocation(PlayerLocation.OFFICE);
+					found = true;
+				}
+			}
+		}
+		if (!found) {
+			NewLocation(PlayerLocation.UNDERWAY);
+		}
 	}
 
 	void NewLocation(PlayerLocation location) {
-		GameObject rocket = GameObject.Find("RocketSprite");
+		location = location;
 
-		rocket.GetComponent<RocketManager>().NewBeacon(location);
+		if (location == PlayerLocation.HOME) {
+			Application.LoadLevel("Home Scene");
+		} else if (location == PlayerLocation.OFFICE) {
+			Application.LoadLevel ("Office Scene");
+		} else if (location == PlayerLocation.UNDERWAY) {
+			Application.LoadLevel("Underway");
+		}
+
+//		GameObject rocket = GameObject.Find("RocketSprite");
+
+//		rocket.GetComponent<RocketManager>().NewBeacon(location);
 	}
 
 	public void ButtonPressed() {
-		Application.LoadLevel ("Office Scene");
+		NewLocation (PlayerLocation.OFFICE);
 	}
 	
 	void OnGUI() {

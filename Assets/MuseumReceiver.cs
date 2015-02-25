@@ -7,9 +7,9 @@ using System;
 public enum PlayerLocation {
 	HOME = 15,
 	OFFICE = 16,
-	SQUARE = 17,
-	MARKET = 18,
-	STATION = 19,
+	SQUARE = 22183,
+	MARKET = 57167,
+	STATION = 22218,
 	UNDERWAY = -1
 }
 
@@ -115,6 +115,15 @@ public class MuseumReceiver : MonoBehaviour {
 					found = true;
 				} else if (b.minor == (int)PlayerLocation.OFFICE) {
 					NewLocation(PlayerLocation.OFFICE);
+					found = true;
+				} else if (b.minor == (int)PlayerLocation.SQUARE) {
+					NewLocation(PlayerLocation.SQUARE);
+					found = true;
+				} else if (b.minor == (int)PlayerLocation.MARKET) {
+					NewLocation(PlayerLocation.MARKET);
+					found = true;
+				} else if (b.minor == (int)PlayerLocation.STATION) {
+					NewLocation(PlayerLocation.STATION);
 					found = true;
 				}
 			}

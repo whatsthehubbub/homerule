@@ -267,6 +267,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 2063978535}
   - 212: {fileID: 2063978534}
+  - 114: {fileID: 2063978537}
+  - 61: {fileID: 2063978536}
   m_Layer: 0
   m_Name: icoon-loep
   m_TagString: Untagged
@@ -308,3 +310,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!61 &2063978536
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2063978533}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 1.63, y: 1.61000001}
+  m_Center: {x: 0, y: 0}
+--- !u!114 &2063978537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2063978533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2efdc10f4bf245c39278003abb9386d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

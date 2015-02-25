@@ -1,11 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/MuseumManager.cs">
     <Files>
       <File FileName="Assets/Source/iBeacon/iBeaconReceiver.cs" Line="17" Column="44" />
-      <File FileName="Assets/CameraController.cs" Line="21" Column="41" />
-      <File FileName="Assets/MuseumManager.cs" Line="138" Column="8" />
-      <File FileName="Assets/RocketManager.cs" Line="14" Column="1" />
+      <File FileName="Assets/CameraController.cs" Line="1" Column="1" />
+      <File FileName="Assets/MuseumManager.cs" Line="16" Column="27" />
+      <File FileName="Assets/RocketManager.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

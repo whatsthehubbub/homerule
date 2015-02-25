@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\CameraController.cs" />
      <Compile Include="Assets\MuseumReceiver.cs" />
      <Compile Include="Assets\RocketManager.cs" />
      <Compile Include="Assets\Source\iBeacon\Beacon.cs" />

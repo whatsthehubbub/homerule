@@ -34,10 +34,10 @@ public class RocketManager : MonoBehaviour {
 		}
 	}
 
-	public void NewBeacon(PlayerLocation location) {
-		if (location == PlayerLocation.OFFICE) {
+	public void NewBeacon(Location location) {
+		if (location == Location.OFFICE) {
 			target = ball;
-		} else if (location == PlayerLocation.HOME) {
+		} else if (location == Location.HOME) {
 			target = origin;
 		}
 	}

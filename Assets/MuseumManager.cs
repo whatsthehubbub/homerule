@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System;
 
 
-public enum PlayerLocation {
+public enum Location {
 	HOME = 22183,
 	OFFICE = 57167,
 	SQUARE = 17,
@@ -18,7 +18,9 @@ public class MuseumManager : MonoBehaviour {
 	private List<Beacon> mybeacons = new List<Beacon>();
 	private bool scanning = true;
 
-	private PlayerLocation location;
+	public Location playerLocation;
+	public Location officerLocation;
+	public String text;
 
 	public int storiesFound;
 
@@ -38,23 +40,23 @@ public class MuseumManager : MonoBehaviour {
 	void Update () {
 		// Debug code to move between Scenes
 		if (Input.GetKeyDown(KeyCode.Alpha1)) {
-			NewLocation(PlayerLocation.HOME);
+			NewLocation(Location.HOME);
 		}
 
 		if (Input.GetKeyDown(KeyCode.Alpha2)) {
-			NewLocation(PlayerLocation.OFFICE);
+			NewLocation(Location.OFFICE);
 		}
 
 		if (Input.GetKeyDown(KeyCode.Alpha3)) {
-			NewLocation(PlayerLocation.SQUARE);
+			NewLocation(Location.SQUARE);
 		}
 
 		if (Input.GetKeyDown(KeyCode.Alpha4)) {
-			NewLocation(PlayerLocation.MARKET);
+			NewLocation(Location.MARKET);
 		}
 
 		if (Input.GetKeyDown(KeyCode.Alpha5)) {
-			NewLocation(PlayerLocation.STATION);
+			NewLocation(Location.STATION);
 		}
 		
 	}
@@ -111,43 +113,43 @@ public class MuseumManager : MonoBehaviour {
 		bool found = false;
 		foreach (Beacon b in mybeacons) {
 			if (b.range == BeaconRange.NEAR || b.range == BeaconRange.IMMEDIATE) {
-				if (b.minor == (int)PlayerLocation.HOME) {
-					NewLocation(PlayerLocation.HOME);
+				if (b.minor == (int)Location.HOME) {
+					NewLocation(Location.HOME);
 					found = true;
-				} else if (b.minor == (int)PlayerLocation.OFFICE) {
-					NewLocation(PlayerLocation.OFFICE);
+				} else if (b.minor == (int)Location.OFFICE) {
+					NewLocation(Location.OFFICE);
 					found = true;
-				} else if (b.minor == (int)PlayerLocation.SQUARE) {
-					NewLocation(PlayerLocation.SQUARE);
+				} else if (b.minor == (int)Location.SQUARE) {
+					NewLocation(Location.SQUARE);
 					found = true;
-				} else if (b.minor == (int)PlayerLocation.MARKET) {
-					NewLocation(PlayerLocation.MARKET);
+				} else if (b.minor == (int)Location.MARKET) {
+					NewLocation(Location.MARKET);
 					found = true;
-				} else if (b.minor == (int)PlayerLocation.STATION) {
-					NewLocation(PlayerLocation.STATION);
+				} else if (b.minor == (int)Location.STATION) {
+					NewLocation(Location.STATION);
 					found = true;
 				}
 			}
 		}
 		if (!found) {
-			NewLocation(PlayerLocation.UNDERWAY);
+			NewLocation(Location.UNDERWAY);
 		}
 	}
 
-	void NewLocation(PlayerLocation location) {
-		this.location = location;
+	void NewLocation(Location location) {
+		this.playerLocation = location;
 
-		if (location == PlayerLocation.HOME) {
+		if (location == Location.HOME) {
 			Application.LoadLevel("Home Scene");
-		} else if (location == PlayerLocation.OFFICE) {
+		} else if (location == Location.OFFICE) {
 			Application.LoadLevel ("Office Scene");
-		} else if (location == PlayerLocation.SQUARE) {
+		} else if (location == Location.SQUARE) {
 			Application.LoadLevel ("Square Scene");
-		} else if (location == PlayerLocation.MARKET) {
+		} else if (location == Location.MARKET) {
 			Application.LoadLevel ("Market Scene");
-		} else if (location == PlayerLocation.STATION) {
+		} else if (location == Location.STATION) {
 			Application.LoadLevel ("Station Scene");
-		} else if (location == PlayerLocation.UNDERWAY) {
+		} else if (location == Location.UNDERWAY) {
 			Application.LoadLevel("Underway");
 		}
 
@@ -157,7 +159,7 @@ public class MuseumManager : MonoBehaviour {
 	}
 
 	public void ButtonPressed() {
-		NewLocation (PlayerLocation.OFFICE);
+		NewLocation (Location.OFFICE);
 	}
 	
 	void OnGUI() {
@@ -166,9 +168,9 @@ public class MuseumManager : MonoBehaviour {
 		labelStyle.fontSize = 25;
 
 		string locationText = "";
-		if (this.location == PlayerLocation.HOME) {
+		if (this.playerLocation == Location.HOME) {
 			locationText = "Je bent thuis.";
-		} else if (this.location == PlayerLocation.OFFICE) {
+		} else if (this.playerLocation == Location.OFFICE) {
 			locationText = "Je bent op kantoor.";
 		}
 

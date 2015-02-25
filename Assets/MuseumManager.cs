@@ -5,10 +5,10 @@ using System;
 
 
 public enum PlayerLocation {
-	HOME = 15,
-	OFFICE = 16,
-	SQUARE = 22183,
-	MARKET = 57167,
+	HOME = 22183,
+	OFFICE = 57167,
+	SQUARE = 17,
+	MARKET = 18,
 	STATION = 22218,
 	UNDERWAY = -1
 }

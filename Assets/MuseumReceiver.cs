@@ -8,6 +8,8 @@ public enum PlayerLocation {
 	HOME = 15,
 	OFFICE = 16,
 	SQUARE = 17,
+	MARKET = 18,
+	STATION = 19,
 	UNDERWAY = -1
 }
 

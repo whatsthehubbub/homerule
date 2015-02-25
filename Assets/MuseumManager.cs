@@ -13,13 +13,14 @@ public enum PlayerLocation {
 	UNDERWAY = -1
 }
 
-public class MuseumReceiver : MonoBehaviour {
-
-	private Vector2 scrolldistance;
+public class MuseumManager : MonoBehaviour {
+	
 	private List<Beacon> mybeacons = new List<Beacon>();
 	private bool scanning = true;
 
 	private PlayerLocation location;
+
+	public int storiesFound;
 
 	// Use this for initialization
 	void Start () {
@@ -134,7 +135,7 @@ public class MuseumReceiver : MonoBehaviour {
 	}
 
 	void NewLocation(PlayerLocation location) {
-		location = location;
+		this.location = location;
 
 		if (location == PlayerLocation.HOME) {
 			Application.LoadLevel("Home Scene");

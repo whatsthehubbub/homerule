@@ -35,6 +35,26 @@ public class MuseumReceiver : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
+		// Debug code to move between Scenes
+		if (Input.GetKeyDown(KeyCode.Alpha1)) {
+			NewLocation(PlayerLocation.HOME);
+		}
+
+		if (Input.GetKeyDown(KeyCode.Alpha2)) {
+			NewLocation(PlayerLocation.OFFICE);
+		}
+
+		if (Input.GetKeyDown(KeyCode.Alpha3)) {
+			NewLocation(PlayerLocation.SQUARE);
+		}
+
+		if (Input.GetKeyDown(KeyCode.Alpha4)) {
+			NewLocation(PlayerLocation.MARKET);
+		}
+
+		if (Input.GetKeyDown(KeyCode.Alpha5)) {
+			NewLocation(PlayerLocation.STATION);
+		}
 		
 	}
 
@@ -111,6 +131,12 @@ public class MuseumReceiver : MonoBehaviour {
 			Application.LoadLevel("Home Scene");
 		} else if (location == PlayerLocation.OFFICE) {
 			Application.LoadLevel ("Office Scene");
+		} else if (location == PlayerLocation.SQUARE) {
+			Application.LoadLevel ("Square Scene");
+		} else if (location == PlayerLocation.MARKET) {
+			Application.LoadLevel ("Market Scene");
+		} else if (location == PlayerLocation.STATION) {
+			Application.LoadLevel ("Station Scene");
 		} else if (location == PlayerLocation.UNDERWAY) {
 			Application.LoadLevel("Underway");
 		}

@@ -19,7 +19,7 @@ public class StoryUpdater : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (m) {
-			txt.text = "Verhalen: " + m.storiesFound;
+			txt.text = "Verhalen: " + m.observationsFound;
 		}
 	}
 }

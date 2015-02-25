@@ -20,9 +20,10 @@ public class MuseumManager : MonoBehaviour {
 
 	public Location playerLocation;
 	public Location officerLocation;
-	public String text;
 
-	public int storiesFound;
+	public int observationsFound;
+	public int storiesPublished;
+	public Location[] observationLocations;
 
 	// Use this for initialization
 	void Start () {

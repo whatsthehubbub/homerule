@@ -661,6 +661,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03656609bc7c941ba8284d3473d97ca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerLocation: 0
+  officerLocation: 0
+  text: 
   storiesFound: 0
 --- !u!4 &1313762165
 Transform:

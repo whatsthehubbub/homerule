@@ -9,13 +9,17 @@ public class StoryUpdater : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		m = GameObject.Find("Main").GetComponent<MuseumManager>();
+		try {
+			m = GameObject.Find("Main").GetComponent<MuseumManager>();
+		} catch {}
 
 		txt = gameObject.GetComponent<Text>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		txt.text = "Verhalen: " + m.storiesFound;
+		if (m) {
+			txt.text = "Verhalen: " + m.storiesFound;
+		}
 	}
 }

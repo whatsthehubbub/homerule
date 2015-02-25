@@ -661,9 +661,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03656609bc7c941ba8284d3473d97ca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrolldistance: {x: 0, y: 0}
-  scanning: 1
-  location: 0
+  storiesFound: 0
 --- !u!4 &1313762165
 Transform:
   m_ObjectHideFlags: 0

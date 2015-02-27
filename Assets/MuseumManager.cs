@@ -3,27 +3,49 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
+//
+//public enum Location {
+//	HOME = 22183,
+//	OFFICE = 57167,
+//	SQUARE = 17,
+//	MARKET = 18,
+//	STATION = 22218,
+//	UNDERWAY = -1
+//}
 
-public enum Location {
-	HOME = 22183,
-	OFFICE = 57167,
-	SQUARE = 17,
-	MARKET = 18,
-	STATION = 22218,
-	UNDERWAY = -1
+public struct Location {
+	public string name;
+	public string sceneName;
+	public int minor;
+
+	public Location(string name, string sceneName, int minor) {
+		this.name = name;
+		this.sceneName = sceneName;
+		this.minor = minor;
+	}
 }
 
 public class MuseumManager : MonoBehaviour {
-	
+
+	public Dictionary<string, Location> locations = new Dictionary<string, Location>(){
+		{"HOME", new Location("HOME", "Home Scene", 22183)},
+		{"OFFICE", new Location("OFFICE", "Office Scene", 57167)},
+		{"SQUARE", new Location("SQUARE", "Square Scene", 17)},
+		{"MARKET", new Location("MARKET", "Market Scene", 18)},
+		{"STATION", new Location("STATION", "Station Scene", 22218)},
+		{"UNDERWAY", new Location("UNDERWAY", "Underway Scene", -1)}
+	};
+
+
 	private List<Beacon> mybeacons = new List<Beacon>();
 	private bool scanning = true;
 
-	public Location playerLocation;
-	public Location officerLocation;
+	public string playerLocation;
+	public string officerLocation;
 
 	public int observationsFound;
 	public int storiesPublished;
-	public Location[] observationLocations;
+	public string[] observationLocations;
 
 	// Use this for initialization
 	void Start () {
@@ -41,23 +63,23 @@ public class MuseumManager : MonoBehaviour {
 	void Update () {
 		// Debug code to move between Scenes
 		if (Input.GetKeyDown(KeyCode.Alpha1)) {
-			NewLocation(Location.HOME);
+			NewLocation(locations["HOME"]);
 		}
 
 		if (Input.GetKeyDown(KeyCode.Alpha2)) {
-			NewLocation(Location.OFFICE);
+			NewLocation(locations["OFFICE"]);
 		}
 
 		if (Input.GetKeyDown(KeyCode.Alpha3)) {
-			NewLocation(Location.SQUARE);
+			NewLocation(locations["SQUARE"]);
 		}
 
 		if (Input.GetKeyDown(KeyCode.Alpha4)) {
-			NewLocation(Location.MARKET);
+			NewLocation(locations["MARKET"]);
 		}
 
 		if (Input.GetKeyDown(KeyCode.Alpha5)) {
-			NewLocation(Location.STATION);
+			NewLocation(locations["STATION"]);
 		}
 		
 	}
@@ -90,6 +112,10 @@ public class MuseumManager : MonoBehaviour {
 			break;
 		}
 	}
+
+	void OnLevelWasLoaded(int level) {
+		Debug.Log ("Loaded level: " + Application.loadedLevelName);
+	}
 	
 	private void OnBeaconRangeChanged(List<Beacon> beacons) { // 
 		foreach (Beacon b in beacons) {
@@ -114,45 +140,38 @@ public class MuseumManager : MonoBehaviour {
 		bool found = false;
 		foreach (Beacon b in mybeacons) {
 			if (b.range == BeaconRange.NEAR || b.range == BeaconRange.IMMEDIATE) {
-				if (b.minor == (int)Location.HOME) {
-					NewLocation(Location.HOME);
-					found = true;
-				} else if (b.minor == (int)Location.OFFICE) {
-					NewLocation(Location.OFFICE);
-					found = true;
-				} else if (b.minor == (int)Location.SQUARE) {
-					NewLocation(Location.SQUARE);
-					found = true;
-				} else if (b.minor == (int)Location.MARKET) {
-					NewLocation(Location.MARKET);
-					found = true;
-				} else if (b.minor == (int)Location.STATION) {
-					NewLocation(Location.STATION);
-					found = true;
+
+				foreach(KeyValuePair<string, Location> entry in locations) {
+					if (entry.Value.minor == b.minor) {
+						found = true;
+						NewLocation(entry.Value);
+					}
 				}
 			}
 		}
 		if (!found) {
-			NewLocation(Location.UNDERWAY);
+			NewLocation(locations["UNDERWAY"]);
 		}
 	}
 
 	void NewLocation(Location location) {
-		this.playerLocation = location;
+		this.playerLocation = location.name;
 
-		if (location == Location.HOME) {
-			Application.LoadLevel("Home Scene");
-		} else if (location == Location.OFFICE) {
-			Application.LoadLevel ("Office Scene");
-		} else if (location == Location.SQUARE) {
-			Application.LoadLevel ("Square Scene");
-		} else if (location == Location.MARKET) {
-			Application.LoadLevel ("Market Scene");
-		} else if (location == Location.STATION) {
-			Application.LoadLevel ("Station Scene");
-		} else if (location == Location.UNDERWAY) {
-			Application.LoadLevel("Underway");
-		}
+		Application.LoadLevel(location.sceneName);
+
+//		if (location == Location.HOME) {
+//			Application.LoadLevel("Home Scene");
+//		} else if (location == Location.OFFICE) {
+//			Application.LoadLevel ("Office Scene");
+//		} else if (location == Location.SQUARE) {
+//			Application.LoadLevel ("Square Scene");
+//		} else if (location == Location.MARKET) {
+//			Application.LoadLevel ("Market Scene");
+//		} else if (location == Location.STATION) {
+//			Application.LoadLevel ("Station Scene");
+//		} else if (location == Location.UNDERWAY) {
+//			Application.LoadLevel("Underway");
+//		}
 
 //		GameObject rocket = GameObject.Find("RocketSprite");
 
@@ -160,7 +179,7 @@ public class MuseumManager : MonoBehaviour {
 	}
 
 	public void ButtonPressed() {
-		NewLocation (Location.OFFICE);
+		NewLocation (locations["OFFICE"]);
 	}
 	
 	void OnGUI() {
@@ -169,9 +188,9 @@ public class MuseumManager : MonoBehaviour {
 		labelStyle.fontSize = 25;
 
 		string locationText = "";
-		if (this.playerLocation == Location.HOME) {
+		if (this.playerLocation == "HOME") {
 			locationText = "Je bent thuis.";
-		} else if (this.playerLocation == Location.OFFICE) {
+		} else if (this.playerLocation == "OFFICE") {
 			locationText = "Je bent op kantoor.";
 		}
 

@@ -35,9 +35,9 @@ public class RocketManager : MonoBehaviour {
 	}
 
 	public void NewBeacon(Location location) {
-		if (location == Location.OFFICE) {
+		if (location.name == "OFFICE") {
 			target = ball;
-		} else if (location == Location.HOME) {
+		} else if (location.name == "HOME") {
 			target = origin;
 		}
 	}

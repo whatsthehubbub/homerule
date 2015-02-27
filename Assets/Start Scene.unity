@@ -662,7 +662,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerLocation: 22218
-  officerLocation: 18
+  officerLocation: 22218
   observationsFound: 0
   storiesPublished: 0
   observationLocations: 11000000ca560000

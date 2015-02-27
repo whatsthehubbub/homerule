@@ -23,13 +23,14 @@ public class ObservatieUI : MonoBehaviour {
 			oog.gameObject.GetComponent<Animator>().Play("sluit");
 			camera.gameObject.GetComponent<Animator>().Play("sluit");
 		}
-
 	}
 
 	public void OnClickCamera()
 	{
 		Debug.Log("Klik!");
 		//maak foto (verhaal +1)
+		bekeken = true;
+		camera.SetActive(false);
 	}
 
 	public void OnClickOog()
@@ -37,4 +38,5 @@ public class ObservatieUI : MonoBehaviour {
 		Debug.Log ("Interessant...");
 		//display beschrijving
 	}
+
 }

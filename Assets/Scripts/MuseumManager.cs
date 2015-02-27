@@ -117,11 +117,12 @@ public class MuseumManager : MonoBehaviour {
 		Debug.Log ("Loaded level: " + Application.loadedLevelName);
 
 		// Display the officer if he is at this location
+		if (!"".Equals(officerLocation) && Application.loadedLevelName.Equals(locations[officerLocation].sceneName)) {
+			GameObject officer = (GameObject)Instantiate(Resources.Load("Officer"));
+		} else {
+			List<string> keys = new List<string>(locations.Keys);
 
-		if (officerLocation != null && !"".Equals(officerLocation)) {
-			if (Application.loadedLevelName.Equals(locations[officerLocation].sceneName)) {
-				GameObject officer = (GameObject)Instantiate(Resources.Load("Officer"));
-			}
+			officerLocation = keys[UnityEngine.Random.Range(0, keys.Count)];
 		}
 
 		// Display observations if there are any on this location

@@ -115,6 +115,8 @@ public class MuseumManager : MonoBehaviour {
 	
 	void OnLevelWasLoaded(int level) {
 		Debug.Log ("Loaded level: " + Application.loadedLevelName);
+
+		GameObject officer = (GameObject)Instantiate(Resources.Load("Officer"));
 	}
 	
 	private void OnBeaconRangeChanged(List<Beacon> beacons) { // 

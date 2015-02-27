@@ -275,10 +275,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerLocation: 
-  officerLocation: 
+  officerLocation: SQUARE
   observationsFound: 0
   storiesPublished: 0
-  observationLocations: []
+  observationLocations:
+  - MARKET
 --- !u!4 &1313762165
 Transform:
   m_ObjectHideFlags: 0

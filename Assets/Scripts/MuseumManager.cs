@@ -27,7 +27,7 @@ public struct Location {
 
 public class MuseumManager : MonoBehaviour {
 	
-	public Dictionary<string, Location> locations = new Dictionary<string, Location>(){
+	private Dictionary<string, Location> locations = new Dictionary<string, Location>(){
 		{"HOME", new Location("HOME", "Home Scene", 22183)},
 		{"OFFICE", new Location("OFFICE", "Office Scene", 57167)},
 		{"SQUARE", new Location("SQUARE", "Square Scene", 17)},

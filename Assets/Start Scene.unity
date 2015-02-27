@@ -661,8 +661,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03656609bc7c941ba8284d3473d97ca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerLocation: 0
-  officerLocation: 0
+  playerLocation: 22218
+  officerLocation: 18
   observationsFound: 0
   storiesPublished: 0
   observationLocations: 11000000ca560000

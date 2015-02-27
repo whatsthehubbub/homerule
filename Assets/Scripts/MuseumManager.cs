@@ -136,7 +136,8 @@ public class MuseumManager : MonoBehaviour {
 		}
 	}
 	
-	private void OnBeaconRangeChanged(List<Beacon> beacons) { // 
+	private void OnBeaconRangeChanged(List<Beacon> beacons) {
+
 		foreach (Beacon b in beacons) {
 			if (mybeacons.Contains(b)) {
 				mybeacons[mybeacons.IndexOf(b)] = b;
@@ -163,12 +164,15 @@ public class MuseumManager : MonoBehaviour {
 				foreach(KeyValuePair<string, Location> entry in locations) {
 					if (entry.Value.minor == b.minor) {
 						found = true;
-						NewLocation(entry.Value);
+
+						if (playerLocation != entry.Value.name) {
+							NewLocation(entry.Value);
+						}
 					}
 				}
 			}
 		}
-		if (!found) {
+		if (!found && playerLocation != "UNDERWAY") {
 			NewLocation(locations["UNDERWAY"]);
 		}
 	}

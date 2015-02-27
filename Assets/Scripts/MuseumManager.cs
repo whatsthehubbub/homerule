@@ -132,7 +132,7 @@ public class MuseumManager : MonoBehaviour {
 			}
 		}
 		if (showObs) {
-			GameObject observation = (GameObject)Instantiate(Resources.Load ("Observatie UI"));
+			GameObject observation = (GameObject)Instantiate(Resources.Load ("Prefabs/Observatie UI"));
 		}
 	}
 	

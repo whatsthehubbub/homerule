@@ -171,6 +171,9 @@ public class MuseumManager : MonoBehaviour {
 						}
 					}
 				}
+			} else if (b.range == BeaconRange.FAR) {
+				// We want to keep it at this location unless another one is nearer
+				found = true;
 			}
 		}
 		if (!found && playerLocation != "UNDERWAY") {

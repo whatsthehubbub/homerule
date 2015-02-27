@@ -33,7 +33,7 @@ public class MuseumManager : MonoBehaviour {
 		{"SQUARE", new Location("SQUARE", "Square Scene", 17)},
 		{"MARKET", new Location("MARKET", "Market Scene", 18)},
 		{"STATION", new Location("STATION", "Station Scene", 22218)},
-		{"UNDERWAY", new Location("UNDERWAY", "Underway Scene", -1)}
+		{"UNDERWAY", new Location("UNDERWAY", "Underway", -1)}
 	};
 	
 	

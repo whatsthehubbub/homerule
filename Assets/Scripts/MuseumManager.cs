@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using System;
@@ -39,7 +40,9 @@ public class MuseumManager : MonoBehaviour {
 	
 	private List<Beacon> mybeacons = new List<Beacon>();
 	private bool scanning = true;
-	
+
+	private GameObject fotosUI;
+
 	public string playerLocation;
 	public string officerLocation;
 	
@@ -138,6 +141,9 @@ public class MuseumManager : MonoBehaviour {
 		if (showObs) {
 			GameObject observation = (GameObject)Instantiate(Resources.Load ("Prefabs/Observatie UI"));
 		}
+
+		// Set the correct number of photos taken in the resources UI
+		fotosUI = GameObject.Find ("fotos int");
 	}
 	
 	private void OnBeaconRangeChanged(List<Beacon> beacons) {
@@ -206,6 +212,11 @@ public class MuseumManager : MonoBehaviour {
 		//		GameObject rocket = GameObject.Find("RocketSprite");
 		
 		//		rocket.GetComponent<RocketManager>().NewBeacon(location);
+	}
+
+	void FoundObservation() {
+		this.observationsFound += 1;
+		this.fotosUI.GetComponent<Text>().text = "" + this.observationsFound;
 	}
 	
 	public void ButtonPressed() {

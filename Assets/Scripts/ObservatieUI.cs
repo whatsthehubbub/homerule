@@ -31,6 +31,8 @@ public class ObservatieUI : MonoBehaviour {
 		//maak foto (verhaal +1)
 		bekeken = true;
 		camera.SetActive(false);
+
+		GameObject.Find ("Main").SendMessage("FoundObservation");
 	}
 
 	public void OnClickOog()

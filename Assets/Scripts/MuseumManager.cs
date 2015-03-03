@@ -53,6 +53,9 @@ public class MuseumManager : MonoBehaviour {
 		iBeaconReceiver.BluetoothStateChangedEvent += OnBluetoothStateChanged;
 		iBeaconReceiver.CheckBluetoothLEStatus();
 		Debug.Log ("Listening for beacons");
+
+		string[] publicLocations = {"SQUARE", "MARKET", "STATION"};
+		observationLocations[0] = publicLocations[UnityEngine.Random.Range(0, publicLocations.Length)];
 	}
 	
 	void OnDestroy() {

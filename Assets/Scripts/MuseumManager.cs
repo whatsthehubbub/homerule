@@ -126,9 +126,9 @@ public class MuseumManager : MonoBehaviour {
 		if (!"".Equals(officerLocation) && Application.loadedLevelName.Equals(locations[officerLocation].sceneName)) {
 			GameObject officer = (GameObject)Instantiate(Resources.Load("Officer"));
 		} else {
-			List<string> keys = new List<string>(locations.Keys);
+			string[] keys = {"SQUARE", "MARKET", "STATION"};
 
-			officerLocation = keys[UnityEngine.Random.Range(0, keys.Count)];
+			officerLocation = keys[UnityEngine.Random.Range(0, keys.Length)];
 		}
 
 		// Display observations if there are any on this location

@@ -10,9 +10,11 @@ public class PraatUI : MonoBehaviour {
 	public void TalkClicked() {
 		label.SetActive(true);
 
-		MuseumManager mm = GameObject.Find("Main").GetComponent<MuseumManager>();
+		GameObject main = GameObject.Find("Main");
 
-		if (mm != null) {
+		if (main != null) {
+			MuseumManager mm = main.GetComponent<MuseumManager>();
+
 			if (mm.observationLocations.Count > 0) {
 				text.text = "Ik zou eens gaan kijken in " + mm.observationLocations[0];
 			} else {

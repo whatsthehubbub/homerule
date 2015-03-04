@@ -1,45 +1,35 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PubliceerUI : MonoBehaviour {
 
 	public GameObject hand;
 	public GameObject progress;
+	public AudioClip typesound;
+	public 
 
-	public void OnClickHand() {
-		Debug.Log ("Hand Clicked");
+	void Awake()
+	{
+		progress.SetActive(false);
 	}
 
-//	public void OnClickHotspot()
-//	{
-//		if (geopend == false)
-//		{
-//			geopend = true;
-//			oog.gameObject.GetComponent<Animator>().Play("open");
-//			camera.gameObject.GetComponent<Animator>().Play("open");
-//		}
-//		else if (geopend == true)
-//		{
-//			geopend = false;
-//			oog.gameObject.GetComponent<Animator>().Play("sluit");
-//			camera.gameObject.GetComponent<Animator>().Play("sluit");
-//		}
-//	}
-//	
-//	public void OnClickCamera()
-//	{
-//		Debug.Log("Klik!");
-//		//maak foto (verhaal +1)
-//		bekeken = true;
-//		camera.SetActive(false);
-//		
-//		GameObject.Find ("Main").SendMessage("FoundObservation");
-//	}
-//	
-//	public void OnClickOog()
-//	{
-//		Debug.Log ("Interessant...");
-//		//display beschrijving
-//	}
+	public void OnClickHand()
+	{
+		StartCoroutine("DoType");
+	}
 
+	IEnumerator DoType()
+	{
+		audio.PlayOneShot(typesound);
+		progress.SetActive(true);
+		progress.GetComponent<Image>().fillAmount = 100;
+		for(float f = 1; f > 0; f-=0.02f)
+		{
+			progress.GetComponent<Image>().fillAmount = f;
+			yield return new WaitForSeconds(0.04f);
+		}
+		progress.SetActive(false);
+		//artikelen +1
+	}
 }

@@ -229,7 +229,8 @@ public class MuseumManager : MonoBehaviour {
 
 		GameObject officerOverlay = (GameObject)Instantiate(Resources.Load ("Prefabs/Agent UI"));
 
-		// Remove observation at this location
+		// Remove observation at this location if there still were any
+		observationLocations.Remove (this.playerLocation);
 
 		// Remove observations on you
 		this.observationsFound = 0;

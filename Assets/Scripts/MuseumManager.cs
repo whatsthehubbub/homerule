@@ -58,7 +58,7 @@ public class MuseumManager : MonoBehaviour {
 		iBeaconReceiver.CheckBluetoothLEStatus();
 		Debug.Log ("Listening for beacons");
 
-		observationLocations[0] = publicLocations[UnityEngine.Random.Range(0, publicLocations.Length)];
+		CreateNewObservations();
 	}
 	
 	void OnDestroy() {
@@ -142,8 +142,16 @@ public class MuseumManager : MonoBehaviour {
 			GameObject observation = (GameObject)Instantiate(Resources.Load ("Prefabs/Observatie UI"));
 		}
 
+		// If you're in the office, replenish your observations
+		if (Application.loadedLevelName.Equals(locations["OFFICE"].sceneName)) {
+			if (this.observationLocations.Count == 0) {
+				CreateNewObservations();
+			}
+		}
+
 		// Set the correct number of photos taken in the resources UI
 		fotosUI = GameObject.Find ("fotos int");
+		this.fotosUI.GetComponent<Text>().text = "" + this.observationsFound;
 	}
 	
 	private void OnBeaconRangeChanged(List<Beacon> beacons) {
@@ -196,12 +204,16 @@ public class MuseumManager : MonoBehaviour {
 		Application.LoadLevel(location.sceneName);
 	}
 
-	void FoundObservation() {
+	public void FoundObservation() {
 		this.observationsFound += 1;
 		this.fotosUI.GetComponent<Text>().text = "" + this.observationsFound;
 
 		// Remove observation from the local array
 		observationLocations.Remove(this.playerLocation);
 
+	}
+
+	public void CreateNewObservations() {
+		observationLocations.Add(publicLocations[UnityEngine.Random.Range(0, publicLocations.Length)]);
 	}
 }

@@ -225,7 +225,9 @@ public class MuseumManager : MonoBehaviour {
 	}
 
 	public void UpdateObservationsDisplay() {
-		this.fotosUI.GetComponent<Text>().text = "" + this.observationsFound;
+		if (this.fotosUI != null) {
+			this.fotosUI.GetComponent<Text>().text = "" + this.observationsFound;
+		}
 	}
 
 	public void CaughtByOfficer() {

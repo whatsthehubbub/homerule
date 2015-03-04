@@ -12,6 +12,7 @@ GameObject:
   - 114: {fileID: 11410582}
   - 114: {fileID: 11410584}
   - 82: {fileID: 8257814}
+  - 114: {fileID: 11408660}
   m_Layer: 5
   m_Name: Publiceer UI
   m_TagString: Untagged
@@ -112,6 +113,19 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!114 &11408660
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cacf7459b29643fc8b7bf41dc94e949, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hand: {fileID: 110588}
+  progress: {fileID: 120090}
 --- !u!114 &11410582
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -216,6 +230,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 8300000, guid: 7f0de11aaa66a9046ac4fcb7be758e2f,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11408660}
+        m_MethodName: OnClickHand
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
           m_IntArgument: 0
           m_FloatArgument: 0

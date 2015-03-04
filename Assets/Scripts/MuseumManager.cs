@@ -125,6 +125,9 @@ public class MuseumManager : MonoBehaviour {
 		// Display the officer if he is at this location
 		if (!"".Equals(officerLocation) && Application.loadedLevelName.Equals(locations[officerLocation].sceneName)) {
 			GameObject officer = (GameObject)Instantiate(Resources.Load("Officer"));
+
+			// Also fire a get caught call in 1 second
+			Invoke ("CaughtByOfficer", 1.0f);
 		} else {
 			string[] keys = {"SQUARE", "MARKET", "STATION"};
 
@@ -219,5 +222,17 @@ public class MuseumManager : MonoBehaviour {
 
 	public void UpdateObservationsDisplay() {
 		this.fotosUI.GetComponent<Text>().text = "" + this.observationsFound;
+	}
+
+	public void CaughtByOfficer() {
+		Debug.Log ("Got caught by officer");
+
+		GameObject officerOverlay = (GameObject)Instantiate(Resources.Load ("Prefabs/Agent UI"));
+
+		// Remove observation at this location
+
+		// Remove observations on you
+		this.observationsFound = 0;
+		UpdateObservationsDisplay();
 	}
 }

@@ -218,37 +218,4 @@ public class MuseumManager : MonoBehaviour {
 		this.observationsFound += 1;
 		this.fotosUI.GetComponent<Text>().text = "" + this.observationsFound;
 	}
-	
-	public void ButtonPressed() {
-		NewLocation (locations["OFFICE"]);
-	}
-	
-	void OnGUI() {
-		GUIStyle labelStyle = GUI.skin.GetStyle("Label");
-		
-		labelStyle.fontSize = 25;
-		
-		string locationText = "";
-		if (this.playerLocation == "HOME") {
-			locationText = "Je bent thuis.";
-		} else if (this.playerLocation == "OFFICE") {
-			locationText = "Je bent op kantoor.";
-		}
-		
-		float currenty = 10;
-		float labelHeight = labelStyle.CalcHeight(new GUIContent(locationText), Screen.width-20);
-		GUI.Label(new Rect(currenty, 10, Screen.width-20, labelHeight), locationText);
-		
-		//		currenty += labelHeight;
-		//		scrolldistance = GUI.BeginScrollView(new Rect(10, currenty,Screen.width -20, Screen.height - currenty - 10), scrolldistance, new Rect(0, 0, Screen.width - 20, mybeacons.Count*100));
-		//		GUILayout.BeginVertical("box", GUILayout.Width(Screen.width-20), GUILayout.Height(50));
-		//		foreach (Beacon b in mybeacons) {
-		//			GUILayout.Label("UUID: " + b.UUID);
-		//			GUILayout.Label("Major: " + b.major);
-		//			GUILayout.Label("Minor: " + b.minor);
-		//			GUILayout.Label("Range: " + b.range.ToString());
-		//		}
-		//		GUILayout.EndVertical();
-		//		GUI.EndScrollView();
-	}
 }

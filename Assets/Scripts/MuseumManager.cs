@@ -151,7 +151,7 @@ public class MuseumManager : MonoBehaviour {
 
 		// Set the correct number of photos taken in the resources UI
 		fotosUI = GameObject.Find ("fotos int");
-		this.fotosUI.GetComponent<Text>().text = "" + this.observationsFound;
+		UpdateObservationsDisplay();
 	}
 	
 	private void OnBeaconRangeChanged(List<Beacon> beacons) {
@@ -206,7 +206,7 @@ public class MuseumManager : MonoBehaviour {
 
 	public void FoundObservation() {
 		this.observationsFound += 1;
-		this.fotosUI.GetComponent<Text>().text = "" + this.observationsFound;
+		UpdateObservationsDisplay();
 
 		// Remove observation from the local array
 		observationLocations.Remove(this.playerLocation);
@@ -215,5 +215,9 @@ public class MuseumManager : MonoBehaviour {
 
 	public void CreateNewObservations() {
 		observationLocations.Add(publicLocations[UnityEngine.Random.Range(0, publicLocations.Length)]);
+	}
+
+	public void UpdateObservationsDisplay() {
+		this.fotosUI.GetComponent<Text>().text = "" + this.observationsFound;
 	}
 }

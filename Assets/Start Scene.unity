@@ -187,6 +187,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 10631879179ed9d4cbb7a89254c88955, type: 2}
+      propertyPath: regions.Array.data[0].UUID
+      value: f7826da6-4fa2-4e98-8024-bc5b71e0893e
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10631879179ed9d4cbb7a89254c88955, type: 2}
   m_RootGameObject: {fileID: 1301360004}
@@ -306,7 +310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   regions:
   - regionName: eu.hubbub.HomeRule
-    UUID: B9407F30-F5F8-466E-AFF9-25556B57FE6D
+    UUID: f7826da6-4fa2-4e98-8024-bc5b71e0893e
   NSLocationUsageDescription: We willen weten waar je in het museum bent.
   updateDescription: 0
 --- !u!4 &1301360006

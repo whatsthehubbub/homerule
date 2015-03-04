@@ -29,11 +29,11 @@ public struct Location {
 public class MuseumManager : MonoBehaviour {
 	
 	private Dictionary<string, Location> locations = new Dictionary<string, Location>(){
-		{"HOME", new Location("HOME", "Home Scene", 22183)},
-		{"OFFICE", new Location("OFFICE", "Office Scene", 57167)},
-		{"SQUARE", new Location("SQUARE", "Square Scene", 17)},
-		{"MARKET", new Location("MARKET", "Market Scene", 18)},
-		{"STATION", new Location("STATION", "Station Scene", 22218)},
+		{"HOME", new Location("HOME", "Home Scene", 48618)},
+		{"OFFICE", new Location("OFFICE", "Office Scene", 22290)},
+		{"SQUARE", new Location("SQUARE", "Square Scene", 48174)},
+		{"MARKET", new Location("MARKET", "Market Scene", 53868)},
+		{"STATION", new Location("STATION", "Station Scene", 45444)},
 		{"UNDERWAY", new Location("UNDERWAY", "Underway", -1)}
 	};
 	private string[] publicLocations = {"SQUARE", "MARKET", "STATION"};

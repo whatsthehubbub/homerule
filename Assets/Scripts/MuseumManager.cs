@@ -87,6 +87,10 @@ public class MuseumManager : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.Alpha5)) {
 			NewLocation(locations["STATION"]);
 		}
+
+		if (Input.GetKeyDown(KeyCode.Alpha6)) {
+			NewLocation (locations["UNDERWAY"]);
+		}
 		
 	}
 	

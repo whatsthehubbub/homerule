@@ -219,14 +219,7 @@ public class MuseumManager : MonoBehaviour {
 		this.fotosUI.GetComponent<Text>().text = "" + this.observationsFound;
 
 		// Remove observation from the local array
-		string sceneName = "";
-		foreach (var location in this.locations) {
-			if (Application.loadedLevelName == location.Value.sceneName) {
-				sceneName = location.Value.name;
-				break;
-			}
-		}
-		observationLocations.Remove(sceneName);
+		observationLocations.Remove(this.playerLocation);
 
 	}
 }

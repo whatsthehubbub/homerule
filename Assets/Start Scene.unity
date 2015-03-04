@@ -353,7 +353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerLocation: 
-  officerLocation: HOME
+  officerLocation: MARKET
   observationsFound: 0
   storiesPublished: 0
   observationLocations: []

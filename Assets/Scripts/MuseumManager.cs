@@ -194,24 +194,6 @@ public class MuseumManager : MonoBehaviour {
 		this.playerLocation = location.name;
 		
 		Application.LoadLevel(location.sceneName);
-		
-		//		if (location == Location.HOME) {
-		//			Application.LoadLevel("Home Scene");
-		//		} else if (location == Location.OFFICE) {
-		//			Application.LoadLevel ("Office Scene");
-		//		} else if (location == Location.SQUARE) {
-		//			Application.LoadLevel ("Square Scene");
-		//		} else if (location == Location.MARKET) {
-		//			Application.LoadLevel ("Market Scene");
-		//		} else if (location == Location.STATION) {
-		//			Application.LoadLevel ("Station Scene");
-		//		} else if (location == Location.UNDERWAY) {
-		//			Application.LoadLevel("Underway");
-		//		}
-		
-		//		GameObject rocket = GameObject.Find("RocketSprite");
-		
-		//		rocket.GetComponent<RocketManager>().NewBeacon(location);
 	}
 
 	void FoundObservation() {

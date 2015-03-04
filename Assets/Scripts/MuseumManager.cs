@@ -36,6 +36,7 @@ public class MuseumManager : MonoBehaviour {
 		{"STATION", new Location("STATION", "Station Scene", 22218)},
 		{"UNDERWAY", new Location("UNDERWAY", "Underway", -1)}
 	};
+	private string[] publicLocations = {"SQUARE", "MARKET", "STATION"};
 	
 	
 	private List<Beacon> mybeacons = new List<Beacon>();
@@ -48,7 +49,7 @@ public class MuseumManager : MonoBehaviour {
 	
 	public int observationsFound;
 	public int storiesPublished;
-	public string[] observationLocations;
+	public List<string> observationLocations;
 	
 	// Use this for initialization
 	void Start () {
@@ -57,8 +58,7 @@ public class MuseumManager : MonoBehaviour {
 		iBeaconReceiver.CheckBluetoothLEStatus();
 		Debug.Log ("Listening for beacons");
 
-		string[] publicLocations = {"SQUARE", "MARKET", "STATION"};
-		observationLocations[0] = publicLocations[UnityEngine.Random.Range(0, publicLocations.Length)];
+		CreateNewObservations();
 	}
 	
 	void OnDestroy() {
@@ -126,9 +126,9 @@ public class MuseumManager : MonoBehaviour {
 		if (!"".Equals(officerLocation) && Application.loadedLevelName.Equals(locations[officerLocation].sceneName)) {
 			GameObject officer = (GameObject)Instantiate(Resources.Load("Officer"));
 		} else {
-			List<string> keys = new List<string>(locations.Keys);
+			string[] keys = {"SQUARE", "MARKET", "STATION"};
 
-			officerLocation = keys[UnityEngine.Random.Range(0, keys.Count)];
+			officerLocation = keys[UnityEngine.Random.Range(0, keys.Length)];
 		}
 
 		// Display observations if there are any on this location
@@ -142,8 +142,16 @@ public class MuseumManager : MonoBehaviour {
 			GameObject observation = (GameObject)Instantiate(Resources.Load ("Prefabs/Observatie UI"));
 		}
 
+		// If you're in the office, replenish your observations
+		if (Application.loadedLevelName.Equals(locations["OFFICE"].sceneName)) {
+			if (this.observationLocations.Count == 0) {
+				CreateNewObservations();
+			}
+		}
+
 		// Set the correct number of photos taken in the resources UI
 		fotosUI = GameObject.Find ("fotos int");
+		this.fotosUI.GetComponent<Text>().text = "" + this.observationsFound;
 	}
 	
 	private void OnBeaconRangeChanged(List<Beacon> beacons) {
@@ -194,61 +202,18 @@ public class MuseumManager : MonoBehaviour {
 		this.playerLocation = location.name;
 		
 		Application.LoadLevel(location.sceneName);
-		
-		//		if (location == Location.HOME) {
-		//			Application.LoadLevel("Home Scene");
-		//		} else if (location == Location.OFFICE) {
-		//			Application.LoadLevel ("Office Scene");
-		//		} else if (location == Location.SQUARE) {
-		//			Application.LoadLevel ("Square Scene");
-		//		} else if (location == Location.MARKET) {
-		//			Application.LoadLevel ("Market Scene");
-		//		} else if (location == Location.STATION) {
-		//			Application.LoadLevel ("Station Scene");
-		//		} else if (location == Location.UNDERWAY) {
-		//			Application.LoadLevel("Underway");
-		//		}
-		
-		//		GameObject rocket = GameObject.Find("RocketSprite");
-		
-		//		rocket.GetComponent<RocketManager>().NewBeacon(location);
 	}
 
-	void FoundObservation() {
+	public void FoundObservation() {
 		this.observationsFound += 1;
 		this.fotosUI.GetComponent<Text>().text = "" + this.observationsFound;
+
+		// Remove observation from the local array
+		observationLocations.Remove(this.playerLocation);
+
 	}
-	
-	public void ButtonPressed() {
-		NewLocation (locations["OFFICE"]);
-	}
-	
-	void OnGUI() {
-		GUIStyle labelStyle = GUI.skin.GetStyle("Label");
-		
-		labelStyle.fontSize = 25;
-		
-		string locationText = "";
-		if (this.playerLocation == "HOME") {
-			locationText = "Je bent thuis.";
-		} else if (this.playerLocation == "OFFICE") {
-			locationText = "Je bent op kantoor.";
-		}
-		
-		float currenty = 10;
-		float labelHeight = labelStyle.CalcHeight(new GUIContent(locationText), Screen.width-20);
-		GUI.Label(new Rect(currenty, 10, Screen.width-20, labelHeight), locationText);
-		
-		//		currenty += labelHeight;
-		//		scrolldistance = GUI.BeginScrollView(new Rect(10, currenty,Screen.width -20, Screen.height - currenty - 10), scrolldistance, new Rect(0, 0, Screen.width - 20, mybeacons.Count*100));
-		//		GUILayout.BeginVertical("box", GUILayout.Width(Screen.width-20), GUILayout.Height(50));
-		//		foreach (Beacon b in mybeacons) {
-		//			GUILayout.Label("UUID: " + b.UUID);
-		//			GUILayout.Label("Major: " + b.major);
-		//			GUILayout.Label("Minor: " + b.minor);
-		//			GUILayout.Label("Range: " + b.range.ToString());
-		//		}
-		//		GUILayout.EndVertical();
-		//		GUI.EndScrollView();
+
+	public void CreateNewObservations() {
+		observationLocations.Add(publicLocations[UnityEngine.Random.Range(0, publicLocations.Length)]);
 	}
 }

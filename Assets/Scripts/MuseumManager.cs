@@ -36,6 +36,7 @@ public class MuseumManager : MonoBehaviour {
 		{"STATION", new Location("STATION", "Station Scene", 22218)},
 		{"UNDERWAY", new Location("UNDERWAY", "Underway", -1)}
 	};
+	private string[] publicLocations = {"SQUARE", "MARKET", "STATION"};
 	
 	
 	private List<Beacon> mybeacons = new List<Beacon>();
@@ -48,7 +49,7 @@ public class MuseumManager : MonoBehaviour {
 	
 	public int observationsFound;
 	public int storiesPublished;
-	public string[] observationLocations;
+	public List<string> observationLocations;
 	
 	// Use this for initialization
 	void Start () {
@@ -57,7 +58,6 @@ public class MuseumManager : MonoBehaviour {
 		iBeaconReceiver.CheckBluetoothLEStatus();
 		Debug.Log ("Listening for beacons");
 
-		string[] publicLocations = {"SQUARE", "MARKET", "STATION"};
 		observationLocations[0] = publicLocations[UnityEngine.Random.Range(0, publicLocations.Length)];
 	}
 	
@@ -217,5 +217,16 @@ public class MuseumManager : MonoBehaviour {
 	void FoundObservation() {
 		this.observationsFound += 1;
 		this.fotosUI.GetComponent<Text>().text = "" + this.observationsFound;
+
+		// Remove observation from the local array
+		string sceneName = "";
+		foreach (var location in this.locations) {
+			if (Application.loadedLevelName == location.Value.sceneName) {
+				sceneName = location.Value.name;
+				break;
+			}
+		}
+		observationLocations.Remove(sceneName);
+
 	}
 }

@@ -352,8 +352,7 @@ MonoBehaviour:
   officerLocation: HOME
   observationsFound: 0
   storiesPublished: 0
-  observationLocations:
-  - 
+  observationLocations: []
 --- !u!4 &1313762165
 Transform:
   m_ObjectHideFlags: 0

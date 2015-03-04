@@ -42,8 +42,6 @@ public class MuseumManager : MonoBehaviour {
 	private List<Beacon> mybeacons = new List<Beacon>();
 	private bool scanning = true;
 
-	private GameObject fotosUI;
-
 	public string playerLocation;
 	public string officerLocation;
 	
@@ -59,6 +57,7 @@ public class MuseumManager : MonoBehaviour {
 		Debug.Log ("Listening for beacons");
 
 		CreateNewObservations();
+		UpdatePublicationDisplay();
 	}
 	
 	void OnDestroy() {
@@ -149,15 +148,15 @@ public class MuseumManager : MonoBehaviour {
 			GameObject observation = (GameObject)Instantiate(Resources.Load ("Prefabs/Observatie UI"));
 		}
 
-		// If you're in the office, replenish your observations
+		// If you're in the office
 		if (Application.loadedLevelName.Equals(locations["OFFICE"].sceneName)) {
+			//  replenish your observations if they are gone
 			if (this.observationLocations.Count == 0) {
 				CreateNewObservations();
 			}
 		}
 
 		// Set the correct number of photos taken in the resources UI
-		fotosUI = GameObject.Find ("fotos int");
 		UpdateObservationsDisplay();
 	}
 	
@@ -224,9 +223,29 @@ public class MuseumManager : MonoBehaviour {
 		observationLocations.Add(publicLocations[UnityEngine.Random.Range(0, publicLocations.Length)]);
 	}
 
+	public void ConvertObservationIntoPublication() {
+		if (this.observationsFound > 0) {
+			this.observationsFound -= 1;
+			this.storiesPublished += 1;
+
+			UpdateObservationsDisplay();
+			UpdatePublicationDisplay();
+		}
+	}
+
+	public void UpdatePublicationDisplay() {
+		GameObject publicationsUI = GameObject.Find ("artikelen int");
+
+		if (publicationsUI != null) {
+			publicationsUI.GetComponent<Text>().text = "" + this.storiesPublished;
+		}
+	}
+
 	public void UpdateObservationsDisplay() {
-		if (this.fotosUI != null) {
-			this.fotosUI.GetComponent<Text>().text = "" + this.observationsFound;
+		GameObject fotosUI = GameObject.Find ("fotos int");
+
+		if (fotosUI != null) {
+			fotosUI.GetComponent<Text>().text = "" + this.observationsFound;
 		}
 	}
 
@@ -241,5 +260,10 @@ public class MuseumManager : MonoBehaviour {
 		// Remove observations on you
 		this.observationsFound = 0;
 		UpdateObservationsDisplay();
+	}
+
+	public void HintClicked() {
+		Text hintText = GameObject.Find ("Hint Text").GetComponent<Text>();
+		hintText.text = "BLablablba";
 	}
 }

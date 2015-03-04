@@ -7,7 +7,8 @@ public class PubliceerUI : MonoBehaviour {
 	public GameObject hand;
 	public GameObject progress;
 	public AudioClip typesound;
-	public 
+
+	private GameObject main;
 
 	void Awake()
 	{
@@ -30,6 +31,7 @@ public class PubliceerUI : MonoBehaviour {
 			yield return new WaitForSeconds(0.04f);
 		}
 		progress.SetActive(false);
-		//artikelen +1
+
+		GameObject.Find ("Main").SendMessage("ConvertObservationIntoPublication");
 	}
 }

@@ -37,6 +37,8 @@ public class MuseumManager : MonoBehaviour {
 		{"UNDERWAY", new Location("UNDERWAY", "Underway", -1)}
 	};
 	private string[] publicLocations = {"SQUARE", "MARKET", "STATION"};
+
+	private bool changeScene = true;
 	
 	
 	private List<Beacon> mybeacons = new List<Beacon>();
@@ -206,9 +208,11 @@ public class MuseumManager : MonoBehaviour {
 	}
 	
 	void NewLocation(Location location) {
-		this.playerLocation = location.name;
-		
-		Application.LoadLevel(location.sceneName);
+		if (changeScene) {
+			this.playerLocation = location.name;
+			
+			Application.LoadLevel(location.sceneName);
+		}
 	}
 
 	public void FoundObservation() {
@@ -252,6 +256,8 @@ public class MuseumManager : MonoBehaviour {
 
 	public void CaughtByOfficer() {
 		Debug.Log ("Got caught by officer");
+
+		changeScene = false;
 
 		GameObject officerOverlay = (GameObject)Instantiate(Resources.Load ("Prefabs/Agent UI"));
 

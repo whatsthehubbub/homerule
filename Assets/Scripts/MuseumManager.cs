@@ -146,6 +146,7 @@ public class MuseumManager : MonoBehaviour {
 		}
 		if (showObs) {
 			GameObject observation = (GameObject)Instantiate(Resources.Load ("Prefabs/Observatie UI"));
+			observation.name = "Observatie UI";
 		}
 
 		// If you're in the office
@@ -256,6 +257,9 @@ public class MuseumManager : MonoBehaviour {
 
 		// Remove observation at this location if there still were any
 		observationLocations.Remove (this.playerLocation);
+
+		// Remove the observation UI as well
+		Destroy(GameObject.Find ("Observatie UI"));
 
 		// Remove observations on you
 		this.observationsFound = 0;

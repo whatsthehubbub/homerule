@@ -260,6 +260,7 @@ public class MuseumManager : MonoBehaviour {
 		changeScene = false;
 
 		GameObject officerOverlay = (GameObject)Instantiate(Resources.Load ("Prefabs/Agent UI"));
+		officerOverlay.name = "Agent UI";
 
 		// Remove observation at this location if there still were any
 		observationLocations.Remove (this.playerLocation);
@@ -270,6 +271,17 @@ public class MuseumManager : MonoBehaviour {
 		// Remove observations on you
 		this.observationsFound = 0;
 		UpdateObservationsDisplay();
+
+		Invoke ("OfficerDone", 3.0f);
+	}
+
+	public void OfficerDone() {
+		changeScene = true;
+
+		// Move the officer
+
+		// Remove officer overlay
+		Destroy(GameObject.Find ("Agent UI"));
 	}
 
 	public void HintClicked() {

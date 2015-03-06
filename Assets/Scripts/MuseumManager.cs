@@ -272,7 +272,7 @@ public class MuseumManager : MonoBehaviour {
 		this.observationsFound = 0;
 		UpdateObservationsDisplay();
 
-		Invoke ("OfficerDone", 3.0f);
+		Invoke ("OfficerDone", 5.0f);
 	}
 
 	public void OfficerDone() {

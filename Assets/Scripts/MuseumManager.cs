@@ -134,9 +134,7 @@ public class MuseumManager : MonoBehaviour {
 			// Also fire a get caught call in 1 second
 			Invoke ("CaughtByOfficer", 1.0f);
 		} else {
-			string[] keys = {"SQUARE", "MARKET", "STATION"};
-
-			officerLocation = keys[UnityEngine.Random.Range(0, keys.Length)];
+			MoveOfficer();
 		}
 
 		// Display observations if there are any on this location
@@ -279,9 +277,23 @@ public class MuseumManager : MonoBehaviour {
 		changeScene = true;
 
 		// Move the officer
+		MoveOfficer(new string[] {this.playerLocation});
 
 		// Remove officer overlay
 		Destroy(GameObject.Find ("Agent UI"));
+		Destroy (GameObject.Find ("Officer(Clone)"));
+	}
+
+	public void MoveOfficer(string[] exclude = null) {
+		exclude = exclude ?? new string[0];
+
+		List<string> keys = new List<string>(new string[] {"SQUARE", "MARKET", "STATION"});
+
+		foreach (var toExclude in exclude) {
+			keys.Remove(toExclude);
+		}
+		
+		officerLocation = keys[UnityEngine.Random.Range(0, keys.Count)];
 	}
 
 	public void HintClicked() {

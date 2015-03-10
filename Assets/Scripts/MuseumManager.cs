@@ -134,7 +134,9 @@ public class MuseumManager : MonoBehaviour {
 			// Also fire a get caught call in 1 second
 			Invoke ("CaughtByOfficer", 1.0f);
 		} else {
-			MoveOfficer();
+			if (playerLocation != "UNDERWAY") {
+				MoveOfficer();
+			}
 		}
 
 		// Display observations if there are any on this location

@@ -161,6 +161,7 @@ public class MuseumManager : MonoBehaviour {
 
 		// Set the correct number of photos taken in the resources UI
 		UpdateObservationsDisplay();
+		UpdatePublicationDisplay();
 	}
 	
 	private void OnBeaconRangeChanged(List<Beacon> beacons) {

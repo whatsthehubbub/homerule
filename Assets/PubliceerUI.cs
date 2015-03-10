@@ -35,7 +35,7 @@ public class PubliceerUI : MonoBehaviour {
 
 		GameObject main = GameObject.Find ("Main");
 		if (main != null) {
-			SendMessage("ConvertObservationIntoPublication");
+			main.SendMessage("ConvertObservationIntoPublication");
 		}
 	}
 }

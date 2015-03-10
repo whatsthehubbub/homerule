@@ -130,9 +130,6 @@ public class MuseumManager : MonoBehaviour {
 		// Display the officer if he is at this location
 		if (!"".Equals(officerLocation) && Application.loadedLevelName.Equals(locations[officerLocation].sceneName)) {
 			GameObject officer = (GameObject)Instantiate(Resources.Load("Officer"));
-
-			// Also fire a get caught call in 1 second
-			Invoke ("CaughtByOfficer", 1.0f);
 		} else {
 			if (playerLocation != "UNDERWAY") {
 				MoveOfficer();
@@ -217,12 +214,16 @@ public class MuseumManager : MonoBehaviour {
 	}
 
 	public void FoundObservation() {
-		this.observationsFound += 1;
-		UpdateObservationsDisplay();
+		if (this.officerLocation == this.playerLocation) {
+			// You got caught son
+			CaughtByOfficer();
+		} else {
+			this.observationsFound += 1;
+			UpdateObservationsDisplay();
 
-		// Remove observation from the local array
-		observationLocations.Remove(this.playerLocation);
-
+			// Remove observation from the local array
+			observationLocations.Remove(this.playerLocation);
+		}
 	}
 
 	public void CreateNewObservations() {

@@ -80,6 +80,7 @@ GameObject:
   - 223: {fileID: 22324712}
   - 114: {fileID: 11424724}
   - 114: {fileID: 11424722}
+  - 114: {fileID: 11440176}
   m_Layer: 5
   m_Name: Praat UI
   m_TagString: Untagged
@@ -143,7 +144,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: b637da4bfb349f245ad25e3acfa4f627, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
@@ -194,9 +195,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 124714}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 11440176}
+        m_MethodName: TalkClicked
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
@@ -266,6 +267,19 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &11440176
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5134d0007423d416c85ece22b400b163, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  label: {fileID: 124714}
+  text: {fileID: 11424716}
 --- !u!222 &22224712
 CanvasRenderer:
   m_ObjectHideFlags: 1

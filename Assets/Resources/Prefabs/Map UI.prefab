@@ -255,6 +255,7 @@ GameObject:
   - 223: {fileID: 22325236}
   - 114: {fileID: 11425278}
   - 114: {fileID: 11425276}
+  - 114: {fileID: 11424908}
   m_Layer: 5
   m_Name: Map UI
   m_TagString: Untagged
@@ -262,6 +263,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &11424908
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d21c600314afec4c9617fc64ad762da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11425236
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -353,9 +365,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 125264}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 11424908}
+        m_MethodName: CloseMap
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
@@ -986,7 +998,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
 --- !u!224 &22425236
 RectTransform:
   m_ObjectHideFlags: 1

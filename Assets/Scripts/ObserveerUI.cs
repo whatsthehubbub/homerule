@@ -2,12 +2,12 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class PubliceerUI : MonoBehaviour {
+public class ObserveerUI : MonoBehaviour {
 
-	public GameObject handButton;
+	public GameObject cameraButton;
 	public GameObject progressBar;
-	public float progressSpeed = 0.04f;
-	public AudioClip typeSound;
+	public float progressSpeed = 0.1f;
+	public AudioClip shutterSound;
 
 	private GameObject main;
 
@@ -16,14 +16,14 @@ public class PubliceerUI : MonoBehaviour {
 		progressBar.SetActive(false);
 	}
 
-	public void OnClickHand()
+	public void OnClickCamera()
 	{
-		StartCoroutine("DoType");
+		StartCoroutine("MakePhoto");
 	}
 
-	IEnumerator DoType()
-	{
-		audio.PlayOneShot(typeSound);
+	IEnumerator MakePhoto()
+	{	//foto maken
+		audio.PlayOneShot(shutterSound);
 		progressBar.SetActive(true);
 		progressBar.GetComponent<Image>().fillAmount = 100;
 		for(float f = 1; f > 0; f-=0.02f)
@@ -33,10 +33,13 @@ public class PubliceerUI : MonoBehaviour {
 		}
 		progressBar.SetActive(false);
 
-
-		GameObject main = GameObject.Find ("Main");
+		//observatie +1
+		GameObject main = GameObject.Find("Main");
 		if (main != null) {
-			main.SendMessage("ConvertObservationIntoPublication");
+			main.SendMessage("FoundObservation");
 		}
+
+		//haal observatie knop weg
+		this.gameObject.SetActive(false);
 	}
 }

@@ -994,7 +994,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: -34}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 500, y: 800}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &898846168
@@ -1017,7 +1017,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 3
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
@@ -1025,7 +1025,7 @@ MonoBehaviour:
   m_Text: '> Je bent een journalist op zoek naar verhalen.
 
 
-    > Loop door het museum om je te verplaatsen door de game wereld.
+    > Loop door het museum om je te verplaatsen in de game wereld.
 
 
     > Zoek en fotografeer interessante gebeurtenissen.
@@ -1269,6 +1269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb8094256419b47ed848296ce7beb000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  changeScene: 1
   playerLocation: 
   officerLocation: MARKET
   observationsFound: 0

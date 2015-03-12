@@ -75,27 +75,27 @@ public class MuseumManager : MonoBehaviour {
 	void Update () {
 		// Debug code to move between Scenes
 		if (Input.GetKeyDown(KeyCode.Alpha1)) {
-			NewLocation(locations["HOME"]);
+			NewLocation("HOME");
 		}
 		
 		if (Input.GetKeyDown(KeyCode.Alpha2)) {
-			NewLocation(locations["OFFICE"]);
+			NewLocation("OFFICE");
 		}
 		
 		if (Input.GetKeyDown(KeyCode.Alpha3)) {
-			NewLocation(locations["SQUARE"]);
+			NewLocation("SQUARE");
 		}
 		
 		if (Input.GetKeyDown(KeyCode.Alpha4)) {
-			NewLocation(locations["MARKET"]);
+			NewLocation("MARKET");
 		}
 		
 		if (Input.GetKeyDown(KeyCode.Alpha5)) {
-			NewLocation(locations["STATION"]);
+			NewLocation("STATION");
 		}
 
 		if (Input.GetKeyDown(KeyCode.Alpha6)) {
-			NewLocation (locations["UNDERWAY"]);
+			NewLocation ("UNDERWAY");
 		}
 		
 	}
@@ -196,7 +196,7 @@ public class MuseumManager : MonoBehaviour {
 						found = true;
 
 						if (playerLocation != entry.Value.name) {
-							NewLocation(entry.Value);
+							NewLocation(entry.Value.name);
 						}
 					}
 				}
@@ -206,16 +206,16 @@ public class MuseumManager : MonoBehaviour {
 			}
 		}
 		if (!found && playerLocation != "UNDERWAY") {
-			NewLocation(locations["UNDERWAY"]);
+			NewLocation("UNDERWAY");
 		}
 	}
 	
-	void NewLocation(Location location) {
+	public void NewLocation(string locationKey) {
 		// Hide a map if there is one
 		if (changeScene) {
-			this.playerLocation = location.name;
+			this.playerLocation = locationKey;
 			
-			Application.LoadLevel(location.sceneName);
+			Application.LoadLevel(locations[locationKey].sceneName);
 		}
 	}
 
@@ -313,7 +313,7 @@ public class MuseumManager : MonoBehaviour {
 
 	public void StartGame() {
 		changeScene = true;
-		NewLocation(locations["UNDERWAY"]);
+		NewLocation("UNDERWAY");
 	}
 
 	public string getLocationInterfaceString(string locationKey) {

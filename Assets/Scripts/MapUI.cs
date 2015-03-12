@@ -3,11 +3,8 @@ using System.Collections;
 
 public class MapUI : MonoBehaviour
 {	
-	private GameObject map;
-
 	void Start()
 	{
-		map = this.gameObject;
 	}
 
 	public void OpenMap()

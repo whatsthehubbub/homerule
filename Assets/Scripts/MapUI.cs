@@ -29,6 +29,8 @@ public class MapUI : MonoBehaviour
 	}
 
 	public void ThuisClicked() {
+		if (!Debug.isDebugBuild) return;
+
 		MuseumManager mm = GameObject.Find("Main").GetComponent<MuseumManager>();
 		if (mm!= null) {
 			mm.changeScene = true;
@@ -38,6 +40,8 @@ public class MapUI : MonoBehaviour
 	}
 
 	public void KantoorClicked() {
+		if (!Debug.isDebugBuild) return;
+
 		MuseumManager mm = GameObject.Find("Main").GetComponent<MuseumManager>();
 		if (mm!= null) {
 			mm.changeScene = true;
@@ -47,6 +51,8 @@ public class MapUI : MonoBehaviour
 	}
 
 	public void MarktClicked() {
+		if (!Debug.isDebugBuild) return;
+
 		MuseumManager mm = GameObject.Find("Main").GetComponent<MuseumManager>();
 		if (mm!= null) {
 			mm.changeScene = true;
@@ -56,6 +62,8 @@ public class MapUI : MonoBehaviour
 	}
 
 	public void PleinClicked() {
+		if (!Debug.isDebugBuild) return;
+
 		MuseumManager mm = GameObject.Find("Main").GetComponent<MuseumManager>();
 		if (mm!= null) {
 			mm.changeScene = true;
@@ -65,6 +73,8 @@ public class MapUI : MonoBehaviour
 	}
 
 	public void StationClicked() {
+		if (!Debug.isDebugBuild) return;
+
 		MuseumManager mm = GameObject.Find("Main").GetComponent<MuseumManager>();
 		if (mm!= null) {
 			mm.changeScene = true;

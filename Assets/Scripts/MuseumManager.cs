@@ -18,23 +18,26 @@ public struct Location {
 	public string name;
 	public string sceneName;
 	public int minor;
+	public string interfaceString;
 	
-	public Location(string name, string sceneName, int minor) {
+	public Location(string name, string sceneName, int minor, string interfaceString) {
 		this.name = name;
 		this.sceneName = sceneName;
 		this.minor = minor;
+
+		this.interfaceString = interfaceString;
 	}
 }
 
 public class MuseumManager : MonoBehaviour {
 	
 	private Dictionary<string, Location> locations = new Dictionary<string, Location>(){
-		{"HOME", new Location("HOME", "Home Scene", 48618)},
-		{"OFFICE", new Location("OFFICE", "Office Scene", 22290)},
-		{"SQUARE", new Location("SQUARE", "Square Scene", 48174)},
-		{"MARKET", new Location("MARKET", "Market Scene", 53868)},
-		{"STATION", new Location("STATION", "Station Scene", 45444)},
-		{"UNDERWAY", new Location("UNDERWAY", "Underway", -1)}
+		{"HOME", new Location("HOME", "Home Scene", 48618, "")},
+		{"OFFICE", new Location("OFFICE", "Office Scene", 22290, "")},
+		{"SQUARE", new Location("SQUARE", "Square Scene", 48174, "het plein")},
+		{"MARKET", new Location("MARKET", "Market Scene", 53868, "de markt")},
+		{"STATION", new Location("STATION", "Station Scene", 45444, "het station")},
+		{"UNDERWAY", new Location("UNDERWAY", "Underway", -1, "")}
 	};
 	private string[] publicLocations = {"SQUARE", "MARKET", "STATION"};
 
@@ -310,5 +313,9 @@ public class MuseumManager : MonoBehaviour {
 	public void StartGame() {
 		changeScene = true;
 		NewLocation(locations["UNDERWAY"]);
+	}
+
+	public string getLocationInterfaceString(string locationKey) {
+		return this.locations[locationKey].interfaceString;
 	}
 }

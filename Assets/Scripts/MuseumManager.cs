@@ -60,6 +60,8 @@ public class MuseumManager : MonoBehaviour {
 
 		CreateNewObservations();
 		UpdatePublicationDisplay();
+
+		changeScene = false;
 	}
 	
 	void OnDestroy() {
@@ -303,5 +305,10 @@ public class MuseumManager : MonoBehaviour {
 	public void HintClicked() {
 		Text hintText = GameObject.Find ("Hint Text").GetComponent<Text>();
 		hintText.text = "BLablablba";
+	}
+
+	public void StartGame() {
+		changeScene = true;
+		NewLocation(locations["UNDERWAY"]);
 	}
 }

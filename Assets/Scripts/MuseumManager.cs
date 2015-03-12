@@ -41,7 +41,7 @@ public class MuseumManager : MonoBehaviour {
 	};
 	private string[] publicLocations = {"SQUARE", "MARKET", "STATION"};
 
-	private bool changeScene = true;
+	public bool changeScene = true;
 	
 	
 	private List<Beacon> mybeacons = new List<Beacon>();
@@ -211,6 +211,7 @@ public class MuseumManager : MonoBehaviour {
 	}
 	
 	void NewLocation(Location location) {
+		// Hide a map if there is one
 		if (changeScene) {
 			this.playerLocation = location.name;
 			

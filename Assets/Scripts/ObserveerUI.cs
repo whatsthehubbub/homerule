@@ -9,8 +9,6 @@ public class ObserveerUI : MonoBehaviour {
 	public float progressSpeed = 0.1f;
 	public AudioClip shutterSound;
 
-	private GameObject main;
-
 	void Awake()
 	{
 		progressBar.SetActive(false);

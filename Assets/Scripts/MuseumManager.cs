@@ -54,9 +54,6 @@ public class MuseumManager : MonoBehaviour {
 	public int storiesPublished;
 	public List<string> observationLocations;
 
-	private Animator fotosAnim;
-	private Animator artikelenAnim;
-
 	void Start () {
 		iBeaconReceiver.BeaconRangeChangedEvent += OnBeaconRangeChanged;
 		iBeaconReceiver.BluetoothStateChangedEvent += OnBluetoothStateChanged;
@@ -65,10 +62,6 @@ public class MuseumManager : MonoBehaviour {
 
 		CreateNewObservations();
 		UpdatePublicationDisplay();
-
-		fotosAnim = GameObject.Find("fotos").GetComponent<Animator>();
-		artikelenAnim = GameObject.Find("fotos").GetComponent<Animator>();
-		GameObject.Find("Resources UI").SetActive(false);	//turn off resources UI in start screen
 
 		changeScene = false;
 	}
@@ -227,6 +220,7 @@ public class MuseumManager : MonoBehaviour {
 		else {
 			this.observationsFound += 1;
 
+			Animator fotosAnim = GameObject.Find("fotos").GetComponent<Animator>();
 			fotosAnim.Play("icon bounce");
 
 			UpdateObservationsDisplay();

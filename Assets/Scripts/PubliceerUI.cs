@@ -16,7 +16,10 @@ public class PubliceerUI : MonoBehaviour {
 
 	public void OnClickHand()
 	{
-		StartCoroutine("DoType");
+		MuseumManager mm = GameObject.Find ("Main").GetComponent<MuseumManager>();
+		if (mm != null && mm.observationsFound > 0) {
+			StartCoroutine("DoType");
+		}
 	}
 
 	IEnumerator DoType()

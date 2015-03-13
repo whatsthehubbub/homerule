@@ -7,5 +7,10 @@ public class AgentUI : MonoBehaviour
 	{
 		Destroy(this.gameObject);
 		//en wat er code-wise moet gebeuren qua agent verplaatsen en alles
+
+		GameObject main = GameObject.Find("Main");
+		if (main != null) {
+			main.SendMessage("OfficerDone");
+		}
 	}
 }

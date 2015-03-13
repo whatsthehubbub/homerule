@@ -282,8 +282,6 @@ public class MuseumManager : MonoBehaviour {
 		// Remove observations on you
 		this.observationsFound = 0;
 		UpdateObservationsDisplay();
-
-		Invoke ("OfficerDone", 5.0f);
 	}
 
 	public void OfficerDone() {

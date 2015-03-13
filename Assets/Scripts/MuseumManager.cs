@@ -65,8 +65,10 @@ public class MuseumManager : MonoBehaviour {
 
 		CreateNewObservations();
 		UpdatePublicationDisplay();
+
 		fotosAnim = GameObject.Find("fotos").GetComponent<Animator>();
 		artikelenAnim = GameObject.Find("fotos").GetComponent<Animator>();
+		GameObject.Find("Resources UI").SetActive(false);	//turn off resources UI in start screen
 
 		changeScene = false;
 	}

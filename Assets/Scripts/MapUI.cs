@@ -3,16 +3,17 @@ using System.Collections;
 
 public class MapUI : MonoBehaviour
 {	
+	private MuseumManager mm;
+
 	void Start()
 	{
-
+		mm = GameObject.Find("Main").GetComponent<MuseumManager>();
 	}
 
 	public void OpenMap()
 	{
 		this.gameObject.SetActive(true);
 
-		MuseumManager mm = GameObject.Find("Main").GetComponent<MuseumManager>();
 		if (mm != null) {
 			mm.changeScene = false;
 		}
@@ -21,8 +22,7 @@ public class MapUI : MonoBehaviour
 	public void CloseMap()
 	{
 		this.gameObject.SetActive(false);
-
-		MuseumManager mm = GameObject.Find("Main").GetComponent<MuseumManager>();
+		
 		if (mm!= null) {
 			mm.changeScene = true;
 		}
@@ -30,11 +30,9 @@ public class MapUI : MonoBehaviour
 
 	public void ThuisClicked() {
 		if (!Debug.isDebugBuild) return;
-
-		MuseumManager mm = GameObject.Find("Main").GetComponent<MuseumManager>();
+		
 		if (mm!= null) {
 			mm.changeScene = true;
-
 			mm.NewLocation("HOME");
 		}
 	}
@@ -42,10 +40,8 @@ public class MapUI : MonoBehaviour
 	public void KantoorClicked() {
 		if (!Debug.isDebugBuild) return;
 
-		MuseumManager mm = GameObject.Find("Main").GetComponent<MuseumManager>();
 		if (mm!= null) {
 			mm.changeScene = true;
-
 			mm.NewLocation("OFFICE");
 		}
 	}
@@ -53,10 +49,8 @@ public class MapUI : MonoBehaviour
 	public void MarktClicked() {
 		if (!Debug.isDebugBuild) return;
 
-		MuseumManager mm = GameObject.Find("Main").GetComponent<MuseumManager>();
 		if (mm!= null) {
 			mm.changeScene = true;
-
 			mm.NewLocation("MARKET");
 		}
 	}
@@ -64,10 +58,8 @@ public class MapUI : MonoBehaviour
 	public void PleinClicked() {
 		if (!Debug.isDebugBuild) return;
 
-		MuseumManager mm = GameObject.Find("Main").GetComponent<MuseumManager>();
 		if (mm!= null) {
 			mm.changeScene = true;
-
 			mm.NewLocation("SQUARE");
 		}
 	}
@@ -75,10 +67,8 @@ public class MapUI : MonoBehaviour
 	public void StationClicked() {
 		if (!Debug.isDebugBuild) return;
 
-		MuseumManager mm = GameObject.Find("Main").GetComponent<MuseumManager>();
 		if (mm!= null) {
 			mm.changeScene = true;
-
 			mm.NewLocation("STATION");
 		}
 	}

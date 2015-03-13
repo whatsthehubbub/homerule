@@ -53,8 +53,10 @@ public class MuseumManager : MonoBehaviour {
 	public int observationsFound;
 	public int storiesPublished;
 	public List<string> observationLocations;
-	
-	// Use this for initialization
+
+	private Animator fotosAnim;
+	private Animator artikelenAnim;
+
 	void Start () {
 		iBeaconReceiver.BeaconRangeChangedEvent += OnBeaconRangeChanged;
 		iBeaconReceiver.BluetoothStateChangedEvent += OnBluetoothStateChanged;
@@ -63,6 +65,8 @@ public class MuseumManager : MonoBehaviour {
 
 		CreateNewObservations();
 		UpdatePublicationDisplay();
+		fotosAnim = GameObject.Find("fotos").GetComponent<Animator>();
+		artikelenAnim = GameObject.Find("fotos").GetComponent<Animator>();
 
 		changeScene = false;
 	}
@@ -71,33 +75,27 @@ public class MuseumManager : MonoBehaviour {
 		iBeaconReceiver.BeaconRangeChangedEvent -= OnBeaconRangeChanged;
 		iBeaconReceiver.BluetoothStateChangedEvent -= OnBluetoothStateChanged;
 	}
-	// Update is called once per frame
+
 	void Update () {
 		// Debug code to move between Scenes
 		if (Input.GetKeyDown(KeyCode.Alpha1)) {
 			NewLocation("HOME");
-		}
-		
+		}		
 		if (Input.GetKeyDown(KeyCode.Alpha2)) {
 			NewLocation("OFFICE");
-		}
-		
+		}		
 		if (Input.GetKeyDown(KeyCode.Alpha3)) {
 			NewLocation("SQUARE");
-		}
-		
+		}		
 		if (Input.GetKeyDown(KeyCode.Alpha4)) {
 			NewLocation("MARKET");
-		}
-		
+		}		
 		if (Input.GetKeyDown(KeyCode.Alpha5)) {
 			NewLocation("STATION");
 		}
-
 		if (Input.GetKeyDown(KeyCode.Alpha6)) {
 			NewLocation ("UNDERWAY");
 		}
-		
 	}
 	
 	void Awake() {
@@ -223,8 +221,12 @@ public class MuseumManager : MonoBehaviour {
 		if (this.officerLocation == this.playerLocation) {
 			// You got caught son
 			CaughtByOfficer();
-		} else {
+		} 
+		else {
 			this.observationsFound += 1;
+
+			fotosAnim.Play("icon bounce");
+
 			UpdateObservationsDisplay();
 
 			// Remove observation from the local array
@@ -240,6 +242,11 @@ public class MuseumManager : MonoBehaviour {
 		if (this.observationsFound > 0) {
 			this.observationsFound -= 1;
 			this.storiesPublished += 1;
+
+			Animator fotosAnim = GameObject.Find("fotos").GetComponent<Animator>();
+			fotosAnim.Play("icon bounce");
+			Animator artikelenAnim = GameObject.Find("artikelen").GetComponent<Animator>();
+			artikelenAnim.Play("icon bounce");
 
 			UpdateObservationsDisplay();
 			UpdatePublicationDisplay();

@@ -9,8 +9,6 @@ public class PubliceerUI : MonoBehaviour {
 	public float progressSpeed = 0.04f;
 	public AudioClip typeSound;
 
-	private GameObject main;
-
 	void Awake()
 	{
 		progressBar.SetActive(false);

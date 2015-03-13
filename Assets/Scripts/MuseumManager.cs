@@ -127,7 +127,7 @@ public class MuseumManager : MonoBehaviour {
 
 		// Display the officer if he is at this location
 		if (!"".Equals(officerLocation) && Application.loadedLevelName.Equals(locations[officerLocation].sceneName)) {
-			GameObject officer = (GameObject)Instantiate(Resources.Load("Officer"));
+			GameObject officer = (GameObject)Instantiate(Resources.Load("Prefabs/Officer"));
 		} else {
 			if (playerLocation != "UNDERWAY") {
 				MoveOfficer(new string[] {playerLocation});

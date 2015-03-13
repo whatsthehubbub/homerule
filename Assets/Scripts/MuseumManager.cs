@@ -130,7 +130,7 @@ public class MuseumManager : MonoBehaviour {
 			GameObject officer = (GameObject)Instantiate(Resources.Load("Officer"));
 		} else {
 			if (playerLocation != "UNDERWAY") {
-				MoveOfficer();
+				MoveOfficer(new string[] {playerLocation});
 			}
 		}
 

@@ -21,7 +21,7 @@ public class ObserveerUI : MonoBehaviour {
 
 	IEnumerator MakePhoto()
 	{	//foto maken
-		audio.PlayOneShot(shutterSound);
+		GetComponent<AudioSource>().PlayOneShot(shutterSound);
 		progressBar.SetActive(true);
 		progressBar.GetComponent<Image>().fillAmount = 100;
 		for(float f = 1; f > 0; f-=0.02f)

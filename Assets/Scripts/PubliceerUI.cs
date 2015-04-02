@@ -24,7 +24,7 @@ public class PubliceerUI : MonoBehaviour {
 
 	IEnumerator DoType()
 	{
-		audio.PlayOneShot(typeSound);
+		GetComponent<AudioSource>().PlayOneShot(typeSound);
 		progressBar.SetActive(true);
 		progressBar.GetComponent<Image>().fillAmount = 100;
 		for(float f = 1; f > 0; f-=0.02f)

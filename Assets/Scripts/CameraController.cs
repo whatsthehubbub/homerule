@@ -17,7 +17,7 @@ public class CameraController : MonoBehaviour {
 
 			Debug.Log (touchPos);
 
-			if (this.collider2D == Physics2D.OverlapPoint(touchPos)) {
+			if (this.GetComponent<Collider2D>() == Physics2D.OverlapPoint(touchPos)) {
 				Debug.Log("Camera button pressed");	
 			} else {
 				Debug.Log ("Somewhere else pressed");

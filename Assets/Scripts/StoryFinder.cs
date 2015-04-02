@@ -17,7 +17,7 @@ public class StoryFinder : MonoBehaviour {
 			
 			Debug.Log (touchPos);
 			
-			if (this.collider2D == Physics2D.OverlapPoint(touchPos)) {
+			if (this.GetComponent<Collider2D>() == Physics2D.OverlapPoint(touchPos)) {
 				// Hard increment the value on the MuseumManager
 
 				GameObject.Find("Main").GetComponent<MuseumManager>().observationsFound += 1;

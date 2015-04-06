@@ -7,12 +7,10 @@ using System;
 
 public struct GameEvent {
 	public string name;
-	public string sceneName;
 	public int minor;
 
-	public GameEvent(string name, string sceneName, int minor) {
+	public GameEvent(string name, int minor) {
 		this.name = name;
-		this.sceneName = sceneName;
 		this.minor = minor;
 	}
 }
@@ -21,14 +19,12 @@ public class MuseumManager : MonoBehaviour {
 
 
 	private Dictionary<string, GameEvent> gameEvents = new Dictionary<string, GameEvent>(){
-		{"HOME", new GameEvent("HOME", "ObjectEvent", 48618)},
+		{"MOVEMENT", new GameEvent("MOVEMENT", 48618)},
 //		{"OFFICE", new Location("OFFICE", "Office Scene", 22290, "")},
 //		{"SQUARE", new Location("SQUARE", "Square Scene", 48174, "het plein")},
 //		{"MARKET", new Location("MARKET", "Market Scene", 53868, "de markt")},
 //		{"STATION", new Location("STATION", "Station Scene", 45444, "het station")},
-		{"IDLE", new GameEvent("IDLE", "Idle", -1)}
 	};
-//	private string[] publicLocations = {"SQUARE", "MARKET", "STATION"};
 
 	public bool changeScene = true;
 	
@@ -36,7 +32,8 @@ public class MuseumManager : MonoBehaviour {
 	private List<Beacon> mybeacons = new List<Beacon>();
 	private bool scanning = true;
 
-	public string playerLocation;
+	public string playerState;
+
 //	public string officerLocation;
 	
 //	public int observationsFound;
@@ -182,17 +179,17 @@ public class MuseumManager : MonoBehaviour {
 				found = true;
 			}
 		}
-		if (!found && playerLocation != "IDLE") {
-			StartGameEvent("IDLE");
+		if (!found && playerState != "IDLE") {
+			ShowIdle ();
 		}
 	}
 	
 	public void StartGameEvent(string key) {
 		// Hide a map if there is one
 		if (changeScene) {
-//			this.playerLocation = locationKey;
+			this.playerState = key;
 			
-			Application.LoadLevel(gameEvents[key].sceneName);
+			Application.LoadLevel("EventStart");
 		}
 	}
 
@@ -202,7 +199,14 @@ public class MuseumManager : MonoBehaviour {
 
 	public void StartGame() {
 		changeScene = true;
-		StartGameEvent("IDLE");
+
+		ShowIdle ();
+	}
+
+	public void ShowIdle() {
+		this.playerState = "IDLE";
+
+		Application.LoadLevel("Idle");
 	}
 
 

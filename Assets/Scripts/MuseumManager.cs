@@ -34,6 +34,9 @@ public class MuseumManager : MonoBehaviour {
 
 	public string playerState;
 
+	public int freedomIndex = 5;
+	public int storiesPublished = 0;
+
 //	public string officerLocation;
 	
 //	public int observationsFound;

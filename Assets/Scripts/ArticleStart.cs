@@ -8,6 +8,8 @@ public class ArticleStart : MonoBehaviour {
 
 	private WebCamTexture mCamera = null;
 
+	public bool pictureTaken = false;
+
 	// Use this for initialization
 	void Start () {
 		mCamera = new WebCamTexture ();
@@ -25,5 +27,12 @@ public class ArticleStart : MonoBehaviour {
 	}
 
 	public void TakePhotoButton() {
+		mCamera.Pause ();
+
+		pictureTaken = true;
+
+		// Turn button into retake button
+
+		// Show the rest of the publish UI
 	}
 }

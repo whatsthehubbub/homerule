@@ -197,7 +197,7 @@ public class MuseumManager : MonoBehaviour {
 	}
 
 	/*
-	 * Start Screen.
+	 * Scene Management.
 	 */
 
 	public void StartGame() {
@@ -210,6 +210,18 @@ public class MuseumManager : MonoBehaviour {
 		this.playerState = "IDLE";
 
 		Application.LoadLevel("Idle");
+	}
+
+	public void ShowEventSituation() {
+		Application.LoadLevel("EventSituation");
+	}
+
+	public void ShowEventCallToAction() {
+		Application.LoadLevel ("EventCallAction");
+	}
+
+	public void ShowArticleStart() {
+		Application.LoadLevel ("WriteArticle");
 	}
 
 

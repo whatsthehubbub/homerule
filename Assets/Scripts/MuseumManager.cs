@@ -67,8 +67,8 @@ public class MuseumManager : MonoBehaviour {
 	void Update () {
 		// Debug code to move between Scenes
 		if (Input.GetKeyDown(KeyCode.Alpha1)) {
-			StartGameEvent("IDLE");
-		}		
+			ShowIdle();
+		}
 		if (Input.GetKeyDown(KeyCode.Alpha2)) {
 			StartGameEvent("HOME");
 		}

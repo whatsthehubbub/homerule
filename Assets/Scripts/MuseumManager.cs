@@ -54,6 +54,10 @@ public class MuseumManager : MonoBehaviour {
 	public int storiesPublished;
 	public List<string> observationLocations;
 
+	/**
+	 * MuseumManager general beacon housekeeping.
+	 */
+
 	void Start () {
 		iBeaconReceiver.BeaconRangeChangedEvent += OnBeaconRangeChanged;
 		iBeaconReceiver.BluetoothStateChangedEvent += OnBluetoothStateChanged;
@@ -212,6 +216,20 @@ public class MuseumManager : MonoBehaviour {
 		}
 	}
 
+	/*
+	 * Start Screen.
+	 */
+
+	public void StartGame() {
+		changeScene = true;
+		NewLocation("UNDERWAY");
+	}
+
+
+	/*
+	 * Previous version stuff.
+	 */
+	
 	public void FoundObservation() {
 		if (this.officerLocation == this.playerLocation) {
 			// You got caught son
@@ -310,11 +328,6 @@ public class MuseumManager : MonoBehaviour {
 	public void HintClicked() {
 		Text hintText = GameObject.Find ("Hint Text").GetComponent<Text>();
 		hintText.text = "BLablablba";
-	}
-
-	public void StartGame() {
-		changeScene = true;
-		NewLocation("UNDERWAY");
 	}
 
 	public string getLocationInterfaceString(string locationKey) {

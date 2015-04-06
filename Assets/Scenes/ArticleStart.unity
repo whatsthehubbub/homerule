@@ -577,6 +577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraDisplay: {fileID: 1055081095}
+  pictureTaken: 0
 --- !u!1 &1676508938
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,8 +635,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1446584864}
-        m_MethodName: 
+      - m_Target: {fileID: 1446584869}
+        m_MethodName: TakePhotoButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

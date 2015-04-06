@@ -33,7 +33,7 @@ public class MapUI : MonoBehaviour
 		
 		if (mm!= null) {
 			mm.changeScene = true;
-			mm.NewLocation("HOME");
+//			mm.NewLocation("HOME");
 		}
 	}
 
@@ -42,7 +42,7 @@ public class MapUI : MonoBehaviour
 
 		if (mm!= null) {
 			mm.changeScene = true;
-			mm.NewLocation("OFFICE");
+//			mm.NewLocation("OFFICE");
 		}
 	}
 
@@ -51,7 +51,7 @@ public class MapUI : MonoBehaviour
 
 		if (mm!= null) {
 			mm.changeScene = true;
-			mm.NewLocation("MARKET");
+//			mm.NewLocation("MARKET");
 		}
 	}
 
@@ -60,7 +60,7 @@ public class MapUI : MonoBehaviour
 
 		if (mm!= null) {
 			mm.changeScene = true;
-			mm.NewLocation("SQUARE");
+//			mm.NewLocation("SQUARE");
 		}
 	}
 
@@ -69,7 +69,7 @@ public class MapUI : MonoBehaviour
 
 		if (mm!= null) {
 			mm.changeScene = true;
-			mm.NewLocation("STATION");
+//			mm.NewLocation("STATION");
 		}
 	}
 }

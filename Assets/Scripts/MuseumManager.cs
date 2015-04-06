@@ -221,7 +221,7 @@ public class MuseumManager : MonoBehaviour {
 	}
 
 	public void ShowArticleStart() {
-		Application.LoadLevel ("WriteArticle");
+		Application.LoadLevel ("ArticleStart");
 	}
 
 

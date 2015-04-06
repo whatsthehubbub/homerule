@@ -25,3 +25,5 @@ EditorBuildSettings:
     path: Assets/Scenes/EventSituation.unity
   - enabled: 1
     path: Assets/Scenes/EventCallAction.unity
+  - enabled: 1
+    path: Assets/Scenes/ArticleStart.unity

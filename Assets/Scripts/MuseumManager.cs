@@ -4,33 +4,20 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
-//
-//public enum Location {
-//	HOME = 22183,
-//	OFFICE = 57167,
-//	SQUARE = 17,
-//	MARKET = 18,
-//	STATION = 22218,
-//	UNDERWAY = -1
-//}
 
-public struct Location {
+public struct BeaconEvent {
 	public string name;
-	public string sceneName;
 	public int minor;
-	public string interfaceString;
-	
-	public Location(string name, string sceneName, int minor, string interfaceString) {
-		this.name = name;
-		this.sceneName = sceneName;
-		this.minor = minor;
 
-		this.interfaceString = interfaceString;
+	public Location(string name, int minor) {
+		this.name = name;
+		this.minor = minor;
 	}
 }
 
 public class MuseumManager : MonoBehaviour {
-	
+
+
 	private Dictionary<string, Location> locations = new Dictionary<string, Location>(){
 		{"HOME", new Location("HOME", "Home Scene", 48618, "")},
 		{"OFFICE", new Location("OFFICE", "Office Scene", 22290, "")},

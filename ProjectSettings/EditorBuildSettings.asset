@@ -20,4 +20,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Idle.unity
   - enabled: 1
-    path: Assets/Scenes/ObjectEvent.unity
+    path: Assets/Scenes/EventStart.unity
+  - enabled: 1
+    path: Assets/Scenes/EventSituation.unity
+  - enabled: 1
+    path: Assets/Scenes/EventCallAction.unity

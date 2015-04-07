@@ -135,6 +135,10 @@ public class MuseumManager : MonoBehaviour {
 //			}
 //		}
 
+		if (Application.loadedLevelName.Equals ("Idle")) {
+			GameObject.Find("FreedomIndexDisplay").GetComponent<Text>().text = "" + this.freedomIndex;
+		}
+
 		// Set the correct number of photos taken in the resources UI
 //		UpdateObservationsDisplay();
 //		UpdatePublicationDisplay();

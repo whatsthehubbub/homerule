@@ -37,12 +37,6 @@ public class MuseumManager : MonoBehaviour {
 	public int freedomIndex = 5;
 	public int storiesPublished = 0;
 
-//	public string officerLocation;
-	
-//	public int observationsFound;
-//	public int storiesPublished;
-//	public List<string> observationLocations;
-
 	/**
 	 * MuseumManager general beacon housekeeping.
 	 */
@@ -232,6 +226,20 @@ public class MuseumManager : MonoBehaviour {
 
 	public void ShowArticleStart() {
 		Application.LoadLevel ("ArticleStart");
+	}
+
+	/*
+	 * Game logic
+	 */
+
+	public void ArticleSubmitted(bool positive) {
+		if (positive) {
+			this.freedomIndex -= 1;
+		} else {
+			this.freedomIndex += 1;
+		}
+
+		this.storiesPublished += 1;
 	}
 
 

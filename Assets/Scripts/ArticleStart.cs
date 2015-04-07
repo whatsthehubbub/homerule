@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class ArticleStart : MonoBehaviour {
@@ -34,5 +35,21 @@ public class ArticleStart : MonoBehaviour {
 		// Turn button into retake button
 
 		// Show the rest of the publish UI
+	}
+
+	public void SubmitButton() {
+		// Process everything
+
+		bool yesOn = GameObject.Find ("ToggleYes").GetComponent<Toggle>().isOn;
+
+	
+		GameObject main = GameObject.Find("Main");
+		if (main != null) {
+			main.SendMessage("ArticleSubmitted", yesOn);
+		}
+
+
+		// Load the resolution scene
+		Application.LoadLevel("EventResolution");
 	}
 }

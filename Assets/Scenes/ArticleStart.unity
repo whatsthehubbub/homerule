@@ -97,7 +97,7 @@ GameObject:
   - 224: {fileID: 153702737}
   - 114: {fileID: 153702738}
   m_Layer: 5
-  m_Name: ToggleYes
+  m_Name: ToggleNo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -116,7 +116,7 @@ RectTransform:
   - {fileID: 1919336114}
   - {fileID: 615461775}
   m_Father: {fileID: 1446584868}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 54, y: -52.5999985}
@@ -195,10 +195,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1446584868}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -2.5, y: -90}
+  m_AnchoredPosition: {x: -2.5, y: -89.9999847}
   m_SizeDelta: {x: 160, y: 90.9000015}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &219794429
@@ -830,7 +830,7 @@ GameObject:
   - 224: {fileID: 1145244648}
   - 114: {fileID: 1145244649}
   m_Layer: 5
-  m_Name: ToggleNo
+  m_Name: ToggleYes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -849,7 +849,7 @@ RectTransform:
   - {fileID: 830915197}
   - {fileID: 774280354}
   m_Father: {fileID: 1446584868}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: -16.2000008, y: -52.5999985}
@@ -1058,9 +1058,9 @@ RectTransform:
   - {fileID: 1676508942}
   - {fileID: 1885387947}
   - {fileID: 1253296259}
+  - {fileID: 219794428}
   - {fileID: 153702737}
   - {fileID: 1145244648}
-  - {fileID: 219794428}
   - {fileID: 1691236165}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1284,7 +1284,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1691236167}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1446584869}
+        m_MethodName: SubmitButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1691236167

@@ -200,13 +200,17 @@ public class MuseumManager : MonoBehaviour {
 	 * Scene Management.
 	 */
 
-	public void StartGame() {
-		changeScene = true;
+	public void StartGameButton() {
+		ShowIntro();
+	}
 
-		ShowIdle ();
+	public void ShowIntro() {
+		Application.LoadLevel("Intro Scene");
 	}
 
 	public void ShowIdle() {
+		changeScene = true;
+
 		this.playerState = "IDLE";
 
 		Application.LoadLevel("Idle");

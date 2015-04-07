@@ -27,3 +27,5 @@ EditorBuildSettings:
     path: Assets/Scenes/EventCallAction.unity
   - enabled: 1
     path: Assets/Scenes/ArticleStart.unity
+  - enabled: 1
+    path: Assets/Scenes/Intro Scene.unity

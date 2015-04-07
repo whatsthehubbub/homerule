@@ -197,6 +197,8 @@ public class MuseumManager : MonoBehaviour {
 			this.playerState = key;
 			
 			Application.LoadLevel("EventStart");
+
+			changeScene = false;
 		}
 	}
 

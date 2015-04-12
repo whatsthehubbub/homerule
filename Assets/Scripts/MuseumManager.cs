@@ -19,11 +19,11 @@ public struct Location {
 
 public struct Story {
 	public string name;
-	public int minor;
+	public bool active;
 
-	public Story(string name, int minor) {
+	public Story(string name) {
 		this.name = name;
-		this.minor = minor;
+		this.active = true;
 	}
 }
 
@@ -37,13 +37,8 @@ public class MuseumManager : MonoBehaviour {
 		{"STATION", new Location("STATION", "Station Scene", 45444)},
 		{"UNDERWAY", new Location("UNDERWAY", "Underway", -1)}
 	};
-
-	private Dictionary<string, Story> gameEvents = new Dictionary<string, Story>(){
-		{"MOVEMENT", new Story("MOVEMENT", 48618)},
-//		{"OFFICE", new Location("OFFICE", "Office Scene", 22290, "")},
-//		{"SQUARE", new Location("SQUARE", "Square Scene", 48174, "het plein")},
-//		{"MARKET", new Location("MARKET", "Market Scene", 53868, "de markt")},
-//		{"STATION", new Location("STATION", "Station Scene", 45444, "het station")},
+	
+	private Dictionary<string, Story> stories = new Dictionary<string, Story>(){
 	};
 
 	public bool changeScene = true;
@@ -71,6 +66,8 @@ public class MuseumManager : MonoBehaviour {
 //		UpdatePublicationDisplay();
 
 		changeScene = false;
+
+		stories.Add ("HOME", new Story("First Story"));
 	}
 	
 	void OnDestroy() {
@@ -149,16 +146,13 @@ public class MuseumManager : MonoBehaviour {
 //		}
 
 		// Display observations if there are any on this location
-//		bool showObs = false;
-//		foreach (string obs in observationLocations) {
-//			if (Application.loadedLevelName.Equals(locations[obs].sceneName)) {
-//				showObs = true;
-//			}
-//		}
-//		if (showObs) {
-//			GameObject observation = (GameObject)Instantiate(Resources.Load ("Prefabs/Observeer UI"));
-//			observation.name = "Observeer UI";
-//		}
+		Story story;
+		if (stories.TryGetValue(this.playerState, out story)) {
+			if (story.active) {
+				GameObject observation = (GameObject)Instantiate(Resources.Load ("Prefabs/Observeer UI"));
+				observation.name = "Observeer UI";
+			}
+		}
 //
 //		// If you're in the office
 //		if (Application.loadedLevelName.Equals(locations["OFFICE"].sceneName)) {

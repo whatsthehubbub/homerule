@@ -31,3 +31,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Intro Scene.unity
   - enabled: 1
     path: Assets/Scenes/EventResolution.unity
+  - enabled: 1
+    path: Assets/Scenes/Underway.unity

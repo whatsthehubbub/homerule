@@ -38,7 +38,7 @@ public class MuseumManager : MonoBehaviour {
 		{"UNDERWAY", new Location("UNDERWAY", "Underway", -1)}
 	};
 	
-	private Dictionary<string, Story> stories = new Dictionary<string, Story>(){
+	public Dictionary<string, Story> stories = new Dictionary<string, Story>(){
 	};
 
 	public bool changeScene = true;
@@ -278,6 +278,10 @@ public class MuseumManager : MonoBehaviour {
 		}
 
 		this.storiesPublished += 1;
+	}
+
+	public void StartStory() {
+		// Do stuff when we start a story
 	}
 
 

@@ -34,7 +34,7 @@ public class ObserveerUI : MonoBehaviour {
 		//observatie +1
 		GameObject main = GameObject.Find("Main");
 		if (main != null) {
-			main.SendMessage("FoundObservation");
+			main.SendMessage("StartStory");
 		}
 
 		//haal observatie knop weg

@@ -5,23 +5,23 @@ using System.Collections.Generic;
 using System;
 
 
-public struct GameLocation {
+public struct Location {
 	public string name;
 	public string sceneName;
 	public int minor;
 	
-	public GameLocation(string name, string sceneName, int minor) {
+	public Location(string name, string sceneName, int minor) {
 		this.name = name;
 		this.sceneName = sceneName;
 		this.minor = minor;
 	}
 }
 
-public struct GameEvent {
+public struct  {
 	public string name;
 	public int minor;
 
-	public GameEvent(string name, int minor) {
+	public Story(string name, int minor) {
 		this.name = name;
 		this.minor = minor;
 	}
@@ -29,17 +29,17 @@ public struct GameEvent {
 
 public class MuseumManager : MonoBehaviour {
 
-	private Dictionary<string, GameLocation> locations = new Dictionary<string, GameLocation>(){
-		{"HOME", new GameLocation("HOME", "Home Scene", 48618)},
-		{"OFFICE", new GameLocation("OFFICE", "Office Scene", 22290)},
-		{"SQUARE", new GameLocation("SQUARE", "Square Scene", 48174)},
-		{"MARKET", new GameLocation("MARKET", "Market Scene", 53868)},
-		{"STATION", new GameLocation("STATION", "Station Scene", 45444)},
-		{"UNDERWAY", new GameLocation("UNDERWAY", "Underway", -1)}
+	private Dictionary<string, Location> locations = new Dictionary<string, Location>(){
+		{"HOME", new Location("HOME", "Home Scene", 48618)},
+		{"OFFICE", new Location("OFFICE", "Office Scene", 22290)},
+		{"SQUARE", new Location("SQUARE", "Square Scene", 48174)},
+		{"MARKET", new Location("MARKET", "Market Scene", 53868)},
+		{"STATION", new Location("STATION", "Station Scene", 45444)},
+		{"UNDERWAY", new Location("UNDERWAY", "Underway", -1)}
 	};
 
-	private Dictionary<string, GameEvent> gameEvents = new Dictionary<string, GameEvent>(){
-		{"MOVEMENT", new GameEvent("MOVEMENT", 48618)},
+	private Dictionary<string, Story> gameEvents = new Dictionary<string, Story>(){
+		{"MOVEMENT", new Story("MOVEMENT", 48618)},
 //		{"OFFICE", new Location("OFFICE", "Office Scene", 22290, "")},
 //		{"SQUARE", new Location("SQUARE", "Square Scene", 48174, "het plein")},
 //		{"MARKET", new Location("MARKET", "Market Scene", 53868, "de markt")},
@@ -84,7 +84,7 @@ public class MuseumManager : MonoBehaviour {
 //			ShowIdle();
 //		}
 //		if (Input.GetKeyDown(KeyCode.Alpha2)) {
-//			StartGameEvent("HOME");
+//			StartStory("HOME");
 //		}
 
 		if (Input.GetKeyDown(KeyCode.Alpha1)) {
@@ -203,14 +203,14 @@ public class MuseumManager : MonoBehaviour {
 //			if (b.range == BeaconRange.NEAR || b.range == BeaconRange.IMMEDIATE) {
 			if (b.range == BeaconRange.IMMEDIATE) {
 				
-				foreach(KeyValuePair<string, GameEvent> entry in gameEvents) {
+				foreach(KeyValuePair<string, GameEvent> entry in Storys) {
 					if (entry.Value.minor == b.minor) {
 						found = true;
 
 //						if (playerLocation != entry.Value.name) {
 //							NewEvent(entry.Value.name);
 //						}
-//						StartGameEvent(entry.Value.name);
+//						StartStory(entry.Value.name);
 						NewLocation(entry.Value.name);
 					}
 				}
@@ -226,7 +226,7 @@ public class MuseumManager : MonoBehaviour {
 		}
 	}
 	
-//	public void StartGameEvent(string key) {
+//	public void StartStory(string key) {
 //		// Hide a map if there is one
 //		if (changeScene) {
 //			this.playerState = key;

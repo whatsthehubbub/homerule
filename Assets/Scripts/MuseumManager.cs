@@ -282,6 +282,8 @@ public class MuseumManager : MonoBehaviour {
 
 	public void StartStory() {
 		// Do stuff when we start a story
+
+		Application.LoadLevel("Story Communication");
 	}
 
 

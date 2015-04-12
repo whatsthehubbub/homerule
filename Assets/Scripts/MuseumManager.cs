@@ -5,6 +5,18 @@ using System.Collections.Generic;
 using System;
 
 
+public struct GameLocation {
+	public string name;
+	public string sceneName;
+	public int minor;
+	
+	public GameLocation(string name, string sceneName, int minor) {
+		this.name = name;
+		this.sceneName = sceneName;
+		this.minor = minor;
+	}
+}
+
 public struct GameEvent {
 	public string name;
 	public int minor;
@@ -17,6 +29,14 @@ public struct GameEvent {
 
 public class MuseumManager : MonoBehaviour {
 
+	private Dictionary<string, GameLocation> locations = new Dictionary<string, GameLocation>(){
+		{"HOME", new GameLocation("HOME", "Home Scene", 48618)},
+		{"OFFICE", new GameLocation("OFFICE", "Office Scene", 22290)},
+		{"SQUARE", new GameLocation("SQUARE", "Square Scene", 48174)},
+		{"MARKET", new GameLocation("MARKET", "Market Scene", 53868)},
+		{"STATION", new GameLocation("STATION", "Station Scene", 45444)},
+		{"UNDERWAY", new GameLocation("UNDERWAY", "Underway", -1)}
+	};
 
 	private Dictionary<string, GameEvent> gameEvents = new Dictionary<string, GameEvent>(){
 		{"MOVEMENT", new GameEvent("MOVEMENT", 48618)},
@@ -60,11 +80,30 @@ public class MuseumManager : MonoBehaviour {
 
 	void Update () {
 		// Debug code to move between Scenes
+//		if (Input.GetKeyDown(KeyCode.Alpha1)) {
+//			ShowIdle();
+//		}
+//		if (Input.GetKeyDown(KeyCode.Alpha2)) {
+//			StartGameEvent("HOME");
+//		}
+
 		if (Input.GetKeyDown(KeyCode.Alpha1)) {
-			ShowIdle();
-		}
+			NewLocation("HOME");
+		}		
 		if (Input.GetKeyDown(KeyCode.Alpha2)) {
-			StartGameEvent("HOME");
+			NewLocation("OFFICE");
+		}		
+		if (Input.GetKeyDown(KeyCode.Alpha3)) {
+			NewLocation("SQUARE");
+		}		
+		if (Input.GetKeyDown(KeyCode.Alpha4)) {
+			NewLocation("MARKET");
+		}		
+		if (Input.GetKeyDown(KeyCode.Alpha5)) {
+			NewLocation("STATION");
+		}
+		if (Input.GetKeyDown(KeyCode.Alpha6)) {
+			NewLocation ("UNDERWAY");
 		}
 	}
 	
@@ -171,7 +210,8 @@ public class MuseumManager : MonoBehaviour {
 //						if (playerLocation != entry.Value.name) {
 //							NewEvent(entry.Value.name);
 //						}
-						StartGameEvent(entry.Value.name);
+//						StartGameEvent(entry.Value.name);
+						NewLocation(entry.Value.name);
 					}
 				}
 //			} else if (b.range == BeaconRange.FAR) {
@@ -181,18 +221,29 @@ public class MuseumManager : MonoBehaviour {
 			}
 		}
 		if (!found && playerState != "IDLE") {
-			ShowIdle ();
+//			ShowIdle ();
+			NewLocation("UNDERWAY");
 		}
 	}
 	
-	public void StartGameEvent(string key) {
+//	public void StartGameEvent(string key) {
+//		// Hide a map if there is one
+//		if (changeScene) {
+//			this.playerState = key;
+//			
+//			Application.LoadLevel("EventStart");
+//
+//			changeScene = false;
+//		}
+//	}
+
+	
+	public void NewLocation(string locationKey) {
 		// Hide a map if there is one
 		if (changeScene) {
-			this.playerState = key;
+			this.playerState = locationKey;
 			
-			Application.LoadLevel("EventStart");
-
-			changeScene = false;
+			Application.LoadLevel(locations[locationKey].sceneName);
 		}
 	}
 
@@ -201,21 +252,14 @@ public class MuseumManager : MonoBehaviour {
 	 */
 
 	public void StartGameButton() {
-		ShowIntro();
+		changeScene = true;
+		NewLocation ("UNDERWAY");
 	}
 
 	public void ShowIntro() {
 		Application.LoadLevel("Intro Scene");
 	}
-
-	public void ShowIdle() {
-		changeScene = true;
-
-		this.playerState = "IDLE";
-
-		Application.LoadLevel("Idle");
-	}
-
+	
 	public void ShowEventSituation() {
 		Application.LoadLevel("EventSituation");
 	}

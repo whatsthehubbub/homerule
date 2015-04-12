@@ -17,7 +17,7 @@ public struct Location {
 	}
 }
 
-public struct  {
+public struct Story {
 	public string name;
 	public int minor;
 
@@ -203,7 +203,7 @@ public class MuseumManager : MonoBehaviour {
 //			if (b.range == BeaconRange.NEAR || b.range == BeaconRange.IMMEDIATE) {
 			if (b.range == BeaconRange.IMMEDIATE) {
 				
-				foreach(KeyValuePair<string, GameEvent> entry in Storys) {
+				foreach(KeyValuePair<string, Location> entry in locations) {
 					if (entry.Value.minor == b.minor) {
 						found = true;
 

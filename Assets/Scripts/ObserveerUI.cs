@@ -31,13 +31,15 @@ public class ObserveerUI : MonoBehaviour {
 		}
 		progressBar.SetActive(false);
 
+		//haal observatie knop weg
+		this.gameObject.SetActive(false);
+
 		//observatie +1
 		GameObject main = GameObject.Find("Main");
 		if (main != null) {
 			main.SendMessage("StartStory");
 		}
 
-		//haal observatie knop weg
-		this.gameObject.SetActive(false);
+
 	}
 }

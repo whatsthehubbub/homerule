@@ -67,7 +67,8 @@ public class MuseumManager : MonoBehaviour {
 
 		changeScene = false;
 
-		stories.Add ("HOME", new Story("First Story"));
+		stories.Add ("SQUARE", new Story("First Story"));
+		stories.Add ("MARKET", new Story("Story about food"));
 	}
 	
 	void OnDestroy() {
@@ -151,6 +152,9 @@ public class MuseumManager : MonoBehaviour {
 			if (story.active) {
 				GameObject observation = (GameObject)Instantiate(Resources.Load ("Prefabs/Observeer UI"));
 				observation.name = "Observeer UI";
+
+				Text storytext = observation.GetComponentInChildren<Text>();
+				storytext.text = story.name;
 			}
 		}
 //

@@ -223,19 +223,7 @@ public class MuseumManager : MonoBehaviour {
 			NewLocation("UNDERWAY");
 		}
 	}
-	
-//	public void StartStory(string key) {
-//		// Hide a map if there is one
-//		if (changeScene) {
-//			this.playerState = key;
-//			
-//			Application.LoadLevel("EventStart");
-//
-//			changeScene = false;
-//		}
-//	}
 
-	
 	public void NewLocation(string locationKey) {
 		// Hide a map if there is one
 		if (changeScene) {
@@ -288,6 +276,8 @@ public class MuseumManager : MonoBehaviour {
 		// Do stuff when we start a story
 
 		this.playerState = "STORY";
+
+		this.changeScene = false;
 
 		Application.LoadLevel("Story Communication");
 	}

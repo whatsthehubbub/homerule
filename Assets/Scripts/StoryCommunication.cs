@@ -4,12 +4,16 @@ using System.Collections;
 public class StoryCommunication : MonoBehaviour {
 
 	private GameObject reply;
+	private GameObject submitButton;
 
 	// Use this for initialization
 	void Start () {
 	
 		reply = GameObject.Find ("Reply");
 		reply.SetActive(false);
+
+		submitButton = GameObject.Find ("SubmitButton");
+		submitButton.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -19,9 +23,14 @@ public class StoryCommunication : MonoBehaviour {
 
 	public void GoodButton() {
 		reply.SetActive(true);
+		submitButton.SetActive(true);
 	}
 
 	public void BadButton() {
 		reply.SetActive(true);
+		submitButton.SetActive(true);
+	}
+
+	public void SubmitButton() {
 	}
 }

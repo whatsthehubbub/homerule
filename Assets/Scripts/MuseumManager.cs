@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System;
 
 
@@ -156,6 +157,21 @@ public class MuseumManager : MonoBehaviour {
 				Text storytext = observation.GetComponentInChildren<Text>();
 				storytext.text = story.name;
 			}
+		} else if (!this.playerState.Equals("UNDERWAY")) {
+			// There is no story here
+			GameObject nostory = (GameObject)Instantiate(Resources.Load ("Prefabs/No story"));
+			nostory.name = "No story";
+
+			// Point the player to a place where there is a story
+			List<string> activeLocations = stories.Where(kvp => kvp.Value.active).Select(kvp => kvp.Key).ToList();
+			Text nostorytext = nostory.GetComponentInChildren<Text>();
+
+			if (activeLocations.Count > 0) {
+				nostorytext.text = "Er is hier geen verhaal maar in " + activeLocations[0] + " wel.";
+			} else {
+				nostorytext.text = "De verhalen zijn op.";
+			}
+
 		}
 //
 //		// If you're in the office

@@ -18,13 +18,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Station Scene.unity
   - enabled: 1
-    path: Assets/Scenes/Idle.unity
+    path: Assets/Old stuff/Idle.unity
   - enabled: 1
     path: Assets/Old stuff/ArticleStart.unity
   - enabled: 1
     path: Assets/Old stuff/Intro Scene.unity
   - enabled: 1
-    path: Assets/Old stuff/Underway.unity
+    path: Assets/Scenes/Underway.unity
   - enabled: 1
     path: Assets/Scenes/Story Communication.unity
   - enabled: 1

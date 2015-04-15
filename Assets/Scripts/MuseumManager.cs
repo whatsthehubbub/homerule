@@ -157,7 +157,7 @@ public class MuseumManager : MonoBehaviour {
 				Text storytext = observation.GetComponentInChildren<Text>();
 				storytext.text = story.name;
 			}
-		} else if (!this.playerState.Equals("UNDERWAY") && !this.playerState.Contains("STORY")) {
+		} else if (!this.playerState.Equals("UNDERWAY") && this.locations.Keys.Contains(this.playerState)) {
 			// There is no story here
 			GameObject nostory = (GameObject)Instantiate(Resources.Load ("Prefabs/No story"));
 			nostory.name = "No story";

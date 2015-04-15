@@ -20,10 +20,12 @@ public struct Location {
 
 public struct Story {
 	public string name;
+
 	public bool active;
 
 	public Story(string name) {
 		this.name = name;
+
 		this.active = true;
 	}
 }
@@ -157,7 +159,7 @@ public class MuseumManager : MonoBehaviour {
 				Text storytext = observation.GetComponentInChildren<Text>();
 				storytext.text = story.name;
 			}
-		} else if (!this.playerState.Equals("UNDERWAY") && !this.playerState.Equals("STORY")) {
+		} else if (!this.playerState.Equals("UNDERWAY") && !this.playerState.Contains("STORY")) {
 			// There is no story here
 			GameObject nostory = (GameObject)Instantiate(Resources.Load ("Prefabs/No story"));
 			nostory.name = "No story";
@@ -291,7 +293,7 @@ public class MuseumManager : MonoBehaviour {
 	public void StartStory() {
 		// Do stuff when we start a story
 
-		this.playerState = "STORY";
+		this.playerState = "STORY-" + this.playerState;;
 
 		this.changeScene = false;
 

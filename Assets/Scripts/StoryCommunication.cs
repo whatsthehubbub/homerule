@@ -32,5 +32,6 @@ public class StoryCommunication : MonoBehaviour {
 	}
 
 	public void SubmitButton() {
+
 	}
 }

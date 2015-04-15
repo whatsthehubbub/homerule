@@ -3,16 +3,13 @@ using System.Collections;
 
 public class StoryCommunication : MonoBehaviour {
 
-	private GameObject reply;
-	private GameObject submitButton;
+	public GameObject reply;
+	public GameObject submitButton;
 
 	// Use this for initialization
 	void Start () {
 	
-		reply = GameObject.Find ("Reply");
 		reply.SetActive(false);
-
-		submitButton = GameObject.Find ("SubmitButton");
 		submitButton.SetActive(false);
 	}
 	

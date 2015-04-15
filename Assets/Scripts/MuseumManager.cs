@@ -52,9 +52,6 @@ public class MuseumManager : MonoBehaviour {
 
 	public string playerState;
 
-	public int freedomIndex = 5;
-	public int storiesPublished = 0;
-
 	/**
 	 * MuseumManager general beacon housekeeping.
 	 */
@@ -184,9 +181,9 @@ public class MuseumManager : MonoBehaviour {
 //			}
 //		}
 
-		if (Application.loadedLevelName.Equals ("Idle")) {
-			GameObject.Find("FreedomIndexDisplay").GetComponent<Text>().text = "" + this.freedomIndex;
-		}
+//		if (Application.loadedLevelName.Equals ("Idle")) {
+//			GameObject.Find("FreedomIndexDisplay").GetComponent<Text>().text = "" + this.freedomIndex;
+//		}
 
 		// Set the correct number of photos taken in the resources UI
 //		UpdateObservationsDisplay();
@@ -281,13 +278,13 @@ public class MuseumManager : MonoBehaviour {
 	 */
 
 	public void ArticleSubmitted(bool positive) {
-		if (positive) {
-			this.freedomIndex -= 1;
-		} else {
-			this.freedomIndex += 1;
-		}
-
-		this.storiesPublished += 1;
+//		if (positive) {
+//			this.freedomIndex -= 1;
+//		} else {
+//			this.freedomIndex += 1;
+//		}
+//
+//		this.storiesPublished += 1;
 	}
 
 	public void StartStory() {

@@ -503,8 +503,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   changeScene: 1
   playerState: 
-  freedomIndex: 5
-  storiesPublished: 0
 --- !u!4 &1313762165
 Transform:
   m_ObjectHideFlags: 0

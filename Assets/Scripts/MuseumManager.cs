@@ -67,6 +67,7 @@ public class MuseumManager : MonoBehaviour {
 
 		changeScene = false;
 
+		stories.Clear();
 		stories.Add ("SQUARE", new Story("First Story"));
 		stories.Add ("MARKET", new Story("Story about food"));
 	}
@@ -253,6 +254,14 @@ public class MuseumManager : MonoBehaviour {
 	 */
 
 	public void StartGameButton() {
+		Application.LoadLevel ("Intro Reporter");
+	}
+
+	public void IntroReporterDone() {
+		Application.LoadLevel ("Intro Officer");
+	}
+
+	public void IntroOfficerDone() {
 		changeScene = true;
 		NewLocation ("UNDERWAY");
 	}

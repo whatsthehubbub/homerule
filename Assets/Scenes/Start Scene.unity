@@ -124,7 +124,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22469846, guid: fb4343f437c6e1c4faa5a4811551bf77, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 22469846, guid: fb4343f437c6e1c4faa5a4811551bf77, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -218,7 +218,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22404874, guid: 9e4ddd2140f92b0499e54138e8b69a86, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 22404874, guid: 9e4ddd2140f92b0499e54138e8b69a86, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -377,7 +377,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 10631879179ed9d4cbb7a89254c88955, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 10631879179ed9d4cbb7a89254c88955, type: 2}
       propertyPath: regions.Array.data[0].UUID

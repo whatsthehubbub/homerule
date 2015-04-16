@@ -53,6 +53,7 @@ public class ChatWindow : MonoBehaviour {
 
 		playerBubble.transform.parent = scrollContent.transform;
 		playerBubble.transform.localPosition = new Vector2(70.0f, startY);
+		playerBubble.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
 
 		this.lastAdded = playerBubble;
 		this.heightDirty = true;
@@ -72,6 +73,7 @@ public class ChatWindow : MonoBehaviour {
 		
 		playerBubble.transform.parent = scrollContent.transform;
 		playerBubble.transform.localPosition = new Vector2(-70.0f, startY);
+		playerBubble.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
 		
 		this.lastAdded = playerBubble;
 		this.heightDirty = true;

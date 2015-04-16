@@ -33,6 +33,8 @@ public class IntroOfficer : MonoBehaviour {
 	}
 
 	public void ShowChatButton() {
+		GameObject.Find("PickUpButton").SetActive(false);
+
 		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/Chat"));
 		chat.name = "Chat";
 

@@ -218,7 +218,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 768025796}
-        m_MethodName: IntroDoneButton
+        m_MethodName: ShowChatButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -525,6 +525,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cd3e6edcf8534701afc17e4c5ac2bef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chat: {fileID: 0}
+  cw: {fileID: 0}
 --- !u!1 &848215007
 GameObject:
   m_ObjectHideFlags: 0

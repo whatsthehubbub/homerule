@@ -4,7 +4,7 @@ using System.Collections;
 
 public class ChatWindow : MonoBehaviour {
 
-	public float startY = 600;
+	public float startY = 400;
 	public float bubblePadding;
 
 	public GameObject lastAdded;
@@ -14,30 +14,33 @@ public class ChatWindow : MonoBehaviour {
 	void Start () {
 
 		this.bubblePadding = 30;
+		this.lastAdded = null;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		// Really weird but we have to wait for the value to be calculated and that may take some time
 
-		// TODO this will go wrong if too much stuff is added at once
-		Rect rect = ((RectTransform)lastAdded.transform).rect;
+		if (this.lastAdded != null) {
+			// TODO this will go wrong if too much stuff is added at once
+			Rect rect = ((RectTransform)lastAdded.transform).rect;
 
-		if (heightDirty && rect.height > 0.0f) {
-			Debug.Log (((RectTransform)lastAdded.transform).rect);
-			
-			this.startY -= rect.height;
+			if (heightDirty && rect.height > 0.0f) {
+				Debug.Log (((RectTransform)lastAdded.transform).rect);
+				
+				this.startY -= rect.height;
 
-			// Also now that we know the height, move it down a bit more to correct for very high bubbles
-			Vector2 position = lastAdded.transform.localPosition;
-			position.y -= (rect.height / 2);
-			lastAdded.transform.localPosition = position;
+				// Also now that we know the height, move it down a bit more to correct for very high bubbles
+				Vector2 position = lastAdded.transform.localPosition;
+				position.y -= (rect.height / 2);
+				lastAdded.transform.localPosition = position;
 
-			this.startY -= bubblePadding;
+				this.startY -= bubblePadding;
 
-			Debug.Log ("New start Y " + this.startY);
-			
-			heightDirty = false;
+				Debug.Log ("New start Y " + this.startY);
+				
+				heightDirty = false;
+			}
 		}
 	}
 
@@ -51,7 +54,7 @@ public class ChatWindow : MonoBehaviour {
 		Text chatText = playerBubble.GetComponentInChildren<Text>();
 		chatText.text = text;
 
-		playerBubble.transform.parent = scrollContent.transform;
+		playerBubble.transform.SetParent (scrollContent.transform, false);
 		playerBubble.transform.localPosition = new Vector2(70.0f, startY);
 		playerBubble.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
 
@@ -70,8 +73,8 @@ public class ChatWindow : MonoBehaviour {
 		
 		Text chatText = playerBubble.GetComponentInChildren<Text>();
 		chatText.text = text;
-		
-		playerBubble.transform.parent = scrollContent.transform;
+
+		playerBubble.transform.SetParent (scrollContent.transform, false);
 		playerBubble.transform.localPosition = new Vector2(-70.0f, startY);
 		playerBubble.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
 		

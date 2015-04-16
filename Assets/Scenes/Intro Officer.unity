@@ -527,6 +527,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chat: {fileID: 0}
   cw: {fileID: 0}
+  playerAnswer: 0
 --- !u!1 &848215007
 GameObject:
   m_ObjectHideFlags: 0

@@ -26,7 +26,7 @@ public class ChatWindow : MonoBehaviour {
 			Rect rect = ((RectTransform)lastAdded.transform).rect;
 
 			if (heightDirty && rect.height > 0.0f) {
-				Debug.Log (((RectTransform)lastAdded.transform).rect);
+//				Debug.Log (((RectTransform)lastAdded.transform).rect);
 				
 				this.startY -= rect.height;
 
@@ -37,7 +37,7 @@ public class ChatWindow : MonoBehaviour {
 
 				this.startY -= bubblePadding;
 
-				Debug.Log ("New start Y " + this.startY);
+//				Debug.Log ("New start Y " + this.startY);
 				
 				heightDirty = false;
 			}
@@ -96,6 +96,12 @@ public class ChatWindow : MonoBehaviour {
 		button.transform.SetParent(buttonArea.transform, false);
 
 		return button;
+	}
+
+	public void ClearButtons() {
+		GameObject buttonArea = this.gameObject.transform.Find("ButtonArea").gameObject;
+
+		buttonArea.transform.DetachChildren();
 	}
 
 }

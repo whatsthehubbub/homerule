@@ -84,4 +84,18 @@ public class ChatWindow : MonoBehaviour {
 		return playerBubble;
 	}
 
+	public GameObject AddButton(string text) {
+		GameObject buttonArea = this.gameObject.transform.Find("ButtonArea").gameObject;
+
+		GameObject button = (GameObject)Instantiate (Resources.Load ("Prefabs/PlayerChatbubble"));
+		button.name = "Player button";
+
+		Text chatText = button.GetComponentInChildren<Text>();
+		chatText.text = text;
+
+		button.transform.SetParent(buttonArea.transform, false);
+
+		return button;
+	}
+
 }

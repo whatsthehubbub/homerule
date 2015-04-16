@@ -32,6 +32,10 @@ public class IntroOfficer : MonoBehaviour {
 
 		GameObject bubble = cw.AddNPCBubble("Niks ernstigs. Heeft u deze persoon gezien?");
 
+		cw.AddButton("Hello");
+		cw.AddButton("optie");
+		cw.AddButton("Nog een optie");
+
 		Invoke("ShowPlayerResponses", 0.5f);
 	}
 

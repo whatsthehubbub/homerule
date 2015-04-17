@@ -45,6 +45,8 @@ public class MuseumManager : MonoBehaviour {
 	};
 
 	public bool changeScene = true;
+
+	public bool showKatjaIntroSurveillanceResponse = false;
 	
 	
 	private List<Beacon> mybeacons = new List<Beacon>();
@@ -66,6 +68,7 @@ public class MuseumManager : MonoBehaviour {
 //		UpdatePublicationDisplay();
 
 		changeScene = false;
+		showKatjaIntroSurveillanceResponse = false;
 
 		stories.Clear();
 		stories.Add ("SIGN", new Story("Story about the sign"));
@@ -248,35 +251,22 @@ public class MuseumManager : MonoBehaviour {
 	 */
 
 	public void StartGameButton() {
+		this.playerState = "INTROREPORTER";
+
 		Application.LoadLevel ("Intro Reporter");
 	}
 
 	public void IntroReporterDone() {
+		this.playerState = "INTROOFFICER";
+
 		Application.LoadLevel ("Intro Officer");
 	}
 
 	public void IntroOfficerDone() {
 		changeScene = true;
+
+		showKatjaIntroSurveillanceResponse = true;
+
 		NewLocation ("UNDERWAY");
 	}
-
-	public void ShowIntro() {
-		Application.LoadLevel("Intro Scene");
-	}
-	
-	public void ShowEventSituation() {
-		Application.LoadLevel("EventSituation");
-	}
-
-	public void ShowEventCallToAction() {
-		Application.LoadLevel ("EventCallAction");
-	}
-
-	public void ShowArticleStart() {
-		Application.LoadLevel ("ArticleStart");
-	}
-
-	/*
-	 * Game logic
-	 */
 }

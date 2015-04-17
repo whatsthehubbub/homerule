@@ -33,9 +33,9 @@ public class IntroOfficer : MonoBehaviour {
 
 	public void IntroDone() {
 		GameObject main = GameObject.Find("Main");
-		if (main != null) {
-			main.SendMessage("IntroOfficerDone");
-		}
+		MuseumManager mm = main.GetComponentInChildren<MuseumManager>();
+
+		mm.IntroOfficerDone();
 	}
 
 	public void ShowChatButton() {

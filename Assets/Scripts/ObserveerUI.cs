@@ -267,7 +267,7 @@ public class ObserveerUI : MonoBehaviour {
 		else if (playerOpinion == StoryOpinionAnswer.GOOD) argument = "goed want als je gevaar loopt dan moeten ze je daarvoor beschermen. De mensen moeten dus gewoon doen wat de agenten zeggen.";
 		else if (playerOpinion == StoryOpinionAnswer.WRONG) argument = "verkeerd want je moet zelf kunnen kiezen of je weg gaat of niet. De mensen moeten dus blijven als ze dat willen. Ook als dat niet mag van de agenten.";
 
-		cw.AddNPCBubble("Mensen uit hun huis zetten vanwege gevaar is" + argument);
+		cw.AddNPCBubble("Mensen uit hun huis zetten vanwege gevaar is " + argument);
 
 		Invoke ("ShowSend", 0.5f);
 	}

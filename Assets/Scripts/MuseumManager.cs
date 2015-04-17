@@ -143,6 +143,14 @@ public class MuseumManager : MonoBehaviour {
 //			}
 //		}
 
+		if (showKatjaIntroSurveillanceResponse && (this.playerState == "CAMERAS" || this.playerState == "MEDALS" || this.playerState == "SIGN")) {
+			// Show Katja's response to what happened
+			changeScene = false;
+			showKatjaIntroSurveillanceResponse = false;
+			this.playerState = "REPORTERRESPONSE";
+			Application.LoadLevel ("Reporter Response");
+		}
+
 		// Display observations if there are any on this location
 		Story story;
 		if (stories.TryGetValue(this.playerState, out story)) {
@@ -232,7 +240,7 @@ public class MuseumManager : MonoBehaviour {
 	public void NewLocation(string locationKey, bool forceChange = false) {
 		// Hide a map if there is one
 		if (forceChange || changeScene) {
-			this.playerState = locationKey;
+			this.playerState = locationKey;	
 			
 			Application.LoadLevel(locations[locationKey].sceneName);
 		}

@@ -33,11 +33,11 @@ public struct Story {
 public class MuseumManager : MonoBehaviour {
 
 	private Dictionary<string, Location> locations = new Dictionary<string, Location>(){
-		{"HOME", new Location("HOME", "Home Scene", 48618)},
-		{"OFFICE", new Location("OFFICE", "Office Scene", 22290)},
-		{"SQUARE", new Location("SQUARE", "Square Scene", 48174)},
-		{"MARKET", new Location("MARKET", "Market Scene", 53868)},
-		{"STATION", new Location("STATION", "Station Scene", 45444)},
+		{"CAMERAS", new Location("CAMERAS", "Home Scene", 48618)},
+		{"MEDALS", new Location("MEDALS", "Office Scene", 22290)},
+		{"SIGN", new Location("SIGN", "Square Scene", 48174)},
+//		{"MARKET", new Location("MARKET", "Market Scene", 53868)},
+//		{"STATION", new Location("STATION", "Station Scene", 45444)},
 		{"UNDERWAY", new Location("UNDERWAY", "Underway", -1)}
 	};
 	
@@ -68,8 +68,7 @@ public class MuseumManager : MonoBehaviour {
 		changeScene = false;
 
 		stories.Clear();
-		stories.Add ("SQUARE", new Story("First Story"));
-		stories.Add ("MARKET", new Story("Story about food"));
+		stories.Add ("SIGN", new Story("Story about the sign"));
 	}
 	
 	void OnDestroy() {
@@ -87,20 +86,20 @@ public class MuseumManager : MonoBehaviour {
 //		}
 
 		if (Input.GetKeyDown(KeyCode.Alpha1)) {
-			NewLocation("HOME");
+			NewLocation("CAMERAS");
 		}		
 		if (Input.GetKeyDown(KeyCode.Alpha2)) {
-			NewLocation("OFFICE");
+			NewLocation("MEDALS");
 		}		
 		if (Input.GetKeyDown(KeyCode.Alpha3)) {
-			NewLocation("SQUARE");
+			NewLocation("SIGN");
 		}		
-		if (Input.GetKeyDown(KeyCode.Alpha4)) {
-			NewLocation("MARKET");
-		}		
-		if (Input.GetKeyDown(KeyCode.Alpha5)) {
-			NewLocation("STATION");
-		}
+//		if (Input.GetKeyDown(KeyCode.Alpha4)) {
+//			NewLocation("MARKET");
+//		}		
+//		if (Input.GetKeyDown(KeyCode.Alpha5)) {
+//			NewLocation("STATION");
+//		}
 		if (Input.GetKeyDown(KeyCode.Alpha6)) {
 			NewLocation ("UNDERWAY");
 		}

@@ -13,7 +13,7 @@ public class PraatUI : MonoBehaviour {
 		GameObject main = GameObject.Find("Main");
 
 		if (main != null) {
-			MuseumManager mm = main.GetComponent<MuseumManager>();
+//			MuseumManager mm = main.GetComponent<MuseumManager>();
 
 //			if (mm.observationLocations.Count > 0) {
 //				text.text = "Ik zou eens gaan kijken bij " + mm.getLocationInterfaceString(mm.observationLocations[0]) + ".";

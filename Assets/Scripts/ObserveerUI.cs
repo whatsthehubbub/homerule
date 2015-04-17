@@ -237,7 +237,7 @@ public class ObserveerUI : MonoBehaviour {
 		});
 
 		GameObject opinion2 = cw.AddButton("Goed");
-		opinion1.GetComponentInChildren<Button>().onClick.AddListener(() => {
+		opinion2.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 			cw.AddPlayerBubble("Het is goed want als je gevaar loopt dan moeten ze je daarvoor beschermen.");
 			

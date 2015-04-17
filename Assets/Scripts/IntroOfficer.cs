@@ -40,7 +40,7 @@ public class IntroOfficer : MonoBehaviour {
 
 		cw = chat.GetComponent<ChatWindow>();
 
-		GameObject bubble = cw.AddNPCBubble("Niks ernstigs. Heeft u deze persoon gezien?");
+		cw.AddNPCBubble("Niks ernstigs. Heeft u deze persoon gezien?");
 
 		GameObject nooit = cw.AddButton("Nooit gezien");
 		nooit.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -75,7 +75,7 @@ public class IntroOfficer : MonoBehaviour {
 			playerResponseText = "Waarom vraagt u mij dit?";
 		}
 
-		GameObject response = cw.AddPlayerBubble(playerResponseText);
+		cw.AddPlayerBubble(playerResponseText);
 
 		Invoke("ShowOfficerResponse", 0.8f);
 	}
@@ -91,13 +91,13 @@ public class IntroOfficer : MonoBehaviour {
 			officerResponseText = "Ze is een journalist. We zijn het niet eens met wat ze schrijft. Dus we willen graag met haar praten… ";
 		}
 		
-		GameObject response = cw.AddNPCBubble(officerResponseText);
+		cw.AddNPCBubble(officerResponseText);
 
 		Invoke ("ShowOfficerCommand", 0.5f);
 	}
 
 	public void ShowOfficerCommand() {
-		GameObject response = cw.AddNPCBubble("Als u de reporter spreekt zeg dan maar dat ze ons moet opzoeken.");
+		cw.AddNPCBubble("Als u de reporter spreekt zeg dan maar dat ze ons moet opzoeken.");
 
 		GameObject ok = cw.AddButton ("Ok…");
 		ok.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -109,7 +109,7 @@ public class IntroOfficer : MonoBehaviour {
 	}
 
 	public void ShowOfficerCloseOff() {
-		GameObject response = cw.AddNPCBubble("Bedankt voor uw tijd. U kunt gaan.");
+		cw.AddNPCBubble("Bedankt voor uw tijd. U kunt gaan.");
 
 		GameObject ok = cw.AddButton ("Tot ziens.");
 		ok.GetComponentInChildren<Button>().onClick.AddListener(() => {

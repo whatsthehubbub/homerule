@@ -9,7 +9,14 @@ public class IntroReporter : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+
+		GameObject call = (GameObject)Instantiate(Resources.Load ("Prefabs/Katja belt"));
+		call.name = "Katja belt";
+
+		call.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			GameObject.Destroy(call);
+			ShowChatButton();
+		});
 	}
 	
 	// Update is called once per frame
@@ -18,8 +25,6 @@ public class IntroReporter : MonoBehaviour {
 	}
 
 	public void ShowChatButton() {
-		GameObject.Find("PickUpButton").SetActive(false);
-
 		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/Chat"));
 		chat.name = "Chat";
 		

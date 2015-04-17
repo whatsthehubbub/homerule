@@ -278,7 +278,7 @@ public class ObserveerUI : MonoBehaviour {
 		GameObject send = cw.AddButton("Verzenden");
 		send.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble(" Ja, verzenden maar!");
+			cw.AddPlayerBubble("Ja, verzenden maar!");
 			
 			Invoke ("ShowResult", 0.5f);
 		});
@@ -287,6 +287,34 @@ public class ObserveerUI : MonoBehaviour {
 	public void ShowResult() {
 		cw.AddNPCBubble("Ik heb je bericht verzonden…");
 		cw.AddNPCBubble("Wow. Moet je zien hoe de mensen reageren!");
+
+		GameObject show = cw.AddButton("Laat zien");
+		show.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			cw.ClearButtons();
+			cw.AddPlayerBubble("Laat zien!");
+			
+			Invoke ("ShowResult", 0.5f);
+		});
 	}
+
+	public void ShowResultResponse() {
+
+		if (playerOpinion == StoryOpinionAnswer.SAD) {
+			cw.AddNPCBubble("Er wordt gelukkig goed gezorgd voor de mensen.");
+		} else if (playerOpinion == StoryOpinionAnswer.GOOD) {
+			cw.AddNPCBubble("Iedereen volgt netjes de regels. Maar niet iedereen is blij.");
+		} else if (playerOpinion == StoryOpinionAnswer.WRONG) {
+			cw.AddNPCBubble("Sommige mensen luisteren niet. Ze krijgen ruzie en er wordt gevochten! ");
+		}
+
+		Invoke ("ShowResultClose", 0.5f);
+	}
+
+	public void ShowResultClose() {
+		cw.AddNPCBubble("We hebben verteld wat er gebeurt. We hebben ook gezegd wat we er van vinden. Daardoor veranderen er dingen. Goed gedaan!");
+
+		cw.AddNPCBubble("Op andere plekken zijn ook nog dingen te zien. Ik bel je weer als er iets te doen is!");
+
+		// TODO exit the chat
 
 }

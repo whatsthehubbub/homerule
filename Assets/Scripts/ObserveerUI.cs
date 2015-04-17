@@ -316,5 +316,6 @@ public class ObserveerUI : MonoBehaviour {
 		cw.AddNPCBubble("Op andere plekken zijn ook nog dingen te zien. Ik bel je weer als er iets te doen is!");
 
 		// TODO exit the chat
+	}
 
 }

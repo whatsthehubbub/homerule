@@ -78,12 +78,6 @@ public class MuseumManager : MonoBehaviour {
 
 	void Update () {
 		// Debug code to move between Scenes
-//		if (Input.GetKeyDown(KeyCode.Alpha1)) {
-//			ShowIdle();
-//		}
-//		if (Input.GetKeyDown(KeyCode.Alpha2)) {
-//			StartStory("HOME");
-//		}
 
 		if (Input.GetKeyDown(KeyCode.Alpha1)) {
 			NewLocation("CAMERAS", true);
@@ -225,7 +219,6 @@ public class MuseumManager : MonoBehaviour {
 //						if (playerLocation != entry.Value.name) {
 //							NewEvent(entry.Value.name);
 //						}
-//						StartStory(entry.Value.name);
 						NewLocation(entry.Value.name);
 					}
 				}
@@ -286,129 +279,4 @@ public class MuseumManager : MonoBehaviour {
 	/*
 	 * Game logic
 	 */
-
-	public void ArticleSubmitted(bool positive) {
-//		if (positive) {
-//			this.freedomIndex -= 1;
-//		} else {
-//			this.freedomIndex += 1;
-//		}
-//
-//		this.storiesPublished += 1;
-	}
-
-	public void StartStory() {
-		// Do stuff when we start a story
-
-		this.playerState = "STORY-" + this.playerState;;
-
-		this.changeScene = false;
-
-		Application.LoadLevel("Story Communication");
-	}
-
-
-	/*
-	 * Previous version stuff.
-	 */
-	
-//	public void FoundObservation() {
-//		if (this.officerLocation == this.playerLocation) {
-//			// You got caught son
-//			CaughtByOfficer();
-//		} 
-//		else {
-//			this.observationsFound += 1;
-//
-//			Animator fotosAnim = GameObject.Find("fotos").GetComponent<Animator>();
-//			fotosAnim.Play("icon bounce");
-//
-//			UpdateObservationsDisplay();
-//
-//			// Remove observation from the local array
-//			observationLocations.Remove(this.playerLocation);
-//		}
-//	}
-
-//	public void CreateNewObservations() {
-//		observationLocations.Add(publicLocations[UnityEngine.Random.Range(0, publicLocations.Length)]);
-//	}
-//
-//	public void ConvertObservationIntoPublication() {
-//		if (this.observationsFound > 0) {
-//			this.observationsFound -= 1;
-//			this.storiesPublished += 1;
-//
-//			Animator fotosAnim = GameObject.Find("fotos").GetComponent<Animator>();
-//			fotosAnim.Play("icon bounce");
-//			Animator artikelenAnim = GameObject.Find("artikelen").GetComponent<Animator>();
-//			artikelenAnim.Play("icon bounce");
-//
-//			UpdateObservationsDisplay();
-//			UpdatePublicationDisplay();
-//		}
-//	}
-
-//	public void UpdatePublicationDisplay() {
-//		GameObject publicationsUI = GameObject.Find ("artikelen int");
-//
-//		if (publicationsUI != null) {
-//			publicationsUI.GetComponent<Text>().text = "" + this.storiesPublished;
-//		}
-//	}
-//
-//	public void UpdateObservationsDisplay() {
-//		GameObject fotosUI = GameObject.Find ("fotos int");
-//
-//		if (fotosUI != null) {
-//			fotosUI.GetComponent<Text>().text = "" + this.observationsFound;
-//		}
-//	}
-
-//	public void CaughtByOfficer() {
-//		Debug.Log ("Got caught by officer");
-//
-//		changeScene = false;
-//
-//		GameObject officerOverlay = (GameObject)Instantiate(Resources.Load ("Prefabs/Agent UI"));
-//		officerOverlay.name = "Agent UI";
-//
-//		// Remove observation at this location if there still were any
-//		observationLocations.Remove (this.playerLocation);
-//
-//		// Remove the observation UI as well
-//		Destroy(GameObject.Find ("Observeer UI"));
-//
-//		// Remove observations on you
-//		this.observationsFound = 0;
-//		UpdateObservationsDisplay();
-//	}
-
-//	public void OfficerDone() {
-//		changeScene = true;
-//
-//		// Move the officer
-//		MoveOfficer(new string[] {this.playerLocation});
-//
-//		// Remove officer overlay
-//		Destroy(GameObject.Find ("Agent UI"));
-//		Destroy (GameObject.Find ("Officer(Clone)"));
-//	}
-
-//	public void MoveOfficer(string[] exclude = null) {
-//		exclude = exclude ?? new string[0];
-//
-//		List<string> keys = new List<string>(new string[] {"SQUARE", "MARKET", "STATION"});
-//
-//		foreach (var toExclude in exclude) {
-//			keys.Remove(toExclude);
-//		}
-//		
-////		officerLocation = keys[UnityEngine.Random.Range(0, keys.Count)];
-//	}
-
-//	public void HintClicked() {
-//		Text hintText = GameObject.Find ("Hint Text").GetComponent<Text>();
-//		hintText.text = "BLablablba";
-//	}
 }

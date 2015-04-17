@@ -62,6 +62,11 @@ public class ObserveerUI : MonoBehaviour {
 	}
 
 	public void StartStory() {
+		// Pause the change scene
+		GameObject main = GameObject.Find("Main");
+		MuseumManager mm = main.GetComponentInChildren<MuseumManager>();
+		mm.changeScene = false;
+
 		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/Chat"));
 		chat.name = "Chat";
 		

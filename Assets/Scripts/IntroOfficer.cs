@@ -25,7 +25,7 @@ public class IntroOfficer : MonoBehaviour {
 	
 	}
 
-	public void IntroDoneButton() {
+	public void IntroDone() {
 		GameObject main = GameObject.Find("Main");
 		if (main != null) {
 			main.SendMessage("IntroOfficerDone");
@@ -44,7 +44,6 @@ public class IntroOfficer : MonoBehaviour {
 
 		GameObject nooit = cw.AddButton("Nooit gezien");
 		nooit.GetComponentInChildren<Button>().onClick.AddListener(() => {
-			Debug.Log ("Never clicked");
 			playerAnswer = SurveillanceIntroAnswer.NEVER_SEEN;
 			ShowPlayerResponse();	
 		});
@@ -66,33 +65,33 @@ public class IntroOfficer : MonoBehaviour {
 	public void ShowPlayerResponse() {
 		cw.ClearButtons();
 
-		string responseText = "";
+		string playerResponseText = "";
 
 		if (playerAnswer == SurveillanceIntroAnswer.NEVER_SEEN) {
-			responseText = "Sorry. Die heb ik nog nooit gezien.";
+			playerResponseText = "Sorry. Die heb ik nog nooit gezien.";
 		} else if (playerAnswer == SurveillanceIntroAnswer.YES) {
-			responseText = "Ja, die heb ik wel eens gezien.";
+			playerResponseText = "Ja, die heb ik wel eens gezien.";
 		} else if (playerAnswer == SurveillanceIntroAnswer.WHY) {
-			responseText = "Waarom vraagt u mij dit?";
+			playerResponseText = "Waarom vraagt u mij dit?";
 		}
 
-		GameObject response = cw.AddPlayerBubble(responseText);
+		GameObject response = cw.AddPlayerBubble(playerResponseText);
 
-		Invoke("ShowOfficerResponse", 0.5f);
+		Invoke("ShowOfficerResponse", 0.8f);
 	}
 
 	public void ShowOfficerResponse() {
-		string responseText = "";
+		string officerResponseText = "";
 		
 		if (playerAnswer == SurveillanceIntroAnswer.NEVER_SEEN) {
-			responseText = "Jammer want we willen met haar praten…";
+			officerResponseText = "Jammer want we willen met haar praten…";
 		} else if (playerAnswer == SurveillanceIntroAnswer.YES) {
-			responseText = "Is dat zo? Interessant!";
+			officerResponseText = "Is dat zo? Interessant!";
 		} else if (playerAnswer == SurveillanceIntroAnswer.WHY) {
-			responseText = "Ze is een journalist. We zijn het niet eens met wat ze schrijft. Dus we willen graag met haar praten… ";
+			officerResponseText = "Ze is een journalist. We zijn het niet eens met wat ze schrijft. Dus we willen graag met haar praten… ";
 		}
 		
-		GameObject response = cw.AddNPCBubble(responseText);
+		GameObject response = cw.AddNPCBubble(officerResponseText);
 
 		Invoke ("ShowOfficerCommand", 0.5f);
 	}
@@ -117,7 +116,7 @@ public class IntroOfficer : MonoBehaviour {
 			cw.AddPlayerBubble("Tot ziens.");
 			cw.ClearButtons();
 			
-			Invoke ("IntroDoneButton", 0.5f);
+			Invoke ("IntroDone", 1.0f);
 		});
 	}
 }

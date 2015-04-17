@@ -31,7 +31,7 @@ public class ChatWindow : MonoBehaviour {
 		GameObject scrollContent = this.gameObject.transform.Find("ScrollView/ScrollContent").gameObject;
 		
 		GameObject playerBubble = (GameObject)Instantiate(Resources.Load ("Prefabs/NPCChatbubble"));
-		playerBubble.name = "New Button";
+		playerBubble.name = "NPC Button";
 		
 		Text chatText = playerBubble.GetComponentInChildren<Text>();
 		chatText.text = text;
@@ -58,7 +58,9 @@ public class ChatWindow : MonoBehaviour {
 	public void ClearButtons() {
 		GameObject buttonArea = this.gameObject.transform.Find("ButtonArea").gameObject;
 
-		buttonArea.transform.DetachChildren();
+		foreach (Transform child in buttonArea.transform) {
+			GameObject.Destroy(child.gameObject);
+		}
 	}
 
 }

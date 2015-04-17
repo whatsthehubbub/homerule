@@ -17,7 +17,13 @@ public class IntroOfficer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		GameObject call = (GameObject)Instantiate(Resources.Load ("Prefabs/Agent belt"));
+		call.name = "Agent belt";
+		
+		call.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			GameObject.Destroy(call);
+			ShowChatButton();
+		});
 	}
 	
 	// Update is called once per frame
@@ -33,8 +39,6 @@ public class IntroOfficer : MonoBehaviour {
 	}
 
 	public void ShowChatButton() {
-		GameObject.Find("PickUpButton").SetActive(false);
-
 		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/Chat"));
 		chat.name = "Chat";
 

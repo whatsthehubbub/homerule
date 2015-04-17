@@ -86,13 +86,13 @@ public class MuseumManager : MonoBehaviour {
 //		}
 
 		if (Input.GetKeyDown(KeyCode.Alpha1)) {
-			NewLocation("CAMERAS");
-		}		
+			NewLocation("CAMERAS", true);
+		}
 		if (Input.GetKeyDown(KeyCode.Alpha2)) {
-			NewLocation("MEDALS");
+			NewLocation("MEDALS", true);
 		}		
 		if (Input.GetKeyDown(KeyCode.Alpha3)) {
-			NewLocation("SIGN");
+			NewLocation("SIGN", true);
 		}		
 //		if (Input.GetKeyDown(KeyCode.Alpha4)) {
 //			NewLocation("MARKET");
@@ -101,7 +101,7 @@ public class MuseumManager : MonoBehaviour {
 //			NewLocation("STATION");
 //		}
 		if (Input.GetKeyDown(KeyCode.Alpha6)) {
-			NewLocation ("UNDERWAY");
+			NewLocation ("UNDERWAY", true);
 		}
 	}
 	
@@ -238,10 +238,10 @@ public class MuseumManager : MonoBehaviour {
 			NewLocation("UNDERWAY");
 		}
 	}
-
-	public void NewLocation(string locationKey) {
+	
+	public void NewLocation(string locationKey, bool forceChange = false) {
 		// Hide a map if there is one
-		if (changeScene) {
+		if (forceChange || changeScene) {
 			this.playerState = locationKey;
 			
 			Application.LoadLevel(locations[locationKey].sceneName);

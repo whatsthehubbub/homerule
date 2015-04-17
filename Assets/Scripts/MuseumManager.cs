@@ -150,11 +150,13 @@ public class MuseumManager : MonoBehaviour {
 		Story story;
 		if (stories.TryGetValue(this.playerState, out story)) {
 			if (story.active) {
-				GameObject observation = (GameObject)Instantiate(Resources.Load ("Prefabs/Observeer UI"));
-				observation.name = "Observeer UI";
-
-				Text storytext = observation.GetComponentInChildren<Text>();
-				storytext.text = story.name;
+				// If there is something to do here. Katja calls you.
+				GameObject call = (GameObject)Instantiate(Resources.Load ("Prefabs/Katja belt"));
+				call.name = "Katja belt";
+				
+				call.GetComponentInChildren<Button>().onClick.AddListener(() => {
+					GameObject.Destroy(call);
+				});
 			}
 		} else if (!this.playerState.Equals("UNDERWAY") && this.locations.Keys.Contains(this.playerState)) {
 			// There is no story here

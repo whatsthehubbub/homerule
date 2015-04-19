@@ -502,6 +502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   changeScene: 1
+  showKatjaIntroSurveillanceResponse: 0
   playerState: 
 --- !u!4 &1313762165
 Transform:

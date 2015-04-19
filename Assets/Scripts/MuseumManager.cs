@@ -158,7 +158,12 @@ public class MuseumManager : MonoBehaviour {
 				call.name = "Katja belt";
 				
 				call.GetComponentInChildren<Button>().onClick.AddListener(() => {
-					GameObject.Destroy(call);
+					this.changeScene = false;
+
+					this.playerState = "REPORTERSTORY";
+					// Start the scene with Kanja and the story in it
+					Application.LoadLevel("Reporter Story");
+
 				});
 			}
 		} else if (!this.playerState.Equals("UNDERWAY") && this.locations.Keys.Contains(this.playerState)) {

@@ -23,3 +23,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Intro Reporter.unity
   - enabled: 1
     path: Assets/Scenes/Reporter Response.unity
+  - enabled: 1
+    path: Assets/Scenes/Reporter Story.unity

@@ -145,8 +145,6 @@ public class MuseumManager : MonoBehaviour {
 
 		if (showKatjaIntroSurveillanceResponse && (this.playerState == "CAMERAS" || this.playerState == "MEDALS" || this.playerState == "SIGN")) {
 			// Show Katja's response to what happened
-			changeScene = false;
-			showKatjaIntroSurveillanceResponse = false;
 			this.playerState = "REPORTERRESPONSE";
 			Application.LoadLevel ("Reporter Response");
 		}

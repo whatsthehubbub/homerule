@@ -26,9 +26,13 @@ public class ReporterResponse : MonoBehaviour {
 
 	public void ShowChatButton() {
 		// Only lock stuff if the player actually picks up the phone. Otherwise you can just keep walking around and doing stuff.
-		changeScene = false;
-		showKatjaIntroSurveillanceResponse = false;
+		GameObject main = GameObject.Find("Main");
+		MuseumManager mm = main.GetComponentInChildren<MuseumManager>();
 
+		mm.changeScene = false;
+		mm.showKatjaIntroSurveillanceResponse = false;
+
+		// Load the chat stuff
 		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/Chat"));
 		chat.name = "Chat";
 		

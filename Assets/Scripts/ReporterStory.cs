@@ -318,7 +318,7 @@ public class ReporterStory : MonoBehaviour {
 		displayImage.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
 		displayImage.GetComponentInChildren<Image>().sprite = katjaSprite;
 
-		cw.AddNPCBubble("We hebben verteld wat er gebeurt. We hebben ook gezegd wat we er van vinden. Daardoor veranderen er dingen. Goed gedaan!");
+		cw.AddNPCBubble("We hebben verteld wat er gebeurt. We hebben ook gezegd wat we er van vinden. Daardoor veranderen er dingen!");
 		
 		cw.AddNPCBubble("Op andere plekken zijn ook nog dingen te zien. Ik bel je weer als er iets te doen is!");
 

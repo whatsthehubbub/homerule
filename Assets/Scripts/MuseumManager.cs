@@ -183,6 +183,7 @@ public class MuseumManager : MonoBehaviour {
 				});
 			} else {
 				// TODO display the results of the story here that you once did
+				Debug.Log ("This story now is inactive");
 			}
 		} else if (!this.playerState.Equals("UNDERWAY") && this.locations.Keys.Contains(this.playerState)) {
 			string locationString = "";

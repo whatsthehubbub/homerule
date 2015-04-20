@@ -17,12 +17,13 @@ public class IntroOfficer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		Debug.Log ("Start");
 		GameObject call = (GameObject)Instantiate(Resources.Load ("Prefabs/Agent belt"));
 		call.name = "Agent belt";
 		
 		call.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			GameObject.Destroy(call);
-			ShowChatButton();
+			ShowVideoCall();
 		});
 	}
 	
@@ -31,20 +32,33 @@ public class IntroOfficer : MonoBehaviour {
 	
 	}
 
-	public void IntroDone() {
-		GameObject main = GameObject.Find("Main");
-		MuseumManager mm = main.GetComponentInChildren<MuseumManager>();
+	public void ShowVideoCall() {
+		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
+		chat.name = "VideoCall";
+		
+		cw = chat.GetComponent<ChatWindow>();
 
-		mm.IntroOfficerDone();
+		cw.AddNPCBubble("Hallo. Een moment alstublieft.");
+
+		GameObject what = cw.AddButton ("Wat is er?");
+		what.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			cw.AddPlayerBubble("Wat is er aan de hand?");
+
+			Invoke ("ShowChatButton", 0.5f);
+		});
 	}
 
+
 	public void ShowChatButton() {
+		GameObject.Destroy(chat);
+
 		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/Chat"));
 		chat.name = "Chat";
 
 		cw = chat.GetComponent<ChatWindow>();
 
-		cw.AddNPCBubble("Niks ernstigs. Heeft u deze persoon gezien?");
+		cw.AddNPCBubble("Niks ernstigs.");
+		cw.AddNPCBubble("Heeft u deze persoon gezien?");
 
 		GameObject nooit = cw.AddButton("Nooit gezien");
 		nooit.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -123,4 +137,12 @@ public class IntroOfficer : MonoBehaviour {
 			Invoke ("IntroDone", 1.0f);
 		});
 	}
+
+	public void IntroDone() {
+		GameObject main = GameObject.Find("Main");
+		MuseumManager mm = main.GetComponentInChildren<MuseumManager>();
+		
+		mm.IntroOfficerDone();
+	}
+
 }

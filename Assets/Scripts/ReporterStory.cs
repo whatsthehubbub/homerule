@@ -52,7 +52,6 @@ public class ReporterStory : MonoBehaviour {
 		GameObject displayImage = GameObject.Find ("DisplayImage");
 		Sprite introSprite = Resources.Load<Sprite>("Sprites/situatie intro");
 		displayImage.GetComponentInChildren<Image>().sprite = introSprite;
-		displayImage.transform.localScale *= 3.3f;
 
 		cw.AddNPCBubble("Mensen moeten hun huis uit. Ze zijn in de buurt aan het bouwen. Daardoor kunnen huizen instorten. Ze zeggen dat het gevaarlijk is. Maar niet iedereen wil weg.");
 		cw.AddNPCBubble("Kun je mij helpen hier over te schrijven?");
@@ -298,7 +297,6 @@ public class ReporterStory : MonoBehaviour {
 
 		GameObject displayImage = GameObject.Find ("DisplayImage");
 		displayImage.GetComponentInChildren<Image>().sprite = showSprite;
-		displayImage.transform.localScale *= 3.3f;
 		
 		
 		if (mm.playerOpinion == StoryOpinionAnswer.SAD) {
@@ -321,7 +319,6 @@ public class ReporterStory : MonoBehaviour {
 	public void ShowResultClose() {
 		GameObject displayImage = GameObject.Find ("DisplayImage");
 		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/journalist video");
-		displayImage.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
 		displayImage.GetComponentInChildren<Image>().sprite = katjaSprite;
 
 		cw.AddNPCBubble("We hebben verteld wat er gebeurt. We hebben ook gezegd wat we er van vinden. Daardoor veranderen er dingen!");

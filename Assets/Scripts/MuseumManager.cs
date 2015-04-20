@@ -167,6 +167,8 @@ public class MuseumManager : MonoBehaviour {
 					Application.LoadLevel("Reporter Story");
 
 				});
+			} else {
+				// TODO display the results of the story here that you once did
 			}
 		} else if (!this.playerState.Equals("UNDERWAY") && this.locations.Keys.Contains(this.playerState)) {
 			// There is no story here

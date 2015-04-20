@@ -340,5 +340,7 @@ public class ReporterStory : MonoBehaviour {
 		MuseumManager mm = main.GetComponentInChildren<MuseumManager>();
 		mm.changeScene = true;
 		mm.storyCompleted = true;
+		mm.stories[mm.playerState].active = false;
+
 	}
 }

@@ -25,30 +25,39 @@ public class IntroReporter : MonoBehaviour {
 	}
 
 	public void ShowChatButton() {
-		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/Chat"));
-		chat.name = "Chat";
-		
+		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
+		chat.name = "VideoCall";
 		cw = chat.GetComponent<ChatWindow>();
 
+		GameObject displayImage = GameObject.Find ("DisplayImage");
+		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/journalist video");
+		displayImage.GetComponentInChildren<Image>().sprite = katjaSprite;
+		
 		cw.AddNPCBubble("Hoi! Ik ben Katja. Ik werk als journalist.");
 
-		Invoke ("ShowChatButton2", 0.5f);
+		GameObject button = cw.AddButton("Hoi");
+		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			cw.ClearButtons();
+			ShowChatButton2();
+		});
 	}
 
 	public void ShowChatButton2() {
+		GameObject.Destroy(chat);
+		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/Chat"));
+		chat.name = "Chat";
+		cw = chat.GetComponent<ChatWindow>();
+
+		cw.AddPlayerBubble("Hoi");
+
 		cw.AddNPCBubble("Ik zie dat je in het Airborne Museum bent. Wat cool!");
-
-		Invoke ("ShowChatButton3", 0.5f);
-	}
-
-	public void ShowChatButton3() {
 		cw.AddNPCBubble("Er is daar van alles te zien over vrijheid. Ik wil daar graag berichten over schrijven. Jij kunt me daarmee helpen.");
 
 		GameObject hoe = cw.AddButton("Hoe?");
 		hoe.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.AddPlayerBubble("Hoe kan ik je helpen?");
 			cw.ClearButtons();
-
+			
 			Invoke ("ShowHelp1", 0.5f);
 		});
 	}
@@ -62,24 +71,33 @@ public class IntroReporter : MonoBehaviour {
 	public void ShowHelp2() {
 		cw.AddNPCBubble("Ga eerst kijken bij de kast met medailles. Die ziet er zo uit:");
 
-		GameObject goed = cw.AddButton ("Is goed");
-		goed.GetComponentInChildren<Button>().onClick.AddListener(() => {
+		GameObject button = cw.AddButton ("Is goed");
+		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble("Is goed, ik ga op zoek naar de kast met medailles.");
 
-			Invoke ("ShowReporterClose", 0.5f);
+			ShowReporterClose();
 		});
 	}
 
 	public void ShowReporterClose() {
+		GameObject.Destroy(chat);
+		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
+		chat.name = "VideoCall";
+		cw = chat.GetComponent<ChatWindow>();
+
+		GameObject displayImage = GameObject.Find ("DisplayImage");
+		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/journalist video");
+		displayImage.GetComponentInChildren<Image>().sprite = katjaSprite;
+		
+		cw.AddPlayerBubble("Is goed, ik ga op zoek naar de kast met medailles.");
 		cw.AddNPCBubble("Super! Als je daar bent dan roep ik je op.");
 
-		GameObject gaan = cw.AddButton ("Gaan");
-		gaan.GetComponentInChildren<Button>().onClick.AddListener(() => {
+		GameObject button = cw.AddButton ("Ok");
+		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			GameObject main = GameObject.Find("Main");
-			if (main != null) {
-				main.SendMessage("IntroReporterDone");
-			}
+			MuseumManager mm = main.GetComponentInChildren<MuseumManager>();
+		
+			mm.IntroReporterDone();
 		});
 	}
 }

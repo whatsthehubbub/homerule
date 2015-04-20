@@ -30,6 +30,24 @@ public struct Story {
 	}
 }
 
+public enum StoryOpinionAnswer {
+	SAD,
+	GOOD,
+	WRONG
+}
+
+public enum StoryFactAnswer {
+	FIGHTING,
+	HELPING,
+	STEALING
+}
+
+public enum OfficerResponseOpinion {
+	AGREE,
+	NEUTRAL,
+	DISAGREE
+}
+
 public class MuseumManager : MonoBehaviour {
 
 	private Dictionary<string, Location> locations = new Dictionary<string, Location>(){
@@ -47,7 +65,10 @@ public class MuseumManager : MonoBehaviour {
 	public bool changeScene = true;
 
 	public bool showKatjaIntroSurveillanceResponse = false;
+	public bool showOfficerStoryResponse = false;
 
+	public StoryOpinionAnswer playerOpinion;
+	public StoryFactAnswer playerFact;
 	public bool storyCompleted = false;
 	
 	private List<Beacon> mybeacons = new List<Beacon>();

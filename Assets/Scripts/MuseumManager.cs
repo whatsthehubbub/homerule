@@ -179,12 +179,20 @@ public class MuseumManager : MonoBehaviour {
 			if (this.playerState.Equals("CAMERAS")) { locationString = "de kast met camera's"; }
 			else if (this.playerState.Equals("MEDALS")) { locationString = "de kast met medailles"; }
 
-			if (activeLocations.Count > 0) {
-				nostorytext.text = "Er is hier geen verhaal maar in " + activeLocations[0] + " wel.";
-			} else {
-				nostorytext.text = "De verhalen zijn op.";
-			}
 
+			GameObject chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
+			chat.name = "VideoCall";
+
+			// Show the correct sprite (Journalist)
+			GameObject displayImage = GameObject.Find ("DisplayImage");
+			Sprite katjaSprite = Resources.Load<Sprite>("Sprites/journalist video");
+			displayImage.GetComponentInChildren<Image>().sprite = katjaSprite;
+			
+			ChatWindow cw = chat.GetComponent<ChatWindow>();
+
+			cw.AddNPCBubble("Oh je bent bij de " + locationString + "! Cool.");
+
+			cw.AddNPCBubble("Hier is nu niks te doen. Maar wel bij het bord “verboden Arnhem te betreden”. Ga daar eens kijken?");
 		}
 //
 //		// If you're in the office

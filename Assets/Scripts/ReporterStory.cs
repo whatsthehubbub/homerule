@@ -184,8 +184,14 @@ public class ReporterStory : MonoBehaviour {
 			
 			cw.AddNPCBubble("De mensen moesten weg omdat er gevochten werd en dat is gevaarlijk. De Duitsers waren ook bang dat de mensen de geallieerden zouden helpen.");
 		}
-		
-		Invoke ("ShowFactResponseClose", 0.5f);
+
+		GameObject button = cw.AddButton("Oh");
+		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			cw.ClearButtons();
+			cw.AddPlayerBubble("Oh, zit het zo!");
+
+			Invoke ("ShowFactResponseClose", 0.5f);
+		});
 	}
 	
 	public void ShowFactResponseClose() {

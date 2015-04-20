@@ -24,6 +24,9 @@ public class ReporterStory : MonoBehaviour {
 
 	public Sprite katjaSprite;
 	public Sprite introSprite;
+	public Sprite result1Sprite;
+	public Sprite result2Sprite;
+	public Sprite result3Sprite;
 
 	// Use this for initialization
 	void Start () {
@@ -286,11 +289,27 @@ public class ReporterStory : MonoBehaviour {
 			cw.ClearButtons();
 			cw.AddPlayerBubble("Laat zien!");
 			
-			Invoke ("ShowResult", 0.5f);
+			Invoke ("ShowResultResponse", 0.5f);
 		});
 	}
 	
 	public void ShowResultResponse() {
+		GameObject.Destroy(chat);
+		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
+		chat.name = "VideoCall";
+
+		cw = chat.GetComponent<ChatWindow>();
+
+		// Show the correct sprite (Journalist)
+		Sprite showSprite = null;
+		if (playerOpinion == StoryOpinionAnswer.GOOD) { showSprite = result1Sprite; }
+		else if (playerOpinion == StoryOpinionAnswer.SAD) { showSprite = result2Sprite; }
+		else if (playerOpinion == StoryOpinionAnswer.WRONG) { showSprite = result3Sprite; }
+
+		GameObject displayImage = GameObject.Find ("DisplayImage");
+		displayImage.GetComponentInChildren<Image>().sprite = showSprite;
+		displayImage.transform.localScale *= 3.3f;
+		
 		
 		if (playerOpinion == StoryOpinionAnswer.SAD) {
 			cw.AddNPCBubble("Er wordt gelukkig goed gezorgd voor de mensen.");
@@ -308,6 +327,6 @@ public class ReporterStory : MonoBehaviour {
 		
 		cw.AddNPCBubble("Op andere plekken zijn ook nog dingen te zien. Ik bel je weer als er iets te doen is!");
 		
-		// TODO exit the chat
+		// TODO add button to exit the the chat
 	}
 }

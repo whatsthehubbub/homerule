@@ -262,3 +262,6 @@ MonoBehaviour:
   playerFact: 0
   katjaSprite: {fileID: 21300000, guid: 507e19939b98f9c4a940dbc9701f5a21, type: 3}
   introSprite: {fileID: 21300000, guid: 37ca182cc6923a7469d9f0885a61031c, type: 3}
+  result1Sprite: {fileID: 21300000, guid: 8bd9ab2eaccd0e848bc46e4499b9d35d, type: 3}
+  result2Sprite: {fileID: 21300000, guid: c21523f4c73b23b41a256c74aea5941d, type: 3}
+  result3Sprite: {fileID: 21300000, guid: 8cd90ab4118a7134fb17171b5e25c7b6, type: 3}

@@ -187,14 +187,6 @@ public class MuseumManager : MonoBehaviour {
 				// TODO display the results of the story here that you once did
 			}
 		} else if (!this.playerState.Equals("UNDERWAY") && this.locations.Keys.Contains(this.playerState)) {
-			// There is no story here
-			GameObject nostory = (GameObject)Instantiate(Resources.Load ("Prefabs/No story"));
-			nostory.name = "No story";
-
-			// Point the player to a place where there is a story
-			List<string> activeLocations = stories.Where(kvp => kvp.Value.active).Select(kvp => kvp.Key).ToList();
-			Text nostorytext = nostory.GetComponentInChildren<Text>();
-
 			string locationString = "";
 			if (this.playerState.Equals("CAMERAS")) { locationString = "de kast met camera's"; }
 			else if (this.playerState.Equals("MEDALS")) { locationString = "de kast met medailles"; }

@@ -507,6 +507,7 @@ MonoBehaviour:
   playerOpinion: 0
   playerFact: 0
   storyCompleted: 0
+  currentStory: 
   playerState: 
 --- !u!4 &1313762165
 Transform:

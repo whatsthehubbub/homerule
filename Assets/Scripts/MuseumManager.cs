@@ -216,7 +216,11 @@ public class MuseumManager : MonoBehaviour {
 
 			cw.AddNPCBubble("Oh je bent bij de " + locationString + "! Cool.");
 
-			cw.AddNPCBubble("Hier is nu niks te doen. Maar wel bij het bord “verboden Arnhem te betreden”. Ga daar eens kijken?");
+			if (!storyCompleted) {
+				cw.AddNPCBubble("Hier is nu niks te doen. Maar wel bij het bord “verboden Arnhem te betreden”. Ga daar eens kijken?");
+			} else {
+				cw.AddNPCBubble("Er is nu nergens meer iets te doen. Je hebt me super geholpen.");
+			}
 		}
 	}
 	

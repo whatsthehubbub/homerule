@@ -22,6 +22,9 @@ public class ReporterStory : MonoBehaviour {
 	public StoryOpinionAnswer playerOpinion;
 	public StoryFactAnswer playerFact;
 
+	public Sprite katjaSprite;
+	public Sprite introSprite;
+
 	// Use this for initialization
 	void Start () {
 		StartStory ();
@@ -38,8 +41,12 @@ public class ReporterStory : MonoBehaviour {
 		MuseumManager mm = main.GetComponentInChildren<MuseumManager>();
 		mm.changeScene = false;
 		
-		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/Chat"));
-		chat.name = "Chat";
+		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
+		chat.name = "VideoCall";
+
+		// Show the correct sprite (Journalist)
+		GameObject displayImage = GameObject.Find ("DisplayImage");
+		displayImage.GetComponentInChildren<Image>().sprite = katjaSprite;
 		
 		cw = chat.GetComponent<ChatWindow>();
 		
@@ -57,6 +64,10 @@ public class ReporterStory : MonoBehaviour {
 	}
 	
 	public void ShowReporterResponse1() {
+		GameObject displayImage = GameObject.Find ("DisplayImage");
+		displayImage.GetComponentInChildren<Image>().sprite = introSprite;
+		displayImage.transform.localScale *= 3.3f;
+
 		cw.AddNPCBubble("Mensen moeten hun huis uit. Ze zijn in de buurt aan het bouwen. Daardoor kunnen huizen instorten. Ze zeggen dat het gevaarlijk is. Maar niet iedereen wil weg.");
 		cw.AddNPCBubble("Kun je mij helpen hier over te schrijven?");
 		
@@ -70,6 +81,12 @@ public class ReporterStory : MonoBehaviour {
 	}
 	
 	public void ShowOpinion1() {
+		GameObject.Destroy(chat);
+		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/Chat"));
+		chat.name = "Chat";
+
+		cw = chat.GetComponent<ChatWindow>();
+
 		cw.AddNPCBubble("Ze willen dat mensen verhuizen omdat het gevaarlijk is waar ze nu wonen.");
 		cw.AddNPCBubble("Wat vind je daar van?");
 		

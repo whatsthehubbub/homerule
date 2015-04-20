@@ -21,8 +21,7 @@ public class ReporterStory : MonoBehaviour {
 
 	public StoryOpinionAnswer playerOpinion;
 	public StoryFactAnswer playerFact;
-
-	public Sprite introSprite;
+	
 	public Sprite result1Sprite;
 	public Sprite result2Sprite;
 	public Sprite result3Sprite;
@@ -68,6 +67,7 @@ public class ReporterStory : MonoBehaviour {
 	
 	public void ShowReporterResponse1() {
 		GameObject displayImage = GameObject.Find ("DisplayImage");
+		Sprite introSprite = Resources.Load<Sprite>("Sprites/situatie intro");
 		displayImage.GetComponentInChildren<Image>().sprite = introSprite;
 		displayImage.transform.localScale *= 3.3f;
 

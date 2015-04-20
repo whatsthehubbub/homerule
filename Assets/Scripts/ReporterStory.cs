@@ -22,7 +22,6 @@ public class ReporterStory : MonoBehaviour {
 	public StoryOpinionAnswer playerOpinion;
 	public StoryFactAnswer playerFact;
 
-	public Sprite katjaSprite;
 	public Sprite introSprite;
 	public Sprite result1Sprite;
 	public Sprite result2Sprite;
@@ -49,6 +48,7 @@ public class ReporterStory : MonoBehaviour {
 
 		// Show the correct sprite (Journalist)
 		GameObject displayImage = GameObject.Find ("DisplayImage");
+		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/journalist video");
 		displayImage.GetComponentInChildren<Image>().sprite = katjaSprite;
 		
 		cw = chat.GetComponent<ChatWindow>();

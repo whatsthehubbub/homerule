@@ -315,15 +315,30 @@ public class ReporterStory : MonoBehaviour {
 		} else if (playerOpinion == StoryOpinionAnswer.WRONG) {
 			cw.AddNPCBubble("Sommige mensen luisteren niet. Ze krijgen ruzie en er wordt gevochten! ");
 		}
-		
-		Invoke ("ShowResultClose", 0.5f);
+
+		GameObject ok = cw.AddButton("Ok");
+		ok.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			cw.ClearButtons();
+			cw.AddPlayerBubble("Ok");
+			
+			Invoke ("ShowResultClose", 0.5f);
+		});
 	}
 	
 	public void ShowResultClose() {
+		GameObject displayImage = GameObject.Find ("DisplayImage");
+		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/journalist video");
+		displayImage.GetComponentInChildren<Image>().sprite = katjaSprite;
+
 		cw.AddNPCBubble("We hebben verteld wat er gebeurt. We hebben ook gezegd wat we er van vinden. Daardoor veranderen er dingen. Goed gedaan!");
 		
 		cw.AddNPCBubble("Op andere plekken zijn ook nog dingen te zien. Ik bel je weer als er iets te doen is!");
 		
 		// TODO add button to exit the the chat
+
+		GameObject main = GameObject.Find("Main");
+		MuseumManager mm = main.GetComponentInChildren<MuseumManager>();
+		mm.changeScene = true;
+		mm.storyCompleted = true;
 	}
 }

@@ -47,7 +47,8 @@ public class MuseumManager : MonoBehaviour {
 	public bool changeScene = true;
 
 	public bool showKatjaIntroSurveillanceResponse = false;
-	
+
+	public bool storyCompleted = false;
 	
 	private List<Beacon> mybeacons = new List<Beacon>();
 	private bool scanning = true;
@@ -69,6 +70,7 @@ public class MuseumManager : MonoBehaviour {
 
 		changeScene = false;
 		showKatjaIntroSurveillanceResponse = false;
+		storyCompleted = false;
 
 		stories.Clear();
 		stories.Add ("SIGN", new Story("Story about the sign"));

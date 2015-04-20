@@ -184,6 +184,20 @@ public class MuseumManager : MonoBehaviour {
 			} else {
 				// TODO display the results of the story here that you once did
 				Debug.Log ("This story now is inactive");
+
+				GameObject chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
+				chat.name = "VideoCall";
+				ChatWindow cw = chat.GetComponent<ChatWindow>();
+				
+				// Show the correct sprite (Journalist)
+				GameObject displayImage = GameObject.Find ("DisplayImage");
+				Sprite katjaSprite = Resources.Load<Sprite>("Sprites/journalist video");
+				displayImage.GetComponentInChildren<Image>().sprite = katjaSprite;
+
+				cw.AddNPCBubble("Oh je bent weer bij het bord “verboden Arnhem te betreden”.");
+				cw.AddNPCBubble("Daar hebben we al iets mee gedaan. Weet je nog? Dat was dit bericht:");
+
+				cw.AddNPCBubble("Er is nu nergens meer iets te doen. Je hebt me super geholpen.");
 			}
 		} else if (!this.playerState.Equals("UNDERWAY") && this.locations.Keys.Contains(this.playerState)) {
 			string locationString = "";
@@ -193,13 +207,12 @@ public class MuseumManager : MonoBehaviour {
 
 			GameObject chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
 			chat.name = "VideoCall";
+			ChatWindow cw = chat.GetComponent<ChatWindow>();
 
 			// Show the correct sprite (Journalist)
 			GameObject displayImage = GameObject.Find ("DisplayImage");
 			Sprite katjaSprite = Resources.Load<Sprite>("Sprites/journalist video");
 			displayImage.GetComponentInChildren<Image>().sprite = katjaSprite;
-			
-			ChatWindow cw = chat.GetComponent<ChatWindow>();
 
 			cw.AddNPCBubble("Oh je bent bij de " + locationString + "! Cool.");
 

@@ -314,6 +314,10 @@ MonoBehaviour:
   progressBar: {fileID: 198636}
   progressSpeed: .0199999996
   shutterSound: {fileID: 8300000, guid: a351aa2a9eb835f49bdd4283f0d3ef2e, type: 3}
+  chat: {fileID: 0}
+  cw: {fileID: 0}
+  playerOpinion: 0
+  playerFact: 0
 --- !u!222 &22244312
 CanvasRenderer:
   m_ObjectHideFlags: 1

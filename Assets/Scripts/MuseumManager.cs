@@ -158,8 +158,6 @@ public class MuseumManager : MonoBehaviour {
 	void OnLevelWasLoaded(int level) {
 		Debug.Log ("Loaded level: " + Application.loadedLevelName);
 
-		Debug.Log ("stories " + this.stories["SIGN"].active);
-
 		if (showKatjaIntroSurveillanceResponse && (this.playerState == "CAMERAS" || this.playerState == "MEDALS" || this.playerState == "SIGN")) {
 			// Show Katja's response to what happened
 			this.playerState = "REPORTERRESPONSE";

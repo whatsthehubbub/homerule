@@ -315,6 +315,7 @@ public class ReporterStory : MonoBehaviour {
 	public void ShowResultClose() {
 		GameObject displayImage = GameObject.Find ("DisplayImage");
 		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/journalist video");
+		displayImage.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
 		displayImage.GetComponentInChildren<Image>().sprite = katjaSprite;
 
 		cw.AddNPCBubble("We hebben verteld wat er gebeurt. We hebben ook gezegd wat we er van vinden. Daardoor veranderen er dingen. Goed gedaan!");

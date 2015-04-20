@@ -136,15 +136,6 @@ public class MuseumManager : MonoBehaviour {
 	void OnLevelWasLoaded(int level) {
 		Debug.Log ("Loaded level: " + Application.loadedLevelName);
 
-//		// Display the officer if he is at this location
-//		if (!"".Equals(officerLocation) && Application.loadedLevelName.Equals(locations[officerLocation].sceneName)) {
-//			GameObject officer = (GameObject)Instantiate(Resources.Load("Prefabs/Officer"));
-//		} else {
-//			if (playerLocation != "UNDERWAY") {
-//				MoveOfficer(new string[] {playerLocation});
-//			}
-//		}
-
 		if (showKatjaIntroSurveillanceResponse && (this.playerState == "CAMERAS" || this.playerState == "MEDALS" || this.playerState == "SIGN")) {
 			// Show Katja's response to what happened
 			this.playerState = "REPORTERRESPONSE";
@@ -198,14 +189,6 @@ public class MuseumManager : MonoBehaviour {
 
 			cw.AddNPCBubble("Hier is nu niks te doen. Maar wel bij het bord “verboden Arnhem te betreden”. Ga daar eens kijken?");
 		}
-//
-//		// If you're in the office
-//		if (Application.loadedLevelName.Equals(locations["OFFICE"].sceneName)) {
-//			//  replenish your observations if they are gone
-//			if (this.observationLocations.Count == 0) {
-//				CreateNewObservations();
-//			}
-//		}
 	}
 	
 	private void OnBeaconRangeChanged(List<Beacon> beacons) {

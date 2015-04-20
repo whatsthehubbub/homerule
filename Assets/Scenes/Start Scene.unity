@@ -503,6 +503,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   changeScene: 1
   showKatjaIntroSurveillanceResponse: 0
+  showOfficerStoryResponse: 0
+  playerOpinion: 0
+  playerFact: 0
+  storyCompleted: 0
   playerState: 
 --- !u!4 &1313762165
 Transform:

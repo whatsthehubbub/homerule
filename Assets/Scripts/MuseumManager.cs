@@ -74,6 +74,7 @@ public class MuseumManager : MonoBehaviour {
 	private List<Beacon> mybeacons = new List<Beacon>();
 	private bool scanning = true;
 
+	public string currentStory;
 	public string playerState;
 
 	/**
@@ -157,6 +158,8 @@ public class MuseumManager : MonoBehaviour {
 	void OnLevelWasLoaded(int level) {
 		Debug.Log ("Loaded level: " + Application.loadedLevelName);
 
+		Debug.Log ("stories " + this.stories["SIGN"].active);
+
 		if (showKatjaIntroSurveillanceResponse && (this.playerState == "CAMERAS" || this.playerState == "MEDALS" || this.playerState == "SIGN")) {
 			// Show Katja's response to what happened
 			this.playerState = "REPORTERRESPONSE";
@@ -174,6 +177,7 @@ public class MuseumManager : MonoBehaviour {
 				call.GetComponentInChildren<Button>().onClick.AddListener(() => {
 					this.changeScene = false;
 
+					this.currentStory = this.playerState;
 					this.playerState = "REPORTERSTORY";
 					// Start the scene with Kanja and the story in it
 					Application.LoadLevel("Reporter Story");

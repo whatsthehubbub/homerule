@@ -321,8 +321,6 @@ public class ReporterStory : MonoBehaviour {
 		cw.AddNPCBubble("We hebben verteld wat er gebeurt. We hebben ook gezegd wat we er van vinden. Daardoor veranderen er dingen. Goed gedaan!");
 		
 		cw.AddNPCBubble("Op andere plekken zijn ook nog dingen te zien. Ik bel je weer als er iets te doen is!");
-		
-		// TODO add button to exit the the chat
 
 		GameObject main = GameObject.Find("Main");
 		MuseumManager mm = main.GetComponentInChildren<MuseumManager>();
@@ -331,9 +329,9 @@ public class ReporterStory : MonoBehaviour {
 		mm.showOfficerStoryResponse = true;
 
 		// Update the current story to be no longer active
-		Story s = mm.stories[mm.playerState];
-		s.active = true;
-		mm.stories[mm.playerState] = s;
+		Story s = mm.stories[mm.currentStory];
+		s.active = false;
+		mm.stories[mm.currentStory] = s;
 
 	}
 }

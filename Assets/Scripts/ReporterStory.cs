@@ -21,10 +21,6 @@ public class ReporterStory : MonoBehaviour {
 
 	public StoryOpinionAnswer playerOpinion;
 	public StoryFactAnswer playerFact;
-	
-	public Sprite result1Sprite;
-	public Sprite result2Sprite;
-	public Sprite result3Sprite;
 
 	// Use this for initialization
 	void Start () {
@@ -301,10 +297,11 @@ public class ReporterStory : MonoBehaviour {
 		cw = chat.GetComponent<ChatWindow>();
 
 		// Show the correct sprite (Journalist)
-		Sprite showSprite = null;
-		if (playerOpinion == StoryOpinionAnswer.GOOD) { showSprite = result1Sprite; }
-		else if (playerOpinion == StoryOpinionAnswer.SAD) { showSprite = result2Sprite; }
-		else if (playerOpinion == StoryOpinionAnswer.WRONG) { showSprite = result3Sprite; }
+		string spriteName = "";
+		if (playerOpinion == StoryOpinionAnswer.GOOD) { spriteName = "situatie uitkomst goed"; }
+		else if (playerOpinion == StoryOpinionAnswer.SAD) { spriteName = "situatie uitkomst zielig"; }
+		else if (playerOpinion == StoryOpinionAnswer.WRONG) { spriteName = "situatie uitkomst slecht"; }
+		Sprite showSprite = Resources.Load<Sprite>("Sprites/" + spriteName);;
 
 		GameObject displayImage = GameObject.Find ("DisplayImage");
 		displayImage.GetComponentInChildren<Image>().sprite = showSprite;

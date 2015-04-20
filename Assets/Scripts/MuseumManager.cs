@@ -175,6 +175,10 @@ public class MuseumManager : MonoBehaviour {
 			List<string> activeLocations = stories.Where(kvp => kvp.Value.active).Select(kvp => kvp.Key).ToList();
 			Text nostorytext = nostory.GetComponentInChildren<Text>();
 
+			string locationString = "";
+			if (this.playerState.Equals("CAMERAS")) { locationString = "de kast met camera's"; }
+			else if (this.playerState.Equals("MEDALS")) { locationString = "de kast met medailles"; }
+
 			if (activeLocations.Count > 0) {
 				nostorytext.text = "Er is hier geen verhaal maar in " + activeLocations[0] + " wel.";
 			} else {

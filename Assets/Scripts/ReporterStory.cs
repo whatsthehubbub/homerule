@@ -68,7 +68,7 @@ public class ReporterStory : MonoBehaviour {
 		GameObject ja = cw.AddButton("Ja");
 		ja.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble("Ja ik help je");
+			cw.AddPlayerBubble("Ja ik help je.");
 			
 			Invoke ("ShowOpinion1", 0.5f);
 		});
@@ -120,10 +120,10 @@ public class ReporterStory : MonoBehaviour {
 	public void ShowReporterOpinionResponse1() {
 		cw.AddNPCBubble("Helemaal mee eens. Laten we de mensen hier van overtuigen.");
 		
-		GameObject ok = cw.AddButton("Ok");
+		GameObject ok = cw.AddButton("Hoe?");
 		ok.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble("Ok, maar hoe?");
+			cw.AddPlayerBubble("OK, maar hoe?");
 			
 			Invoke ("ShowFindObject", 0.5f);
 		});
@@ -155,9 +155,9 @@ public class ReporterStory : MonoBehaviour {
 		cw.AddNPCBubble("De mensen in Arnhem moesten ook hun huis uit. Dat wilden de Duitsers.");
 		cw.AddNPCBubble("Waarom denk jij dat zij dat wilden?");
 		
-		cw.AddNPCBubble("Kies uit (1) omdat er werd gevochten, (2) zodat mensen de geallieerden niet zouden helpen, of (3) om hun spullen te stelen.");
+		cw.AddNPCBubble("Was dat (1) omdat er werd gevochten, (2) zodat mensen de geallieerden niet zouden helpen, of (3) om hun spullen te stelen.");
 		
-		GameObject answer1 = cw.AddButton("Antwoord 1");
+		GameObject answer1 = cw.AddButton("Er werd gevochten");
 		answer1.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 			cw.AddPlayerBubble("Omdat er werd gevochten en dat is gevaarlijk.");
@@ -167,7 +167,7 @@ public class ReporterStory : MonoBehaviour {
 			Invoke ("ShowFactResponse", 0.5f);
 		});
 		
-		GameObject answer2 = cw.AddButton("Antwoord 2");
+		GameObject answer2 = cw.AddButton("Geallieerden helpen");
 		answer2.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 			cw.AddPlayerBubble("Zodat mensen de geallieerden niet zouden helpen.");
@@ -177,7 +177,7 @@ public class ReporterStory : MonoBehaviour {
 			Invoke ("ShowFactResponse", 0.5f);
 		});
 		
-		GameObject answer3 = cw.AddButton("Antwoord 3");
+		GameObject answer3 = cw.AddButton("Spullen stelen");
 		answer3.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 			cw.AddPlayerBubble("Zodat de Duitsers hun spullen konden te stelen.");
@@ -259,7 +259,7 @@ public class ReporterStory : MonoBehaviour {
 	public void ShowArgumentResponse() {
 		cw.AddNPCBubble("OK! Ik heb er dit bericht van gemaakt:");
 		
-		cw.AddNPCBubble("Net als nu moesten de mensen in Arnhem van de Duitsers ook uit hun huis. Dat was omdat er gevochten werd en de Duitsers bang waren dat de mensen de geallieerden zouden helpen. Daarna werden er spullen gestolen door de Duitsers en door de mensen zelf.");
+		cw.AddNPCBubble("Net als nu moesten de mensen in Arnhem van de Duitsers uit hun huis. Dat was omdat er gevochten werd en de Duitsers bang waren dat de mensen de geallieerden zouden helpen. Daarna werden er spullen gestolen door de Duitsers en door burgers.");
 		
 		string argument = "";
 		if (mm.playerOpinion == StoryOpinionAnswer.SAD) argument = "zielig want je moet al je spullen en vrienden achterlaten en je weet niet waar je heen gaat. Ze moeten dus goed voor de mensen zorgen!";
@@ -338,7 +338,7 @@ public class ReporterStory : MonoBehaviour {
 
 		cw.AddNPCBubble("We hebben verteld wat er gebeurt. We hebben ook gezegd wat we er van vinden. Daardoor veranderen er dingen!");
 		
-		cw.AddNPCBubble("Op andere plekken zijn ook nog dingen te zien. Ik bel je weer als er iets te doen is!");
+		cw.AddNPCBubble("Op andere plekken zijn ook nog dingen te zien. Ik bel je weer als er iets te doen is.");
 
 		GameObject main = GameObject.Find("Main");
 		MuseumManager mm = main.GetComponentInChildren<MuseumManager>();

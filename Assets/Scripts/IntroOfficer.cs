@@ -109,7 +109,7 @@ public class IntroOfficer : MonoBehaviour {
 		} else if (playerAnswer == SurveillanceIntroAnswer.YES) {
 			officerResponseText = "Is dat zo? Interessant!";
 		} else if (playerAnswer == SurveillanceIntroAnswer.WHY) {
-			officerResponseText = "Ze is een journalist. We zijn het niet eens met wat ze schrijft. Dus we willen graag met haar praten… ";
+			officerResponseText = "Ze is een journalist. We zijn het niet eens met wat ze schrijft.";
 		}
 		
 		cw.AddNPCBubble(officerResponseText);
@@ -120,9 +120,9 @@ public class IntroOfficer : MonoBehaviour {
 	public void ShowOfficerCommand() {
 		cw.AddNPCBubble("Als u de reporter spreekt zeg dan maar dat ze ons moet opzoeken.");
 
-		GameObject ok = cw.AddButton ("Ok…");
+		GameObject ok = cw.AddButton ("OK");
 		ok.GetComponentInChildren<Button>().onClick.AddListener(() => {
-			cw.AddPlayerBubble("Ok.");
+			cw.AddPlayerBubble("OK…");
 			cw.ClearButtons();
 
 			Invoke ("ShowOfficerCloseOff", 0.5f);
@@ -132,7 +132,7 @@ public class IntroOfficer : MonoBehaviour {
 	public void ShowOfficerCloseOff() {
 		cw.AddNPCBubble("Bedankt voor uw tijd. U kunt gaan.");
 
-		GameObject ok = cw.AddButton ("Tot ziens.");
+		GameObject ok = cw.AddButton ("Tot ziens");
 		ok.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.AddPlayerBubble("Tot ziens.");
 			cw.ClearButtons();

@@ -382,14 +382,12 @@ public class ReporterStory : MonoBehaviour {
 			
 			www.LoadImageIntoTexture(text);
 			Debug.Log ("Text loaded" + text.ToString());
-			
+
 			GameObject imageObject = GameObject.Find ("PlayerRawImage");
 			RawImage raw = imageObject.GetComponentInChildren<RawImage>();
 			Debug.Log ("Got raw");
-			
+
 			raw.texture = text;
-			
-			text.Apply();
 
 			Invoke ("ShowFindObjectResponse", 0.5f);
 		}

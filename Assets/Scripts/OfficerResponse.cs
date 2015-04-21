@@ -59,7 +59,10 @@ public class OfficerResponse : MonoBehaviour {
 		cw.SetNPCAvatar("agent");
 		
 		cw.AddNPCBubble("Fijn. We zien net dit bericht.");
-		cw.AddNPCBubble("<BERICHT>");
+
+		Sprite articleSprite = Resources.Load<Sprite>("Sprites/chat_artikel");
+		GameObject storyBubble = cw.AddNPCBubble(mm.storyText);
+		storyBubble.GetComponentInChildren<Image>().sprite = articleSprite;
 
 		GameObject button = cw.AddButton ("Ok");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -158,6 +161,6 @@ public class OfficerResponse : MonoBehaviour {
 		mm.changeScene = true;
 		mm.showOfficerStoryResponse = false;
 
-		mm.NewLocation ("UNDERWAY");
+//		mm.NewLocation ("UNDERWAY");
 	}
 }

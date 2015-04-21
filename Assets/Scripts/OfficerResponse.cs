@@ -41,6 +41,7 @@ public class OfficerResponse : MonoBehaviour {
 		
 		GameObject button = cw.AddButton ("Ja");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			cw.ClearButtons();
 			cw.AddPlayerBubble("Ja hoor");
 			
 			Invoke ("ShowChatButton", 0.5f);
@@ -62,6 +63,7 @@ public class OfficerResponse : MonoBehaviour {
 
 		GameObject button = cw.AddButton ("Ok");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			cw.ClearButtons();
 			cw.AddPlayerBubble("Ok");
 			
 			Invoke ("ShowPossibilities", 0.5f);
@@ -154,6 +156,8 @@ public class OfficerResponse : MonoBehaviour {
 	
 	public void Done() {
 		mm.changeScene = true;
-		mm.showOfficerStoryResponse = false;	
+		mm.showOfficerStoryResponse = false;
+
+		mm.NewLocation ("UNDERWAY");
 	}
 }

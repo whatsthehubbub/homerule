@@ -163,10 +163,18 @@ public class MuseumManager : MonoBehaviour {
 
 		if (showKatjaIntroSurveillanceResponse && (this.playerState == "CAMERAS" || this.playerState == "MEDALS" || this.playerState == "SIGN")) {
 			// Show Katja's response to what happened
+			this.showKatjaIntroSurveillanceResponse = false;
 			this.playerState = "REPORTERRESPONSE";
 			this.changeScene = false;
 
 			Application.LoadLevel ("Reporter Response");
+		}
+
+		if (showOfficerStoryResponse) {
+			this.showOfficerStoryResponse = false;
+			this.playerState = "OFFICERRESPONSE";
+			this.changeScene = false;
+			Application.LoadLevel("Officer Response");
 		}
 
 		// Display observations if there are any on this location

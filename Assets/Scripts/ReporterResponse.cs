@@ -29,8 +29,6 @@ public class ReporterResponse : MonoBehaviour {
 		GameObject main = GameObject.Find("Main");
 		MuseumManager mm = main.GetComponentInChildren<MuseumManager>();
 
-		mm.showKatjaIntroSurveillanceResponse = false;
-
 		// Load the chat stuff
 		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/Chat"));
 		chat.name = "Chat";

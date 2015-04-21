@@ -81,10 +81,10 @@ public class OfficerResponse : MonoBehaviour {
 
 		cw.AddNPCBubble("Door zo'n bericht gaan mensen anders denken. We willen dat de journalist eerst aan ons vraagt of dat wel mag.");
 
-		GameObject agree = cw.AddButton ("Inderdaad");
+		GameObject agree = cw.AddButton ("Eens");
 		agree.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble("Inderdaad, dat zou moeten.");
+			cw.AddPlayerBubble("Mee eens, dat zou moeten.");
 
 			playerOpinion = OfficerResponseOpinion.AGREE;
 
@@ -101,10 +101,10 @@ public class OfficerResponse : MonoBehaviour {
 			Invoke ("ShowOpinionResponse", 0.5f);
 		});
 
-		GameObject disagree = cw.AddButton ("Absoluut niet");
+		GameObject disagree = cw.AddButton ("Oneens");
 		disagree.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble("Absoluut niet! Mensen mogen zelf schrijven wat ze denken.");
+			cw.AddPlayerBubble("Absoluut niet mee eens! Mensen mogen zelf schrijven wat ze denken.");
 
 			playerOpinion = OfficerResponseOpinion.DISAGREE;
 			
@@ -130,10 +130,10 @@ public class OfficerResponse : MonoBehaviour {
 	public void ShowOfficerCloseOff() {
 		cw.AddNPCBubble("Dat was het wel.");
 
-		GameObject button = cw.AddButton ("Ok");
+		GameObject button = cw.AddButton ("OK");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble("Ok.");
+			cw.AddPlayerBubble("OK.");
 			
 			Invoke ("ShowOfficerBye", 0.5f);
 		});

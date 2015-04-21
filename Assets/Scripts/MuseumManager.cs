@@ -70,7 +70,9 @@ public class MuseumManager : MonoBehaviour {
 	public StoryOpinionAnswer playerOpinion;
 	public StoryFactAnswer playerFact;
 	public bool storyCompleted = false;
+
 	public Texture2D storyImage;
+	public string storyText;
 	
 	private List<Beacon> mybeacons = new List<Beacon>();
 	private bool scanning = true;

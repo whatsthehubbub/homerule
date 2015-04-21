@@ -37,6 +37,7 @@ public class ReporterResponse : MonoBehaviour {
 		chat.name = "Chat";
 		
 		cw = chat.GetComponent<ChatWindow>();
+		cw.SetNPCAvatar("katja");
 		
 		cw.AddNPCBubble("Die agenten willen me spreken. Maar ik doe toch niks verkeerd?");
 

@@ -55,6 +55,7 @@ public class OfficerResponse : MonoBehaviour {
 		chat.name = "Chat";
 		
 		cw = chat.GetComponent<ChatWindow>();
+		cw.SetNPCAvatar("agent");
 		
 		cw.AddNPCBubble("Fijn. We zien net dit bericht.");
 		cw.AddNPCBubble("<BERICHT>");

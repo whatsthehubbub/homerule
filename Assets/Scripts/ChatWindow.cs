@@ -77,6 +77,15 @@ public class ChatWindow : MonoBehaviour {
 		return button;
 	}
 
+	public void SetNPCAvatar(string avatar_suffix) {
+		GameObject avatar = this.gameObject.transform.Find("topbar/avatar npc").gameObject;
+		Image avatarImage = avatar.GetComponentInChildren<Image>();
+
+		Sprite sprite = Resources.Load<Sprite>("Sprites/avatar_" + avatar_suffix);
+
+		avatarImage.sprite = sprite;
+	}
+
 	public void ClearButtons() {
 		GameObject buttonArea = this.gameObject.transform.Find("ButtonArea").gameObject;
 

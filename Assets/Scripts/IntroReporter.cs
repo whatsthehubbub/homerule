@@ -49,6 +49,7 @@ public class IntroReporter : MonoBehaviour {
 		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/Chat"));
 		chat.name = "Chat";
 		cw = chat.GetComponent<ChatWindow>();
+		cw.SetNPCAvatar("katja");
 
 		cw.AddPlayerBubble("Hoi");
 

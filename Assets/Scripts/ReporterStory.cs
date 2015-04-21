@@ -80,6 +80,7 @@ public class ReporterStory : MonoBehaviour {
 		chat.name = "Chat";
 
 		cw = chat.GetComponent<ChatWindow>();
+		cw.SetNPCAvatar("katja");
 
 		cw.AddNPCBubble("Ze willen dat mensen verhuizen omdat het gevaarlijk is waar ze nu wonen.");
 		cw.AddNPCBubble("Wat vind je daar van?");

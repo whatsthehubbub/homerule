@@ -56,6 +56,7 @@ public class IntroOfficer : MonoBehaviour {
 		chat.name = "Chat";
 
 		cw = chat.GetComponent<ChatWindow>();
+		cw.SetNPCAvatar("agent");
 
 		cw.AddNPCBubble("Niks ernstigs.");
 		cw.AddNPCBubble("Heeft u deze persoon gezien?");

@@ -60,6 +60,8 @@ public class IntroOfficer : MonoBehaviour {
 		cw.AddNPCBubble("Niks ernstigs.");
 		cw.AddNPCBubble("Heeft u deze persoon gezien?");
 
+		cw.AddNPCImageBubble();
+
 		GameObject nooit = cw.AddButton("Nooit gezien");
 		nooit.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			playerAnswer = SurveillanceIntroAnswer.NEVER_SEEN;

@@ -171,10 +171,9 @@ public class MuseumManager : MonoBehaviour {
 				// If there is something to do here. Katja calls you.
 				GameObject call = (GameObject)Instantiate(Resources.Load ("Prefabs/Katja belt"));
 				call.name = "Katja belt";
+				this.changeScene = false;
 				
 				call.GetComponentInChildren<Button>().onClick.AddListener(() => {
-					this.changeScene = false;
-
 					this.currentStory = this.playerState;
 					this.playerState = "REPORTERSTORY";
 					// Start the scene with Kanja and the story in it

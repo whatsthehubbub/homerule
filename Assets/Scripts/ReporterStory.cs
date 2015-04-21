@@ -381,7 +381,11 @@ public class ReporterStory : MonoBehaviour {
 			Debug.Log ("text" + text.ToString());
 			
 			www.LoadImageIntoTexture(text);
-			Debug.Log ("Text loaded" + text.ToString());
+			Debug.Log ("Text loaded" + text.ToString() + " " + text.width + " " + text.height);
+
+			TextureScale.Point (text, 816, 612);
+
+			text = rotateTexture(text, 180.0f);
 
 			GameObject imageObject = GameObject.Find ("PlayerRawImage");
 			RawImage raw = imageObject.GetComponentInChildren<RawImage>();

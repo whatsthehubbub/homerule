@@ -258,15 +258,17 @@ public class ReporterStory : MonoBehaviour {
 	
 	public void ShowArgumentResponse() {
 		cw.AddNPCBubble("OK! Ik heb er dit bericht van gemaakt:");
-		
-		cw.AddNPCBubble("Net als nu moesten de mensen in Arnhem van de Duitsers uit hun huis. Dat was omdat er gevochten werd en de Duitsers bang waren dat de mensen de geallieerden zouden helpen. Daarna werden er spullen gestolen door de Duitsers en door burgers.");
-		
+
 		string argument = "";
 		if (mm.playerOpinion == StoryOpinionAnswer.SAD) argument = "zielig want je moet al je spullen en vrienden achterlaten en je weet niet waar je heen gaat. Ze moeten dus goed voor de mensen zorgen!";
 		else if (mm.playerOpinion == StoryOpinionAnswer.GOOD) argument = "goed want als je gevaar loopt dan moeten ze je daarvoor beschermen. De mensen moeten dus gewoon doen wat de agenten zeggen.";
 		else if (mm.playerOpinion == StoryOpinionAnswer.WRONG) argument = "verkeerd want je moet zelf kunnen kiezen of je weg gaat of niet. De mensen moeten dus blijven als ze dat willen. Ook als dat niet mag van de agenten.";
-		
-		cw.AddNPCBubble("Mensen uit hun huis zetten vanwege gevaar is " + argument);
+
+		Sprite articleSprite = Resources.Load<Sprite>("Sprites/chat_artikel");
+
+		GameObject storyFactBubble = cw.AddNPCBubble("Net als nu moesten de mensen in Arnhem van de Duitsers uit hun huis. Dat was omdat er gevochten werd en de Duitsers bang waren dat de mensen de geallieerden zouden helpen. Daarna werden er spullen gestolen door de Duitsers en door burgers." +
+		                                             "\n" + "Mensen uit hun huis zetten vanwege gevaar is " + argument);
+		storyFactBubble.GetComponentInChildren<Image>().sprite = articleSprite;
 		
 		Invoke ("ShowSend", 0.5f);
 	}

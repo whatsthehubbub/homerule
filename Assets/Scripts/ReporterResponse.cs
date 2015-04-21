@@ -41,7 +41,7 @@ public class ReporterResponse : MonoBehaviour {
 		
 		cw.AddNPCBubble("Die agenten willen me spreken. Maar ik doe toch niks verkeerd?");
 
-		GameObject action = cw.AddButton("Je moet naar ze toe");
+		GameObject action = cw.AddButton("Ga naar ze toe");
 		action.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 			cw.AddPlayerBubble("Ze zeggen dat je naar ze toe moet gaan.");
@@ -57,10 +57,10 @@ public class ReporterResponse : MonoBehaviour {
 
 		cw.AddNPCBubble("Ik vind het belangrijk om te vertellen wat er gebeurt.");
 
-		GameObject ok = cw.AddButton("Ok");
+		GameObject ok = cw.AddButton("OK");
 		ok.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble("Ok");
+			cw.AddPlayerBubble("OK.");
 			
 			GameObject main = GameObject.Find("Main");
 			MuseumManager mm = main.GetComponentInChildren<MuseumManager>();

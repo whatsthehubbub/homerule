@@ -7,6 +7,8 @@ public class IntroReporter : MonoBehaviour {
 	public GameObject chat;
 	public ChatWindow cw;
 
+	public Sprite medalSprite;
+
 	// Use this for initialization
 	void Start () {
 
@@ -70,6 +72,11 @@ public class IntroReporter : MonoBehaviour {
 
 	public void ShowHelp2() {
 		cw.AddNPCBubble("Ga eerst kijken bij de kast met medailles. Die ziet er zo uit:");
+
+		GameObject npcImageBubble = cw.AddNPCImageBubble();
+		GameObject imageObject = npcImageBubble.transform.Find ("BubbleImage").gameObject;
+		Image npcImage = imageObject.GetComponentInChildren<Image>();
+		npcImage.sprite = medalSprite;
 
 		GameObject button = cw.AddButton ("Is goed");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {

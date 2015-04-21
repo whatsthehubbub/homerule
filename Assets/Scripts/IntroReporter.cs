@@ -51,7 +51,7 @@ public class IntroReporter : MonoBehaviour {
 		cw = chat.GetComponent<ChatWindow>();
 		cw.SetNPCAvatar("katja");
 
-		cw.AddPlayerBubble("Hoi");
+		cw.AddPlayerBubble("Hoi Katja");
 
 		cw.AddNPCBubble("Ik zie dat je in het Airborne Museum bent. Wat cool!");
 		cw.AddNPCBubble("Er is daar van alles te zien over vrijheid. Ik wil daar graag berichten over schrijven. Jij kunt me daarmee helpen.");

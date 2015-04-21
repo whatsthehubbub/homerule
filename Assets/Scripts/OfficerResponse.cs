@@ -63,11 +63,11 @@ public class OfficerResponse : MonoBehaviour {
 		// Display the story image
 		Sprite articleSprite = Resources.Load<Sprite>("Sprites/chat_artikel");
 
-		GameObject imageBubble = cw.AddNPCImageBubble();
-		imageBubble.GetComponentInChildren<Image>().sprite = articleSprite;
-		GameObject imageObject = imageBubble.transform.Find ("BubbleImage").gameObject;
-		Image storyImage = imageObject.GetComponentInChildren<Image>();
-		storyImage.sprite = Sprite.Create (mm.storyImage, new Rect(0, 0, 200, 300), new Vector2(0.5f, 0.5f));
+//		GameObject imageBubble = cw.AddNPCImageBubble();
+//		imageBubble.GetComponentInChildren<Image>().sprite = articleSprite;
+//		GameObject imageObject = imageBubble.transform.Find ("BubbleImage").gameObject;
+//		Image storyImage = imageObject.GetComponentInChildren<Image>();
+//		storyImage.sprite = Sprite.Create (mm.storyImage, new Rect(0, 0, 200, 300), new Vector2(0.5f, 0.5f));
 
 		GameObject storyBubble = cw.AddNPCBubble(mm.storyText);
 		storyBubble.GetComponentInChildren<Image>().sprite = articleSprite;

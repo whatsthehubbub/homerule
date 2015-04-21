@@ -194,7 +194,6 @@ public class MuseumManager : MonoBehaviour {
 
 				});
 			} else {
-				// TODO display the results of the story here that you once did
 				Debug.Log ("This story now is inactive");
 
 				GameObject chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
@@ -208,6 +207,10 @@ public class MuseumManager : MonoBehaviour {
 
 				cw.AddNPCBubble("Oh je bent weer bij het bord “verboden Arnhem te betreden”.");
 				cw.AddNPCBubble("Daar hebben we al iets mee gedaan. Weet je nog? Dat was dit bericht:");
+
+				Sprite articleSprite = Resources.Load<Sprite>("Sprites/chat_artikel");
+				GameObject storyBubble = cw.AddNPCBubble(this.storyText);
+				storyBubble.GetComponentInChildren<Image>().sprite = articleSprite;
 
 				cw.AddNPCBubble("Er is nu nergens meer iets te doen. Je hebt me super geholpen.");
 			}

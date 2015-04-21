@@ -511,6 +511,8 @@ MonoBehaviour:
   playerOpinion: 0
   playerFact: 0
   storyCompleted: 0
+  storyImage: {fileID: 0}
+  storyText: 
   currentStory: 
   playerState: 
 --- !u!4 &1313762165

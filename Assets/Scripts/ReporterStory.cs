@@ -137,7 +137,7 @@ public class ReporterStory : MonoBehaviour {
 			cw.ClearButtons();
 
 			if (Application.platform == RuntimePlatform.IPhonePlayer) {
-				GameObject playerImageBubble = cw.AddPlayerImageBubble();
+				cw.AddPlayerImageBubble();
 				IOSCameraShot.LaunchCameraForImageCapture();
 			} else {
 				Invoke ("ShowFindObjectResponse", 0.5f);

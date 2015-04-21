@@ -26,6 +26,17 @@ public class ChatWindow : MonoBehaviour {
 
 		return playerBubble;
 	}
+
+	public GameObject AddPlayerImageBubble() {
+		GameObject scrollContent = this.gameObject.transform.Find("ScrollView/ScrollContent").gameObject;
+		
+		GameObject playerImageBubble = (GameObject)Instantiate(Resources.Load ("Prefabs/PlayerImageBubble"));
+		playerImageBubble.name = "PlayerImageBubble";
+		
+		playerImageBubble.transform.SetParent (scrollContent.transform, false);
+		
+		return playerImageBubble;
+	}
 	
 	public GameObject AddNPCBubble(string text) {
 		GameObject scrollContent = this.gameObject.transform.Find("ScrollView/ScrollContent").gameObject;

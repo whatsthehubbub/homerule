@@ -2,6 +2,8 @@
 using UnityEngine.UI;
 using System.Collections;
 
+using CameraShot;
+
 public class ReporterStory : MonoBehaviour {
 
 	public GameObject chat;
@@ -10,6 +12,13 @@ public class ReporterStory : MonoBehaviour {
 	public MuseumManager mm;
 
 	// Use this for initialization
+	
+	void OnEnable() {
+		CameraShotEventListener.onImageLoad += OnImageLoad;
+		CameraShotEventListener.onImageSaved += OnImageSaved;
+		CameraShotEventListener.onCancel += OnCancel;
+	}
+
 	void Start () {
 		StartStory ();
 	}
@@ -125,8 +134,13 @@ public class ReporterStory : MonoBehaviour {
 		GameObject camera = cw.AddButton("Camera starten");
 		camera.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			
-			Invoke ("ShowFindObjectResponse", 0.5f);
+
+			if (Application.platform == RuntimePlatform.IPhonePlayer) {
+				GameObject playerImageBubble = cw.AddPlayerImageBubble();
+				IOSCameraShot.LaunchCameraForImageCapture();
+			} else {
+				Invoke ("ShowFindObjectResponse", 0.5f);
+			}
 		});
 	}
 	
@@ -336,5 +350,51 @@ public class ReporterStory : MonoBehaviour {
 		s.active = false;
 		mm.stories[mm.currentStory] = s;
 
+	}
+
+	/*
+	 * Methods to handle taking an image using CamerShot
+	 */	
+	void OnImageLoad(string path, Texture2D tex) {
+		Debug.Log ("Image Captured by camera saved at location : " + path);
+	}
+	
+	void OnImageSaved(string path) {
+		Debug.Log ("A photograph has been saved");
+		StartCoroutine(displayTexture(path));
+	}
+	
+	IEnumerator displayTexture(string path) {
+		Debug.Log ("Display texture " + path);
+		
+		path = path.Replace (" ", "%20");
+		
+		WWW www = new WWW("file://" + path);
+		Debug.Log ("www" + www.ToString());
+		
+		yield return www;
+		
+		if (www.isDone) {
+			
+			Texture2D text = new Texture2D(1024, 1024);
+			Debug.Log ("text" + text.ToString());
+			
+			www.LoadImageIntoTexture(text);
+			Debug.Log ("Text loaded" + text.ToString());
+			
+			GameObject imageObject = GameObject.Find ("PlayerRawImage");
+			RawImage raw = imageObject.GetComponentInChildren<RawImage>();
+			Debug.Log ("Got raw");
+			
+			raw.texture = text;
+			
+			text.Apply();
+
+			Invoke ("ShowFindObjectResponse", 0.5f);
+		}
+	}
+
+	void OnCancel() {
+		Debug.Log ("Taking a picture has been cancelled.");
 	}
 }

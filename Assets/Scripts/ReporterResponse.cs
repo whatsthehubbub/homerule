@@ -29,7 +29,6 @@ public class ReporterResponse : MonoBehaviour {
 		GameObject main = GameObject.Find("Main");
 		MuseumManager mm = main.GetComponentInChildren<MuseumManager>();
 
-		mm.changeScene = false;
 		mm.showKatjaIntroSurveillanceResponse = false;
 
 		// Load the chat stuff

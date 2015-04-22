@@ -262,8 +262,8 @@ public class MuseumManager : MonoBehaviour {
 		
 		bool found = false;
 		foreach (Beacon b in mybeacons) {
-//			if (b.range == BeaconRange.NEAR || b.range == BeaconRange.IMMEDIATE) {
-			if (b.range == BeaconRange.IMMEDIATE) {
+			if (b.range == BeaconRange.NEAR || b.range == BeaconRange.IMMEDIATE) {
+//			if (b.range == BeaconRange.IMMEDIATE) {
 				
 				foreach(KeyValuePair<string, Location> entry in locations) {
 					if (entry.Value.minor == b.minor) {
@@ -275,8 +275,8 @@ public class MuseumManager : MonoBehaviour {
 						NewLocation(entry.Value.name);
 					}
 				}
-//			} else if (b.range == BeaconRange.FAR) {
-			} else if (b.range == BeaconRange.FAR || b.range == BeaconRange.NEAR) {
+			} else if (b.range == BeaconRange.FAR) {
+//			} else if (b.range == BeaconRange.FAR || b.range == BeaconRange.NEAR) {
 				// We want to keep it at this location unless another one is nearer
 				found = true;
 			}

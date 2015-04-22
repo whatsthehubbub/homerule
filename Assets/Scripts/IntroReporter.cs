@@ -100,7 +100,7 @@ public class IntroReporter : MonoBehaviour {
 		cw.AddPlayerBubble("Is goed, ik ga op zoek naar de kast met medailles.");
 		cw.AddNPCBubble("Super! Als je daar bent dan roep ik je op.");
 
-		GameObject button = cw.AddButton ("Ok");
+		GameObject button = cw.AddButton ("OK");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			GameObject main = GameObject.Find("Main");
 			MuseumManager mm = main.GetComponentInChildren<MuseumManager>();

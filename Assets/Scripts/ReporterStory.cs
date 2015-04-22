@@ -333,10 +333,10 @@ public class ReporterStory : MonoBehaviour {
 			cw.AddNPCBubble("Sommige mensen luisteren niet. Ze krijgen ruzie en er wordt gevochten! ");
 		}
 
-		GameObject ok = cw.AddButton("Ok");
+		GameObject ok = cw.AddButton("OK");
 		ok.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble("Ok");
+			cw.AddPlayerBubble("OK.");
 			
 			Invoke ("ShowResultClose", 0.5f);
 		});

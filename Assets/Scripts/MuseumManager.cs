@@ -170,7 +170,7 @@ public class MuseumManager : MonoBehaviour {
 			Application.LoadLevel ("Reporter Response");
 		}
 
-		if (showOfficerStoryResponse) {
+		if (showOfficerStoryResponse && !(this.playerState.Equals ("REPORTERSTORY") || this.playerState.Equals ("SIGN"))) {
 			this.showOfficerStoryResponse = false;
 			this.playerState = "OFFICERRESPONSE";
 			this.changeScene = false;

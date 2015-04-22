@@ -62,8 +62,8 @@ public class ReporterStory : MonoBehaviour {
 		Sprite introSprite = Resources.Load<Sprite>("Sprites/situatie intro");
 		displayImage.GetComponentInChildren<Image>().sprite = introSprite;
 
-		cw.AddNPCBubble("Mensen moeten hun huis uit. Ze zijn in de buurt aan het bouwen. Daardoor kunnen huizen instorten. Ze zeggen dat het gevaarlijk is. Maar niet iedereen wil weg.");
-		cw.AddNPCBubble("Kun je mij helpen hier over te schrijven?");
+		cw.AddNPCBubble("Mensen moeten hun huis uit want ze zijn in de buurt aan het bouwen. Ze zeggen dat het gevaarlijk is. Maar niet iedereen wil weg.");
+		cw.AddNPCBubble("Help je mij hier over te schrijven?");
 		
 		GameObject ja = cw.AddButton("Ja");
 		ja.GetComponentInChildren<Button>().onClick.AddListener(() => {

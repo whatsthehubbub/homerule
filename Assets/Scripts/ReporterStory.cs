@@ -147,8 +147,14 @@ public class ReporterStory : MonoBehaviour {
 	
 	public void ShowFindObjectResponse() {
 		cw.AddNPCBubble("Goeie foto!");
+
+		GameObject button = cw.AddButton("OK");
+		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			cw.ClearButtons();
+			cw.AddPlayerBubble("OK.");
 		
-		Invoke ("ShowObjectFacts", 0.5f);
+			Invoke ("ShowObjectFacts", 0.5f);
+		});
 	}
 	
 	public void ShowObjectFacts() {

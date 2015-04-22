@@ -272,7 +272,10 @@ public class MuseumManager : MonoBehaviour {
 //						if (playerLocation != entry.Value.name) {
 //							NewEvent(entry.Value.name);
 //						}
-						NewLocation(entry.Value.name);
+
+						if (!this.playerState.Equals (entry.Value.name)) {
+							NewLocation(entry.Value.name);
+						}
 					}
 				}
 			} else if (b.range == BeaconRange.FAR) {

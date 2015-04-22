@@ -66,6 +66,9 @@ public class ChatWindow : MonoBehaviour {
 	public GameObject AddButton(string text) {
 		GameObject buttonArea = this.gameObject.transform.Find("ButtonArea").gameObject;
 
+//		GameObject button = (GameObject)Instantiate (Resources.Load ("Prefabs/PlayerChatButton"));
+//		button.name = "PlayerChatButton";
+
 		GameObject button = (GameObject)Instantiate (Resources.Load ("Prefabs/PlayerChatbubble"));
 		button.name = "Player button";
 

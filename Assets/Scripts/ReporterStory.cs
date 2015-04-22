@@ -273,8 +273,8 @@ public class ReporterStory : MonoBehaviour {
 		else if (mm.playerOpinion == StoryOpinionAnswer.GOOD) argument = "goed want als je gevaar loopt dan moeten ze je daarvoor beschermen. De mensen moeten dus gewoon doen wat de agenten zeggen.";
 		else if (mm.playerOpinion == StoryOpinionAnswer.WRONG) argument = "verkeerd want je moet zelf kunnen kiezen of je weg gaat of niet. De mensen moeten dus blijven als ze dat willen. Ook als dat niet mag van de agenten.";
 
-		string storyText = "Net als nu moesten de mensen in Arnhem van de Duitsers uit hun huis. Dat was omdat er gevochten werd en de Duitsers bang waren dat de mensen de geallieerden zouden helpen. Daarna werden er spullen gestolen door de Duitsers en door burgers." +
-			"\n" + "Mensen uit hun huis zetten vanwege gevaar is " + argument;
+		string storyText = "Net als nu moesten de mensen in Arnhem uit hun huis vanwege gevaar." +
+			"\n" + "Dat is " + argument;
 		mm.storyText = storyText;
 		GameObject storyFactBubble = cw.AddNPCBubble(storyText);
 		storyFactBubble.GetComponentInChildren<Image>().sprite = articleSprite;

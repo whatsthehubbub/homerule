@@ -351,6 +351,10 @@ Prefab:
       propertyPath: m_Interactable
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 178414, guid: 854eb4a3fe1924b4aa22d081966f92e7, type: 2}
+      propertyPath: m_Name
+      value: ChatSenderKatja
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 854eb4a3fe1924b4aa22d081966f92e7, type: 2}
   m_IsPrefabParent: 0
@@ -659,7 +663,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 117370, guid: 854eb4a3fe1924b4aa22d081966f92e7, type: 2}
       propertyPath: m_Name
-      value: ChatSender 1
+      value: ChatSenderUnknown
       objectReference: {fileID: 0}
     - target: {fileID: 22434164, guid: 854eb4a3fe1924b4aa22d081966f92e7, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -879,6 +883,10 @@ Prefab:
     - target: {fileID: 11498850, guid: 854eb4a3fe1924b4aa22d081966f92e7, type: 2}
       propertyPath: m_Interactable
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 117370, guid: 854eb4a3fe1924b4aa22d081966f92e7, type: 2}
+      propertyPath: m_Name
+      value: ChatSenderOfficer
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 854eb4a3fe1924b4aa22d081966f92e7, type: 2}

@@ -4,6 +4,8 @@ using System.Collections;
 
 public class IntroReporter : MonoBehaviour {
 
+	public MuseumManager mm;
+
 	public GameObject chat;
 	public ChatWindow cw;
 
@@ -11,7 +13,9 @@ public class IntroReporter : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		GameObject main = GameObject.Find("Main");
+		mm = main.GetComponentInChildren<MuseumManager>();
+		
 		GameObject call = (GameObject)Instantiate(Resources.Load ("Prefabs/Katja belt"));
 		call.name = "Katja belt";
 
@@ -30,6 +34,7 @@ public class IntroReporter : MonoBehaviour {
 		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
 		chat.name = "VideoCall";
 		cw = chat.GetComponent<ChatWindow>();
+		cw.SetArchivalChat(mm.reporterChatHistory.GetComponent<ChatWindow>());
 
 		GameObject displayImage = GameObject.Find ("DisplayImage");
 		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/journalist video");
@@ -46,10 +51,12 @@ public class IntroReporter : MonoBehaviour {
 
 	public void ShowChatButton2() {
 		GameObject.Destroy(chat);
-		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/Chat"));
-		chat.name = "Chat";
+
+		// For the chat segments we use the persistent chat that is never thrown away
+
+		chat = mm.reporterChatHistory;
+		mm.reporterChatHistory.SetActive(true);
 		cw = chat.GetComponent<ChatWindow>();
-		cw.SetNPCAvatar("katja");
 
 		cw.AddPlayerBubble("Hoi Katja");
 
@@ -88,10 +95,12 @@ public class IntroReporter : MonoBehaviour {
 	}
 
 	public void ShowReporterClose() {
-		GameObject.Destroy(chat);
+		chat.SetActive(false);
+
 		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
 		chat.name = "VideoCall";
 		cw = chat.GetComponent<ChatWindow>();
+		cw.SetArchivalChat(mm.reporterChatHistory.GetComponent<ChatWindow>());
 
 		GameObject displayImage = GameObject.Find ("DisplayImage");
 		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/journalist video");
@@ -102,10 +111,7 @@ public class IntroReporter : MonoBehaviour {
 
 		GameObject button = cw.AddButton ("OK");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
-			GameObject main = GameObject.Find("Main");
-			MuseumManager mm = main.GetComponentInChildren<MuseumManager>();
-		
-			mm.callBusy = false;
+			this.mm.callBusy = false;
 
 			Application.LoadLevel ("Underway");
 		});

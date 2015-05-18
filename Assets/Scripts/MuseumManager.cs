@@ -62,6 +62,8 @@ public class MuseumManager : MonoBehaviour {
 	public Queue<string> storyQueue = new Queue<string>();
 	public bool callBusy = false;
 
+	public GameObject reporterChatHistory;
+
 	public bool showKatjaIntroSurveillanceResponse = false;
 	public bool showOfficerStoryResponse = false;
 
@@ -90,6 +92,14 @@ public class MuseumManager : MonoBehaviour {
 
 		showKatjaIntroSurveillanceResponse = false;
 		storyCompleted = false;
+
+		// Create the chat windows to keep the history in (and make sure they don't get destroyed on scene change)
+		reporterChatHistory = (GameObject)Instantiate(Resources.Load ("Prefabs/Chat"));
+		reporterChatHistory.name = "ReporterChatHistory";
+		reporterChatHistory.SetActive(false);
+		UnityEngine.Object.DontDestroyOnLoad(reporterChatHistory);
+		ChatWindow cw = reporterChatHistory.GetComponent<ChatWindow>();
+		cw.SetNPCAvatar("katja");
 	}
 	
 	void OnDestroy() {
@@ -156,9 +166,6 @@ public class MuseumManager : MonoBehaviour {
 			// Show Katja's response to what happened
 			this.showKatjaIntroSurveillanceResponse = false;
 			this.playerState = "REPORTERRESPONSE";
-//			this.changeScene = false;
-
-
 		}
 
 		if (showOfficerStoryResponse && !(this.playerState.Equals ("REPORTERSTORY") || this.playerState.Equals ("SIGN"))) {

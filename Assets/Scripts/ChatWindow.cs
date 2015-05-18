@@ -4,6 +4,8 @@ using System.Collections;
 
 public class ChatWindow : MonoBehaviour {
 
+	private ChatWindow archivalChat;
+
 	// Use this for initialization
 	void Start () {
 	}
@@ -12,55 +14,78 @@ public class ChatWindow : MonoBehaviour {
 	void Update () {
 	}
 
+	public void SetArchivalChat(ChatWindow cw) {
+		this.archivalChat = cw;
+	}
 
-	public GameObject AddPlayerBubble(string text) {
+	public GameObject AddBubble(string text, string party) {
+		string prefabName = "";
+
+		switch (party) {
+			case "PLAYER":
+				prefabName = "Prefabs/PlayerChatbubble";
+				break;
+			case "NPC":
+				prefabName = "Prefabs/NPCChatbubble";
+				break;
+			default:
+				break;
+		}
+
 		GameObject scrollContent = this.gameObject.transform.Find("ScrollView/ScrollContent").gameObject;
-
-		GameObject playerBubble = (GameObject)Instantiate(Resources.Load ("Prefabs/PlayerChatbubble"));
-		playerBubble.name = "New Button";
-
-		Text chatText = playerBubble.GetComponentInChildren<Text>();
+		
+		GameObject bubble = (GameObject)Instantiate(Resources.Load (prefabName));
+		bubble.name = party + "Button";
+		
+		Text chatText = bubble.GetComponentInChildren<Text>();
 		chatText.text = text;
 
-		playerBubble.transform.SetParent (scrollContent.transform, false);
+		if (this.archivalChat != null) {
+			this.archivalChat.AddBubble(text, party);
+		}
+		
+		bubble.transform.SetParent (scrollContent.transform, false);
+		
+		return bubble;
+	}
 
-		return playerBubble;
+	public GameObject AddPlayerBubble(string text) {
+		return this.AddBubble(text, "PLAYER");
+	}
+
+	public GameObject AddNPCBubble(string text) {
+		return this.AddBubble(text, "NPC");
+	}
+
+	public GameObject AddImageBubble(string party) {
+		string prefabName = "";
+		
+		switch (party) {
+		case "PLAYER":
+			prefabName = "Prefabs/PlayerImageBubble";
+			break;
+		case "NPC":
+			prefabName = "Prefabs/NPCImageBubble";
+			break;
+		default:
+			break;
+		}
+	
+		GameObject imageBubble = (GameObject)Instantiate(Resources.Load (prefabName));
+		imageBubble.name = party + " ImageBubble";
+
+		GameObject scrollContent = this.gameObject.transform.Find("ScrollView/ScrollContent").gameObject;
+		imageBubble.transform.SetParent (scrollContent.transform, false);
+		
+		return imageBubble;
 	}
 
 	public GameObject AddPlayerImageBubble() {
-		GameObject scrollContent = this.gameObject.transform.Find("ScrollView/ScrollContent").gameObject;
-		
-		GameObject playerImageBubble = (GameObject)Instantiate(Resources.Load ("Prefabs/PlayerImageBubble"));
-		playerImageBubble.name = "PlayerImageBubble";
-		
-		playerImageBubble.transform.SetParent (scrollContent.transform, false);
-		
-		return playerImageBubble;
+		return this.AddImageBubble("PLAYER");
 	}
 
 	public GameObject AddNPCImageBubble() {
-		GameObject scrollContent = this.gameObject.transform.Find("ScrollView/ScrollContent").gameObject;
-		
-		GameObject npcImageBubble = (GameObject)Instantiate(Resources.Load ("Prefabs/NPCImageBubble"));
-		npcImageBubble.name = "PlayerImageBubble";
-		
-		npcImageBubble.transform.SetParent (scrollContent.transform, false);
-		
-		return npcImageBubble;
-	}
-	
-	public GameObject AddNPCBubble(string text) {
-		GameObject scrollContent = this.gameObject.transform.Find("ScrollView/ScrollContent").gameObject;
-		
-		GameObject playerBubble = (GameObject)Instantiate(Resources.Load ("Prefabs/NPCChatbubble"));
-		playerBubble.name = "NPC Button";
-		
-		Text chatText = playerBubble.GetComponentInChildren<Text>();
-		chatText.text = text;
-
-		playerBubble.transform.SetParent (scrollContent.transform, false);
-		
-		return playerBubble;
+		return this.AddImageBubble ("NPC");
 	}
 
 	public GameObject AddButton(string text) {

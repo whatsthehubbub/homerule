@@ -293,7 +293,7 @@ public class MuseumManager : MonoBehaviour {
 	public void NewLocation(string locationKey, bool forceChange = false) {
 		// Hide a map if there is one
 		if (forceChange || changeScene) {
-			this.playerState = locationKey;	
+			this.playerState = locationKey;
 			
 			Application.LoadLevel(locations[locationKey].sceneName);
 		}

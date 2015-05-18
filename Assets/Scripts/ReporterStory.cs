@@ -32,7 +32,7 @@ public class ReporterStory : MonoBehaviour {
 		// Pause the change scene
 		GameObject main = GameObject.Find("Main");
 		mm = main.GetComponentInChildren<MuseumManager>();
-		mm.changeScene = false;
+//		mm.changeScene = false;
 		
 		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
 		chat.name = "VideoCall";
@@ -359,14 +359,14 @@ public class ReporterStory : MonoBehaviour {
 
 		GameObject main = GameObject.Find("Main");
 		MuseumManager mm = main.GetComponentInChildren<MuseumManager>();
-		mm.changeScene = true;
+//		mm.changeScene = true;
 		mm.storyCompleted = true;
 		mm.showOfficerStoryResponse = true;
 
 		// Update the current story to be no longer active
-		Story s = mm.stories[mm.currentStory];
-		s.active = false;
-		mm.stories[mm.currentStory] = s;
+//		Story s = mm.stories[mm.currentStory];
+//		s.active = false;
+//		mm.stories[mm.currentStory] = s;
 
 	}
 

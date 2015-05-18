@@ -58,11 +58,9 @@ public class MuseumManager : MonoBehaviour {
 //		{"STATION", new Location("STATION", "Station Scene", 45444)},
 		{"UNDERWAY", new Location("UNDERWAY", "Underway", -1)}
 	};
-	
-	public Dictionary<string, Story> stories = new Dictionary<string, Story>(){
-	};
 
-	public bool changeScene = true;
+	public Queue<string> storyQueue = new Queue<string>();
+	public bool callBusy = false;
 
 	public bool showKatjaIntroSurveillanceResponse = false;
 	public bool showOfficerStoryResponse = false;
@@ -90,15 +88,8 @@ public class MuseumManager : MonoBehaviour {
 		iBeaconReceiver.CheckBluetoothLEStatus();
 		Debug.Log ("Listening for beacons");
 
-//		CreateNewObservations();
-//		UpdatePublicationDisplay();
-
-		changeScene = false;
 		showKatjaIntroSurveillanceResponse = false;
 		storyCompleted = false;
-
-		stories.Clear();
-		stories.Add ("SIGN", new Story("Story about the sign"));
 	}
 	
 	void OnDestroy() {
@@ -165,18 +156,19 @@ public class MuseumManager : MonoBehaviour {
 			// Show Katja's response to what happened
 			this.showKatjaIntroSurveillanceResponse = false;
 			this.playerState = "REPORTERRESPONSE";
-			this.changeScene = false;
+//			this.changeScene = false;
 
-			Application.LoadLevel ("Reporter Response");
+
 		}
 
 		if (showOfficerStoryResponse && !(this.playerState.Equals ("REPORTERSTORY") || this.playerState.Equals ("SIGN"))) {
 			this.showOfficerStoryResponse = false;
 			this.playerState = "OFFICERRESPONSE";
-			this.changeScene = false;
+//			this.changeScene = false;
 			Application.LoadLevel("Officer Response");
 		}
 
+		/*
 		// Display observations if there are any on this location
 		Story story;
 		if (stories.TryGetValue(this.playerState, out story)) {
@@ -184,7 +176,7 @@ public class MuseumManager : MonoBehaviour {
 				// If there is something to do here. Katja calls you.
 				GameObject call = (GameObject)Instantiate(Resources.Load ("Prefabs/Katja belt"));
 				call.name = "Katja belt";
-				this.changeScene = false;
+//				this.changeScene = false;
 				
 				call.GetComponentInChildren<Button>().onClick.AddListener(() => {
 					this.currentStory = this.playerState;
@@ -237,6 +229,7 @@ public class MuseumManager : MonoBehaviour {
 				cw.AddNPCBubble("Er is nu nergens meer iets te doen. Je hebt me super geholpen.");
 			}
 		}
+*/
 	}
 	
 	private void OnBeaconRangeChanged(List<Beacon> beacons) {
@@ -284,18 +277,51 @@ public class MuseumManager : MonoBehaviour {
 				found = true;
 			}
 		}
+
 		if (!found && playerState != "IDLE") {
 //			ShowIdle ();
 			NewLocation("UNDERWAY");
 		}
+
+		TakeCall ();
 	}
 	
 	public void NewLocation(string locationKey, bool forceChange = false) {
 		// Hide a map if there is one
-		if (forceChange || changeScene) {
-			this.playerState = locationKey;
-			
-			Application.LoadLevel(locations[locationKey].sceneName);
+//		if (forceChange || changeScene) {
+//			this.playerState = locationKey;
+//			
+//			Application.LoadLevel(locations[locationKey].sceneName);
+//		}
+
+		TakeCall ();
+	}
+
+	public void TakeCall() {
+		if (!this.callBusy && this.storyQueue.Count > 0) {
+			string storyBit = this.storyQueue.Dequeue();
+
+			switch (storyBit) {
+			case "INTROREPORTER":
+				this.callBusy = true;
+
+				Application.LoadLevel ("Intro Reporter");
+
+				break;
+			case "INTROOFFICER":
+				this.callBusy = true;
+
+				Application.LoadLevel ("Intro Officer");
+				break;
+
+			case "REPORTERRESPONSE":
+				this.callBusy = true;
+
+				Application.LoadLevel ("Reporter Response");
+				break;
+			default:
+			break;
+			}
 		}
 	}
 
@@ -304,22 +330,9 @@ public class MuseumManager : MonoBehaviour {
 	 */
 
 	public void StartGameButton() {
-		this.playerState = "INTROREPORTER";
+		Application.LoadLevel ("UNDERWAY");
 
-		Application.LoadLevel ("Intro Reporter");
-	}
-
-	public void IntroReporterDone() {
-		this.playerState = "INTROOFFICER";
-
-		Application.LoadLevel ("Intro Officer");
-	}
-
-	public void IntroOfficerDone() {
-		changeScene = true;
-
-		showKatjaIntroSurveillanceResponse = true;
-
-		NewLocation ("UNDERWAY");
+		this.storyQueue.Enqueue("INTROREPORTER");
+		this.storyQueue.Enqueue("INTROOFFICER");
 	}
 }

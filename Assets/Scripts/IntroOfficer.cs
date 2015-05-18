@@ -144,8 +144,10 @@ public class IntroOfficer : MonoBehaviour {
 	public void IntroDone() {
 		GameObject main = GameObject.Find("Main");
 		MuseumManager mm = main.GetComponentInChildren<MuseumManager>();
-		
-		mm.IntroOfficerDone();
+
+		mm.callBusy = false;
+		mm.storyQueue.Enqueue("REPORTERRESPONSE");
+		Application.LoadLevel ("Underway");
 	}
 
 }

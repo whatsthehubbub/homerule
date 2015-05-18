@@ -105,7 +105,9 @@ public class IntroReporter : MonoBehaviour {
 			GameObject main = GameObject.Find("Main");
 			MuseumManager mm = main.GetComponentInChildren<MuseumManager>();
 		
-			mm.IntroReporterDone();
+			mm.callBusy = false;
+
+			Application.LoadLevel ("Underway");
 		});
 	}
 }

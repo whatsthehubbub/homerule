@@ -61,9 +61,9 @@ public class ReporterResponse : MonoBehaviour {
 			
 			GameObject main = GameObject.Find("Main");
 			MuseumManager mm = main.GetComponentInChildren<MuseumManager>();
-			
-			mm.changeScene = true;
-			mm.NewLocation ("UNDERWAY");
+
+			mm.callBusy = false;
+			Application.LoadLevel ("Underway");
 		});
 	}
 }

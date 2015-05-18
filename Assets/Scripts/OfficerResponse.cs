@@ -15,7 +15,6 @@ public class OfficerResponse : MonoBehaviour {
 	void Start () {
 		GameObject main = GameObject.Find("Main");
 		mm = main.GetComponentInChildren<MuseumManager>();
-		mm.changeScene = false;
 
 		GameObject call = (GameObject)Instantiate(Resources.Load ("Prefabs/Agent belt"));
 		call.name = "Agent belt";
@@ -166,7 +165,6 @@ public class OfficerResponse : MonoBehaviour {
 	}
 	
 	public void Done() {
-		mm.changeScene = true;
 		mm.showOfficerStoryResponse = false;
 
 //		mm.NewLocation ("UNDERWAY");

@@ -7,8 +7,13 @@ public class ReporterResponse : MonoBehaviour {
 	public GameObject chat;
 	public ChatWindow cw;
 
+	public MuseumManager mm;
+
 	// Use this for initialization
 	void Start () {
+		GameObject main = GameObject.Find("Main");
+		mm = main.GetComponentInChildren<MuseumManager>();
+
 		GameObject call = (GameObject)Instantiate(Resources.Load ("Prefabs/Katja belt"));
 		call.name = "Katja belt";
 		
@@ -16,7 +21,6 @@ public class ReporterResponse : MonoBehaviour {
 			GameObject.Destroy(call);
 			ShowChatButton();
 		});
-
 	}
 	
 	// Update is called once per frame
@@ -30,11 +34,11 @@ public class ReporterResponse : MonoBehaviour {
 		MuseumManager mm = main.GetComponentInChildren<MuseumManager>();
 
 		// Load the chat stuff
-		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/Chat"));
-		chat.name = "Chat";
+		chat = mm.reporterChatHistory;
+		mm.reporterChatHistory.SetActive(true);
 		
 		cw = chat.GetComponent<ChatWindow>();
-		cw.SetNPCAvatar("katja");
+
 		
 		cw.AddNPCBubble("Die agenten willen me spreken. Maar ik doe toch niks verkeerd?");
 
@@ -45,8 +49,6 @@ public class ReporterResponse : MonoBehaviour {
 
 			Invoke ("ShowResponse", 0.5f);
 		});
-		
-
 	}
 
 	public void ShowResponse() {
@@ -58,12 +60,11 @@ public class ReporterResponse : MonoBehaviour {
 		ok.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 			cw.AddPlayerBubble("OK.");
-			
-			GameObject main = GameObject.Find("Main");
-			MuseumManager mm = main.GetComponentInChildren<MuseumManager>();
 
 			mm.callBusy = false;
-			Application.LoadLevel ("Underway");
+
+			chat.SetActive(false);
+			GameObject.Destroy(this);
 		});
 	}
 }

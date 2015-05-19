@@ -333,7 +333,8 @@ public class MuseumManager : MonoBehaviour {
 			case "REPORTERRESPONSE":
 				this.callBusy = true;
 
-				Application.LoadLevel ("Reporter Response");
+				this.gameObject.AddComponent<ReporterResponse>();
+
 				break;
 			default:
 			break;

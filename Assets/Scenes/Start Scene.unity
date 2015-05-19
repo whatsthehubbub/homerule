@@ -415,7 +415,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb8094256419b47ed848296ce7beb000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeScene: 1
+  callBusy: 0
+  reporterChatHistory: {fileID: 0}
+  officerChatHistory: {fileID: 0}
   showKatjaIntroSurveillanceResponse: 0
   showOfficerStoryResponse: 0
   playerOpinion: 0

@@ -113,7 +113,8 @@ public class IntroReporter : MonoBehaviour {
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			this.mm.callBusy = false;
 
-			Application.LoadLevel ("Underway");
+			GameObject.Destroy(chat);
+			GameObject.Destroy(this);
 		});
 	}
 }

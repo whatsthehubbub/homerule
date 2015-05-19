@@ -21,4 +21,8 @@ public class Underway : MonoBehaviour {
 
 		mm.reporterChatHistory.SetActive(true);
 	}
+
+	public void ShowOfficerChats() {
+		mm.officerChatHistory.SetActive(true);
+	}
 }

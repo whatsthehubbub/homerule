@@ -63,6 +63,7 @@ public class MuseumManager : MonoBehaviour {
 	public bool callBusy = false;
 
 	public GameObject reporterChatHistory;
+	public GameObject officerChatHistory;
 
 	public bool showKatjaIntroSurveillanceResponse = false;
 	public bool showOfficerStoryResponse = false;
@@ -96,10 +97,17 @@ public class MuseumManager : MonoBehaviour {
 		// Create the chat windows to keep the history in (and make sure they don't get destroyed on scene change)
 		reporterChatHistory = (GameObject)Instantiate(Resources.Load ("Prefabs/Chat"));
 		reporterChatHistory.name = "ReporterChatHistory";
-		reporterChatHistory.SetActive(false);
 		UnityEngine.Object.DontDestroyOnLoad(reporterChatHistory);
-		ChatWindow cw = reporterChatHistory.GetComponent<ChatWindow>();
-		cw.SetNPCAvatar("katja");
+		ChatWindow reporterChatWindow = reporterChatHistory.GetComponent<ChatWindow>();
+		reporterChatWindow.SetNPCAvatar("katja");
+		reporterChatHistory.SetActive(false);
+
+		officerChatHistory = (GameObject)Instantiate(Resources.Load ("Prefabs/Chat"));
+		officerChatHistory.name = "OfficerChatHistory";
+		UnityEngine.Object.DontDestroyOnLoad(officerChatHistory);
+		ChatWindow officerChatWindow = officerChatHistory.GetComponent<ChatWindow>();
+		officerChatWindow.SetNPCAvatar("agent");
+		officerChatHistory.SetActive(false);
 	}
 	
 	void OnDestroy() {
@@ -312,7 +320,8 @@ public class MuseumManager : MonoBehaviour {
 			case "INTROREPORTER":
 				this.callBusy = true;
 
-				Application.LoadLevel ("Intro Reporter");
+//				Application.LoadLevel ("Intro Reporter");
+				this.gameObject.AddComponent<IntroReporter>();
 
 				break;
 			case "INTROOFFICER":

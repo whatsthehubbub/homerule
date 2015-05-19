@@ -813,6 +813,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11498850, guid: 854eb4a3fe1924b4aa22d081966f92e7, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 22451718, guid: 854eb4a3fe1924b4aa22d081966f92e7, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -919,6 +923,26 @@ Prefab:
     - target: {fileID: 117370, guid: 854eb4a3fe1924b4aa22d081966f92e7, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11498850, guid: 854eb4a3fe1924b4aa22d081966f92e7, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11498850, guid: 854eb4a3fe1924b4aa22d081966f92e7, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11498850, guid: 854eb4a3fe1924b4aa22d081966f92e7, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1160625267}
+    - target: {fileID: 11498850, guid: 854eb4a3fe1924b4aa22d081966f92e7, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ShowOfficerChats
+      objectReference: {fileID: 0}
+    - target: {fileID: 11498850, guid: 854eb4a3fe1924b4aa22d081966f92e7, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 854eb4a3fe1924b4aa22d081966f92e7, type: 2}

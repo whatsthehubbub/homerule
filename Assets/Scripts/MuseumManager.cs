@@ -327,7 +327,7 @@ public class MuseumManager : MonoBehaviour {
 			case "INTROOFFICER":
 				this.callBusy = true;
 
-				Application.LoadLevel ("Intro Officer");
+				this.gameObject.AddComponent<IntroOfficer>();
 				break;
 
 			case "REPORTERRESPONSE":

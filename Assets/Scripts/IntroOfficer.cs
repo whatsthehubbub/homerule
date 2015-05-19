@@ -13,10 +13,15 @@ public class IntroOfficer : MonoBehaviour {
 	public GameObject chat;
 	public ChatWindow cw;
 
+	public MuseumManager mm;
+
 	public SurveillanceIntroAnswer playerAnswer;
 
 	// Use this for initialization
 	void Start () {
+		GameObject main = GameObject.Find("Main");
+		mm = main.GetComponentInChildren<MuseumManager>();
+
 		Debug.Log ("Start");
 		GameObject call = (GameObject)Instantiate(Resources.Load ("Prefabs/Agent belt"));
 		call.name = "Agent belt";
@@ -37,6 +42,7 @@ public class IntroOfficer : MonoBehaviour {
 		chat.name = "VideoCall";
 		
 		cw = chat.GetComponent<ChatWindow>();
+		cw.SetArchivalChat(mm.officerChatHistory.GetComponent<ChatWindow>());
 
 		cw.AddNPCBubble("Hallo. Een moment alstublieft.");
 
@@ -52,11 +58,10 @@ public class IntroOfficer : MonoBehaviour {
 	public void ShowChatButton() {
 		GameObject.Destroy(chat);
 
-		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/Chat"));
-		chat.name = "Chat";
+		chat = mm.officerChatHistory;
+		mm.officerChatHistory.SetActive(true);
 
 		cw = chat.GetComponent<ChatWindow>();
-		cw.SetNPCAvatar("agent");
 
 		cw.AddNPCBubble("Niks ernstigs.");
 		cw.AddNPCBubble("Heeft u deze persoon gezien?");
@@ -142,12 +147,11 @@ public class IntroOfficer : MonoBehaviour {
 	}
 
 	public void IntroDone() {
-		GameObject main = GameObject.Find("Main");
-		MuseumManager mm = main.GetComponentInChildren<MuseumManager>();
-
 		mm.callBusy = false;
 		mm.storyQueue.Enqueue("REPORTERRESPONSE");
-		Application.LoadLevel ("Underway");
+
+		chat.SetActive(false);
+		GameObject.Destroy(this);
 	}
 
 }

@@ -256,6 +256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cd3e6edcf8534701afc17e4c5ac2bef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mm: {fileID: 0}
   chat: {fileID: 0}
   cw: {fileID: 0}
   medalSprite: {fileID: 21300000, guid: 6081854d4e9a2434eb68f7358f22c05c, type: 3}

@@ -125,7 +125,7 @@ public class MuseumManager : MonoBehaviour {
 			NewLocation("MEDALS", true);
 		}		
 		if (Input.GetKeyDown(KeyCode.Alpha3)) {
-			NewLocation("SIGN", true);
+			TakeImmediateCall(2);
 		}		
 //		if (Input.GetKeyDown(KeyCode.Alpha4)) {
 //			NewLocation("MARKET");
@@ -316,28 +316,42 @@ public class MuseumManager : MonoBehaviour {
 		if (!this.callBusy && this.storyQueue.Count > 0) {
 			string storyBit = this.storyQueue.Dequeue();
 
+			this.callBusy = true;
+
 			switch (storyBit) {
 			case "INTROREPORTER":
-				this.callBusy = true;
-
-//				Application.LoadLevel ("Intro Reporter");
 				this.gameObject.AddComponent<IntroReporter>();
 
 				break;
 			case "INTROOFFICER":
-				this.callBusy = true;
-
 				this.gameObject.AddComponent<IntroOfficer>();
 				break;
 
 			case "REPORTERRESPONSE":
-				this.callBusy = true;
-
 				this.gameObject.AddComponent<ReporterResponse>();
 
 				break;
-			default:
-			break;
+			}
+		}
+	}
+
+	public void TakeImmediateCall(int episodeNumber) {
+		if (!this.callBusy) {
+			this.callBusy = true;
+
+			switch (episodeNumber) {
+//			case 1:
+//				this.gameObject.AddComponent<ReporterStory1>();
+//
+//				break;
+			case 2:
+				this.gameObject.AddComponent<ReporterStory2>();
+
+				break;
+//			case 3:
+//				this.gameObject.AddComponent<ReporterStory3>();
+//
+//				break;
 			}
 		}
 	}

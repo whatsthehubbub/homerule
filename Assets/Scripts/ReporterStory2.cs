@@ -4,7 +4,7 @@ using System.Collections;
 
 using CameraShot;
 
-public class ReporterStory : MonoBehaviour {
+public class ReporterStory2 : MonoBehaviour {
 
 	public GameObject chat;
 	public ChatWindow cw;
@@ -20,6 +20,9 @@ public class ReporterStory : MonoBehaviour {
 	}
 
 	void Start () {
+		GameObject main = GameObject.Find("Main");
+		mm = main.GetComponentInChildren<MuseumManager>();
+
 		StartStory ();
 	}
 	
@@ -30,10 +33,6 @@ public class ReporterStory : MonoBehaviour {
 
 	public void StartStory() {
 		// Pause the change scene
-		GameObject main = GameObject.Find("Main");
-		mm = main.GetComponentInChildren<MuseumManager>();
-//		mm.changeScene = false;
-		
 		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
 		chat.name = "VideoCall";
 
@@ -43,6 +42,7 @@ public class ReporterStory : MonoBehaviour {
 		displayImage.GetComponentInChildren<Image>().sprite = katjaSprite;
 		
 		cw = chat.GetComponent<ChatWindow>();
+		cw.SetArchivalChat(mm.reporterChatHistory.GetComponent<ChatWindow>());
 		
 		cw.AddNPCBubble("Hoi!");
 		cw.AddNPCBubble("Er is iets aan de hand. Moet je zien!");
@@ -76,11 +76,11 @@ public class ReporterStory : MonoBehaviour {
 	
 	public void ShowOpinion1() {
 		GameObject.Destroy(chat);
-		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/Chat"));
-		chat.name = "Chat";
+
+		chat = mm.reporterChatHistory;
+		mm.reporterChatHistory.SetActive(true);
 
 		cw = chat.GetComponent<ChatWindow>();
-		cw.SetNPCAvatar("katja");
 
 		cw.AddNPCBubble("Ze willen dat mensen verhuizen omdat het gevaarlijk is waar ze nu wonen.");
 		cw.AddNPCBubble("Wat vind je daar van?");
@@ -314,11 +314,13 @@ public class ReporterStory : MonoBehaviour {
 	}
 	
 	public void ShowResultResponse() {
-		GameObject.Destroy(chat);
+		chat.SetActive(false);
+
 		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
 		chat.name = "VideoCall";
 
 		cw = chat.GetComponent<ChatWindow>();
+		cw.SetArchivalChat(mm.reporterChatHistory.GetComponent<ChatWindow>());
 
 		// Show the correct sprite (Journalist)
 		string spriteName = "";
@@ -357,17 +359,20 @@ public class ReporterStory : MonoBehaviour {
 		
 		cw.AddNPCBubble("Op andere plekken zijn ook nog dingen te zien. Ik bel je weer als er iets te doen is.");
 
-		GameObject main = GameObject.Find("Main");
-		MuseumManager mm = main.GetComponentInChildren<MuseumManager>();
-//		mm.changeScene = true;
-		mm.storyCompleted = true;
-		mm.showOfficerStoryResponse = true;
+		GameObject ok = cw.AddButton("Tot ziens");
+		ok.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			cw.ClearButtons();
+			cw.AddPlayerBubble("Tot ziens, Katja!");
+			
+			Invoke ("ShowResultClose", 0.5f);
 
-		// Update the current story to be no longer active
-//		Story s = mm.stories[mm.currentStory];
-//		s.active = false;
-//		mm.stories[mm.currentStory] = s;
+			mm.callBusy = false;
 
+			mm.storyCompleted = true;
+			mm.showOfficerStoryResponse = true;
+
+			Destroy(chat);
+		});
 	}
 
 	/*

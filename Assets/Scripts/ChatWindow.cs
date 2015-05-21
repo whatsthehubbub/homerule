@@ -118,4 +118,13 @@ public class ChatWindow : MonoBehaviour {
 			GameObject.Destroy(child.gameObject);
 		}
 	}
+
+	public void DisableBack() {
+		this.gameObject.transform.Find ("topbar/Terug").GetComponent<Button>().interactable = false;
+	}
+
+	public void EnableBack() {
+		this.gameObject.transform.Find ("topbar/Terug").GetComponent<Button>().interactable = true;
+	}
+
 }

@@ -57,6 +57,7 @@ public class IntroReporter : MonoBehaviour {
 		chat = mm.reporterChatHistory;
 		mm.reporterChatHistory.SetActive(true);
 		cw = chat.GetComponent<ChatWindow>();
+		cw.DisableBack();
 
 		cw.AddPlayerBubble("Hoi Katja");
 
@@ -95,6 +96,7 @@ public class IntroReporter : MonoBehaviour {
 	}
 
 	public void ShowReporterClose() {
+		cw.EnableBack();
 		chat.SetActive(false);
 
 		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));

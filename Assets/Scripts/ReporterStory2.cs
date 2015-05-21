@@ -23,7 +23,16 @@ public class ReporterStory2 : MonoBehaviour {
 		GameObject main = GameObject.Find("Main");
 		mm = main.GetComponentInChildren<MuseumManager>();
 
-		StartStory ();
+		GameObject call = (GameObject)Instantiate(Resources.Load ("Prefabs/Katja belt"));
+		call.name = "Katja belt";
+		
+		call.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			GameObject.Destroy(call);
+
+			StartStory ();
+		});
+
+
 	}
 	
 	// Update is called once per frame
@@ -363,8 +372,6 @@ public class ReporterStory2 : MonoBehaviour {
 		ok.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 			cw.AddPlayerBubble("Tot ziens, Katja!");
-			
-			Invoke ("ShowResultClose", 0.5f);
 
 			mm.callBusy = false;
 

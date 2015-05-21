@@ -125,7 +125,7 @@ public class MuseumManager : MonoBehaviour {
 			NewLocation("MEDALS", true);
 		}		
 		if (Input.GetKeyDown(KeyCode.Alpha3)) {
-			TakeImmediateCall(2);
+			TakeImmediateCall(1);
 		}		
 //		if (Input.GetKeyDown(KeyCode.Alpha4)) {
 //			NewLocation("MARKET");
@@ -340,18 +340,18 @@ public class MuseumManager : MonoBehaviour {
 			this.callBusy = true;
 
 			switch (episodeNumber) {
-//			case 1:
-//				this.gameObject.AddComponent<ReporterStory1>();
-//
-//				break;
+			case 1:
+				this.gameObject.AddComponent<ReporterStory1>();
+
+				break;
 			case 2:
 				this.gameObject.AddComponent<ReporterStory2>();
 
 				break;
-//			case 3:
-//				this.gameObject.AddComponent<ReporterStory3>();
-//
-//				break;
+			case 3:
+				this.gameObject.AddComponent<ReporterStory3>();
+
+				break;
 			}
 		}
 	}

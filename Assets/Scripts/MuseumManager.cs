@@ -8,13 +8,13 @@ using System;
 
 public struct Location {
 	public string name;
-	public string sceneName;
 	public int minor;
+	public bool shown;
 	
-	public Location(string name, string sceneName, int minor) {
+	public Location(string name, int minor, bool shown) {
 		this.name = name;
-		this.sceneName = sceneName;
 		this.minor = minor;
+		this.shown = shown;
 	}
 }
 
@@ -50,13 +50,13 @@ public enum OfficerResponseOpinion {
 
 public class MuseumManager : MonoBehaviour {
 
-	private Dictionary<string, Location> locations = new Dictionary<string, Location>(){
-		{"CAMERAS", new Location("CAMERAS", "Home Scene", 48618)},
-		{"MEDALS", new Location("MEDALS", "Office Scene", 22290)},
-		{"SIGN", new Location("SIGN", "Square Scene", 48174)},
+	private Dictionary<int, Location> locations = new Dictionary<int, Location>(){
+		{48618, new Location("EPISODE1", 48618, false)},
+		{22290, new Location("EPISODE2", 22290, false)},
+		{48174, new Location("EPISODE3", 48174, false)},
 //		{"MARKET", new Location("MARKET", "Market Scene", 53868)},
 //		{"STATION", new Location("STATION", "Station Scene", 45444)},
-		{"UNDERWAY", new Location("UNDERWAY", "Underway", -1)}
+//		{"UNDERWAY", new Location("UNDERWAY", "Underway", -1)}
 	};
 
 	public Queue<string> storyQueue = new Queue<string>();
@@ -119,22 +119,16 @@ public class MuseumManager : MonoBehaviour {
 		// Debug code to move between Scenes
 
 		if (Input.GetKeyDown(KeyCode.Alpha1)) {
-			NewLocation("CAMERAS", true);
+			MovedIntoBeaconRange(48618);
 		}
 		if (Input.GetKeyDown(KeyCode.Alpha2)) {
-			NewLocation("MEDALS", true);
+			MovedIntoBeaconRange(22290);
 		}		
 		if (Input.GetKeyDown(KeyCode.Alpha3)) {
-			TakeImmediateCall(1);
+			MovedIntoBeaconRange(48174);
 		}		
-//		if (Input.GetKeyDown(KeyCode.Alpha4)) {
-//			NewLocation("MARKET");
-//		}		
-//		if (Input.GetKeyDown(KeyCode.Alpha5)) {
-//			NewLocation("STATION");
-//		}
-		if (Input.GetKeyDown(KeyCode.Alpha6)) {
-			NewLocation ("UNDERWAY", true);
+		if (Input.GetKeyDown(KeyCode.Alpha4)) {
+			MovedOutOfBeaconRange();
 		}
 	}
 	
@@ -273,17 +267,19 @@ public class MuseumManager : MonoBehaviour {
 			if (b.range == BeaconRange.NEAR || b.range == BeaconRange.IMMEDIATE) {
 //			if (b.range == BeaconRange.IMMEDIATE) {
 				
-				foreach(KeyValuePair<string, Location> entry in locations) {
+				foreach(KeyValuePair<int, Location> entry in locations) {
 					if (entry.Value.minor == b.minor) {
 						found = true;
+
+						MovedIntoBeaconRange(entry.Value.minor);
 
 //						if (playerLocation != entry.Value.name) {
 //							NewEvent(entry.Value.name);
 //						}
 
-						if (!this.playerState.Equals (entry.Value.name)) {
-							NewLocation(entry.Value.name);
-						}
+//						if (!this.playerState.Equals (entry.Value.name)) {
+//							NewLocation(entry.Value.name);
+//						}
 					}
 				}
 			} else if (b.range == BeaconRange.FAR) {
@@ -293,22 +289,43 @@ public class MuseumManager : MonoBehaviour {
 			}
 		}
 
-		if (!found && playerState != "IDLE") {
+		if (!found) {
+			MovedOutOfBeaconRange();
 //			ShowIdle ();
-			NewLocation("UNDERWAY");
+//			NewLocation("UNDERWAY");
+		}
+	}
+
+	public void MovedIntoBeaconRange(int number) {
+		// If there is an episode here that we want to go to, show that
+
+		Location loc = this.locations[number];
+
+		if (!loc.shown) {
+			loc.shown = true;
+
+			switch (number) {
+			case 48618:
+				TakeImmediateCall(1);
+				break;
+			case 22290:
+				TakeImmediateCall(2);
+				break;
+			case 48174:
+				TakeImmediateCall(3);
+				break;
+			}
+		} else {
+			TakeCall ();
 		}
 
-		TakeCall ();
-	}
-	
-	public void NewLocation(string locationKey, bool forceChange = false) {
-		// Hide a map if there is one
-//		if (forceChange || changeScene) {
-//			this.playerState = locationKey;
-//			
-//			Application.LoadLevel(locations[locationKey].sceneName);
-//		}
+		Debug.Log ("after switch" + loc.shown);
 
+		this.locations[number] = loc;
+	}
+
+	public void MovedOutOfBeaconRange() {
+		// Check whether we have a bit of story to show and give that
 		TakeCall ();
 	}
 

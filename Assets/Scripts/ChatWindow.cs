@@ -118,5 +118,4 @@ public class ChatWindow : MonoBehaviour {
 			GameObject.Destroy(child.gameObject);
 		}
 	}
-
 }

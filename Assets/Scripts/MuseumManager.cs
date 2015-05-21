@@ -319,8 +319,6 @@ public class MuseumManager : MonoBehaviour {
 			TakeCall ();
 		}
 
-		Debug.Log ("after switch" + loc.shown);
-
 		this.locations[number] = loc;
 	}
 

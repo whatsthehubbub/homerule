@@ -46,6 +46,7 @@ GameObject:
   - 223: {fileID: 22332378}
   - 114: {fileID: 11402530}
   - 114: {fileID: 11416306}
+  - 114: {fileID: 11497606}
   m_Layer: 5
   m_Name: Goal
   m_TagString: Untagged
@@ -338,9 +339,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 11448550}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11497606}
+        m_MethodName: CloseGoal
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &11497606
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b82d9f3226b304af6bf30e2179a882a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &22203094
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -393,7 +417,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
 --- !u!224 &22407854
 RectTransform:
   m_ObjectHideFlags: 1

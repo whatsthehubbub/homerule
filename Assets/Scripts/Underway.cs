@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Underway : MonoBehaviour {
 
 	private MuseumManager mm;
+
+	public GameObject postHistoryContainer;
+	public GameObject chatHistoryContainer;
 
 	// Use this for initialization
 	void Start () {
@@ -17,8 +21,6 @@ public class Underway : MonoBehaviour {
 	}
 
 	public void ShowJournalistChats() {
-		Debug.Log ("Show journalist chats");
-
 		mm.reporterChatHistory.SetActive(true);
 	}
 
@@ -29,5 +31,21 @@ public class Underway : MonoBehaviour {
 	public void ShowGoal() {
 		GameObject goal = (GameObject)Instantiate(Resources.Load ("Prefabs/Goal"));
 		goal.name = "Goal";
+	}
+
+	public void ShowChatHistory() {
+		GameObject.Find ("ChatsTabButton").GetComponent<Button>().interactable = false;
+		GameObject.Find ("PostsTabButton").GetComponent<Button>().interactable = true;
+
+		postHistoryContainer.SetActive(false);
+		chatHistoryContainer.SetActive(true);
+	}
+
+	public void ShowPostHistory() {
+		GameObject.Find ("ChatsTabButton").GetComponent<Button>().interactable = true;
+		GameObject.Find ("PostsTabButton").GetComponent<Button>().interactable = false;
+
+		postHistoryContainer.SetActive(true);
+		chatHistoryContainer.SetActive(false);
 	}
 }

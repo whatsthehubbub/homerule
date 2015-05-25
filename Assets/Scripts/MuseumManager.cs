@@ -36,6 +36,18 @@ public enum Story1OpinionAnswer {
 	DISPLAY
 }
 
+public enum Story1FactAnswer {
+	COUNT,
+	FEAR,
+	VANDALISM
+}
+
+public enum Story1OpinionDescription {
+	VANDAL,
+	CITIZEN,
+	ARTIST
+}
+
 public enum StoryOpinionAnswer {
 	SAD,
 	GOOD,
@@ -71,7 +83,9 @@ public class MuseumManager : MonoBehaviour {
 	public GameObject reporterChatHistory;
 	public GameObject officerChatHistory;
 
-	public Story1OpinionAnswer story1PlayerOpinion;
+	public Story1OpinionAnswer story1Opinion;
+	public Story1FactAnswer story1Fact;
+	public Story1OpinionDescription story1OpinionDescription;
 
 	public bool showKatjaIntroSurveillanceResponse = false;
 	public bool showOfficerStoryResponse = false;

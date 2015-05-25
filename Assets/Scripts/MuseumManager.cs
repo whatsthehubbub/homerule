@@ -30,6 +30,12 @@ public struct Story {
 	}
 }
 
+public enum Story1OpinionAnswer {
+	CLEAN,
+	LEAVE,
+	DISPLAY
+}
+
 public enum StoryOpinionAnswer {
 	SAD,
 	GOOD,
@@ -64,6 +70,8 @@ public class MuseumManager : MonoBehaviour {
 
 	public GameObject reporterChatHistory;
 	public GameObject officerChatHistory;
+
+	public Story1OpinionAnswer story1PlayerOpinion;
 
 	public bool showKatjaIntroSurveillanceResponse = false;
 	public bool showOfficerStoryResponse = false;

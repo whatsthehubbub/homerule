@@ -422,6 +422,9 @@ MonoBehaviour:
   callBusy: 0
   reporterChatHistory: {fileID: 0}
   officerChatHistory: {fileID: 0}
+  story1Opinion: 0
+  story1Fact: 0
+  story1OpinionDescription: 0
   showKatjaIntroSurveillanceResponse: 0
   showOfficerStoryResponse: 0
   playerOpinion: 0

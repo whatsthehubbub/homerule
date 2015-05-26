@@ -68,7 +68,7 @@ public class OfficerResponse : MonoBehaviour {
 //		Image storyImage = imageObject.GetComponentInChildren<Image>();
 //		storyImage.sprite = Sprite.Create (mm.storyImage, new Rect(0, 0, 200, 300), new Vector2(0.5f, 0.5f));
 
-		GameObject storyBubble = cw.AddNPCBubble(mm.storyText);
+		GameObject storyBubble = cw.AddNPCBubble(mm.story2Text);
 		storyBubble.GetComponentInChildren<Image>().sprite = articleSprite;
 
 		GameObject button = cw.AddButton ("OK");
@@ -81,13 +81,13 @@ public class OfficerResponse : MonoBehaviour {
 	}
 
 	public void ShowPossibilities() {
-		if (mm.playerOpinion == StoryOpinionAnswer.SAD) {
+		if (mm.story2FinalOpinion == Story2OpinionAnswer.SAD) {
 			cw.AddNPCBubble("Door dat bericht hebben we extra werk. Mensen moeten verzorgd worden. Dat vinden we niet nodig.");
 		}
-		else if (mm.playerOpinion == StoryOpinionAnswer.GOOD) {
+		else if (mm.story2FinalOpinion == Story2OpinionAnswer.GOOD) {
 			cw.AddNPCBubble("Dat bericht heeft geholpen. Mensen luisteren naar wat we zeggen. Ze gaan netjes hun huis uit. Goed zo.");
 		}
-		else if (mm.playerOpinion == StoryOpinionAnswer.WRONG) {
+		else if (mm.story2FinalOpinion == Story2OpinionAnswer.WRONG) {
 			cw.AddNPCBubble("We zijn boos over dat bericht. Mensen doen niet wat we zeggen. Maar dat moet wel. We zijn nog steeds bezig met mensen uit hun huis halen.");
 		}
 

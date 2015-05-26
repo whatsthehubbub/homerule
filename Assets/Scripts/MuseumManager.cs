@@ -48,13 +48,13 @@ public enum Story1OpinionDescription {
 	ARTIST
 }
 
-public enum StoryOpinionAnswer {
+public enum Story2OpinionAnswer {
 	SAD,
 	GOOD,
 	WRONG
 }
 
-public enum StoryFactAnswer {
+public enum Story2FactAnswer {
 	FIGHTING,
 	HELPING,
 	STEALING
@@ -86,18 +86,19 @@ public class MuseumManager : MonoBehaviour {
 	public Story1OpinionAnswer story1Opinion;
 	public Story1FactAnswer story1Fact;
 	public Story1OpinionDescription story1OpinionDescription;
-	public string story1Text;
+	public string story1Text = "";
 	public bool story1Done = false;
+
+	public Story2OpinionAnswer story2Opinion;
+	public Story2FactAnswer story2Fact;
+	public Story2OpinionAnswer story2FinalOpinion;
+	public string story2Text = "";
+	public bool story2Done = false;
 
 	public bool showKatjaIntroSurveillanceResponse = false;
 	public bool showOfficerStoryResponse = false;
 
-	public StoryOpinionAnswer playerOpinion;
-	public StoryFactAnswer playerFact;
-	public bool storyCompleted = false;
-
 	public Texture2D storyImage;
-	public string storyText;
 	
 	private List<Beacon> mybeacons = new List<Beacon>();
 	private bool scanning = true;
@@ -116,7 +117,6 @@ public class MuseumManager : MonoBehaviour {
 		Debug.Log ("Listening for beacons");
 
 		showKatjaIntroSurveillanceResponse = false;
-		storyCompleted = false;
 
 		// Create the chat windows to keep the history in (and make sure they don't get destroyed on scene change)
 		reporterChatHistory = (GameObject)Instantiate(Resources.Load ("Prefabs/Chat"));

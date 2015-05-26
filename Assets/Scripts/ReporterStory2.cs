@@ -99,7 +99,7 @@ public class ReporterStory2 : MonoBehaviour {
 			cw.ClearButtons();
 			cw.AddPlayerBubble("Zielig. Waar moeten de mensen heen?");
 			
-			mm.playerOpinion = StoryOpinionAnswer.SAD;
+			mm.story2Opinion = Story2OpinionAnswer.SAD;
 			
 			Invoke ("ShowReporterOpinionResponse1", 0.5f);
 		});
@@ -109,7 +109,7 @@ public class ReporterStory2 : MonoBehaviour {
 			cw.ClearButtons();
 			cw.AddPlayerBubble("Goed. Als er gevaar is dan moeten ze je daarvoor beschermen.");
 			
-			mm.playerOpinion = StoryOpinionAnswer.GOOD;
+			mm.story2Opinion = Story2OpinionAnswer.GOOD;
 			
 			Invoke ("ShowReporterOpinionResponse1", 0.5f);
 		});
@@ -119,7 +119,7 @@ public class ReporterStory2 : MonoBehaviour {
 			cw.ClearButtons();
 			cw.AddPlayerBubble("Verkeerd. Mensen mogen zelf weten of ze weg gaan.");
 			
-			mm.playerOpinion = StoryOpinionAnswer.WRONG;
+			mm.story2Opinion = Story2OpinionAnswer.WRONG;
 			
 			Invoke ("ShowReporterOpinionResponse1", 0.5f);
 		});
@@ -177,7 +177,7 @@ public class ReporterStory2 : MonoBehaviour {
 			cw.ClearButtons();
 			cw.AddPlayerBubble("Omdat er werd gevochten en dat is gevaarlijk.");
 			
-			mm.playerFact = StoryFactAnswer.FIGHTING;
+			mm.story2Fact = Story2FactAnswer.FIGHTING;
 			
 			Invoke ("ShowFactResponse", 0.5f);
 		});
@@ -187,7 +187,7 @@ public class ReporterStory2 : MonoBehaviour {
 			cw.ClearButtons();
 			cw.AddPlayerBubble("Zodat mensen de geallieerden niet zouden helpen.");
 			
-			mm.playerFact = StoryFactAnswer.HELPING;
+			mm.story2Fact = Story2FactAnswer.HELPING;
 			
 			Invoke ("ShowFactResponse", 0.5f);
 		});
@@ -197,18 +197,18 @@ public class ReporterStory2 : MonoBehaviour {
 			cw.ClearButtons();
 			cw.AddPlayerBubble("Zodat de Duitsers hun spullen konden te stelen.");
 			
-			mm.playerFact = StoryFactAnswer.STEALING;
+			mm.story2Fact = Story2FactAnswer.STEALING;
 			
 			Invoke ("ShowFactResponse", 0.5f);
 		});
 	}
 	
 	public void ShowFactResponse() {
-		if (mm.playerFact == StoryFactAnswer.FIGHTING) {
+		if (mm.story2Fact == Story2FactAnswer.FIGHTING) {
 			cw.AddNPCBubble("Klopt! De Duitsers waren ook bang dat de mensen de geallieerden zouden helpen. Er werden ook spullen gestolen door de Duitsers en door burgers.");
-		} else if (mm.playerFact == StoryFactAnswer.HELPING) {
+		} else if (mm.story2Fact == Story2FactAnswer.HELPING) {
 			cw.AddNPCBubble("Klopt! Er werd ook nog gevochten en dat is gevaarlijk. Er werden ook spullen gestolen door de Duitsers en door burgers.");
-		} else if (mm.playerFact == StoryFactAnswer.STEALING) {
+		} else if (mm.story2Fact == Story2FactAnswer.STEALING) {
 			cw.AddNPCBubble("Dat was niet de reden maar het gebeurde wel. Er werden spullen gestolen door de Duitsers en door burgers.");
 			
 			cw.AddNPCBubble("De mensen moesten weg omdat er gevochten werd en dat is gevaarlijk. De Duitsers waren ook bang dat de mensen de geallieerden zouden helpen.");
@@ -234,9 +234,9 @@ public class ReporterStory2 : MonoBehaviour {
 	public void ShowArgument() {
 		string opinion = "";
 		
-		if (mm.playerOpinion == StoryOpinionAnswer.SAD) opinion = "zielig";
-		else if (mm.playerOpinion == StoryOpinionAnswer.GOOD) opinion = "goed";
-		else if (mm.playerOpinion == StoryOpinionAnswer.WRONG) opinion = "verkeerd";
+		if (mm.story2Opinion == Story2OpinionAnswer.SAD) opinion = "zielig";
+		else if (mm.story2Opinion == Story2OpinionAnswer.GOOD) opinion = "goed";
+		else if (mm.story2Opinion == Story2OpinionAnswer.WRONG) opinion = "verkeerd";
 		
 		cw.AddNPCBubble("Maar wat zal ik er bij zeggen? Eerder vond je het " + opinion + ". Vind je dat nog steeds?");
 		
@@ -245,7 +245,7 @@ public class ReporterStory2 : MonoBehaviour {
 			cw.ClearButtons();
 			cw.AddPlayerBubble("Het is zielig want je moet al je spullen en vrienden achterlaten en je weet niet waar je heen gaat.");
 			
-			mm.playerOpinion = StoryOpinionAnswer.SAD;
+			mm.story2FinalOpinion = Story2OpinionAnswer.SAD;
 			
 			Invoke ("ShowArgumentResponse", 0.5f);
 		});
@@ -255,7 +255,7 @@ public class ReporterStory2 : MonoBehaviour {
 			cw.ClearButtons();
 			cw.AddPlayerBubble("Het is goed want als je gevaar loopt dan moeten ze je daarvoor beschermen.");
 			
-			mm.playerOpinion = StoryOpinionAnswer.GOOD;
+			mm.story2FinalOpinion = Story2OpinionAnswer.GOOD;
 			
 			Invoke ("ShowArgumentResponse", 0.5f);
 		});
@@ -265,7 +265,7 @@ public class ReporterStory2 : MonoBehaviour {
 			cw.ClearButtons();
 			cw.AddPlayerBubble("Het is verkeerd want mensen moeten zelf kunnen kiezen of ze weg gaan of niet.");
 			
-			mm.playerOpinion = StoryOpinionAnswer.WRONG;
+			mm.story2FinalOpinion = Story2OpinionAnswer.WRONG;
 			
 			Invoke ("ShowArgumentResponse", 0.5f);
 		});
@@ -284,13 +284,14 @@ public class ReporterStory2 : MonoBehaviour {
 		storyImage.sprite = Sprite.Create (mm.storyImage, new Rect(0, 0, 200, 300), new Vector2(0.5f, 0.5f));
 
 		string argument = "";
-		if (mm.playerOpinion == StoryOpinionAnswer.SAD) argument = "zielig want je moet al je spullen en vrienden achterlaten en je weet niet waar je heen gaat. Ze moeten dus goed voor de mensen zorgen!";
-		else if (mm.playerOpinion == StoryOpinionAnswer.GOOD) argument = "goed want als je gevaar loopt dan moeten ze je daarvoor beschermen. De mensen moeten dus gewoon doen wat de agenten zeggen.";
-		else if (mm.playerOpinion == StoryOpinionAnswer.WRONG) argument = "verkeerd want je moet zelf kunnen kiezen of je weg gaat of niet. De mensen moeten dus blijven als ze dat willen. Ook als dat niet mag van de agenten.";
+		if (mm.story2FinalOpinion == Story2OpinionAnswer.SAD) argument = "zielig want je moet al je spullen en vrienden achterlaten en je weet niet waar je heen gaat. Ze moeten dus goed voor de mensen zorgen!";
+		else if (mm.story2FinalOpinion == Story2OpinionAnswer.GOOD) argument = "goed want als je gevaar loopt dan moeten ze je daarvoor beschermen. De mensen moeten dus gewoon doen wat de agenten zeggen.";
+		else if (mm.story2FinalOpinion == Story2OpinionAnswer.WRONG) argument = "verkeerd want je moet zelf kunnen kiezen of je weg gaat of niet. De mensen moeten dus blijven als ze dat willen. Ook als dat niet mag van de agenten.";
 
 		string storyText = "Net als nu moesten de mensen in Arnhem uit hun huis vanwege gevaar." +
 			"\n" + "Dat is " + argument;
-		mm.storyText = storyText;
+		mm.story2Text = storyText;
+
 		GameObject storyFactBubble = cw.AddNPCBubble(storyText);
 		storyFactBubble.GetComponentInChildren<Image>().sprite = articleSprite;
 		
@@ -333,20 +334,20 @@ public class ReporterStory2 : MonoBehaviour {
 
 		// Show the correct sprite (Journalist)
 		string spriteName = "";
-		if (mm.playerOpinion == StoryOpinionAnswer.GOOD) { spriteName = "situatie uitkomst goed"; }
-		else if (mm.playerOpinion == StoryOpinionAnswer.SAD) { spriteName = "situatie uitkomst zielig"; }
-		else if (mm.playerOpinion == StoryOpinionAnswer.WRONG) { spriteName = "situatie uitkomst slecht"; }
+		if (mm.story2FinalOpinion == Story2OpinionAnswer.GOOD) { spriteName = "situatie uitkomst goed"; }
+		else if (mm.story2FinalOpinion == Story2OpinionAnswer.SAD) { spriteName = "situatie uitkomst zielig"; }
+		else if (mm.story2FinalOpinion == Story2OpinionAnswer.WRONG) { spriteName = "situatie uitkomst slecht"; }
 		Sprite showSprite = Resources.Load<Sprite>("Sprites/" + spriteName);;
 
 		GameObject displayImage = GameObject.Find ("DisplayImage");
 		displayImage.GetComponentInChildren<Image>().sprite = showSprite;
 		
 		
-		if (mm.playerOpinion == StoryOpinionAnswer.SAD) {
+		if (mm.story2FinalOpinion == Story2OpinionAnswer.SAD) {
 			cw.AddNPCBubble("Er wordt gelukkig goed gezorgd voor de mensen.");
-		} else if (mm.playerOpinion == StoryOpinionAnswer.GOOD) {
+		} else if (mm.story2FinalOpinion == Story2OpinionAnswer.GOOD) {
 			cw.AddNPCBubble("Iedereen volgt netjes de regels. Maar niet iedereen is blij.");
-		} else if (mm.playerOpinion == StoryOpinionAnswer.WRONG) {
+		} else if (mm.story2FinalOpinion == Story2OpinionAnswer.WRONG) {
 			cw.AddNPCBubble("Sommige mensen luisteren niet. Ze krijgen ruzie en er wordt gevochten! ");
 		}
 
@@ -375,8 +376,7 @@ public class ReporterStory2 : MonoBehaviour {
 
 			mm.callBusy = false;
 
-			mm.storyCompleted = true;
-			mm.showOfficerStoryResponse = true;
+			mm.story2Done = true;
 
 			Destroy(chat);
 		});

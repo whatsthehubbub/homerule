@@ -58,5 +58,11 @@ public class Underway : MonoBehaviour {
 
 			this.post1.transform.Find("PostContainer/PostText").GetComponent<Text>().text = mm.story1Text;
 		}
+
+		if (mm.story2Done) {
+			this.post2.SetActive(true);
+
+			this.post2.transform.Find("PostContainer/PostText").GetComponent<Text>().text = mm.story2Text;
+		}
 	}
 }

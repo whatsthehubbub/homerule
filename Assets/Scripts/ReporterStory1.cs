@@ -263,6 +263,7 @@ public class ReporterStory1 : MonoBehaviour {
 		}
 
 		cw.AddNPCBubble(message);
+		mm.story1Text = message;
 
 		GameObject send = cw.AddButton("Verzenden");
 		send.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -325,6 +326,8 @@ public class ReporterStory1 : MonoBehaviour {
 			cw.AddPlayerBubble("Tot ziens, Katja!");
 			
 			mm.callBusy = false;
+
+			mm.story1Done = true;
 			
 			Destroy(chat);
 		});

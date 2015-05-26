@@ -86,6 +86,8 @@ public class MuseumManager : MonoBehaviour {
 	public Story1OpinionAnswer story1Opinion;
 	public Story1FactAnswer story1Fact;
 	public Story1OpinionDescription story1OpinionDescription;
+	public string story1Text;
+	public bool story1Done = false;
 
 	public bool showKatjaIntroSurveillanceResponse = false;
 	public bool showOfficerStoryResponse = false;
@@ -120,14 +122,14 @@ public class MuseumManager : MonoBehaviour {
 		reporterChatHistory = (GameObject)Instantiate(Resources.Load ("Prefabs/Chat"));
 		reporterChatHistory.name = "ReporterChatHistory";
 		UnityEngine.Object.DontDestroyOnLoad(reporterChatHistory);
-		ChatWindow reporterChatWindow = reporterChatHistory.GetComponent<ChatWindow>();
+//		ChatWindow reporterChatWindow = reporterChatHistory.GetComponent<ChatWindow>();
 //		reporterChatWindow.SetNPCAvatar("katja");
 		reporterChatHistory.SetActive(false);
 
 		officerChatHistory = (GameObject)Instantiate(Resources.Load ("Prefabs/Chat"));
 		officerChatHistory.name = "OfficerChatHistory";
 		UnityEngine.Object.DontDestroyOnLoad(officerChatHistory);
-		ChatWindow officerChatWindow = officerChatHistory.GetComponent<ChatWindow>();
+//		ChatWindow officerChatWindow = officerChatHistory.GetComponent<ChatWindow>();
 //		officerChatWindow.SetNPCAvatar("agent");
 		officerChatHistory.SetActive(false);
 	}
@@ -392,7 +394,7 @@ public class MuseumManager : MonoBehaviour {
 			}
 		}
 	}
-
+	
 	/*
 	 * Scene Management.
 	 */

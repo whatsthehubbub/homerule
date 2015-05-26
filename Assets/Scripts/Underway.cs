@@ -9,6 +9,10 @@ public class Underway : MonoBehaviour {
 	public GameObject postHistoryContainer;
 	public GameObject chatHistoryContainer;
 
+	public GameObject post1;
+	public GameObject post2;
+	public GameObject post3;
+
 	// Use this for initialization
 	void Start () {
 		GameObject main = GameObject.Find("Main");
@@ -47,5 +51,12 @@ public class Underway : MonoBehaviour {
 
 		postHistoryContainer.SetActive(true);
 		chatHistoryContainer.SetActive(false);
+
+		// Fill in the various posts
+		if (mm.story1Done) {
+			this.post1.SetActive(true);
+
+			this.post1.transform.Find("PostContainer/PostText").GetComponent<Text>().text = mm.story1Text;
+		}
 	}
 }

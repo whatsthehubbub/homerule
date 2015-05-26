@@ -726,6 +726,18 @@ RectTransform:
   m_PrefabParentObject: {fileID: 22462980, guid: fbce7465434c449ae8f21f0d89205ccf,
     type: 2}
   m_PrefabInternal: {fileID: 681738555}
+--- !u!1 &684669650 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 107048, guid: fbce7465434c449ae8f21f0d89205ccf, type: 2}
+  m_PrefabInternal: {fileID: 852303935}
+--- !u!1 &702635415 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 107048, guid: fbce7465434c449ae8f21f0d89205ccf, type: 2}
+  m_PrefabInternal: {fileID: 681738555}
+--- !u!1 &810293854 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 107048, guid: fbce7465434c449ae8f21f0d89205ccf, type: 2}
+  m_PrefabInternal: {fileID: 1019007794}
 --- !u!1001 &852303935
 Prefab:
   m_ObjectHideFlags: 0
@@ -816,6 +828,10 @@ Prefab:
     - target: {fileID: 107048, guid: fbce7465434c449ae8f21f0d89205ccf, type: 2}
       propertyPath: m_Name
       value: Post1
+      objectReference: {fileID: 0}
+    - target: {fileID: 107048, guid: fbce7465434c449ae8f21f0d89205ccf, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fbce7465434c449ae8f21f0d89205ccf, type: 2}
@@ -948,7 +964,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &965417185
 Transform:
   m_ObjectHideFlags: 0
@@ -1525,6 +1541,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   postHistoryContainer: {fileID: 1796907192}
   chatHistoryContainer: {fileID: 965417184}
+  post1: {fileID: 684669650}
+  post2: {fileID: 810293854}
+  post3: {fileID: 702635415}
 --- !u!1 &1611601132
 GameObject:
   m_ObjectHideFlags: 0
@@ -1612,7 +1631,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1796907193
 Transform:
   m_ObjectHideFlags: 0

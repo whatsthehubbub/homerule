@@ -6,8 +6,16 @@ public class ChatWindow : MonoBehaviour {
 
 	private ChatWindow archivalChat;
 
+	public AudioClip bubbleSound;
+	public AudioClip buttonSound;
+	public AudioSource audioSource;
+
 	// Use this for initialization
 	void Start () {
+		bubbleSound = Resources.Load<AudioClip>("Audio/bubble");
+		buttonSound = Resources.Load<AudioClip>("Audio/choice");
+
+		this.audioSource = GameObject.Find ("Main").GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -19,6 +27,11 @@ public class ChatWindow : MonoBehaviour {
 	}
 
 	public GameObject AddBubble(string text, string party) {
+		// The audio source isn't created as quickly as we would like
+		if (this.audioSource != null) {
+			audioSource.PlayOneShot(bubbleSound);
+		}
+
 		string prefabName = "";
 
 		switch (party) {
@@ -58,6 +71,10 @@ public class ChatWindow : MonoBehaviour {
 	}
 
 	public GameObject AddImageBubble(string party) {
+		if (this.audioSource != null) {
+			audioSource.PlayOneShot(bubbleSound);
+		}
+
 		string prefabName = "";
 		
 		switch (party) {
@@ -112,6 +129,10 @@ public class ChatWindow : MonoBehaviour {
 	}
 
 	public void ClearButtons() {
+		if (this.audioSource != null) {
+			audioSource.PlayOneShot(buttonSound);
+		}
+
 		GameObject buttonArea = this.gameObject.transform.Find("ButtonArea").gameObject;
 
 		foreach (Transform child in buttonArea.transform) {

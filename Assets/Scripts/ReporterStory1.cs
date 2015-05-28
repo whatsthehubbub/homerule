@@ -17,7 +17,7 @@ public class ReporterStory1 : MonoBehaviour {
 		mm = main.GetComponentInChildren<MuseumManager>();
 
 		AudioClip ringtone = Resources.Load<AudioClip>("Audio/ringtone");
-		this.audioSource = this.gameObject.AddComponent<AudioSource>();
+		this.audioSource = main.GetComponent<AudioSource>();
 		audioSource.loop = true;
 		audioSource.clip = ringtone;
 		audioSource.Play ();

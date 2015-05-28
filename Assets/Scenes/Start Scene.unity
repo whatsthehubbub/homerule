@@ -427,13 +427,14 @@ MonoBehaviour:
   story1OpinionDescription: 0
   story1Text: 
   story1Done: 0
+  story2Opinion: 0
+  story2Fact: 0
+  story2FinalOpinion: 0
+  story2Text: 
+  story2Done: 0
   showKatjaIntroSurveillanceResponse: 0
   showOfficerStoryResponse: 0
-  playerOpinion: 0
-  playerFact: 0
-  storyCompleted: 0
   storyImage: {fileID: 0}
-  storyText: 
   currentStory: 
   playerState: 
 --- !u!4 &1313762165

@@ -100,6 +100,7 @@ public class ReporterStory2 : MonoBehaviour {
 		mm.reporterChatHistory.SetActive(true);
 
 		cw = chat.GetComponent<ChatWindow>();
+		cw.DisableBack();
 
 		cw.AddNPCBubble("Ze willen dat mensen verhuizen omdat het gevaarlijk is waar ze nu wonen.");
 		cw.AddNPCBubble("Wat vind je daar van?");
@@ -334,6 +335,7 @@ public class ReporterStory2 : MonoBehaviour {
 	}
 	
 	public void ShowResultResponse() {
+		cw.EnableBack();
 		chat.SetActive(false);
 
 		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));

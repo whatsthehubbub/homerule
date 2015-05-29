@@ -84,6 +84,7 @@ public class ReporterStory1 : MonoBehaviour {
 			mm.reporterChatHistory.SetActive(true);
 			
 			cw = chat.GetComponent<ChatWindow>();
+			cw.DisableBack();
 			
 			Invoke ("GiveOpinion0", 0.8f);
 		});
@@ -285,8 +286,10 @@ public class ReporterStory1 : MonoBehaviour {
 	}
 
 	public void SendPiece() {
+		// Re enable the chat history's back button and hide it
+		cw.EnableBack();
 		chat.SetActive(false);
-		
+
 		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
 		chat.name = "VideoCall";
 

@@ -116,6 +116,8 @@ public class MuseumManager : MonoBehaviour {
 		iBeaconReceiver.CheckBluetoothLEStatus();
 		Debug.Log ("Listening for beacons");
 
+		this.callBusy = true;
+
 		showKatjaIntroSurveillanceResponse = false;
 
 		// Create the chat windows to keep the history in (and make sure they don't get destroyed on scene change)
@@ -404,5 +406,6 @@ public class MuseumManager : MonoBehaviour {
 
 		this.storyQueue.Enqueue("INTROREPORTER");
 		this.storyQueue.Enqueue("INTROOFFICER");
+		this.callBusy = false;
 	}
 }

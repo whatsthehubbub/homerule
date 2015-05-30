@@ -997,7 +997,7 @@ Prefab:
     - target: {fileID: 11489746, guid: 854eb4a3fe1924b4aa22d081966f92e7, type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 058b12ed1acf65d45a4d0184995e2eca,
+      objectReference: {fileID: 21300000, guid: 709a040d903853e4b99a9aaa4cf2903c,
         type: 3}
     - target: {fileID: 11414580, guid: 854eb4a3fe1924b4aa22d081966f92e7, type: 2}
       propertyPath: m_Text
@@ -1005,6 +1005,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11498850, guid: 854eb4a3fe1924b4aa22d081966f92e7, type: 2}
       propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11489746, guid: 854eb4a3fe1924b4aa22d081966f92e7, type: 2}
+      propertyPath: m_PreserveAspect
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1444,7 +1448,7 @@ Prefab:
     - target: {fileID: 11489746, guid: 854eb4a3fe1924b4aa22d081966f92e7, type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 95d2e87678acbfd4b8a07138e0fbcac4,
+      objectReference: {fileID: 21300000, guid: e227176180711074689023315004cd0b,
         type: 3}
     - target: {fileID: 11414580, guid: 854eb4a3fe1924b4aa22d081966f92e7, type: 2}
       propertyPath: m_Text

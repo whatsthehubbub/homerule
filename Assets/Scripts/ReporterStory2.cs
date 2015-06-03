@@ -2,8 +2,6 @@
 using UnityEngine.UI;
 using System.Collections;
 
-using CameraShot;
-
 public class ReporterStory2 : MonoBehaviour {
 
 	public GameObject chat;
@@ -14,11 +12,14 @@ public class ReporterStory2 : MonoBehaviour {
 	public AudioSource audioSource;
 
 	// Use this for initialization
-	
+
 	void OnEnable() {
-		CameraShotEventListener.onImageLoad += OnImageLoad;
-		CameraShotEventListener.onImageSaved += OnImageSaved;
-		CameraShotEventListener.onCancel += OnCancel;
+		NativeToolkit.OnCameraShotComplete += CameraShotComplete;
+	}
+	
+	void OnDisable ()
+	{
+		NativeToolkit.OnCameraShotComplete -= CameraShotComplete;
 	}
 
 	void Start () {
@@ -158,7 +159,8 @@ public class ReporterStory2 : MonoBehaviour {
 
 			if (Application.platform == RuntimePlatform.IPhonePlayer) {
 				cw.AddPlayerImageBubble();
-				IOSCameraShot.LaunchCameraForImageCapture();
+
+				NativeToolkit.TakeCameraShot();
 			} else {
 				Invoke ("ShowFindObjectResponse", 0.5f);
 			}
@@ -396,118 +398,129 @@ public class ReporterStory2 : MonoBehaviour {
 
 	/*
 	 * Methods to handle taking an image using CamerShot
-	 */	
-	void OnImageLoad(string path, Texture2D tex) {
-		Debug.Log ("Image Captured by camera saved at location : " + path);
-	}
-	
-	void OnImageSaved(string path) {
-		Debug.Log ("A photograph has been saved");
-		StartCoroutine(displayTexture(path));
-	}
-	
-	IEnumerator displayTexture(string path) {
-		Debug.Log ("Display texture " + path);
-		
-		path = path.Replace (" ", "%20");
-		
-		WWW www = new WWW("file://" + path);
-		Debug.Log ("www" + www.ToString());
-		
-		yield return www;
-		
-		if (www.isDone) {
-			
-			Texture2D text = new Texture2D(1024, 1024);
-			Debug.Log ("text" + text.ToString());
-			
-			www.LoadImageIntoTexture(text);
-			Debug.Log ("Text loaded" + text.ToString() + " " + text.width + " " + text.height);
+	 */
 
-			TextureScale.Point (text, 816, 612);
-
-			text = rotateTexture(text, 180.0f);
-
-			GameObject imageObject = GameObject.Find ("PlayerRawImage");
-			RawImage raw = imageObject.GetComponentInChildren<RawImage>();
-			Debug.Log ("Got raw");
-
-			raw.texture = text;
-			mm.storyImage = text;
-
-			Invoke ("ShowFindObjectResponse", 0.5f);
-		}
-	}
-
-	void OnCancel() {
-		Debug.Log ("Taking a picture has been cancelled.");
-	}
-
-	private Texture2D rotateTexture(Texture2D tex, float angle)
+	void CameraShotComplete(Texture2D img, string path)
 	{
-		Debug.Log("rotating");
-		Texture2D rotImage = new Texture2D(tex.width, tex.height);
-		int  x,y;
-		float x1, y1, x2,y2;
-		
-		int w = tex.width;
-		int h = tex.height;
-		float x0 = rot_x (angle, -w/2.0f, -h/2.0f) + w/2.0f;
-		float y0 = rot_y (angle, -w/2.0f, -h/2.0f) + h/2.0f;
-		
-		float dx_x = rot_x (angle, 1.0f, 0.0f);
-		float dx_y = rot_y (angle, 1.0f, 0.0f);
-		float dy_x = rot_x (angle, 0.0f, 1.0f);
-		float dy_y = rot_y (angle, 0.0f, 1.0f);
-		
-		
-		x1 = x0;
-		y1 = y0;
-		
-		for (x = 0; x < tex.width; x++) {
-			x2 = x1;
-			y2 = y1;
-			for ( y = 0; y < tex.height; y++) {
-				//rotImage.SetPixel (x1, y1, Color.clear);          
-				
-				x2 += dx_x;//rot_x(angle, x1, y1);
-				y2 += dx_y;//rot_y(angle, x1, y1);
-				rotImage.SetPixel ( (int)Mathf.Floor(x), (int)Mathf.Floor(y), getPixel(tex,x2, y2));
-			}
-			
-			x1 += dy_x;
-			y1 += dy_y;
-			
-		}
-		
-		rotImage.Apply();
-		return rotImage;
+//		string imagePath = path;
+//		Debug.Log ("Camera shot saved to: " + imagePath);
+//		Destroy (img);
+
+		// TODO check if taking the picture has been cancelled.
+
+		GameObject imageObject = GameObject.Find ("PlayerRawImage");
+		RawImage raw = imageObject.GetComponentInChildren<RawImage>();
+		Debug.Log ("Got raw");
+
+		raw.texture = img;
+
+		Invoke ("ShowFindObjectResponse", 0.5f);
 	}
-	
-	private Color getPixel(Texture2D tex, float x, float y)
-	{
-		Color pix;
-		int x1 = (int) Mathf.Floor(x);
-		int y1 = (int) Mathf.Floor(y);
-		
-		if(x1 > tex.width || x1 < 0 ||
-		   y1 > tex.height || y1 < 0) {
-			pix = Color.clear;
-		} else {
-			pix = tex.GetPixel(x1,y1);
-		}
-		
-		return pix;
-	}
-	
-	private float rot_x (float angle, float x, float y) {
-		float cos = Mathf.Cos(angle/180.0f*Mathf.PI);
-		float sin = Mathf.Sin(angle/180.0f*Mathf.PI);
-		return (x * cos + y * (-sin));
-	}
-	private float rot_y (float angle, float x, float y) {
-		float cos = Mathf.Cos(angle/180.0f*Mathf.PI);
-		float sin = Mathf.Sin(angle/180.0f*Mathf.PI);
-		return (x * sin + y * cos);
-	}
+
+// TODO remove this old camerashot code at some point
+
+//	IEnumerator displayTexture(string path) {
+//		Debug.Log ("Display texture " + path);
+//		
+//		path = path.Replace (" ", "%20");
+//		
+//		WWW www = new WWW("file://" + path);
+//		Debug.Log ("www" + www.ToString());
+//		
+//		yield return www;
+//		
+//		if (www.isDone) {
+//			
+//			Texture2D text = new Texture2D(1024, 1024);
+//			Debug.Log ("text" + text.ToString());
+//			
+//			www.LoadImageIntoTexture(text);
+//			Debug.Log ("Text loaded" + text.ToString() + " " + text.width + " " + text.height);
+//
+//			TextureScale.Point (text, 816, 612);
+//
+//			text = rotateTexture(text, 180.0f);
+//
+//			GameObject imageObject = GameObject.Find ("PlayerRawImage");
+//			RawImage raw = imageObject.GetComponentInChildren<RawImage>();
+//			Debug.Log ("Got raw");
+//
+//			raw.texture = text;
+//			mm.storyImage = text;
+//
+//			Invoke ("ShowFindObjectResponse", 0.5f);
+//		}
+//	}
+
+//	void OnCancel() {
+//		Debug.Log ("Taking a picture has been cancelled.");
+//	}
+
+//	private Texture2D rotateTexture(Texture2D tex, float angle)
+//	{
+//		Debug.Log("rotating");
+//		Texture2D rotImage = new Texture2D(tex.width, tex.height);
+//		int  x,y;
+//		float x1, y1, x2,y2;
+//		
+//		int w = tex.width;
+//		int h = tex.height;
+//		float x0 = rot_x (angle, -w/2.0f, -h/2.0f) + w/2.0f;
+//		float y0 = rot_y (angle, -w/2.0f, -h/2.0f) + h/2.0f;
+//		
+//		float dx_x = rot_x (angle, 1.0f, 0.0f);
+//		float dx_y = rot_y (angle, 1.0f, 0.0f);
+//		float dy_x = rot_x (angle, 0.0f, 1.0f);
+//		float dy_y = rot_y (angle, 0.0f, 1.0f);
+//		
+//		
+//		x1 = x0;
+//		y1 = y0;
+//		
+//		for (x = 0; x < tex.width; x++) {
+//			x2 = x1;
+//			y2 = y1;
+//			for ( y = 0; y < tex.height; y++) {
+//				//rotImage.SetPixel (x1, y1, Color.clear);          
+//				
+//				x2 += dx_x;//rot_x(angle, x1, y1);
+//				y2 += dx_y;//rot_y(angle, x1, y1);
+//				rotImage.SetPixel ( (int)Mathf.Floor(x), (int)Mathf.Floor(y), getPixel(tex,x2, y2));
+//			}
+//			
+//			x1 += dy_x;
+//			y1 += dy_y;
+//			
+//		}
+//		
+//		rotImage.Apply();
+//		return rotImage;
+//	}
+//	
+//	private Color getPixel(Texture2D tex, float x, float y)
+//	{
+//		Color pix;
+//		int x1 = (int) Mathf.Floor(x);
+//		int y1 = (int) Mathf.Floor(y);
+//		
+//		if(x1 > tex.width || x1 < 0 ||
+//		   y1 > tex.height || y1 < 0) {
+//			pix = Color.clear;
+//		} else {
+//			pix = tex.GetPixel(x1,y1);
+//		}
+//		
+//		return pix;
+//	}
+//	
+//	private float rot_x (float angle, float x, float y) {
+//		float cos = Mathf.Cos(angle/180.0f*Mathf.PI);
+//		float sin = Mathf.Sin(angle/180.0f*Mathf.PI);
+//		return (x * cos + y * (-sin));
+//	}
+//	private float rot_y (float angle, float x, float y) {
+//		float cos = Mathf.Cos(angle/180.0f*Mathf.PI);
+//		float sin = Mathf.Sin(angle/180.0f*Mathf.PI);
+//		return (x * sin + y * cos);
+//	}
 }

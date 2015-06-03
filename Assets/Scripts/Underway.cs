@@ -65,4 +65,8 @@ public class Underway : MonoBehaviour {
 			this.post2.transform.Find("PostContainer/PostText").GetComponent<Text>().text = mm.story2Text;
 		}
 	}
+
+	public void DebugButton() {
+		mm.TakeImmediateCall(2);
+	}
 }

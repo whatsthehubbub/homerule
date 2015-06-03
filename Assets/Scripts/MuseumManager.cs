@@ -396,10 +396,6 @@ public class MuseumManager : MonoBehaviour {
 			}
 		}
 	}
-	
-	/*
-	 * Scene Management.
-	 */
 
 	public void StartGameButton() {
 		Application.LoadLevel ("UNDERWAY");

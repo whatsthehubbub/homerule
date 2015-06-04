@@ -69,6 +69,7 @@ public enum OfficerResponseOpinion {
 public class MuseumManager : MonoBehaviour {
 
 	private Dictionary<int, Location> locations = new Dictionary<int, Location>(){
+		{53868, new Location("EPISODE0", 53868, false)},
 		{48618, new Location("EPISODE1", 48618, false)},
 		{22290, new Location("EPISODE2", 22290, false)},
 		{48174, new Location("EPISODE3", 48174, false)},
@@ -82,6 +83,8 @@ public class MuseumManager : MonoBehaviour {
 
 	public GameObject reporterChatHistory;
 	public GameObject officerChatHistory;
+
+	public bool story0Done = false;
 
 	public Story1OpinionAnswer story1Opinion;
 	public Story1FactAnswer story1Fact;
@@ -143,6 +146,10 @@ public class MuseumManager : MonoBehaviour {
 
 	void Update () {
 		// Debug code to move between Scenes
+
+		if (Input.GetKeyDown(KeyCode.Alpha0)) {
+			MovedIntoBeaconRange(53868);
+		}
 
 		if (Input.GetKeyDown(KeyCode.Alpha1)) {
 			MovedIntoBeaconRange(48618);
@@ -331,6 +338,9 @@ public class MuseumManager : MonoBehaviour {
 			loc.shown = true;
 
 			switch (number) {
+			case 53868:
+				TakeImmediateCall(0);
+				break;
 			case 48618:
 				TakeImmediateCall(1);
 				break;
@@ -381,6 +391,9 @@ public class MuseumManager : MonoBehaviour {
 			this.callBusy = true;
 
 			switch (episodeNumber) {
+			case 0:
+				this.gameObject.AddComponent<ReporterStory0>();
+				break;
 			case 1:
 				this.gameObject.AddComponent<ReporterStory1>();
 

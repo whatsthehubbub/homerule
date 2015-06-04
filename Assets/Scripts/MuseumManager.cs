@@ -454,14 +454,6 @@ public class MuseumManager : MonoBehaviour {
 	public void StartGameButton() {
 		Application.LoadLevel ("UNDERWAY");
 
-//		this.storyQueue.Enqueue("REPORTERRESPONSE1");
-//		this.storyQueue.Enqueue("REPORTERRESPONSE2");
-//		this.storyQueue.Enqueue("OFFICERRESPONSE1");
-//		this.storyQueue.Enqueue("OFFICERRESPONSE2");
-//		this.storyQueue.Enqueue("OFFICERRESPONSE3");
-//		this.storyQueue.Enqueue("ARTISTRESPONSE1");
-//		this.storyQueue.Enqueue("ARTISTRESPONSE2");
-
 		this.callBusy = false;
 	}
 }

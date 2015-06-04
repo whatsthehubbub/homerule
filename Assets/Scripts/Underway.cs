@@ -35,6 +35,28 @@ public class Underway : MonoBehaviour {
 	public void ShowGoal() {
 		GameObject goal = (GameObject)Instantiate(Resources.Load ("Prefabs/Goal"));
 		goal.name = "Goal";
+
+		// TODO set the correct texts on the goal overlay
+
+		// TODO set the correct progress image
+
+		if (!mm.story0Done) {
+
+		} else if (!mm.story1Done) {
+			GameObject.Find ("dot1").GetComponentInChildren<Image>().enabled = true;
+		} else if (!mm.story2Done) {
+			GameObject.Find ("dot1").GetComponentInChildren<Image>().enabled = true;
+			GameObject.Find ("dot2").GetComponentInChildren<Image>().enabled = true;
+		} else if (!mm.story3Done) {
+			GameObject.Find ("dot1").GetComponentInChildren<Image>().enabled = true;
+			GameObject.Find ("dot2").GetComponentInChildren<Image>().enabled = true;
+			GameObject.Find ("dot3").GetComponentInChildren<Image>().enabled = true;
+		} else {
+			GameObject.Find ("dot1").GetComponentInChildren<Image>().enabled = true;
+			GameObject.Find ("dot2").GetComponentInChildren<Image>().enabled = true;
+			GameObject.Find ("dot3").GetComponentInChildren<Image>().enabled = true;
+			GameObject.Find ("dot4").GetComponentInChildren<Image>().enabled = true;
+		}
 	}
 
 	public void ShowChatHistory() {

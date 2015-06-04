@@ -393,6 +393,8 @@ public class ReporterStory2 : MonoBehaviour {
 
 			mm.story2Done = true;
 
+			mm.UpdateTargetText();
+
 			mm.storyQueue.Enqueue("OFFICERRESPONSE2");
 			mm.storyQueue.Enqueue("ARTISTRESPONSE1");
 			mm.storyQueue.Enqueue("REPORTERRESPONSE2");

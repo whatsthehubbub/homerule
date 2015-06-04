@@ -190,6 +190,8 @@ public class MuseumManager : MonoBehaviour {
 	}
 	
 	void OnLevelWasLoaded(int level) {
+		UpdateTargetText();
+
 		Debug.Log ("Loaded level: " + Application.loadedLevelName);
 	
 		if (false) {
@@ -369,6 +371,25 @@ public class MuseumManager : MonoBehaviour {
 
 		// Check whether we have a bit of story to show and give that
 		TakeCall ();
+	}
+
+	public void UpdateTargetText() {
+		string text = "";
+
+		if (!this.story0Done) {
+			text = "Ga ergens heen";
+		} else if (!this.story1Done) {
+			text = "Ga naar het behang op de muur";
+		} else if (!this.story2Done) {
+			text = "Ga naar het bord verboden Arnhem te betreden";
+		} else if (!this.story3Done) {
+			text = "Ga naar X";
+		} else {
+			text = "Je bent klaar. Kijk rustig nog wat rond.";
+		}
+
+		// Put the text in the right place
+		GameObject.Find ("GoalCanvas").GetComponentInChildren<Text>().text = text;
 	}
 
 	public void TakeCall() {

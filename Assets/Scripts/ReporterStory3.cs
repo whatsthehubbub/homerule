@@ -65,6 +65,8 @@ public class ReporterStory3 : MonoBehaviour {
 
 			mm.story3Done = true;
 
+			mm.UpdateTargetText();
+
 			mm.storyQueue.Enqueue("OFFICERRESPONSE3");
 			mm.storyQueue.Enqueue("ARTISTRESPONSE2");
 			

@@ -73,6 +73,8 @@ public class ReporterStory0 : MonoBehaviour {
 			mm.callBusy = false;
 			
 			mm.story0Done = true;
+
+			mm.UpdateTargetText();
 			
 			Destroy(chat);
 		});

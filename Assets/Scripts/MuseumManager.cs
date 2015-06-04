@@ -370,6 +370,8 @@ public class MuseumManager : MonoBehaviour {
 			this.callBusy = true;
 
 			switch (storyBit) {
+
+			// TODO remove this code
 			case "INTROREPORTER":
 				this.gameObject.AddComponent<IntroReporter>();
 
@@ -381,6 +383,37 @@ public class MuseumManager : MonoBehaviour {
 			case "REPORTERRESPONSE":
 				this.gameObject.AddComponent<ReporterResponse>();
 
+				break;
+
+			// New style labels for the various calls you can get
+			case "OFFICERRESPONSE1":
+				this.gameObject.AddComponent<OfficerResponse1>();
+				
+				break;
+
+			case "REPORTERRESPONSE1":
+				this.gameObject.AddComponent<ReporterResponse1>();
+				
+				break;
+			case "OFFICERRESPONSE2":
+				this.gameObject.AddComponent<OfficerResponse2>();
+				
+				break;
+			case "ARTISTRESPONSE1":
+				this.gameObject.AddComponent<ArtistResponse1>();
+				
+				break;
+			case "REPORTERRESPONSE2":
+				this.gameObject.AddComponent<ReporterResponse2>();
+				
+				break;
+			case "OFFICERRESPONSE3":
+				this.gameObject.AddComponent<OfficerResponse3>();
+				
+				break;
+			case "ARTISTRESPONSE2":
+				this.gameObject.AddComponent<ArtistResponse2>();
+				
 				break;
 			}
 		}
@@ -413,8 +446,13 @@ public class MuseumManager : MonoBehaviour {
 	public void StartGameButton() {
 		Application.LoadLevel ("UNDERWAY");
 
-		this.storyQueue.Enqueue("INTROOFFICER");
-		this.storyQueue.Enqueue("INTROREPORTER");
+		this.storyQueue.Enqueue("REPORTERRESPONSE1");
+		this.storyQueue.Enqueue("REPORTERRESPONSE2");
+		this.storyQueue.Enqueue("OFFICERRESPONSE1");
+		this.storyQueue.Enqueue("OFFICERRESPONSE2");
+		this.storyQueue.Enqueue("OFFICERRESPONSE3");
+		this.storyQueue.Enqueue("ARTISTRESPONSE1");
+		this.storyQueue.Enqueue("ARTISTRESPONSE2");
 
 		this.callBusy = false;
 	}

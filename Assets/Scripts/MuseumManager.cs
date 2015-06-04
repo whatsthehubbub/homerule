@@ -98,16 +98,13 @@ public class MuseumManager : MonoBehaviour {
 	public string story2Text = "";
 	public bool story2Done = false;
 
-	public bool showKatjaIntroSurveillanceResponse = false;
-	public bool showOfficerStoryResponse = false;
+	public bool story3Done = false;
+
 
 	public Texture2D storyImage;
 	
 	private List<Beacon> mybeacons = new List<Beacon>();
 	private bool scanning = true;
-
-	public string currentStory;
-	public string playerState;
 
 	/**
 	 * MuseumManager general beacon housekeeping.
@@ -120,8 +117,6 @@ public class MuseumManager : MonoBehaviour {
 		Debug.Log ("Listening for beacons");
 
 		this.callBusy = true;
-
-		showKatjaIntroSurveillanceResponse = false;
 
 		// Create the chat windows to keep the history in (and make sure they don't get destroyed on scene change)
 		reporterChatHistory = (GameObject)Instantiate(Resources.Load ("Prefabs/Chat"));
@@ -159,7 +154,7 @@ public class MuseumManager : MonoBehaviour {
 		}		
 		if (Input.GetKeyDown(KeyCode.Alpha3)) {
 			MovedIntoBeaconRange(48174);
-		}		
+		}
 		if (Input.GetKeyDown(KeyCode.Alpha4)) {
 			MovedOutOfBeaconRange();
 		}
@@ -196,16 +191,10 @@ public class MuseumManager : MonoBehaviour {
 	
 	void OnLevelWasLoaded(int level) {
 		Debug.Log ("Loaded level: " + Application.loadedLevelName);
-
-		if (showKatjaIntroSurveillanceResponse && (this.playerState == "CAMERAS" || this.playerState == "MEDALS" || this.playerState == "SIGN")) {
-			// Show Katja's response to what happened
-			this.showKatjaIntroSurveillanceResponse = false;
-			this.playerState = "REPORTERRESPONSE";
-		}
-
-		if (showOfficerStoryResponse && !(this.playerState.Equals ("REPORTERSTORY") || this.playerState.Equals ("SIGN"))) {
-			this.showOfficerStoryResponse = false;
-			this.playerState = "OFFICERRESPONSE";
+	
+		if (false) {
+//			this.showOfficerStoryResponse = false;
+//			this.playerState = "OFFICERRESPONSE";
 //			this.changeScene = false;
 			Application.LoadLevel("Officer Response");
 		}
@@ -332,25 +321,41 @@ public class MuseumManager : MonoBehaviour {
 	public void MovedIntoBeaconRange(int number) {
 		// If there is an episode here that we want to go to, show that
 
+		Debug.Log (string.Join(", ", Array.ConvertAll(this.storyQueue.ToArray(), i => i.ToString())));
+
 		Location loc = this.locations[number];
 
-		if (!loc.shown) {
-			loc.shown = true;
+		bool showedLocation = false;
 
-			switch (number) {
+		switch (number) {
 			case 53868:
-				TakeImmediateCall(0);
+				if (!loc.shown) {
+					showedLocation = true;
+					TakeImmediateCall(0);
+				}
 				break;
 			case 48618:
-				TakeImmediateCall(1);
+				if (!loc.shown && this.story0Done) {
+					showedLocation = true;
+					TakeImmediateCall(1);
+				}
 				break;
 			case 22290:
-				TakeImmediateCall(2);
+				if (!loc.shown && this.story1Done) {
+					showedLocation = true;
+					TakeImmediateCall(2);
+				}
 				break;
 			case 48174:
-				TakeImmediateCall(3);
+				if (!loc.shown && this.story2Done) {
+					showedLocation = true;
+					TakeImmediateCall(3);
+				}
 				break;
-			}
+		}
+
+		if (showedLocation) {
+			loc.shown = true;
 		} else {
 			TakeCall ();
 		}
@@ -359,6 +364,9 @@ public class MuseumManager : MonoBehaviour {
 	}
 
 	public void MovedOutOfBeaconRange() {
+
+		Debug.Log (string.Join(", ", Array.ConvertAll(this.storyQueue.ToArray(), i => i.ToString())));
+
 		// Check whether we have a bit of story to show and give that
 		TakeCall ();
 	}
@@ -446,13 +454,13 @@ public class MuseumManager : MonoBehaviour {
 	public void StartGameButton() {
 		Application.LoadLevel ("UNDERWAY");
 
-		this.storyQueue.Enqueue("REPORTERRESPONSE1");
-		this.storyQueue.Enqueue("REPORTERRESPONSE2");
-		this.storyQueue.Enqueue("OFFICERRESPONSE1");
-		this.storyQueue.Enqueue("OFFICERRESPONSE2");
-		this.storyQueue.Enqueue("OFFICERRESPONSE3");
-		this.storyQueue.Enqueue("ARTISTRESPONSE1");
-		this.storyQueue.Enqueue("ARTISTRESPONSE2");
+//		this.storyQueue.Enqueue("REPORTERRESPONSE1");
+//		this.storyQueue.Enqueue("REPORTERRESPONSE2");
+//		this.storyQueue.Enqueue("OFFICERRESPONSE1");
+//		this.storyQueue.Enqueue("OFFICERRESPONSE2");
+//		this.storyQueue.Enqueue("OFFICERRESPONSE3");
+//		this.storyQueue.Enqueue("ARTISTRESPONSE1");
+//		this.storyQueue.Enqueue("ARTISTRESPONSE2");
 
 		this.callBusy = false;
 	}

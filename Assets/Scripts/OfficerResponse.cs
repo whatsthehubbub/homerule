@@ -165,8 +165,7 @@ public class OfficerResponse : MonoBehaviour {
 	}
 	
 	public void Done() {
-		mm.showOfficerStoryResponse = false;
-
+	
 //		mm.NewLocation ("UNDERWAY");
 	}
 }

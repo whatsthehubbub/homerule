@@ -341,9 +341,11 @@ public class ReporterStory1 : MonoBehaviour {
 			mm.callBusy = false;
 
 			mm.story1Done = true;
+
+			mm.storyQueue.Enqueue("OFFICERRESPONSE1");
+			mm.storyQueue.Enqueue("REPORTERRESPONSE1");
 			
 			Destroy(chat);
-			Destroy (this.audioSource);
 		});
 	}
 }

@@ -375,6 +375,7 @@ public class ReporterStory2 : MonoBehaviour {
 	}
 	
 	public void ShowResultClose() {
+		// Switch back to Katja from the image
 		GameObject displayImage = GameObject.Find ("DisplayImage");
 		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/journalist video");
 		displayImage.GetComponentInChildren<Image>().sprite = katjaSprite;
@@ -391,6 +392,10 @@ public class ReporterStory2 : MonoBehaviour {
 			mm.callBusy = false;
 
 			mm.story2Done = true;
+
+			mm.storyQueue.Enqueue("OFFICERRESPONSE2");
+			mm.storyQueue.Enqueue("ARTISTRESPONSE1");
+			mm.storyQueue.Enqueue("REPORTERRESPONSE2");
 
 			Destroy(chat);
 		});

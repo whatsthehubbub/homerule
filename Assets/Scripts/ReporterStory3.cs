@@ -62,6 +62,11 @@ public class ReporterStory3 : MonoBehaviour {
 			cw.AddPlayerBubble("Tot ziens, Katja!");
 			
 			mm.callBusy = false;
+
+			mm.story3Done = true;
+
+			mm.storyQueue.Enqueue("OFFICERRESPONSE3");
+			mm.storyQueue.Enqueue("ARTISTRESPONSE2");
 			
 			Destroy(chat);
 		});

@@ -75,7 +75,6 @@ public class ReporterStory0 : MonoBehaviour {
 			mm.story0Done = true;
 			
 			Destroy(chat);
-			Destroy (this.audioSource);
 		});
 	}
 }

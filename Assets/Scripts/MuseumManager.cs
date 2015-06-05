@@ -155,17 +155,21 @@ public class MuseumManager : MonoBehaviour {
 		// Debug code to move between Scenes
 
 		if (Input.GetKeyDown(KeyCode.Alpha0)) {
-			MovedIntoBeaconRange(53868);
+//			MovedIntoBeaconRange(53868);
+			TakeImmediateCall(0);
 		}
 
 		if (Input.GetKeyDown(KeyCode.Alpha1)) {
-			MovedIntoBeaconRange(48618);
+//			MovedIntoBeaconRange(48618);
+			TakeImmediateCall(1);
 		}
 		if (Input.GetKeyDown(KeyCode.Alpha2)) {
-			MovedIntoBeaconRange(22290);
+//			MovedIntoBeaconRange(22290);
+			TakeImmediateCall(2);
 		}		
 		if (Input.GetKeyDown(KeyCode.Alpha3)) {
-			MovedIntoBeaconRange(48174);
+//			MovedIntoBeaconRange(48174);
+			TakeImmediateCall(3);
 		}
 		if (Input.GetKeyDown(KeyCode.Alpha4)) {
 			MovedOutOfBeaconRange();

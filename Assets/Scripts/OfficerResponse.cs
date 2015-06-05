@@ -166,6 +166,5 @@ public class OfficerResponse : MonoBehaviour {
 	
 	public void Done() {
 	
-//		mm.NewLocation ("UNDERWAY");
 	}
 }

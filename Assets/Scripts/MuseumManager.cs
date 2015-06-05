@@ -48,6 +48,12 @@ public enum Story1OpinionDescription {
 	ARTIST
 }
 
+public enum OfficerResponse1Answer {
+	NEVER_SEEN,
+	WHY,
+	YES
+}
+
 public enum Story2OpinionAnswer {
 	SAD,
 	GOOD,
@@ -91,6 +97,8 @@ public class MuseumManager : MonoBehaviour {
 	public Story1OpinionDescription story1OpinionDescription;
 	public string story1Text = "";
 	public bool story1Done = false;
+
+	public OfficerResponse1Answer officer1Response;
 
 	public Story2OpinionAnswer story2Opinion;
 	public Story2FactAnswer story2Fact;
@@ -409,10 +417,6 @@ public class MuseumManager : MonoBehaviour {
 				this.gameObject.AddComponent<IntroReporter>();
 
 				break;
-			case "INTROOFFICER":
-				this.gameObject.AddComponent<IntroOfficer>();
-				break;
-
 			case "REPORTERRESPONSE":
 				this.gameObject.AddComponent<ReporterResponse>();
 

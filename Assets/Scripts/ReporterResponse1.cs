@@ -4,10 +4,12 @@ using System.Collections;
 
 public class ReporterResponse1 : MonoBehaviour {
 
-	public MuseumManager mm;
-	
 	public GameObject chat;
 	public ChatWindow cw;
+	
+	public MuseumManager mm;
+
+	public AudioSource audioSource;
 	
 	// Use this for initialization
 	void Start () {
@@ -16,8 +18,16 @@ public class ReporterResponse1 : MonoBehaviour {
 		
 		GameObject call = (GameObject)Instantiate(Resources.Load ("Prefabs/Katja belt"));
 		call.name = "Katja belt";
+
+		AudioClip ringtone = Resources.Load<AudioClip>("Audio/ringtone");
+		this.audioSource = main.GetComponent<AudioSource>();
+		audioSource.loop = true;
+		audioSource.clip = ringtone;
+		audioSource.Play ();
 		
 		call.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			audioSource.Stop ();
+
 			GameObject.Destroy(call);
 			ShowChatButton();
 		});
@@ -29,31 +39,41 @@ public class ReporterResponse1 : MonoBehaviour {
 	}
 	
 	public void ShowChatButton() {
-		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
-		chat.name = "VideoCall";
+		
+		// Load the chat stuff
+		chat = mm.reporterChatHistory;
+		mm.reporterChatHistory.SetActive(true);
+		
 		cw = chat.GetComponent<ChatWindow>();
-		cw.SetArchivalChat(mm.reporterChatHistory.GetComponent<ChatWindow>());
+		cw.DisableBack();
 		
-		GameObject displayImage = GameObject.Find ("DisplayImage");
-		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/journalist video");
-		displayImage.GetComponentInChildren<Image>().sprite = katjaSprite;
+		cw.AddNPCBubble("De politie wil me spreken. Maar ik doe toch niets verkeerd?");
 		
-		cw.AddNPCBubble("Dit is het antwoord van de katja 1.");
-		
-		GameObject button = cw.AddButton("Hoi");
-		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
+		GameObject action = cw.AddButton("Bel ze");
+		action.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			ShowClose();
+			cw.AddPlayerBubble("Ze zeggen dat je contact met ze moet opnemen.");
+			
+			Invoke ("ShowResponse", 0.5f);
 		});
 	}
 	
-	public void ShowClose() {
+	public void ShowResponse() {
+		cw.AddNPCBubble("Dat ga ik mooi niet doen!");
 		
-		GameObject button = cw.AddButton ("OK");
-		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
-			this.mm.callBusy = false;
+		cw.AddNPCBubble("Ik vind het belangrijk om te vertellen wat er gebeurt.");
+		
+		GameObject ok = cw.AddButton("Oké");
+		ok.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			cw.ClearButtons();
+			cw.AddPlayerBubble("Oké");
+
+			cw.EnableBack();
+			chat.SetActive(false);
+
+			mm.callBusy = false;
 			
-			GameObject.Destroy(chat);
+			chat.SetActive(false);
 			GameObject.Destroy(this);
 		});
 	}

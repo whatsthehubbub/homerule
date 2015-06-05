@@ -412,12 +412,6 @@ public class MuseumManager : MonoBehaviour {
 
 			switch (storyBit) {
 
-			// TODO remove this code
-			case "REPORTERRESPONSE":
-				this.gameObject.AddComponent<ReporterResponse>();
-
-				break;
-
 			// New style labels for the various calls you can get
 			case "OFFICERRESPONSE1":
 				this.gameObject.AddComponent<OfficerResponse1>();

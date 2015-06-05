@@ -60,17 +60,19 @@ public enum Story2OpinionAnswer {
 	WRONG
 }
 
+public enum OfficerResponse2Opinion {
+	AGREE,
+	NEUTRAL,
+	DISAGREE
+}
+
 public enum Story2FactAnswer {
 	FIGHTING,
 	HELPING,
 	STEALING
 }
 
-public enum OfficerResponseOpinion {
-	AGREE,
-	NEUTRAL,
-	DISAGREE
-}
+
 
 public class MuseumManager : MonoBehaviour {
 
@@ -98,13 +100,15 @@ public class MuseumManager : MonoBehaviour {
 	public string story1Text = "";
 	public bool story1Done = false;
 
-	public OfficerResponse1Answer officer1Response;
+	public OfficerResponse1Answer officer1Answer;
 
 	public Story2OpinionAnswer story2Opinion;
 	public Story2FactAnswer story2Fact;
 	public Story2OpinionAnswer story2FinalOpinion;
 	public string story2Text = "";
 	public bool story2Done = false;
+
+	public OfficerResponse2Opinion officer2Opinion;
 
 	public bool story3Done = false;
 
@@ -201,76 +205,6 @@ public class MuseumManager : MonoBehaviour {
 		UpdateTargetText();
 
 		Debug.Log ("Loaded level: " + Application.loadedLevelName);
-	
-		if (false) {
-//			this.showOfficerStoryResponse = false;
-//			this.playerState = "OFFICERRESPONSE";
-//			this.changeScene = false;
-			Application.LoadLevel("Officer Response");
-		}
-
-		/*
-		// Display observations if there are any on this location
-		Story story;
-		if (stories.TryGetValue(this.playerState, out story)) {
-			if (story.active) {
-				// If there is something to do here. Katja calls you.
-				GameObject call = (GameObject)Instantiate(Resources.Load ("Prefabs/Katja belt"));
-				call.name = "Katja belt";
-//				this.changeScene = false;
-				
-				call.GetComponentInChildren<Button>().onClick.AddListener(() => {
-					this.currentStory = this.playerState;
-					this.playerState = "REPORTERSTORY";
-					// Start the scene with Kanja and the story in it
-					Application.LoadLevel("Reporter Story");
-
-				});
-			} else {
-				Debug.Log ("This story now is inactive");
-
-				GameObject chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
-				chat.name = "VideoCall";
-				ChatWindow cw = chat.GetComponent<ChatWindow>();
-				
-				// Show the correct sprite (Journalist)
-				GameObject displayImage = GameObject.Find ("DisplayImage");
-				Sprite katjaSprite = Resources.Load<Sprite>("Sprites/journalist video");
-				displayImage.GetComponentInChildren<Image>().sprite = katjaSprite;
-
-				cw.AddNPCBubble("Oh je bent weer bij het bord “verboden Arnhem te betreden”.");
-				cw.AddNPCBubble("Daar hebben we al iets mee gedaan. Weet je nog? Dat was dit bericht:");
-
-				Sprite articleSprite = Resources.Load<Sprite>("Sprites/chat_artikel");
-				GameObject storyBubble = cw.AddNPCBubble(this.storyText);
-				storyBubble.GetComponentInChildren<Image>().sprite = articleSprite;
-
-				cw.AddNPCBubble("Er is nu nergens meer iets te doen. Je hebt me super geholpen.");
-			}
-		} else if (!this.playerState.Equals("UNDERWAY") && this.locations.Keys.Contains(this.playerState)) {
-			string locationString = "";
-			if (this.playerState.Equals("CAMERAS")) { locationString = "de kast met camera's"; }
-			else if (this.playerState.Equals("MEDALS")) { locationString = "de kast met medailles"; }
-
-
-			GameObject chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
-			chat.name = "VideoCall";
-			ChatWindow cw = chat.GetComponent<ChatWindow>();
-
-			// Show the correct sprite (Journalist)
-			GameObject displayImage = GameObject.Find ("DisplayImage");
-			Sprite katjaSprite = Resources.Load<Sprite>("Sprites/journalist video");
-			displayImage.GetComponentInChildren<Image>().sprite = katjaSprite;
-
-			cw.AddNPCBubble("Oh je bent bij de " + locationString + "! Cool.");
-
-			if (!storyCompleted) {
-				cw.AddNPCBubble("Hier is nu niks te doen. Maar wel bij het bord “verboden Arnhem te betreden”. Ga daar eens kijken?");
-			} else {
-				cw.AddNPCBubble("Er is nu nergens meer iets te doen. Je hebt me super geholpen.");
-			}
-		}
-*/
 	}
 	
 	private void OnBeaconRangeChanged(List<Beacon> beacons) {

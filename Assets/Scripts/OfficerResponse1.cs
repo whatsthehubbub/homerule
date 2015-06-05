@@ -81,20 +81,20 @@ public class OfficerResponse1 : MonoBehaviour {
 		GameObject nooit = cw.AddButton("Nooit gezien");
 		nooit.GetComponentInChildren<Button>().onClick.AddListener(() => {
 
-			mm.officer1Response = OfficerResponse1Answer.NEVER_SEEN;
+			mm.officer1Answer = OfficerResponse1Answer.NEVER_SEEN;
 
 			ShowPlayerResponse();	
 		});
 		
 		GameObject waarom = cw.AddButton("Waarom?");
 		waarom.GetComponentInChildren<Button>().onClick.AddListener(() => {
-			mm.officer1Response = OfficerResponse1Answer.WHY;
+			mm.officer1Answer = OfficerResponse1Answer.WHY;
 			ShowPlayerResponse();
 		});
 		
 		GameObject ja = cw.AddButton("Ja");
 		ja.GetComponentInChildren<Button>().onClick.AddListener(() => {
-			mm.officer1Response = OfficerResponse1Answer.YES;
+			mm.officer1Answer = OfficerResponse1Answer.YES;
 
 			ShowPlayerResponse();
 		});
@@ -106,11 +106,11 @@ public class OfficerResponse1 : MonoBehaviour {
 		
 		string playerResponseText = "";
 		
-		if (mm.officer1Response == OfficerResponse1Answer.NEVER_SEEN) {
+		if (mm.officer1Answer == OfficerResponse1Answer.NEVER_SEEN) {
 			playerResponseText = "Sorry, ik heb haar nooit eerder gezien.";
-		} else if (mm.officer1Response == OfficerResponse1Answer.YES) {
+		} else if (mm.officer1Answer == OfficerResponse1Answer.YES) {
 			playerResponseText = "Ja, ik heb haar net nog gesproken.";
-		} else if (mm.officer1Response == OfficerResponse1Answer.WHY) {
+		} else if (mm.officer1Answer == OfficerResponse1Answer.WHY) {
 			playerResponseText = "Waarom vraagt u mij dit?";
 		}
 		
@@ -123,11 +123,11 @@ public class OfficerResponse1 : MonoBehaviour {
 	public void ShowOfficerResponse() {
 		string officerResponseText = "";
 		
-		if (mm.officer1Response == OfficerResponse1Answer.NEVER_SEEN) {
+		if (mm.officer1Answer == OfficerResponse1Answer.NEVER_SEEN) {
 			officerResponseText = "Jammer, we willen met haar praten…";
-		} else if (mm.officer1Response == OfficerResponse1Answer.YES) {
+		} else if (mm.officer1Answer == OfficerResponse1Answer.YES) {
 			officerResponseText = "Is dat zo? Interessant!";
-		} else if (mm.officer1Response == OfficerResponse1Answer.WHY) {
+		} else if (mm.officer1Answer == OfficerResponse1Answer.WHY) {
 			officerResponseText = "Ze is een journalist. We willen met haar praten over wat ze schrijft.";
 		}
 		

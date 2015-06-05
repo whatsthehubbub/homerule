@@ -377,9 +377,9 @@ public class MuseumManager : MonoBehaviour {
 		string text = "";
 
 		if (!this.story0Done) {
-			text = "Ga ergens heen";
+			text = "Ga naar het begin";
 		} else if (!this.story1Done) {
-			text = "Ga naar het behang op de muur";
+			text = "Ga naar de gang met het behang";
 		} else if (!this.story2Done) {
 			text = "Ga naar het bord verboden Arnhem te betreden";
 		} else if (!this.story3Done) {

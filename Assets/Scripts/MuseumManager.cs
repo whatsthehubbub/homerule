@@ -203,8 +203,6 @@ public class MuseumManager : MonoBehaviour {
 	
 	void OnLevelWasLoaded(int level) {
 		UpdateTargetText();
-
-		Debug.Log ("Loaded level: " + Application.loadedLevelName);
 	}
 	
 	private void OnBeaconRangeChanged(List<Beacon> beacons) {
@@ -265,7 +263,7 @@ public class MuseumManager : MonoBehaviour {
 	public void MovedIntoBeaconRange(int number) {
 		// If there is an episode here that we want to go to, show that
 
-		Debug.Log (string.Join(", ", Array.ConvertAll(this.storyQueue.ToArray(), i => i.ToString())));
+//		Debug.Log (string.Join(", ", Array.ConvertAll(this.storyQueue.ToArray(), i => i.ToString())));
 
 		Location loc = this.locations[number];
 
@@ -309,7 +307,7 @@ public class MuseumManager : MonoBehaviour {
 
 	public void MovedOutOfBeaconRange() {
 
-		Debug.Log (string.Join(", ", Array.ConvertAll(this.storyQueue.ToArray(), i => i.ToString())));
+//		Debug.Log (string.Join(", ", Array.ConvertAll(this.storyQueue.ToArray(), i => i.ToString())));
 
 		// Check whether we have a bit of story to show and give that
 		TakeCall ();

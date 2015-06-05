@@ -36,9 +36,7 @@ public class Underway : MonoBehaviour {
 		GameObject goal = (GameObject)Instantiate(Resources.Load ("Prefabs/Goal"));
 		goal.name = "Goal";
 
-		// TODO set the correct texts on the goal overlay
-
-		// TODO set the correct progress image
+		GameObject.Find ("GoalTitle").GetComponentInChildren<Text>().text = mm.getTargetText();
 
 		if (!mm.story0Done) {
 

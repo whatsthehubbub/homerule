@@ -374,8 +374,13 @@ public class MuseumManager : MonoBehaviour {
 	}
 
 	public void UpdateTargetText() {
-		string text = "";
+		// Put the text in the right place
+		GameObject.Find ("GoalCanvas").GetComponentInChildren<Text>().text = getTargetText();
+	}
 
+	public string getTargetText() {
+		string text = "";
+		
 		if (!this.story0Done) {
 			text = "Ga naar het begin";
 		} else if (!this.story1Done) {
@@ -388,8 +393,7 @@ public class MuseumManager : MonoBehaviour {
 			text = "Je bent klaar. Kijk rustig nog wat rond.";
 		}
 
-		// Put the text in the right place
-		GameObject.Find ("GoalCanvas").GetComponentInChildren<Text>().text = text;
+		return text;
 	}
 
 	public void TakeCall() {

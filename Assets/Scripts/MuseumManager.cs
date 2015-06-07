@@ -78,6 +78,24 @@ public enum Artist1Answer {
 	CONFIRM
 }
 
+public enum Reporter2Source {
+	FRANK,
+	SELF,
+	ANONYMOUS
+}
+
+public enum Story3FactAnswer {
+	QUEEN,
+	HITLER,
+	ORGANIZATION
+}
+
+public enum Story3Attribution {
+	FRANK,
+	KATJA,
+	ANONYMOUS
+}
+
 
 
 public class MuseumManager : MonoBehaviour {
@@ -120,6 +138,11 @@ public class MuseumManager : MonoBehaviour {
 	public OfficerResponse2Opinion officer2Opinion;
 
 	public Artist1Answer artist1Answer;
+
+	public Reporter2Source reporter2Source;
+
+	public Story3FactAnswer story3Fact;
+	public Story3Attribution story3Attribution;
 
 	public bool story3Done = false;
 

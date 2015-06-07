@@ -93,6 +93,8 @@ public class ReporterResponse2 : MonoBehaviour {
 		button1.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.AddPlayerBubble("Ik hoorde het van Frank, de man die “Vogelvrij” op de muur had geschreven.");
 
+			mm.reporter2Source = Reporter2Source.FRANK;
+
 			cw.ClearButtons();
 
 			Invoke ("ShowAnswer", 0.5f);
@@ -101,7 +103,9 @@ public class ReporterResponse2 : MonoBehaviour {
 		GameObject button2 = cw.AddButton("Zelf ontdekt");
 		button2.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.AddPlayerBubble("Ik heb het zelf ontdekt. Weet nog niet of ik mijn naam onder het bericht wil, de politie houdt ons in de gaten.");
-			
+
+			mm.reporter2Source = Reporter2Source.SELF;
+
 			cw.ClearButtons();
 
 			Invoke ("ShowAnswer", 0.5f);
@@ -110,7 +114,9 @@ public class ReporterResponse2 : MonoBehaviour {
 		GameObject button3 = cw.AddButton("Anonieme bron");
 		button3.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.AddPlayerBubble("Ik heb het van een kwetsbaar iemand. We moeten geheimhouden wie hij is, anders wordt hij opgepakt.");
-			
+
+			mm.reporter2Source = Reporter2Source.ANONYMOUS;
+
 			cw.ClearButtons();
 
 			Invoke ("ShowAnswer", 0.5f);

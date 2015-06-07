@@ -46,7 +46,7 @@ public class ReporterStory1 : MonoBehaviour {
 		
 		// Show the correct sprite (Journalist)
 		GameObject displayImage = GameObject.Find ("DisplayImage");
-		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/journalist video");
+		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/katja video");
 		displayImage.GetComponentInChildren<Image>().sprite = katjaSprite;
 		
 		cw = chat.GetComponent<ChatWindow>();
@@ -309,7 +309,7 @@ public class ReporterStory1 : MonoBehaviour {
 
 		// Show the correct sprite (Journalist)
 		GameObject displayImage = GameObject.Find ("DisplayImage");
-		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/journalist video");
+		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/katja video");
 		displayImage.GetComponentInChildren<Image>().sprite = katjaSprite;
 		
 		cw = chat.GetComponent<ChatWindow>();
@@ -328,22 +328,29 @@ public class ReporterStory1 : MonoBehaviour {
 	}
 
 	public void PieceResult() {
-		// Show the sprite for the result of this episode
-//		GameObject displayImage = GameObject.Find ("DisplayImage");
-//		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/journalist video");
-//		displayImage.GetComponentInChildren<Image>().sprite = katjaSprite;
+		string spriteString = "";
 
 		switch (mm.story1OpinionDescription) {
 		case Story1OpinionDescription.VANDAL:
 			cw.AddNPCBubble("De agent heeft zijn zin gekregen, de tekst wordt weggehaald.");
+			spriteString = "S1 slecht";
 			break;
 		case Story1OpinionDescription.CITIZEN:
 			cw.AddNPCBubble("Het loopt met een sisser af. Maar niet iedereen is blij.");
+
+			spriteString = "";
 			break;
 		case Story1OpinionDescription.ARTIST:
 			cw.AddNPCBubble("Die man is nu een beroemdheid! Maar niet iedereen is blij. ");
+
+			spriteString = "S1 goed";
 			break;
 		}
+
+		// Show the sprite for the result of this episode
+		GameObject displayImage = GameObject.Find ("DisplayImage");
+		Sprite conclusionSprite = Resources.Load<Sprite>("Sprites/" + spriteString);
+		displayImage.GetComponentInChildren<Image>().sprite = conclusionSprite;
 
 		cw.AddNPCBubble("We hebben verteld wat er gebeurt. En we hebben gezegd wat we ervan vinden. Daardoor veranderen er dingen!");
 		cw.AddNPCBubble("Op andere plekken in het museum zijn ook nog dingen te zien. Ik bel je weer als ik iets voor je heb.");

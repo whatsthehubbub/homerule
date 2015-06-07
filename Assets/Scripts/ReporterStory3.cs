@@ -46,7 +46,7 @@ public class ReporterStory3 : MonoBehaviour {
 		
 		// Show the correct sprite (Journalist)
 		GameObject displayImage = GameObject.Find ("DisplayImage");
-		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/journalist video");
+		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/katja video");
 		displayImage.GetComponentInChildren<Image>().sprite = katjaSprite;
 		
 		cw = chat.GetComponent<ChatWindow>();
@@ -78,6 +78,11 @@ public class ReporterStory3 : MonoBehaviour {
 	}
 
 	public void ShowSituationImage() {
+		// Show the correct sprite (Journalist)
+		GameObject displayImage = GameObject.Find ("DisplayImage");
+		Sprite introSprite = Resources.Load<Sprite>("Sprites/S3 intro");
+		displayImage.GetComponentInChildren<Image>().sprite = introSprite;
+
 		cw.AddNPCBubble("Ik zit hier met Frank, hij heeft me alles verteld. Hij heeft bewijs dat de vrije vogels worden tegengewerkt.");
 
 		cw.AddNPCBubble("Ik wil erover schrijven, maar de politie staat al voor de deur!");
@@ -272,9 +277,9 @@ public class ReporterStory3 : MonoBehaviour {
 //		chat.name = "VideoCall";
 
 		// Show the correct sprite (Journalist)
-		GameObject displayImage = GameObject.Find ("DisplayImage");
-		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/journalist video");
-		displayImage.GetComponentInChildren<Image>().sprite = katjaSprite;
+//		GameObject displayImage = GameObject.Find ("DisplayImage");
+//		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/katja video");
+//		displayImage.GetComponentInChildren<Image>().sprite = katjaSprite;
 
 		cw = chat.GetComponent<ChatWindow>();
 		cw.SetArchivalChat(mm.reporterChatHistory.GetComponent<ChatWindow>());
@@ -297,18 +302,31 @@ public class ReporterStory3 : MonoBehaviour {
 	public void ShowResultConclusion() {
 		// TODO swap out the correct image
 
+		string spriteString = "";
+
 		if (mm.story3Attribution == Story3Attribution.FRANK) {
+			spriteString = "S3 vogel gearresteerd";
+
 			cw.AddNPCBubble("Nou ja, we hebben verteld wat er gebeurt. We hebben ook gezegd wat we ervan vinden. Daardoor veranderen er dingen.");
 
 			cw.AddNPCBubble("Kijk nog even rond als je wilt, er is van alles te zien in het museum. Hopelijk komt het goed met Frank en de vrije vogels.");
 		} else if (mm.story3Attribution == Story3Attribution.KATJA) {
+			spriteString = "S3 katja gearresteerd";
+
 			cw.AddNPCBubble("Katja heeft verteld wat er gebeurt, dat is goed. De mensen weten dat wij vogels niet vrij mogen zijn. Maar nu is ze er zelf de dupe van geworden!");
 			cw.AddNPCBubble("Kijk rustig rond als je wilt, er is nog van alles te zien in het museum. Hopelijk komt het goed met Katja.");
 		} else if (mm.story3Attribution == Story3Attribution.ANONYMOUS) {
+			spriteString = "S3 agent dissed";
+
 			cw.AddNPCBubble("Die agent is goed chagrijnig. Maar we zijn van hem af! En de mensen weten dat de vogels niet vrij mogen zijn.");
 			cw.AddNPCBubble("Dit is geweldig. We hebben verteld wat er gebeurt. We hebben ook gezegd wat we ervan vinden. Daardoor veranderen er dingen!");
 			cw.AddNPCBubble("Kijk rustig rond als je wilt, er is nog van alles te zien in het museum.");
 		}
+
+		// Show the correct sprite (Journalist)
+		GameObject displayImage = GameObject.Find ("DisplayImage");
+		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/" + spriteString);
+		displayImage.GetComponentInChildren<Image>().sprite = katjaSprite;
 
 		GameObject button = cw.AddButton("OK");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {

@@ -427,6 +427,7 @@ MonoBehaviour:
   story2Done: 0
   officer2Opinion: 0
   artist1Answer: 0
+  reporter2Source: 0
   story3Fact: 0
   story3Attribution: 0
   story3Done: 0

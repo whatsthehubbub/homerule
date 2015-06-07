@@ -8,18 +8,28 @@ public class OfficerResponse3 : MonoBehaviour {
 	
 	public GameObject chat;
 	public ChatWindow cw;
+
+	public AudioSource audioSource;
 	
 	// Use this for initialization
 	void Start () {
 		GameObject main = GameObject.Find("Main");
 		mm = main.GetComponentInChildren<MuseumManager>();
 		
-		GameObject call = (GameObject)Instantiate(Resources.Load ("Prefabs/Katja belt"));
-		call.name = "Katja belt";
+		GameObject call = (GameObject)Instantiate(Resources.Load ("Prefabs/Agent belt"));
+		call.name = "Agent belt";
+
+		AudioClip ringtone = Resources.Load<AudioClip>("Audio/ringtone");
+		this.audioSource = main.GetComponent<AudioSource>();
+		audioSource.loop = true;
+		audioSource.clip = ringtone;
+		audioSource.Play ();
 		
 		call.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			audioSource.Stop ();
+
 			GameObject.Destroy(call);
-			ShowChatButton();
+			ShowVideoCall();
 		});
 	}
 	
@@ -27,34 +37,134 @@ public class OfficerResponse3 : MonoBehaviour {
 	void Update () {
 		
 	}
-	
-	public void ShowChatButton() {
+
+	public void ShowVideoCall() {
 		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
 		chat.name = "VideoCall";
+		
+//		// Remove the static image in the video call
+//		Destroy (GameObject.Find ("DisplayImage"));
+//		
+//		// Add the animated officer as a child of the chat
+//		GameObject animatedOfficer = (GameObject)Instantiate(Resources.Load ("Prefabs/Agent Animated"));
+//		animatedOfficer.transform.parent = chat.transform;
+		
+		cw = chat.GetComponent<ChatWindow>();
+		cw.SetArchivalChat(mm.officerChatHistory.GetComponent<ChatWindow>());
+		
+		cw.AddNPCBubble(" Ahum. Ik wil toch nog even met u spreken.");
+		
+		GameObject button = cw.AddButton ("Oké.");
+		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			cw.AddPlayerBubble("Vooruit dan.");
+			
+			Invoke ("ShowChatButton", 0.5f);
+		});
+	}
+
+	public void ShowArticle() {
+		// Change to Chat UI
+		GameObject.Destroy (chat);
+
+		chat = mm.officerChatHistory;
+		mm.officerChatHistory.SetActive(true);
+		
+		cw = chat.GetComponent<ChatWindow>();
+		cw.DisableBack();
+
+		cw.AddNPCBubble("Fijn. Zeg, dit bericht hebt u vast eerder gezien.");
+
+		// TODO show news article
+
+		if (mm.story3Attribution == Story3Attribution.FRANK) {
+			cw.AddNPCBubble("Die vrije vogels zorgen voor veel onrust. Dat kunnen we ons niet veroorloven. Daarom moesten we Frank oppakken.");
+		
+			Invoke ("ShowStatement", 0.5f);
+		} else if (mm.story3Attribution == Story3Attribution.KATJA) {
+			cw.AddNPCBubble("Dit soort berichten zorgen voor veel onrust. We konden Katja niet langer haar gang laten gaan. De orde staat op het spel!");
+		
+			Invoke ("ShowStatement", 0.5f);
+		} else if (mm.story3Attribution == Story3Attribution.ANONYMOUS) {
+			cw.AddNPCBubble("Ik heb het idee dat u meer weet over de bron van dit bericht, maar ik kan er niets mee. We houden Katja en Frank, en u, in de gaten.");
+		
+			Invoke ("ShowStatement", 0.5f);
+		}
+	}
+
+	public void ShowStatement() {
+		cw.AddNPCBubble("Door zo'n bericht gaan mensen anders denken. We moeten dit in de hand houden, anders loopt het helemaal fout.");
+
+		GameObject button = cw.AddButton ("Oneens");
+		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			cw.AddPlayerBubble("Daar ben ik het niet mee eens.");
+			
+			Invoke ("ShowQuestion", 0.5f);
+		});
+	}
+
+	public void ShowQuestion() {
+		cw.AddNPCBubble("O nee, waarom dan niet?");
+
+		GameObject button1 = cw.AddButton ("Vrijheid");
+		button1.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			cw.AddPlayerBubble("Orde is belangrijk, maar niet zo belangrijk dat mensen hun vrijheid moeten opgeven.");
+			
+			Invoke ("ShowResponse", 0.5f);
+		});
+
+		GameObject button2 = cw.AddButton ("Oorlog");
+		button2.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			cw.AddPlayerBubble("Hier in het Airborne Museum zie je wat er gebeurt als mensen hun vrijheid moeten opgeven. Dan maar iets minder orde!");
+			
+			Invoke ("ShowResponse", 0.5f);
+		});
+
+		GameObject button3 = cw.AddButton ("Bang");
+		button3.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			cw.AddPlayerBubble("Je bent gewoon bang dat het een rommeltje wordt. Maar doe rustig aan, zo'n vaart zal het niet lopen.");
+			
+			Invoke ("ShowResponse", 0.5f);
+		});
+	}
+
+	public void ShowResponse() {
+		cw.AddNPCBubble("Hm, ik weet het niet. Ik volg ook maar de regels. Ik moet hier even over nadenken.");
+
+		GameObject button = cw.AddButton ("Doe dat");
+		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			cw.AddPlayerBubble("Oké, doe dat maar.");
+			
+			Invoke ("ShowResponse", 0.5f);
+		});
+	}
+
+	public void ShowConclusion() {
+		cw.EnableBack();
+		chat.SetActive(false);
+
+		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
+		chat.name = "VideoCall";
+
 		cw = chat.GetComponent<ChatWindow>();
 		cw.SetArchivalChat(mm.reporterChatHistory.GetComponent<ChatWindow>());
-		
-		GameObject displayImage = GameObject.Find ("DisplayImage");
-		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/journalist video");
-		displayImage.GetComponentInChildren<Image>().sprite = katjaSprite;
-		
-		cw.AddNPCBubble("Dit is het antwoord van de agent 3.");
-		
-		GameObject button = cw.AddButton("Hoi");
+
+		cw.AddNPCBubble("Hebt u alles al gezien in het museum? Als u klaar bent, kunt u teruggaan naar waar u bent begonnen.");
+
+		GameObject button = cw.AddButton ("Oké");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
-			cw.ClearButtons();
-			ShowClose();
+			cw.AddPlayerBubble("Oké, tot ziens.");
+			
+			Invoke ("ShowClose", 0.5f);
 		});
 	}
 	
 	public void ShowClose() {
+		mm.callBusy = false;
+
+		mm.targetText = "Ga terug naar het beginpunt";
+		mm.UpdateTargetText();
 		
-		GameObject button = cw.AddButton ("OK");
-		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
-			this.mm.callBusy = false;
-			
-			GameObject.Destroy(chat);
-			GameObject.Destroy(this);
-		});
+		GameObject.Destroy(chat);
+		GameObject.Destroy(this);
 	}
 }

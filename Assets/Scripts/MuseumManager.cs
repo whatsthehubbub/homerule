@@ -99,6 +99,8 @@ public class MuseumManager : MonoBehaviour {
 	public GameObject officerChatHistory;
 	public GameObject artistChatHistory;
 
+	public string targetText = "";
+
 	public bool story0Done = false;
 
 	public Story1OpinionAnswer story1Opinion;
@@ -138,6 +140,8 @@ public class MuseumManager : MonoBehaviour {
 		Debug.Log ("Listening for beacons");
 
 		this.callBusy = true;
+
+		this.targetText = "Ga naar het begin";
 
 		// Create the chat windows to keep the history in (and make sure they don't get destroyed on scene change)
 		reporterChatHistory = (GameObject)Instantiate(Resources.Load ("Prefabs/Chat"));
@@ -333,25 +337,7 @@ public class MuseumManager : MonoBehaviour {
 
 	public void UpdateTargetText() {
 		// Put the text in the right place
-		GameObject.Find ("GoalCanvas").GetComponentInChildren<Text>().text = getTargetText();
-	}
-
-	public string getTargetText() {
-		string text = "";
-		
-		if (!this.story0Done) {
-			text = "Ga naar het begin";
-		} else if (!this.story1Done) {
-			text = "Ga naar de gang met het behang";
-		} else if (!this.story2Done) {
-			text = "Ga naar het bord verboden Arnhem te betreden";
-		} else if (!this.story3Done) {
-			text = "Ga naar X";
-		} else {
-			text = "Je bent klaar. Kijk rustig nog wat rond.";
-		}
-
-		return text;
+		GameObject.Find ("GoalCanvas").GetComponentInChildren<Text>().text = this.targetText;
 	}
 
 	public void TakeCall() {

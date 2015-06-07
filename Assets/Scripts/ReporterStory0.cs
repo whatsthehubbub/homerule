@@ -138,6 +138,7 @@ public class ReporterStory0 : MonoBehaviour {
 			
 			mm.story0Done = true;
 
+			mm.targetText = "Ga naar de gang met het behang";
 			mm.UpdateTargetText();
 			
 			Destroy(chat);

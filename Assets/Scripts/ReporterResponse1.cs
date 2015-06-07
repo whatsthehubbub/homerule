@@ -72,6 +72,9 @@ public class ReporterResponse1 : MonoBehaviour {
 			chat.SetActive(false);
 
 			mm.callBusy = false;
+
+			mm.targetText = "Ga naar het bord 'verboden Arnhem te betreden'";
+			mm.UpdateTargetText();
 			
 			chat.SetActive(false);
 			GameObject.Destroy(this);

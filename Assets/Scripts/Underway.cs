@@ -36,7 +36,7 @@ public class Underway : MonoBehaviour {
 		GameObject goal = (GameObject)Instantiate(Resources.Load ("Prefabs/Goal"));
 		goal.name = "Goal";
 
-		GameObject.Find ("GoalTitle").GetComponentInChildren<Text>().text = mm.getTargetText();
+		GameObject.Find ("GoalTitle").GetComponentInChildren<Text>().text = mm.targetText;
 
 		if (!mm.story0Done) {
 

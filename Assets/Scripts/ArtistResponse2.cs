@@ -8,6 +8,8 @@ public class ArtistResponse2 : MonoBehaviour {
 	
 	public GameObject chat;
 	public ChatWindow cw;
+
+	public AudioSource audioSource;
 	
 	// Use this for initialization
 	void Start () {
@@ -16,16 +18,48 @@ public class ArtistResponse2 : MonoBehaviour {
 		
 		GameObject call = (GameObject)Instantiate(Resources.Load ("Prefabs/Katja belt"));
 		call.name = "Katja belt";
+
+		AudioClip ringtone = Resources.Load<AudioClip>("Audio/ringtone");
+		this.audioSource = main.GetComponent<AudioSource>();
+		audioSource.loop = true;
+		audioSource.clip = ringtone;
+		audioSource.Play ();
 		
 		call.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			audioSource.Stop ();
+
 			GameObject.Destroy(call);
-			ShowChatButton();
+			ShowVideoCall();
 		});
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	public void ShowVideoCall() {
+		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
+		chat.name = "VideoCall";
+		
+//		// Remove the static image in the video call
+//		Destroy (GameObject.Find ("DisplayImage"));
+//		
+//		// Add the animated officer as a child of the chat
+//		GameObject animatedOfficer = (GameObject)Instantiate(Resources.Load ("Prefabs/Agent Animated"));
+//		animatedOfficer.transform.parent = chat.transform;
+		
+		cw = chat.GetComponent<ChatWindow>();
+		cw.SetArchivalChat(mm.artistChatHistory.GetComponent<ChatWindow>());
+		
+		cw.AddNPCBubble("Hé, hoi.");
+		
+		GameObject button = cw.AddButton ("Hoi");
+		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			cw.AddPlayerBubble("Jij ook hoi.");
+			
+			Invoke ("ShowChat", 0.5f);
+		});
 	}
 	
 	public void ShowChatButton() {

@@ -58,7 +58,7 @@ public class ReporterStory2 : MonoBehaviour {
 
 		// Show the correct sprite (Journalist)
 		GameObject displayImage = GameObject.Find ("DisplayImage");
-		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/journalist video");
+		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/katja video");
 		displayImage.GetComponentInChildren<Image>().sprite = katjaSprite;
 		
 		cw = chat.GetComponent<ChatWindow>();
@@ -79,7 +79,7 @@ public class ReporterStory2 : MonoBehaviour {
 	
 	public void ShowReporterResponse1() {
 		GameObject displayImage = GameObject.Find ("DisplayImage");
-		Sprite introSprite = Resources.Load<Sprite>("Sprites/situatie intro");
+		Sprite introSprite = Resources.Load<Sprite>("Sprites/S2 intro");
 		displayImage.GetComponentInChildren<Image>().sprite = introSprite;
 
 		cw.AddNPCBubble("Mensen moeten hun huis uit want ze zijn in de buurt aan het bouwen. Ze zeggen dat het gevaarlijk is. Maar niet iedereen wil weg.");
@@ -247,9 +247,13 @@ public class ReporterStory2 : MonoBehaviour {
 	public void ShowArgument() {
 		string opinion = "";
 		
-		if (mm.story2Opinion == Story2OpinionAnswer.SAD) opinion = "zielig";
-		else if (mm.story2Opinion == Story2OpinionAnswer.GOOD) opinion = "goed";
-		else if (mm.story2Opinion == Story2OpinionAnswer.WRONG) opinion = "verkeerd";
+		if (mm.story2Opinion == Story2OpinionAnswer.SAD) {
+			opinion = "zielig";
+		} else if (mm.story2Opinion == Story2OpinionAnswer.GOOD) {
+			opinion = "goed";
+		} else if (mm.story2Opinion == Story2OpinionAnswer.WRONG) {
+			opinion = "verkeerd";
+		}
 		
 		cw.AddNPCBubble("Maar wat zal ik er bij zeggen? Eerder vond je het " + opinion + ". Vind je dat nog steeds?");
 		
@@ -297,9 +301,13 @@ public class ReporterStory2 : MonoBehaviour {
 		storyImage.sprite = Sprite.Create (mm.storyImage, new Rect(0, 0, 200, 300), new Vector2(0.5f, 0.5f));
 
 		string argument = "";
-		if (mm.story2FinalOpinion == Story2OpinionAnswer.SAD) argument = "zielig want je moet al je spullen en vrienden achterlaten en je weet niet waar je heen gaat. Ze moeten dus goed voor de mensen zorgen!";
-		else if (mm.story2FinalOpinion == Story2OpinionAnswer.GOOD) argument = "goed want als je gevaar loopt dan moeten ze je daarvoor beschermen. De mensen moeten dus gewoon doen wat de agenten zeggen.";
-		else if (mm.story2FinalOpinion == Story2OpinionAnswer.WRONG) argument = "verkeerd want je moet zelf kunnen kiezen of je weg gaat of niet. De mensen moeten dus blijven als ze dat willen. Ook als dat niet mag van de agenten.";
+		if (mm.story2FinalOpinion == Story2OpinionAnswer.SAD) {
+			argument = "zielig want je moet al je spullen en vrienden achterlaten en je weet niet waar je heen gaat. Ze moeten dus goed voor de mensen zorgen!";
+		} else if (mm.story2FinalOpinion == Story2OpinionAnswer.GOOD) {
+			argument = "goed want als je gevaar loopt dan moeten ze je daarvoor beschermen. De mensen moeten dus gewoon doen wat de agenten zeggen.";
+		} else if (mm.story2FinalOpinion == Story2OpinionAnswer.WRONG) {
+			argument = "verkeerd want je moet zelf kunnen kiezen of je weg gaat of niet. De mensen moeten dus blijven als ze dat willen. Ook als dat niet mag van de agenten.";
+		}
 
 		string storyText = "Net als nu moesten de mensen in Arnhem uit hun huis vanwege gevaar." +
 			"\n" + "Dat is " + argument;
@@ -348,9 +356,13 @@ public class ReporterStory2 : MonoBehaviour {
 
 		// Show the correct sprite (Journalist)
 		string spriteName = "";
-		if (mm.story2FinalOpinion == Story2OpinionAnswer.GOOD) { spriteName = "situatie uitkomst goed"; }
-		else if (mm.story2FinalOpinion == Story2OpinionAnswer.SAD) { spriteName = "situatie uitkomst zielig"; }
-		else if (mm.story2FinalOpinion == Story2OpinionAnswer.WRONG) { spriteName = "situatie uitkomst slecht"; }
+		if (mm.story2FinalOpinion == Story2OpinionAnswer.GOOD) { 
+			spriteName = "S2 goed";
+		} else if (mm.story2FinalOpinion == Story2OpinionAnswer.SAD) {
+			spriteName = "S2 zielig";
+		} else if (mm.story2FinalOpinion == Story2OpinionAnswer.WRONG) {
+			spriteName = "S2 slecht";
+		}
 		Sprite showSprite = Resources.Load<Sprite>("Sprites/" + spriteName);;
 
 		GameObject displayImage = GameObject.Find ("DisplayImage");
@@ -377,7 +389,7 @@ public class ReporterStory2 : MonoBehaviour {
 	public void ShowResultClose() {
 		// Switch back to Katja from the image
 		GameObject displayImage = GameObject.Find ("DisplayImage");
-		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/journalist video");
+		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/katja video");
 		displayImage.GetComponentInChildren<Image>().sprite = katjaSprite;
 
 		cw.AddNPCBubble("We hebben verteld wat er gebeurt. We hebben ook gezegd wat we er van vinden. Daardoor veranderen er dingen!");

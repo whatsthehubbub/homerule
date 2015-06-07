@@ -60,16 +60,22 @@ public enum Story2OpinionAnswer {
 	WRONG
 }
 
+public enum Story2FactAnswer {
+	FIGHTING,
+	HELPING,
+	STEALING
+}
+
 public enum OfficerResponse2Opinion {
 	AGREE,
 	NEUTRAL,
 	DISAGREE
 }
 
-public enum Story2FactAnswer {
-	FIGHTING,
-	HELPING,
-	STEALING
+public enum Artist1Answer {
+	SCARED,
+	DUNNO,
+	CONFIRM
 }
 
 
@@ -91,6 +97,7 @@ public class MuseumManager : MonoBehaviour {
 
 	public GameObject reporterChatHistory;
 	public GameObject officerChatHistory;
+	public GameObject artistChatHistory;
 
 	public bool story0Done = false;
 
@@ -109,6 +116,8 @@ public class MuseumManager : MonoBehaviour {
 	public bool story2Done = false;
 
 	public OfficerResponse2Opinion officer2Opinion;
+
+	public Artist1Answer artist1Answer;
 
 	public bool story3Done = false;
 
@@ -144,6 +153,11 @@ public class MuseumManager : MonoBehaviour {
 //		ChatWindow officerChatWindow = officerChatHistory.GetComponent<ChatWindow>();
 //		officerChatWindow.SetNPCAvatar("agent");
 		officerChatHistory.SetActive(false);
+
+		artistChatHistory = (GameObject)Instantiate(Resources.Load ("Prefabs/Chat"));
+		artistChatHistory.name = "ArtistChatHistory";
+		UnityEngine.Object.DontDestroyOnLoad(artistChatHistory);
+		artistChatHistory.SetActive(false);
 	}
 	
 	void OnDestroy() {

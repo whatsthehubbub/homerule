@@ -407,24 +407,29 @@ public class MuseumManager : MonoBehaviour {
 
 	public void TakeImmediateCall(int episodeNumber) {
 		if (!this.callBusy) {
-			this.callBusy = true;
+			// Only advance the story if we don't have any outstanding response calls
+			if (this.storyQueue.Count == 0) {
+				this.callBusy = true;
 
-			switch (episodeNumber) {
-			case 0:
-				this.gameObject.AddComponent<ReporterStory0>();
-				break;
-			case 1:
-				this.gameObject.AddComponent<ReporterStory1>();
+				switch (episodeNumber) {
+				case 0:
+					this.gameObject.AddComponent<ReporterStory0>();
+					break;
+				case 1:
+					this.gameObject.AddComponent<ReporterStory1>();
 
-				break;
-			case 2:
-				this.gameObject.AddComponent<ReporterStory2>();
+					break;
+				case 2:
+					this.gameObject.AddComponent<ReporterStory2>();
 
-				break;
-			case 3:
-				this.gameObject.AddComponent<ReporterStory3>();
+					break;
+				case 3:
+					this.gameObject.AddComponent<ReporterStory3>();
 
-				break;
+					break;
+				}
+			} else {
+				TakeCall();
 			}
 		}
 	}

@@ -54,6 +54,8 @@ public class ReporterResponse2 : MonoBehaviour {
 
 		GameObject button = cw.AddButton ("Vogels");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			cw.ClearButtons();
+
 			cw.AddPlayerBubble("Ik hoorde dat die mensen niet uit hun huis zijn gezet vanwege de veiligheid.");
 			
 			Invoke ("ShowMotivation", 0.5f);
@@ -65,6 +67,8 @@ public class ReporterResponse2 : MonoBehaviour {
 
 		GameObject button = cw.AddButton ("Vrijheid");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			cw.ClearButtons ();
+
 			cw.AddPlayerBubble("Omdat ze lastig zijn, omdat ze van vrijheid houden.");
 			
 			Invoke ("ShowChat", 0.5f);

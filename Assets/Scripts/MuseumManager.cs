@@ -110,6 +110,8 @@ public class MuseumManager : MonoBehaviour {
 //		{"UNDERWAY", new Location("UNDERWAY", "Underway", -1)}
 	};
 
+	public bool forceCalls = false;
+
 	public Queue<string> storyQueue = new Queue<string>();
 	public bool callBusy = false;
 
@@ -196,21 +198,34 @@ public class MuseumManager : MonoBehaviour {
 		// Debug code to move between Scenes
 
 		if (Input.GetKeyDown(KeyCode.Alpha0)) {
-//			MovedIntoBeaconRange(53868);
-			TakeImmediateCall(0);
+			if (!forceCalls) {
+				MovedIntoBeaconRange(53868);
+			} else {
+				TakeImmediateCall(0);
+			}
 		}
 
 		if (Input.GetKeyDown(KeyCode.Alpha1)) {
-//			MovedIntoBeaconRange(48618);
-			TakeImmediateCall(1);
+			if (!forceCalls) {
+				MovedIntoBeaconRange(48618);
+			} else { 
+				TakeImmediateCall(1);
+			}
 		}
 		if (Input.GetKeyDown(KeyCode.Alpha2)) {
-//			MovedIntoBeaconRange(22290);
-			TakeImmediateCall(2);
+			if (!forceCalls) {
+				MovedIntoBeaconRange(22290);
+			} else {
+				TakeImmediateCall(2);
+			}
 		}		
 		if (Input.GetKeyDown(KeyCode.Alpha3)) {
-//			MovedIntoBeaconRange(48174);
-			TakeImmediateCall(3);
+			if (!forceCalls) {
+				MovedIntoBeaconRange(48174);
+			} else {
+				TakeImmediateCall(3);
+			}
+
 		}
 		if (Input.GetKeyDown(KeyCode.Alpha4)) {
 			MovedOutOfBeaconRange();

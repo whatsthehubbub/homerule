@@ -243,6 +243,8 @@ public class ReporterStory3 : MonoBehaviour {
 		message += attribution;
 		cw.AddNPCBubble(attribution);
 
+		mm.story3Text = message;
+
 		Invoke ("ShowConfirmSend", 0.5f);
 	}
 

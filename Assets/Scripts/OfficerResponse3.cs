@@ -71,7 +71,9 @@ public class OfficerResponse3 : MonoBehaviour {
 
 		cw.AddNPCBubble("Fijn. Zeg, dit bericht hebt u vast eerder gezien.");
 
-		// TODO show news article
+		Sprite articleSprite = Resources.Load<Sprite>("Sprites/chat_artikel");
+		GameObject storyBubble = cw.AddNPCBubble(mm.story3Text);
+		storyBubble.GetComponentInChildren<Image>().sprite = articleSprite;
 
 		if (mm.story3Attribution == Story3Attribution.FRANK) {
 			cw.AddNPCBubble("Die vrije vogels zorgen voor veel onrust. Dat kunnen we ons niet veroorloven. Daarom moesten we Frank oppakken.");

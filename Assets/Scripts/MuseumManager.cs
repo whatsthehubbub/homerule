@@ -145,6 +145,7 @@ public class MuseumManager : MonoBehaviour {
 
 	public Story3FactAnswer story3Fact;
 	public Story3Attribution story3Attribution;
+	public string story3Text = "";
 
 	public bool story3Done = false;
 

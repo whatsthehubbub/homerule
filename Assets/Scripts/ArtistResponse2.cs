@@ -51,7 +51,7 @@ public class ArtistResponse2 : MonoBehaviour {
 		
 		cw.AddNPCBubble("Hé, hoi.");
 
-		GameObject button;
+		GameObject button = null;
 
 		if (mm.story3Attribution == Story3Attribution.FRANK) {
 			button = cw.AddButton ("Hoi");

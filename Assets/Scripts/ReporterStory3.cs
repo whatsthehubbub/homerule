@@ -101,7 +101,18 @@ public class ReporterStory3 : MonoBehaviour {
 	public void ShowTakePicture() {
 		cw.AddNPCBubble("Kun je een foto maken van de lepeltjes en sieraden met koningin Wilhelmina erop?");
 
-		Invoke ("ShowPictureResponse", 0.5f);
+		GameObject camera = cw.AddButton("Camera starten");
+		camera.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			cw.ClearButtons();
+			
+			if (Application.platform == RuntimePlatform.IPhonePlayer) {
+//				cw.AddPlayerImageBubble();
+				
+//				NativeToolkit.TakeCameraShot();
+			} else {
+				Invoke ("ShowPictureResponse", 0.5f);
+			}
+		});
 	}
 
 	public void ShowPictureResponse() {

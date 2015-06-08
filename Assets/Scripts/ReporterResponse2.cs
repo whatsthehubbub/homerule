@@ -125,6 +125,8 @@ public class ReporterResponse2 : MonoBehaviour {
 
 		GameObject button = cw.AddButton ("Wat nu?");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			cw.ClearButtons();
+
 			cw.AddPlayerBubble("Wat moeten we nu doen?");
 			
 			Invoke ("ShowGoal", 0.5f);

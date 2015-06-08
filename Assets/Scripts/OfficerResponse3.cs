@@ -48,6 +48,10 @@ public class OfficerResponse3 : MonoBehaviour {
 //		// Add the animated officer as a child of the chat
 //		GameObject animatedOfficer = (GameObject)Instantiate(Resources.Load ("Prefabs/Agent Animated"));
 //		animatedOfficer.transform.parent = chat.transform;
+
+		GameObject displayImage = GameObject.Find ("DisplayImage");
+		Sprite videoCallSprite = Resources.Load<Sprite>("Sprites/agent video");
+		displayImage.GetComponentInChildren<Image>().sprite = videoCallSprite;
 		
 		cw = chat.GetComponent<ChatWindow>();
 		cw.SetArchivalChat(mm.officerChatHistory.GetComponent<ChatWindow>());
@@ -147,6 +151,10 @@ public class OfficerResponse3 : MonoBehaviour {
 
 		cw = chat.GetComponent<ChatWindow>();
 		cw.SetArchivalChat(mm.reporterChatHistory.GetComponent<ChatWindow>());
+
+		GameObject displayImage = GameObject.Find ("DisplayImage");
+		Sprite videoCallSprite = Resources.Load<Sprite>("Sprites/agent video");
+		displayImage.GetComponentInChildren<Image>().sprite = videoCallSprite;
 
 		cw.AddNPCBubble("Hebt u alles al gezien in het museum? Als u klaar bent, kunt u teruggaan naar waar u bent begonnen.");
 

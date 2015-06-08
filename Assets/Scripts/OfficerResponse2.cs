@@ -43,11 +43,15 @@ public class OfficerResponse2 : MonoBehaviour {
 		chat.name = "VideoCall";
 
 		// Remove the static image in the video call
-		Destroy (GameObject.Find ("DisplayImage"));
+//		Destroy (GameObject.Find ("DisplayImage"));
 
 		// Add the animated officer as a child of the chat
-		GameObject animatedOfficer = (GameObject)Instantiate(Resources.Load ("Prefabs/Agent Animated"));
-		animatedOfficer.transform.parent = chat.transform;
+//		GameObject animatedOfficer = (GameObject)Instantiate(Resources.Load ("Prefabs/Agent Animated"));
+//		animatedOfficer.transform.parent = chat.transform;
+
+		GameObject displayImage = GameObject.Find ("DisplayImage");
+		Sprite videoCallSprite = Resources.Load<Sprite>("Sprites/agent video");
+		displayImage.GetComponentInChildren<Image>().sprite = videoCallSprite;
 		
 		cw = chat.GetComponent<ChatWindow>();
 		cw.SetArchivalChat(mm.officerChatHistory.GetComponent<ChatWindow>());

@@ -46,7 +46,7 @@ public class ReporterStory0 : MonoBehaviour {
 		
 		// Show the correct sprite (Journalist)
 		GameObject displayImage = GameObject.Find ("DisplayImage");
-		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/journalist video");
+		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/katja video");
 		displayImage.GetComponentInChildren<Image>().sprite = katjaSprite;
 		
 		cw = chat.GetComponent<ChatWindow>();
@@ -114,7 +114,7 @@ public class ReporterStory0 : MonoBehaviour {
 
 			// Show the correct sprite (Journalist)
 			GameObject displayImage = GameObject.Find ("DisplayImage");
-			Sprite katjaSprite = Resources.Load<Sprite>("Sprites/journalist video");
+			Sprite katjaSprite = Resources.Load<Sprite>("Sprites/katja video");
 			displayImage.GetComponentInChildren<Image>().sprite = katjaSprite;
 			
 			cw = chat.GetComponent<ChatWindow>();

@@ -41,16 +41,9 @@ public class ReporterResponse2 : MonoBehaviour {
 	public void ShowVideoCall() {
 		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
 		chat.name = "VideoCall";
-		
-//		// Remove the static image in the video call
-//		Destroy (GameObject.Find ("DisplayImage"));
-//		
-//		// Add the animated officer as a child of the chat
-//		GameObject animatedOfficer = (GameObject)Instantiate(Resources.Load ("Prefabs/Agent Animated"));
-//		animatedOfficer.transform.parent = chat.transform;
 
 		GameObject displayImage = GameObject.Find ("DisplayImage");
-		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/journalist video");
+		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/katja video");
 		displayImage.GetComponentInChildren<Image>().sprite = katjaSprite;
 		
 		cw = chat.GetComponent<ChatWindow>();

@@ -42,15 +42,12 @@ public class ArtistResponse2 : MonoBehaviour {
 		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
 		chat.name = "VideoCall";
 		
-//		// Remove the static image in the video call
-//		Destroy (GameObject.Find ("DisplayImage"));
-//		
-//		// Add the animated officer as a child of the chat
-//		GameObject animatedOfficer = (GameObject)Instantiate(Resources.Load ("Prefabs/Agent Animated"));
-//		animatedOfficer.transform.parent = chat.transform;
-		
 		cw = chat.GetComponent<ChatWindow>();
 		cw.SetArchivalChat(mm.artistChatHistory.GetComponent<ChatWindow>());
+
+		GameObject displayImage = GameObject.Find ("DisplayImage");
+		Sprite videoCallSprite = Resources.Load<Sprite>("Sprites/kunstenaar video");
+		displayImage.GetComponentInChildren<Image>().sprite = videoCallSprite;
 		
 		cw.AddNPCBubble("Hé, hoi.");
 		
@@ -65,11 +62,12 @@ public class ArtistResponse2 : MonoBehaviour {
 	public void ShowChatButton() {
 		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
 		chat.name = "VideoCall";
+
 		cw = chat.GetComponent<ChatWindow>();
 		cw.SetArchivalChat(mm.reporterChatHistory.GetComponent<ChatWindow>());
 		
 		GameObject displayImage = GameObject.Find ("DisplayImage");
-		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/journalist video");
+		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/kunstenaar video");
 		displayImage.GetComponentInChildren<Image>().sprite = katjaSprite;
 		
 		cw.AddNPCBubble("Dit is het antwoord van de kunstenaar 2.");

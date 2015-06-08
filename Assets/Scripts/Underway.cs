@@ -79,7 +79,7 @@ public class Underway : MonoBehaviour {
 		// Fill in the various posts
 		if (mm.story1Done) {
 			this.post1.SetActive(true);
-
+			
 			this.post1.transform.Find("PostContainer/PostText").GetComponent<Text>().text = mm.story1Text;
 		}
 

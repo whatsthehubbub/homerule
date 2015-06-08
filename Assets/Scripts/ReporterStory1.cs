@@ -285,7 +285,10 @@ public class ReporterStory1 : MonoBehaviour {
 			break;
 		}
 
-		cw.AddNPCBubble(message);
+		GameObject storyBubble = cw.AddNPCBubble(message);
+		Sprite articleSprite = Resources.Load<Sprite>("Sprites/chat_artikel");
+		storyBubble.GetComponentInChildren<Image>().sprite = articleSprite;
+
 		mm.story1Text = message;
 
 		cw.AddNPCBubble("Ik vind het een goed bericht. Jij ook?");

@@ -241,7 +241,10 @@ public class ReporterStory3 : MonoBehaviour {
 		}
 
 		message += attribution;
-		cw.AddNPCBubble(attribution);
+
+		GameObject storyBubble = cw.AddNPCBubble(attribution);
+		Sprite articleSprite = Resources.Load<Sprite>("Sprites/chat_artikel");
+		storyBubble.GetComponentInChildren<Image>().sprite = articleSprite;
 
 		mm.story3Text = message;
 

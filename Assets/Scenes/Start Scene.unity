@@ -416,7 +416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb8094256419b47ed848296ce7beb000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceCalls: 0
+  forceCalls: 1
   callBusy: 0
   reporterChatHistory: {fileID: 0}
   officerChatHistory: {fileID: 0}
@@ -439,6 +439,7 @@ MonoBehaviour:
   reporter2Source: 0
   story3Fact: 0
   story3Attribution: 0
+  story3Text: 
   story3Done: 0
   storyImage: {fileID: 0}
 --- !u!4 &1313762165

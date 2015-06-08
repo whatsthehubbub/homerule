@@ -209,7 +209,7 @@ public class ArtistResponse1 : MonoBehaviour {
 	}
 
 	public void ShowConclusion() {
-		cw.AddNPCBubble("Kunstenaar: Het is echt schandalig hoe ze ons behandelen. De vogels zijn altijd de gebeten honden. De mensen moeten dat te weten komen!");
+		cw.AddNPCBubble("Het is echt schandalig hoe ze ons behandelen. De vogels zijn altijd de gebeten honden. De mensen moeten dat te weten komen!");
 
 		GameObject button = cw.AddButton("Oké");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {

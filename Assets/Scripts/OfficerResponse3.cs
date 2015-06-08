@@ -55,7 +55,7 @@ public class OfficerResponse3 : MonoBehaviour {
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.AddPlayerBubble("Vooruit dan.");
 			
-			Invoke ("ShowChatButton", 0.5f);
+			Invoke ("ShowArticle", 0.5f);
 		});
 	}
 
@@ -95,6 +95,7 @@ public class OfficerResponse3 : MonoBehaviour {
 
 		GameObject button = cw.AddButton ("Oneens");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			cw.ClearButtons();
 			cw.AddPlayerBubble("Daar ben ik het niet mee eens.");
 			
 			Invoke ("ShowQuestion", 0.5f);
@@ -106,6 +107,8 @@ public class OfficerResponse3 : MonoBehaviour {
 
 		GameObject button1 = cw.AddButton ("Vrijheid");
 		button1.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			cw.ClearButtons();
+
 			cw.AddPlayerBubble("Orde is belangrijk, maar niet zo belangrijk dat mensen hun vrijheid moeten opgeven.");
 			
 			Invoke ("ShowResponse", 0.5f);
@@ -113,6 +116,8 @@ public class OfficerResponse3 : MonoBehaviour {
 
 		GameObject button2 = cw.AddButton ("Oorlog");
 		button2.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			cw.ClearButtons();
+
 			cw.AddPlayerBubble("Hier in het Airborne Museum zie je wat er gebeurt als mensen hun vrijheid moeten opgeven. Dan maar iets minder orde!");
 			
 			Invoke ("ShowResponse", 0.5f);
@@ -120,6 +125,8 @@ public class OfficerResponse3 : MonoBehaviour {
 
 		GameObject button3 = cw.AddButton ("Bang");
 		button3.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			cw.ClearButtons();
+
 			cw.AddPlayerBubble("Je bent gewoon bang dat het een rommeltje wordt. Maar doe rustig aan, zo'n vaart zal het niet lopen.");
 			
 			Invoke ("ShowResponse", 0.5f);
@@ -131,9 +138,11 @@ public class OfficerResponse3 : MonoBehaviour {
 
 		GameObject button = cw.AddButton ("Doe dat");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			cw.ClearButtons();
+
 			cw.AddPlayerBubble("Oké, doe dat maar.");
 			
-			Invoke ("ShowResponse", 0.5f);
+			Invoke ("ShowConclusion", 0.5f);
 		});
 	}
 
@@ -155,6 +164,8 @@ public class OfficerResponse3 : MonoBehaviour {
 
 		GameObject button = cw.AddButton ("Oké");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			cw.ClearButtons();
+
 			cw.AddPlayerBubble("Oké, tot ziens.");
 			
 			Invoke ("ShowClose", 0.5f);

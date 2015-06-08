@@ -16,8 +16,8 @@ public class ArtistResponse1 : MonoBehaviour {
 		GameObject main = GameObject.Find("Main");
 		mm = main.GetComponentInChildren<MuseumManager>();
 		
-		GameObject call = (GameObject)Instantiate(Resources.Load ("Prefabs/Katja belt"));
-		call.name = "Katja belt";
+		GameObject call = (GameObject)Instantiate(Resources.Load ("Prefabs/Kunstenaar belt"));
+		call.name = "Kunstenaar belt";
 
 		AudioClip ringtone = Resources.Load<AudioClip>("Audio/ringtone");
 		this.audioSource = main.GetComponent<AudioSource>();

@@ -174,6 +174,7 @@ public class MuseumManager : MonoBehaviour {
 		UnityEngine.Object.DontDestroyOnLoad(reporterChatHistory);
 //		ChatWindow reporterChatWindow = reporterChatHistory.GetComponent<ChatWindow>();
 //		reporterChatWindow.SetNPCAvatar("katja");
+		reporterChatHistory.transform.Find("topbar/Title").GetComponent<Text>().text = "Katja";
 		reporterChatHistory.SetActive(false);
 
 		officerChatHistory = (GameObject)Instantiate(Resources.Load ("Prefabs/Chat"));
@@ -181,11 +182,13 @@ public class MuseumManager : MonoBehaviour {
 		UnityEngine.Object.DontDestroyOnLoad(officerChatHistory);
 //		ChatWindow officerChatWindow = officerChatHistory.GetComponent<ChatWindow>();
 //		officerChatWindow.SetNPCAvatar("agent");
+		officerChatHistory.transform.Find("topbar/Title").GetComponent<Text>().text = "Agent";
 		officerChatHistory.SetActive(false);
 
 		artistChatHistory = (GameObject)Instantiate(Resources.Load ("Prefabs/Chat"));
 		artistChatHistory.name = "ArtistChatHistory";
 		UnityEngine.Object.DontDestroyOnLoad(artistChatHistory);
+		artistChatHistory.transform.Find("topbar/Title").GetComponent<Text>().text = "Frank";
 		artistChatHistory.SetActive(false);
 	}
 	

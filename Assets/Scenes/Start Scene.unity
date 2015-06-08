@@ -385,6 +385,19 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: StartGameButton
       objectReference: {fileID: 0}
+    - target: {fileID: 11428910, guid: fb4343f437c6e1c4faa5a4811551bf77, type: 2}
+      propertyPath: m_Text
+      value: Ik ga al!
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406008, guid: fb4343f437c6e1c4faa5a4811551bf77, type: 2}
+      propertyPath: m_Text
+      value: Je bent er helemaal klaar voor! Ga naar de kast met medailles, dan begint
+        het spel.
+      objectReference: {fileID: 0}
+    - target: {fileID: 169838, guid: fb4343f437c6e1c4faa5a4811551bf77, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fb4343f437c6e1c4faa5a4811551bf77, type: 2}
   m_IsPrefabParent: 0

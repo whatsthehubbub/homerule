@@ -74,9 +74,9 @@ public class OfficerResponse1 : MonoBehaviour {
 		cw.AddNPCBubble("Niets ernstigs.");
 		cw.AddNPCBubble("Wij willen alleen weten of u deze persoon kent. Ze is een journalist, wat je noemt een schrijvende pers.");
 		
-		cw.AddNPCImageBubble();
-
-		// TODO add the image of katja
+		GameObject imageBubble = cw.AddNPCImageBubble();
+		Sprite katjaPhotoSprite = Resources.Load<Sprite>("Sprites/katja foto");
+		imageBubble.transform.Find("BubbleImage").GetComponentInChildren<Image>().sprite = katjaPhotoSprite;
 		
 		GameObject nooit = cw.AddButton("Nooit gezien");
 		nooit.GetComponentInChildren<Button>().onClick.AddListener(() => {

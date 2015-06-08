@@ -99,6 +99,14 @@ public class ReporterStory3 : MonoBehaviour {
 	}
 
 	public void ShowTakePicture() {
+		GameObject.Destroy(chat);
+		
+		chat = mm.reporterChatHistory;
+		mm.reporterChatHistory.SetActive(true);
+		
+		cw = chat.GetComponent<ChatWindow>();
+		cw.DisableBack();
+
 		cw.AddNPCBubble("Kun je een foto maken van de lepeltjes en sieraden met koningin Wilhelmina erop?");
 
 		GameObject camera = cw.AddButton("Camera starten");
@@ -284,16 +292,14 @@ public class ReporterStory3 : MonoBehaviour {
 	}
 
 	public void ShowResultImage() {
-		// TODO we're still in a video call so there's no need to instantiate a new one
-		//		cw.EnableBack();
-//		chat.SetActive(false);
+		cw.EnableBack();
+		chat.SetActive(false);
 
-//		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
-//		chat.name = "VideoCall";
+		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
+		chat.name = "VideoCall";
 
-//
-//		cw = chat.GetComponent<ChatWindow>();
-//		cw.SetArchivalChat(mm.reporterChatHistory.GetComponent<ChatWindow>());
+		cw = chat.GetComponent<ChatWindow>();
+		cw.SetArchivalChat(mm.reporterChatHistory.GetComponent<ChatWindow>());
 
 		string spriteString = "";
 

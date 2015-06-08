@@ -47,7 +47,7 @@ public class ReporterResponse2 : MonoBehaviour {
 		displayImage.GetComponentInChildren<Image>().sprite = katjaSprite;
 		
 		cw = chat.GetComponent<ChatWindow>();
-		cw.SetArchivalChat(mm.officerChatHistory.GetComponent<ChatWindow>());
+		cw.SetArchivalChat(mm.reporterChatHistory.GetComponent<ChatWindow>());
 		
 		cw.AddNPCBubble("Hoi, ik verveel me! Niets om over te schrijven.");
 		cw.AddNPCBubble("Heb jij toevallig nog een nieuwtje opgepikt?");

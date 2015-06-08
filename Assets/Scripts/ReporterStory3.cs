@@ -229,20 +229,15 @@ public class ReporterStory3 : MonoBehaviour {
 
 		string message = "Net als nu mochten de mensen in Nederland niet uitkomen voor hun politieke voorkeur, vrije vogel of koningsgezind! Was getekend… ";
 
-		cw.AddNPCBubble(message);
-
-		string attribution = "";
 		if (mm.story3Attribution == Story3Attribution.FRANK) {
-			attribution = "Frank de kunstenaar";
+			message += " Frank de kunstenaar";
 		} else if (mm.story3Attribution == Story3Attribution.KATJA) {
-			attribution = "Katja de reporter";
+			message += " Katja de reporter";
 		} else if (mm.story3Attribution == Story3Attribution.ANONYMOUS) {
-			attribution = "Anonieme bron";
+			message += " Anonieme bron";
 		}
 
-		message += attribution;
-
-		GameObject storyBubble = cw.AddNPCBubble(attribution);
+		GameObject storyBubble = cw.AddNPCBubble(message);
 		Sprite articleSprite = Resources.Load<Sprite>("Sprites/chat_artikel");
 		storyBubble.GetComponentInChildren<Image>().sprite = articleSprite;
 

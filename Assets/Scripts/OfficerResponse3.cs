@@ -43,7 +43,7 @@ public class OfficerResponse3 : MonoBehaviour {
 		chat.name = "VideoCall";
 
 		GameObject displayImage = GameObject.Find ("DisplayImage");
-		Sprite videoCallSprite = Resources.Load<Sprite>("Sprites/agent video");
+		Sprite videoCallSprite = Resources.Load<Sprite>("Sprites/agent video 2");
 		displayImage.GetComponentInChildren<Image>().sprite = videoCallSprite;
 		
 		cw = chat.GetComponent<ChatWindow>();
@@ -146,7 +146,7 @@ public class OfficerResponse3 : MonoBehaviour {
 		cw.SetArchivalChat(mm.reporterChatHistory.GetComponent<ChatWindow>());
 
 		GameObject displayImage = GameObject.Find ("DisplayImage");
-		Sprite videoCallSprite = Resources.Load<Sprite>("Sprites/agent video");
+		Sprite videoCallSprite = Resources.Load<Sprite>("Sprites/agent video 2");
 		displayImage.GetComponentInChildren<Image>().sprite = videoCallSprite;
 
 		cw.AddNPCBubble("Hebt u alles al gezien in het museum? Als u klaar bent, kunt u teruggaan naar waar u bent begonnen.");

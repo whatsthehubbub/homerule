@@ -117,7 +117,7 @@ GameObject:
   - 222: {fileID: 22246008}
   - 114: {fileID: 11442766}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -242,6 +242,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0041352571dd5459e9658a205fe99f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bubbleSound: {fileID: 0}
+  buttonSound: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!114 &11416306
 MonoBehaviour:
   m_ObjectHideFlags: 1

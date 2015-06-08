@@ -32,6 +32,10 @@ public class Underway : MonoBehaviour {
 		mm.officerChatHistory.SetActive(true);
 	}
 
+	public void ShowArtistChats() {
+		mm.artistChatHistory.SetActive(true);
+	}
+
 	public void ShowGoal() {
 		GameObject goal = (GameObject)Instantiate(Resources.Load ("Prefabs/Goal"));
 		goal.name = "Goal";

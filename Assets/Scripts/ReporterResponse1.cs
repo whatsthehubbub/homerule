@@ -47,21 +47,21 @@ public class ReporterResponse1 : MonoBehaviour {
 		cw = chat.GetComponent<ChatWindow>();
 		cw.DisableBack();
 		
-		cw.AddNPCBubble("De politie wil me spreken. Maar ik doe toch niets verkeerd?");
+		cw.AddNPCBubble("De politie wil me spreken. Maar ik doe toch niks verkeerd?");
 		
 		GameObject action = cw.AddButton("Bel ze");
 		action.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble("Ze zeggen dat je contact met ze moet opnemen.");
+			cw.AddPlayerBubble("Ze zeggen dat je ze moet bellen.");
 			
 			Invoke ("ShowResponse", 0.5f);
 		});
 	}
 	
 	public void ShowResponse() {
-		cw.AddNPCBubble("Dat ga ik mooi niet doen!");
+		cw.AddNPCBubble("Dat ga ik mooi niet doen.");
 		
-		cw.AddNPCBubble("Ik vind het belangrijk om te vertellen wat er gebeurt.");
+		cw.AddNPCBubble("Ik vind het belangrijk om te vertellen wat er gebeurt. Daar ga ik gewoon mee door!");
 		
 		GameObject ok = cw.AddButton("Oké");
 		ok.GetComponentInChildren<Button>().onClick.AddListener(() => {

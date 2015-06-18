@@ -77,7 +77,7 @@ public class ReporterStory0 : MonoBehaviour {
 
 		cw.AddNPCBubble("Ik zie dat je in het Airborne Museum bent. Da's cool.");
 
-		cw.AddNPCBubble("Ik wil graag schrijven over vrijheid, en in het museum is van alles te zien over vrijheid. Jij kan me helpen!");
+		cw.AddNPCBubble("Ik wil graag schrijven over vrijheid, en in het museum is daarover van alles te zien. Jij kan me helpen!");
 
 		GameObject how = cw.AddButton ("Hoe?");
 		how.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -90,7 +90,7 @@ public class ReporterStory0 : MonoBehaviour {
 	}
 
 	public void ShowHow() {
-		cw.AddNPCBubble("Loop door het museum en let goed op. Kijk wat er te leren valt over vrijheid. Ik bel als ik een vraag voor je heb.");
+		cw.AddNPCBubble("Loop door het museum en let goed op. Kijk wat je kunt leren over vrijheid. Ik bel als ik een vraag voor je heb.");
 
 		GameObject ok = cw.AddButton ("Oké");
 		ok.GetComponentInChildren<Button>().onClick.AddListener(() => {

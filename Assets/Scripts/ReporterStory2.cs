@@ -65,7 +65,7 @@ public class ReporterStory2 : MonoBehaviour {
 		cw.SetArchivalChat(mm.reporterChatHistory.GetComponent<ChatWindow>());
 		
 		cw.AddNPCBubble("Hoi!");
-		cw.AddNPCBubble("Er is iets aan de hand. Moet je zien!");
+		cw.AddNPCBubble("Er is weer iets aan de hand. Moet je zien!");
 		
 		GameObject wat = cw.AddButton("Wat?");
 		wat.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -82,13 +82,13 @@ public class ReporterStory2 : MonoBehaviour {
 		Sprite introSprite = Resources.Load<Sprite>("Sprites/S2 intro");
 		displayImage.GetComponentInChildren<Image>().sprite = introSprite;
 
-		cw.AddNPCBubble("Mensen moeten hun huis uit want ze zijn in de buurt aan het bouwen. Ze zeggen dat het gevaarlijk is. Maar niet iedereen wil weg.");
-		cw.AddNPCBubble("Help je mij hier over te schrijven?");
+		cw.AddNPCBubble("Mensen moeten hun huis uit. Ze zeggen dat het er gevaarlijk is, omdat er in de buurt gebouwd wordt. Maar niet iedereen wil weg.");
+		cw.AddNPCBubble("Kun je me helpen hierover te schrijven?");
 		
 		GameObject ja = cw.AddButton("Ja");
 		ja.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble("Ja ik help je.");
+			cw.AddPlayerBubble("Ja, ik help je.");
 			
 			Invoke ("ShowOpinion1", 0.5f);
 		});
@@ -103,8 +103,8 @@ public class ReporterStory2 : MonoBehaviour {
 		cw = chat.GetComponent<ChatWindow>();
 		cw.DisableBack();
 
-		cw.AddNPCBubble("Ze willen dat mensen verhuizen omdat het gevaarlijk is waar ze nu wonen.");
-		cw.AddNPCBubble("Wat vind je daar van?");
+		cw.AddNPCBubble("Ze willen dat mensen verhuizen, omdat het gevaarlijk is waar ze nu wonen.");
+		cw.AddNPCBubble("Wat vind je daarvan? Overleg gerust!");
 		
 		GameObject zielig = cw.AddButton("Zielig");
 		zielig.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -119,7 +119,7 @@ public class ReporterStory2 : MonoBehaviour {
 		GameObject goed = cw.AddButton("Goed");
 		goed.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble("Goed. Als er gevaar is dan moeten ze je daarvoor beschermen.");
+			cw.AddPlayerBubble("Goed. Als er gevaar is, dan moeten ze je daarvoor beschermen.");
 			
 			mm.story2Opinion = Story2OpinionAnswer.GOOD;
 			
@@ -129,7 +129,7 @@ public class ReporterStory2 : MonoBehaviour {
 		GameObject verkeerd = cw.AddButton("Verkeerd");
 		verkeerd.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble("Verkeerd. Mensen mogen zelf weten of ze weg gaan.");
+			cw.AddPlayerBubble("Verkeerd. Mensen mogen zelf weten of ze weggaan.");
 			
 			mm.story2Opinion = Story2OpinionAnswer.WRONG;
 			
@@ -139,12 +139,12 @@ public class ReporterStory2 : MonoBehaviour {
 	}
 	
 	public void ShowReporterOpinionResponse1() {
-		cw.AddNPCBubble("Helemaal mee eens. Laten we de mensen hier van overtuigen.");
+		cw.AddNPCBubble("Helemaal mee eens. Laten we de mensen hiervan overtuigen.");
 		
 		GameObject ok = cw.AddButton("Hoe?");
 		ok.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble("OK, maar hoe?");
+			cw.AddPlayerBubble("Oké, maar hoe?");
 			
 			Invoke ("ShowFindObject", 0.5f);
 		});
@@ -170,25 +170,25 @@ public class ReporterStory2 : MonoBehaviour {
 	public void ShowFindObjectResponse() {
 		cw.AddNPCBubble("Goeie foto!");
 
-		GameObject button = cw.AddButton("OK");
+		GameObject button = cw.AddButton("Oké");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble("OK.");
+			cw.AddPlayerBubble("Oké.");
 		
 			Invoke ("ShowObjectFacts", 0.5f);
 		});
 	}
 	
 	public void ShowObjectFacts() {
-		cw.AddNPCBubble("De mensen in Arnhem moesten ook hun huis uit. Dat wilden de Duitsers.");
-		cw.AddNPCBubble("Waarom denk jij dat zij dat wilden?");
+		cw.AddNPCBubble("De mensen in Arnhem moesten ook hun huis uit.");
+		cw.AddNPCBubble("Waarom denk jij dat de Duitsers dat wilden? Als je samen speelt, kun je overleggen.");
 		
 		cw.AddNPCBubble("Was dat (1) omdat er werd gevochten, (2) zodat mensen de geallieerden niet zouden helpen, of (3) om hun spullen te stelen.");
 		
 		GameObject answer1 = cw.AddButton("Er werd gevochten");
 		answer1.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble("Omdat er werd gevochten en dat is gevaarlijk.");
+			cw.AddPlayerBubble("Ik denk omdat er werd gevochten, en dat is gevaarlijk.");
 			
 			mm.story2Fact = Story2FactAnswer.FIGHTING;
 			
@@ -198,7 +198,7 @@ public class ReporterStory2 : MonoBehaviour {
 		GameObject answer2 = cw.AddButton("Geallieerden helpen");
 		answer2.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble("Zodat mensen de geallieerden niet zouden helpen.");
+			cw.AddPlayerBubble("Ik denk zodat mensen de geallieerden niet zouden helpen.");
 			
 			mm.story2Fact = Story2FactAnswer.HELPING;
 			
@@ -208,7 +208,7 @@ public class ReporterStory2 : MonoBehaviour {
 		GameObject answer3 = cw.AddButton("Spullen stelen");
 		answer3.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble("Zodat de Duitsers hun spullen konden te stelen.");
+			cw.AddPlayerBubble("Ik denk zodat de Duitsers hun spullen konden stelen.");
 			
 			mm.story2Fact = Story2FactAnswer.STEALING;
 			
@@ -218,28 +218,28 @@ public class ReporterStory2 : MonoBehaviour {
 	
 	public void ShowFactResponse() {
 		if (mm.story2Fact == Story2FactAnswer.FIGHTING) {
-			cw.AddNPCBubble("Klopt! De Duitsers waren ook bang dat de mensen de geallieerden zouden helpen. Er werden ook spullen gestolen door de Duitsers en door burgers.");
+			cw.AddNPCBubble("Klopt! Maar de Duitsers waren ook bang dat mensen de geallieerden zouden helpen. Daarnaast werden er spullen gestolen door de Duitsers en door burgers.");
 		} else if (mm.story2Fact == Story2FactAnswer.HELPING) {
-			cw.AddNPCBubble("Klopt! Er werd ook nog gevochten en dat is gevaarlijk. Er werden ook spullen gestolen door de Duitsers en door burgers.");
+			cw.AddNPCBubble("Klopt! Maar er werd ook nog gevochten, en dat is gevaarlijk. Daarnaast werden er spullen gestolen door de Duitsers en door burgers.");
 		} else if (mm.story2Fact == Story2FactAnswer.STEALING) {
-			cw.AddNPCBubble("Dat was niet de reden maar het gebeurde wel. Er werden spullen gestolen door de Duitsers en door burgers.");
+			cw.AddNPCBubble("Dat was niet de reden, maar het gebeurde wel. Er werden spullen gestolen door de Duitsers en door burgers.");
 			
-			cw.AddNPCBubble("De mensen moesten weg omdat er gevochten werd en dat is gevaarlijk. De Duitsers waren ook bang dat de mensen de geallieerden zouden helpen.");
+			cw.AddNPCBubble("Maar de mensen moesten weg omdat er gevochten werd, wat gevaarlijk is. Daarnaast waren de Duitsers bang dat mensen de geallieerden zouden helpen.");
 		}
 
-		GameObject button = cw.AddButton("Oh");
+		GameObject button = cw.AddButton("Aha");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble("Oh, zit het zo!");
+			cw.AddPlayerBubble("Aha, dus zo zit het!");
 
 			Invoke ("ShowFactResponseClose", 0.5f);
 		});
 	}
 	
 	public void ShowFactResponseClose() {
-		cw.AddNPCBubble("Mensen moesten binnen twee dagen weg. Daarna was het verboden om nog in de stad te zijn. Als je toch bleef kon je worden neergeschoten.");
+		cw.AddNPCBubble("Mensen moesten binnen twee dagen weg. Daarna was het verboden om nog in de stad te zijn. Als je toch bleef, kon je worden neergeschoten.");
 		
-		cw.AddNPCBubble("Wat een verhaal he? Het lijkt op wat er nu hier gebeurt. Dus ik ga je foto delen.");
+		cw.AddNPCBubble("Wat een verhaal hè? Het lijkt op wat er hier bij mij gebeurt. Dus ik ga je foto delen.");
 		
 		Invoke ("ShowArgument", 0.5f);
 	}
@@ -255,12 +255,12 @@ public class ReporterStory2 : MonoBehaviour {
 			opinion = "verkeerd";
 		}
 		
-		cw.AddNPCBubble("Maar wat zal ik er bij zeggen? Eerder vond je het " + opinion + ". Vind je dat nog steeds?");
+		cw.AddNPCBubble("Maar hoe zal ik het omschrijven? Net vond je het " + opinion + ". Vind je dat nog steeds?");
 		
 		GameObject opinion1 = cw.AddButton("Zielig");
 		opinion1.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble("Het is zielig want je moet al je spullen en vrienden achterlaten en je weet niet waar je heen gaat.");
+			cw.AddPlayerBubble("Ik vind het zielig, want je moet al je spullen en vrienden achterlaten, en je weet niet waar je heen gaat.");
 			
 			mm.story2FinalOpinion = Story2OpinionAnswer.SAD;
 			
@@ -270,7 +270,7 @@ public class ReporterStory2 : MonoBehaviour {
 		GameObject opinion2 = cw.AddButton("Goed");
 		opinion2.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble("Het is goed want als je gevaar loopt dan moeten ze je daarvoor beschermen.");
+			cw.AddPlayerBubble("Ik vind het goed, want als je gevaar loopt, dan moeten ze je daarvoor beschermen.");
 			
 			mm.story2FinalOpinion = Story2OpinionAnswer.GOOD;
 			
@@ -280,7 +280,7 @@ public class ReporterStory2 : MonoBehaviour {
 		GameObject opinion3 = cw.AddButton("Verkeerd");
 		opinion3.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble("Het is verkeerd want mensen moeten zelf kunnen kiezen of ze weg gaan of niet.");
+			cw.AddPlayerBubble("Ik vind het verkeerd, want mensen moeten zelf kunnen kiezen of ze weggaan of niet.");
 			
 			mm.story2FinalOpinion = Story2OpinionAnswer.WRONG;
 			
@@ -289,7 +289,7 @@ public class ReporterStory2 : MonoBehaviour {
 	}
 	
 	public void ShowArgumentResponse() {
-		cw.AddNPCBubble("OK! Ik heb er dit bericht van gemaakt:");
+		cw.AddNPCBubble("Oké! Ik heb er dit bericht van gemaakt:");
 
 		Sprite articleSprite = Resources.Load<Sprite>("Sprites/chat_artikel");
 
@@ -302,11 +302,11 @@ public class ReporterStory2 : MonoBehaviour {
 
 		string argument = "";
 		if (mm.story2FinalOpinion == Story2OpinionAnswer.SAD) {
-			argument = "zielig want je moet al je spullen en vrienden achterlaten en je weet niet waar je heen gaat. Ze moeten dus goed voor de mensen zorgen!";
+			argument = "zielig, want je moet al je spullen en vrienden achterlaten en je weet niet waar je heen gaat. Ze moeten dus goed voor de mensen zorgen!";
 		} else if (mm.story2FinalOpinion == Story2OpinionAnswer.GOOD) {
-			argument = "goed want als je gevaar loopt dan moeten ze je daarvoor beschermen. De mensen moeten dus gewoon doen wat de agenten zeggen.";
+			argument = "goed, want als je gevaar loopt, dan moeten ze je daarvoor beschermen. De mensen moeten dus gewoon doen wat de agenten zeggen.";
 		} else if (mm.story2FinalOpinion == Story2OpinionAnswer.WRONG) {
-			argument = "verkeerd want je moet zelf kunnen kiezen of je weg gaat of niet. De mensen moeten dus blijven als ze dat willen. Ook als dat niet mag van de agenten.";
+			argument = "verkeerd, want je moet zelf kunnen kiezen of je weggaat of niet. De mensen moeten dus blijven als ze dat willen. Ook als dat niet mag van de politie.";
 		}
 
 		string storyText = "Net als nu moesten de mensen in Arnhem uit hun huis vanwege gevaar." +
@@ -333,7 +333,7 @@ public class ReporterStory2 : MonoBehaviour {
 	
 	public void ShowResult() {
 		cw.AddNPCBubble("Ik heb je bericht verzonden…");
-		cw.AddNPCBubble("Wow. Moet je zien hoe de mensen reageren!");
+		cw.AddNPCBubble("Wauw. Moet je zien hoe de mensen reageren!");
 		
 		GameObject show = cw.AddButton("Laat zien");
 		show.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -377,10 +377,10 @@ public class ReporterStory2 : MonoBehaviour {
 			cw.AddNPCBubble("Sommige mensen luisteren niet. Ze krijgen ruzie en er wordt gevochten! ");
 		}
 
-		GameObject ok = cw.AddButton("OK");
+		GameObject ok = cw.AddButton("Oké");
 		ok.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble("OK.");
+			cw.AddPlayerBubble("Oké.");
 			
 			Invoke ("ShowResultClose", 0.5f);
 		});
@@ -392,9 +392,9 @@ public class ReporterStory2 : MonoBehaviour {
 		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/katja video");
 		displayImage.GetComponentInChildren<Image>().sprite = katjaSprite;
 
-		cw.AddNPCBubble("We hebben verteld wat er gebeurt. We hebben ook gezegd wat we er van vinden. Daardoor veranderen er dingen!");
+		cw.AddNPCBubble("We hebben verteld wat er gebeurt. We hebben onze mening gegeven. Daardoor veranderen er dingen!");
 		
-		cw.AddNPCBubble("Op andere plekken zijn ook nog dingen te zien. Ik bel je weer als er iets te doen is.");
+		cw.AddNPCBubble("Er is nog meer te zien in het museum. Kijk rustig rond, ik bel je als ik iets voor je heb.");
 
 		GameObject ok = cw.AddButton("Tot ziens");
 		ok.GetComponentInChildren<Button>().onClick.AddListener(() => {

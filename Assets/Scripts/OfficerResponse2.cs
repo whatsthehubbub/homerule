@@ -49,7 +49,7 @@ public class OfficerResponse2 : MonoBehaviour {
 		cw = chat.GetComponent<ChatWindow>();
 		cw.SetArchivalChat(mm.officerChatHistory.GetComponent<ChatWindow>());
 		
-		cw.AddNPCBubble("Aha daar bent u. Kunnen we even praten?");
+		cw.AddNPCBubble("Aha, daar bent u. Kunnen we even praten?");
 		
 		GameObject button = cw.AddButton ("Ja");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -95,14 +95,14 @@ public class OfficerResponse2 : MonoBehaviour {
 	
 	public void ShowPossibilities() {
 		if (mm.story2FinalOpinion == Story2OpinionAnswer.SAD) {
-			cw.AddNPCBubble("Door dat bericht hebben we extra werk. Mensen moeten verzorgd worden. Dat vinden we niet nodig.");
+			cw.AddNPCBubble("Door dit bericht hebben we extra werk. Mensen moeten verzorgd worden. Dat vinden we niet nodig.");
 		} else if (mm.story2FinalOpinion == Story2OpinionAnswer.GOOD) {
-			cw.AddNPCBubble("Dat bericht heeft geholpen. Mensen luisteren naar wat we zeggen. Ze gaan netjes hun huis uit. Goed zo.");
+			cw.AddNPCBubble("Dit bericht heeft geholpen. Mensen luisteren naar wat we zeggen, ze gaan netjes hun huis uit. Fijn.");
 		} else if (mm.story2FinalOpinion == Story2OpinionAnswer.WRONG) {
-			cw.AddNPCBubble("We zijn boos over dat bericht. Mensen doen niet wat we zeggen. Maar dat moet wel. We zijn nog steeds bezig met mensen uit hun huis halen.");
+			cw.AddNPCBubble("We zijn boos over dit bericht. Mensen doen niet wat we zeggen. Maar dat moet wel. We zijn nog steeds bezig mensen uit hun huis te halen!");
 		}
 		
-		cw.AddNPCBubble("Door zo'n bericht gaan mensen anders denken. We willen dat de journalist eerst aan ons vraagt of dat wel mag.");
+		cw.AddNPCBubble("Door zo'n bericht gaan mensen anders denken. Het lijkt ons handig als de journalist eerst aan ons vraagt of dat wel mag.");
 		
 		GameObject agree = cw.AddButton ("Eens");
 		agree.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -117,7 +117,7 @@ public class OfficerResponse2 : MonoBehaviour {
 		GameObject neutral = cw.AddButton ("Als u dat zegt");
 		neutral.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble("Als u dat zegt dan zal het wel zo zijn.");
+			cw.AddPlayerBubble("Als u dat zegt, dan zal het wel zo zijn.");
 
 			mm.officer2Opinion = OfficerResponse2Opinion.NEUTRAL;
 			
@@ -140,10 +140,10 @@ public class OfficerResponse2 : MonoBehaviour {
 			cw.AddNPCBubble("Natuurlijk! Goed dat u het ook zo ziet.");
 		}
 		else if (mm.officer2Opinion == OfficerResponse2Opinion.NEUTRAL) {
-			cw.AddNPCBubble("Ja dat is zo. Luister maar gewoon naar wat wij zeggen.");
+			cw.AddNPCBubble("Ja, dat is zo. Luister maar gewoon naar wat wij zeggen.");
 		}
 		else if (mm.officer2Opinion == OfficerResponse2Opinion.DISAGREE) {
-			cw.AddNPCBubble("Oh ja? Vindt u dat? Dat is goed om te weten. Dan gaan we u in de gaten houden…");
+			cw.AddNPCBubble("O ja? Vindt u dat? Dat is goed om te weten. We houden u in de gaten…");
 		}
 		
 		Invoke ("ShowOfficerCloseOff", 0.5f);
@@ -152,10 +152,10 @@ public class OfficerResponse2 : MonoBehaviour {
 	public void ShowOfficerCloseOff() {
 		cw.AddNPCBubble("Dat was het wel.");
 		
-		GameObject button = cw.AddButton ("OK");
+		GameObject button = cw.AddButton ("Oké");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble("OK.");
+			cw.AddPlayerBubble("Oké.");
 			
 			Invoke ("ShowOfficerBye", 0.5f);
 		});

@@ -5,20 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System;
 
-
-//public struct Location {
-//	public string name;
-//	public int minor;
-//	public bool shown;
-//	
-//	public Location(string name, int minor, bool shown) {
-//		this.name = name;
-//		this.minor = minor;
-//		this.shown = shown;
-//	}
-//}
-
-
 public enum Story1OpinionAnswer {
 	CLEAN,
 	LEAVE,
@@ -88,18 +74,6 @@ public enum Story3Attribution {
 
 
 public class MuseumManager : MonoBehaviour {
-
-//	private Dictionary<int, Location> locations = new Dictionary<int, Location>(){
-//		{53868, new Location("EPISODE0", 53868, false)},
-//		{48618, new Location("EPISODE1", 48618, false)},
-//		{22290, new Location("EPISODE2", 22290, false)},
-//		{48174, new Location("EPISODE3", 48174, false)},
-//		{53868, new Location("EPISODE4", 53868, false)},
-////		{"MARKET", new Location("MARKET", "Market Scene", 53868)},
-////		{"STATION", new Location("STATION", "Station Scene", 45444)},
-////		{"UNDERWAY", new Location("UNDERWAY", "Underway", -1)}
-//	};
-
 	public List<int> locations = new List<int>(new int[] {53868, 48618, 22290, 48174});
 
 	public bool forceCalls = false;
@@ -174,6 +148,7 @@ public class MuseumManager : MonoBehaviour {
 
 		ChatWindow reporterChatWindow = reporterChatHistory.GetComponent<ChatWindow>();
 		reporterChatWindow.SetNPCAvatar("katja");
+		reporterChatWindow.SetLastMessageDisplay("Reporter");
 
 		reporterChatHistory.transform.Find("topbar/Title").GetComponent<Text>().text = "Katja";
 		reporterChatHistory.SetActive(false);
@@ -185,6 +160,7 @@ public class MuseumManager : MonoBehaviour {
 
 		ChatWindow officerChatWindow = officerChatHistory.GetComponent<ChatWindow>();
 		officerChatWindow.SetNPCAvatar("agent2");
+		officerChatWindow.SetLastMessageDisplay("Officer");
 
 		officerChatHistory.transform.Find("topbar/Title").GetComponent<Text>().text = "Agent";
 		officerChatHistory.SetActive(false);
@@ -196,6 +172,7 @@ public class MuseumManager : MonoBehaviour {
 
 		ChatWindow artistChatWindow = artistChatHistory.GetComponent<ChatWindow>();
 		artistChatWindow.SetNPCAvatar("kunstenaar");
+		artistChatWindow.SetLastMessageDisplay("Artist");
 
 		artistChatHistory.transform.Find("topbar/Title").GetComponent<Text>().text = "Frank";
 		artistChatHistory.SetActive(false);
@@ -287,7 +264,7 @@ public class MuseumManager : MonoBehaviour {
 			// Hide the chat history buttons of people we haven't talked to yet
 			reporterButton = GameObject.Find("ChatSenderReporter");
 			officerButton = GameObject.Find("ChatSenderOfficer");
-			artistButton = GameObject.Find("ChatSenderActivist");
+			artistButton = GameObject.Find("ChatSenderArtist");
 			
 			reporterButton.SetActive(false);
 			officerButton.SetActive(false);

@@ -133,6 +133,7 @@ MonoBehaviour:
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
+  m_RepeatDelay: .5
   m_AllowActivationOnMobileDevice: 0
 --- !u!114 &180596014
 MonoBehaviour:
@@ -334,9 +335,9 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1160625267}
-    - target: {fileID: 11475220, guid: a5b6df8724566fb4dac63bde95858392, type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ShowArtistChats
+    - target: {fileID: 172984, guid: a5b6df8724566fb4dac63bde95858392, type: 2}
+      propertyPath: m_Name
+      value: ChatSenderArtist
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a5b6df8724566fb4dac63bde95858392, type: 2}
@@ -638,6 +639,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+  m_StereoMirrorMode: 0
 --- !u!4 &1160625266
 Transform:
   m_ObjectHideFlags: 0

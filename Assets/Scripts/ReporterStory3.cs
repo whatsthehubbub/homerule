@@ -53,7 +53,7 @@ public class ReporterStory3 : MonoBehaviour {
 		cw.SetArchivalChat(mm.reporterChatHistory.GetComponent<ChatWindow>());
 		
 		cw.AddNPCBubble("Hoi!");
-		cw.AddNPCBubble("Ben je al bij die lepeltjes en sieraden?");
+		cw.AddNPCBubble("Ben je al bij die munten?");
 		
 		GameObject button = cw.AddButton("Ja");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -66,7 +66,7 @@ public class ReporterStory3 : MonoBehaviour {
 	}
 
 	public void ShowSituation() {
-		cw.AddNPCBubble("Super. Er is wel iets aan de hand hier. Moet je zien!");
+		cw.AddNPCBubble("Super. Er is ook weer iets aan de hand hier. Moet je zien!");
 
 		GameObject button = cw.AddButton("Wat?");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -83,7 +83,7 @@ public class ReporterStory3 : MonoBehaviour {
 		Sprite introSprite = Resources.Load<Sprite>("Sprites/S3 intro");
 		displayImage.GetComponentInChildren<Image>().sprite = introSprite;
 
-		cw.AddNPCBubble("Ik zit hier met Frank, hij heeft me alles verteld. Hij heeft bewijs dat de vrije vogels worden tegengewerkt.");
+		cw.AddNPCBubble("Ik zit hier met Frank, hij heeft me alles verteld. Er is bewijs dat de vrije vogels worden tegengewerkt.");
 
 		cw.AddNPCBubble("Ik wil erover schrijven, maar de politie staat al voor de deur!");
 
@@ -92,7 +92,7 @@ public class ReporterStory3 : MonoBehaviour {
 		GameObject button = cw.AddButton("Ja");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble("Ja, ik help je. Dat weet je nu toch wel!");
+			cw.AddPlayerBubble("Ja, dat weet je nu toch wel!");
 			
 			Invoke ("ShowTakePicture", 0.5f);
 		});
@@ -107,7 +107,7 @@ public class ReporterStory3 : MonoBehaviour {
 		cw = chat.GetComponent<ChatWindow>();
 		cw.DisableBack();
 
-		cw.AddNPCBubble("Kun je een foto maken van de lepeltjes en sieraden met koningin Wilhelmina erop?");
+		cw.AddNPCBubble("Kun je een foto maken van de munten met koningin Wilhelmina erop?");
 
 		GameObject camera = cw.AddButton("Camera starten");
 		camera.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -130,16 +130,16 @@ public class ReporterStory3 : MonoBehaviour {
 	}
 
 	public void ShowFactQuestion() {
-		cw.AddNPCBubble("In de oorlog was het verboden om te laten zien dat je het koningshuis een warm hart toedroeg.");
+		cw.AddNPCBubble("In de oorlog mocht je niet laten zien dat je liefhebber van het koningshuis was.");
 
-		cw.AddNPCBubble("Waarom denk jij dat dit was? Je mag overleggen!");
+		cw.AddNPCBubble("Waarom, denk jij? Je mag overleggen!");
 
 		cw.AddNPCBubble("Was dit omdat de Duitsers (1) tegen koningin Wilhelmina waren, (2) wilden dat je voor Hitler was, of (3) niet wilden dat je je organiseerde.");
 
 		GameObject button1 = cw.AddButton("Tegen de koningin");
 		button1.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble("Ik denk dat het was omdat de Duitsers tegen koningin Wilhelmina waren.");
+			cw.AddPlayerBubble("Ik denk omdat de Duitsers tegen koningin Wilhelmina waren.");
 
 			mm.story3Fact = Story3FactAnswer.QUEEN;
 
@@ -171,14 +171,14 @@ public class ReporterStory3 : MonoBehaviour {
 	public void ShowFactAnswer() {
 		if (mm.story3Fact == Story3FactAnswer.QUEEN) {
 			cw.AddNPCBubble("Klopt! Toen de Duitsers Nederland hadden bezet, waren zij de baas. De koningin was gevlucht naar Engeland.");
-			cw.AddNPCBubble("Maar de Duitsers wilden ook niet dat mensen zich organiseerden op hun politieke overtuiging. Dan konden ze wel eens de controle verliezen.");
+			cw.AddNPCBubble("Maar de Duitsers wilden ook niet dat mensen aan de hand van hun politieke ideeën groepen vormden. Dan konden ze wel eens de controle verliezen.");
 
 		} else if (mm.story3Fact == Story3FactAnswer.HITLER) {
 			cw.AddNPCBubble("Klopt! Toen de Duitsers Nederland hadden bezet, waren zij de baas.");
-			cw.AddNPCBubble("Maar de Duitsers wilden ook niet dat mensen zich organiseerden op hun politieke overtuiging. Dan konden ze wel eens de controle verliezen.");
+			cw.AddNPCBubble("Maar de Duitsers wilden ook niet dat mensen aan de hand van hun politieke ideeën groepen vormden. Dan konden ze wel eens de controle verliezen.");
 
 		} else if (mm.story3Fact == Story3FactAnswer.ORGANIZATION) {
-			cw.AddNPCBubble("Klopt! De Duitsers wilden niet dat mensen zich organiseerden op hun politieke overtuiging. Dan konden ze wel eens de controle verliezen.");
+			cw.AddNPCBubble("Klopt! De Duitsers wilden niet dat mensen aan de hand van hun politieke ideeën groepen vormden. Dan konden ze wel eens de controle verliezen.");
 		}
 
 		GameObject button = cw.AddButton("Aha");
@@ -191,15 +191,15 @@ public class ReporterStory3 : MonoBehaviour {
 	}
 
 	public void ShowMoreFacts() {
-		cw.AddNPCBubble("Dit was niet het enige. De vlag en wimpel mochten niet meer worden opgehangen. Afbeeldingen van leden van het koningshuis werden verboden.");
+		cw.AddNPCBubble("Dit was niet het enige. De vlag en wimpel, afbeeldingen van koningshuisleden. Alles werd verboden.");
 
-		cw.AddNPCBubble("We verloren de vrijheid om onze politieke overtuiging te uiten. Je kon niet meer zijn wie je wilde zijn. Veel mensen gingen dit daarom stiekem doen.");
+		cw.AddNPCBubble("De vrijheid om je politieke overtuiging te uiten, die verdween. Je kon niet meer zijn wie je wilde zijn. Veel mensen gingen het daarom stiekem doen.");
 
-		cw.AddNPCBubble("Wat een verhaal, hè? Het lijkt op wat er bij mij gebeurt. De vogels willen vrij zijn, maar mogen dat niet. En  de politie liegt er ook nog over!");
+		// TODO Alper, zou je hier een knop kunnen invoegen met de tekst 'Jemig' en het zinnetje 'Jemig, wat een verhaal.'
 
-		cw.AddNPCBubble("Dus ik ga je foto delen.");
+		cw.AddNPCBubble("Het lijkt op wat er hier bij mij gebeurt. De vogels willen vrij zijn, maar mogen dat niet. En de politie liegt erover!");
 
-		cw.AddNPCBubble("We moeten de mensen echt op de hoogte brengen. Maar hoe gaan we dat doen?");
+		cw.AddNPCBubble("Dus ik ga je foto delen. Maar hoe?");
 
 		string source = "";
 		if (mm.reporter2Source == Reporter2Source.FRANK) {
@@ -210,12 +210,12 @@ public class ReporterStory3 : MonoBehaviour {
 			source = "van een anonieme bron had";
 		}
 
-		cw.AddNPCBubble("Je zei dat je het nieuws over de vrije vogels " + source + ". Wie moet zijn naam bij het bericht zetten?");
+		cw.AddNPCBubble("Je zei dat je het nieuws over de vrije vogels " + source + ". Welke naam komt er bij het bericht?");
 
 		GameObject button1 = cw.AddButton("Frank");
 		button1.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble("Frank kwam met het nieuws. En hij wil graag vrij zijn. Zijn naam moet erbij.");
+			cw.AddPlayerBubble("Frank kwam ermee. En hij wil graag vrij zijn. Zijn naam moet erbij!");
 
 			mm.story3Attribution = Story3Attribution.FRANK;
 
@@ -225,7 +225,7 @@ public class ReporterStory3 : MonoBehaviour {
 		GameObject button2 = cw.AddButton("Katja");
 		button2.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble("Jij bent hier de reporter. Jij wilt vertellen wat er gebeurt. En jij hebt gecontroleerd of het bericht klopt, dus jouw naam moet erbij.");
+			cw.AddPlayerBubble("Jij bent hier de journalist. En jij hebt gecontroleerd of het bericht klopt. Dus jouw naam moet erbij.");
 
 			mm.story3Attribution = Story3Attribution.KATJA;
 
@@ -246,12 +246,12 @@ public class ReporterStory3 : MonoBehaviour {
 	public void ShowArticle() {
 		cw.AddNPCBubble("Oké! Ik heb er dit bericht van gemaakt:");
 
-		string message = "Net als nu mochten de mensen in Nederland niet uitkomen voor hun politieke voorkeur, vrije vogel of koningsgezind! Was getekend… ";
+		string message = "Net als nu mochten de mensen in Nederland niet uitkomen voor hun politieke ideeën, vrije vogel of koningsgezind! Was getekend… ";
 
 		if (mm.story3Attribution == Story3Attribution.FRANK) {
 			message += " Frank de kunstenaar";
 		} else if (mm.story3Attribution == Story3Attribution.KATJA) {
-			message += " Katja de reporter";
+			message += " Katja de journalist";
 		} else if (mm.story3Attribution == Story3Attribution.ANONYMOUS) {
 			message += " Anonieme bron";
 		}
@@ -280,7 +280,7 @@ public class ReporterStory3 : MonoBehaviour {
 	public void ShowResult() {
 		cw.AddNPCBubble("Ik heb je bericht verzonden…");
 
-		cw.AddNPCBubble("Wauw. Moet je zien wat er gebeurt!");
+		cw.AddNPCBubble("Wauw, wat gebeurt er nu!");
 
 		GameObject button = cw.AddButton("Laat zien");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -312,7 +312,7 @@ public class ReporterStory3 : MonoBehaviour {
 
 			spriteString = "S3 katja gearresteerd";
 		} else if (mm.story3Attribution == Story3Attribution.ANONYMOUS) {
-			cw.AddNPCBubble("Die agent is goed chagrijnig. Maar we zijn van hem af! En de mensen weten dat de vogels niet vrij mogen zijn.");
+			cw.AddNPCBubble("Die agent is goed chagrijnig. Maar hij kan niks doen! En de mensen weten nu van de vrije vogels.");
 
 			spriteString = "S3 agent dissed";
 		}
@@ -326,22 +326,21 @@ public class ReporterStory3 : MonoBehaviour {
 
 	public void ShowResultConclusion() {
 		if (mm.story3Attribution == Story3Attribution.FRANK) {
-			cw.AddNPCBubble("Nou ja, we hebben verteld wat er gebeurt. We hebben ook gezegd wat we ervan vinden. Daardoor veranderen er dingen.");
+			cw.AddNPCBubble("Nou ja, we hebben verteld wat er gebeurt. We hebben onze mening gegeven. Daardoor veranderen er dingen.");
 
-			cw.AddNPCBubble("Kijk nog even rond als je wilt, er is van alles te zien in het museum. Hopelijk komt het goed met Frank en de vrije vogels.");
+			cw.AddNPCBubble("Hopelijk komt het goed met Frank en de vrije vogels. Kijk jij nog even rond in het museum?");
 		} else if (mm.story3Attribution == Story3Attribution.KATJA) {
-			cw.AddNPCBubble("Katja heeft verteld wat er gebeurt, dat is goed. De mensen weten dat wij vogels niet vrij mogen zijn. Maar nu is ze er zelf de dupe van geworden!");
-			cw.AddNPCBubble("Kijk rustig rond als je wilt, er is nog van alles te zien in het museum. Hopelijk komt het goed met Katja.");
+			cw.AddNPCBubble("Katja heeft het juiste gedaan. Maar ze is er wel de dupe van geworden!");
+			cw.AddNPCBubble("Hopelijk komt het goed. Kijk jij ondertussen nog even rond in het museum?");
 		} else if (mm.story3Attribution == Story3Attribution.ANONYMOUS) {
-			cw.AddNPCBubble("Die agent is goed chagrijnig. Maar we zijn van hem af! En de mensen weten dat de vogels niet vrij mogen zijn.");
-			cw.AddNPCBubble("Dit is geweldig. We hebben verteld wat er gebeurt. We hebben ook gezegd wat we ervan vinden. Daardoor veranderen er dingen!");
+			cw.AddNPCBubble("Dit is geweldig! We hebben verteld wat er gebeurt. We hebben onze mening gegeven. Daardoor veranderen er dingen.");
 			cw.AddNPCBubble("Kijk rustig rond als je wilt, er is nog van alles te zien in het museum.");
 		}
 
-		GameObject button = cw.AddButton("OK");
+		GameObject button = cw.AddButton("Oké");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble("OK.");
+			cw.AddPlayerBubble("Oké.");
 			
 			Invoke ("Close", 0.5f);
 		});

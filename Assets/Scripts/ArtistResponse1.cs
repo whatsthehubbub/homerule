@@ -142,7 +142,7 @@ public class ArtistResponse1 : MonoBehaviour {
 	}
 
 	public void ShowArtistExplanation() {
-		cw.AddNPCBubble("We luisteren alleen als we daar zin in hebben. En oké, misschien betalen we de huur niet altijd.");
+		cw.AddNPCBubble("We zijn eigenwijs en luidruchtig. En oké, soms betalen we de huur niet op tijd.");
 
 		cw.AddNPCBubble("Lastig of niet, ze moeten niet de waarheid verdraaien. Dat kan echt niet door de beugel.");
 
@@ -159,7 +159,7 @@ public class ArtistResponse1 : MonoBehaviour {
 	}
 
 	public void ShowArtistQuestion() {
-		cw.AddNPCBubble("Jij kent toch die journalist? Wil je me helpen om dit verhaal naar buiten te brengen? Overleg als je wilt.");
+		cw.AddNPCBubble("Jij kent toch die journalist? Wil je me helpen dit verhaal naar buiten te brengen? Overleg als je wilt.");
 
 		GameObject scared = cw.AddButton("Durf niet");
 		scared.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -183,7 +183,7 @@ public class ArtistResponse1 : MonoBehaviour {
 			Invoke ("ShowArtistResponse", 0.5f);
 		});
 
-		GameObject good = cw.AddButton("Goed");
+		GameObject good = cw.AddButton("Oké");
 		good.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 
@@ -197,10 +197,10 @@ public class ArtistResponse1 : MonoBehaviour {
 
 	public void ShowArtistResponse() {
 		if (mm.artist1Answer == Artist1Answer.SCARED) {
-			cw.AddNPCBubble("Kom op! Ik snap dat je het spannend vindt, met de politie die je op de vingers kijkt. Maar dit is zo belangrijk!");
+			cw.AddNPCBubble("Kom op! Ik snap dat je het spannend vindt, de politie houdt je in de gaten. Maar dit is zo belangrijk!");
 
 		} else if (mm.artist1Answer == Artist1Answer.DUNNO) {
-			cw.AddNPCBubble("Ik snap dat je het spannend vindt, met de politie die je op de vingers kijkt. Maar dit is zo belangrijk!");
+			cw.AddNPCBubble("Ik snap dat je het spannend vindt, de politie houdt je in de gaten. Maar dit is zo belangrijk!");
 		} else if (mm.artist1Answer == Artist1Answer.CONFIRM) {
 			cw.AddNPCBubble("Wat fijn! Kun je het tegen haar zeggen als je haar spreekt?");
 		}
@@ -209,7 +209,7 @@ public class ArtistResponse1 : MonoBehaviour {
 	}
 
 	public void ShowConclusion() {
-		cw.AddNPCBubble("Het is echt schandalig hoe ze ons behandelen. De vogels zijn altijd de gebeten honden. De mensen moeten dat te weten komen!");
+		cw.AddNPCBubble("Het is schandalig hoe ze ons behandelen. Wij zijn altijd de gebeten honden!");
 
 		GameObject button = cw.AddButton("Oké");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {

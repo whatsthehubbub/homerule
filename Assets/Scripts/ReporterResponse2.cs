@@ -49,7 +49,7 @@ public class ReporterResponse2 : MonoBehaviour {
 		cw = chat.GetComponent<ChatWindow>();
 		cw.SetArchivalChat(mm.reporterChatHistory.GetComponent<ChatWindow>());
 		
-		cw.AddNPCBubble("Hoi, ik verveel me! Niets om over te schrijven.");
+		cw.AddNPCBubble("Hoi, ik verveel me! Niks om over te schrijven.");
 		cw.AddNPCBubble("Heb jij toevallig nog een nieuwtje opgepikt?");
 
 		GameObject button = cw.AddButton ("Vogels");
@@ -84,11 +84,11 @@ public class ReporterResponse2 : MonoBehaviour {
 		cw = chat.GetComponent<ChatWindow>();
 		cw.DisableBack();
 		
-		cw.AddNPCBubble("Als dat klopt, is het een slechte zaak. Dan moet iedereen het te weten komen. Maar hoe heb jij er eigenlijk over gehoord? ");
+		cw.AddNPCBubble("Als dat klopt, moeten we erover schrijven! Maar hoe weet jij het eigenlijk? ");
 		
 		GameObject button1 = cw.AddButton("Frank");
 		button1.GetComponentInChildren<Button>().onClick.AddListener(() => {
-			cw.AddPlayerBubble("Ik hoorde het van Frank, de man die “Vogelvrij” op de muur had geschreven.");
+			cw.AddPlayerBubble("Ik hoorde het van Frank, de man die op de muur had geschreven.");
 
 			mm.reporter2Source = Reporter2Source.FRANK;
 
@@ -99,7 +99,7 @@ public class ReporterResponse2 : MonoBehaviour {
 
 		GameObject button2 = cw.AddButton("Zelf ontdekt");
 		button2.GetComponentInChildren<Button>().onClick.AddListener(() => {
-			cw.AddPlayerBubble("Ik heb het zelf ontdekt. Weet nog niet of ik mijn naam onder het bericht wil, de politie houdt ons in de gaten.");
+			cw.AddPlayerBubble("Ik heb het zelf ontdekt. Maar ik weet nog niet of ik mijn naam onder het bericht wil, de politie houdt ons in de gaten.");
 
 			mm.reporter2Source = Reporter2Source.SELF;
 
@@ -110,7 +110,7 @@ public class ReporterResponse2 : MonoBehaviour {
 
 		GameObject button3 = cw.AddButton("Anonieme bron");
 		button3.GetComponentInChildren<Button>().onClick.AddListener(() => {
-			cw.AddPlayerBubble("Ik heb het van een kwetsbaar iemand. We moeten geheimhouden wie hij is, anders wordt hij opgepakt.");
+			cw.AddPlayerBubble("Ik heb het van een kwetsbaar iemand. We moeten geheimhouden wie hij is, anders wordt hij misschien opgepakt.");
 
 			mm.reporter2Source = Reporter2Source.ANONYMOUS;
 
@@ -134,7 +134,7 @@ public class ReporterResponse2 : MonoBehaviour {
 	}
 
 	public void ShowGoal() {
-		cw.AddNPCBubble("Ik heb een idee. Kun je in het Airborne Museum op zoek gaan naar de lepels en sieraden met koningin Wilhelmina erop?");
+		cw.AddNPCBubble("Ik heb een idee. Kun je in het museum op zoek gaan naar de munten met koningin Wilhelmina erop?");
 
 		cw.AddNPCBubble("Misschien kunnen we daar een foto van maken. Ik vertel straks wel waarom.");
 
@@ -146,7 +146,7 @@ public class ReporterResponse2 : MonoBehaviour {
 			
 			mm.callBusy = false;
 
-			mm.targetText = "Ga naar de lepels en sieraden";
+			mm.targetText = "Ga naar de Wilhelmina-munten";
 			mm.UpdateTargetText();
 
 			cw.EnableBack();

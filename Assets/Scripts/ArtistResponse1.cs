@@ -15,7 +15,10 @@ public class ArtistResponse1 : MonoBehaviour {
 	void Start () {
 		GameObject main = GameObject.Find("Main");
 		mm = main.GetComponentInChildren<MuseumManager>();
-		
+
+		// Enable the artist button after our first chat
+		mm.artistButton.SetActive(true);
+
 		GameObject call = (GameObject)Instantiate(Resources.Load ("Prefabs/Kunstenaar belt"));
 		call.name = "Kunstenaar belt";
 

@@ -16,6 +16,9 @@ public class OfficerResponse1 : MonoBehaviour {
 		GameObject main = GameObject.Find("Main");
 		mm = main.GetComponentInChildren<MuseumManager>();
 
+		// Enable the officer history button after our first chat
+		mm.officerButton.SetActive(true);
+
 		GameObject call = (GameObject)Instantiate(Resources.Load ("Prefabs/Agent belt"));
 		call.name = "Agent belt";
 

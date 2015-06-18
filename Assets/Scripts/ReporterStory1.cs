@@ -112,7 +112,7 @@ public class ReporterStory1 : MonoBehaviour {
 		GameObject leave = cw.AddButton("Laten staan");
 		leave.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble("Het is verboden, maar ook een goede tekst. Hij mag blijven staan.");
+			cw.AddPlayerBubble("Het is verboden, maar ook een goede tekst. De regen spoelt het wel weg.");
 
 			mm.story1Opinion = Story1OpinionAnswer.LEAVE;
 		
@@ -213,7 +213,10 @@ public class ReporterStory1 : MonoBehaviour {
 
 			cw.AddPlayerBubble("Aha, dus zo zit het!");
 
-			cw.AddNPCBubble("Wat een verhaal, hè? Het lijkt op wat er hier bij mij gebeurt. Dus ik ga je foto delen.");
+			cw.AddNPCBubble("Wat een verhaal, hè? Lelijke woorden, maar zo voelde Tony zich nou eenmaal.");
+
+			cw.AddNPCBubble("Het lijkt op wat er hier bij mij gebeurt. Dus ik ga je foto delen.");
+		
 
 			Invoke ("PieceOpinion", 0.5f);
 		});

@@ -177,22 +177,32 @@ public class MuseumManager : MonoBehaviour {
 		reporterChatHistory = (GameObject)Instantiate(Resources.Load ("Prefabs/Chat"));
 		reporterChatHistory.name = "ReporterChatHistory";
 		UnityEngine.Object.DontDestroyOnLoad(reporterChatHistory);
-//		ChatWindow reporterChatWindow = reporterChatHistory.GetComponent<ChatWindow>();
-//		reporterChatWindow.SetNPCAvatar("katja");
+
+		ChatWindow reporterChatWindow = reporterChatHistory.GetComponent<ChatWindow>();
+		reporterChatWindow.SetNPCAvatar("katja");
+
 		reporterChatHistory.transform.Find("topbar/Title").GetComponent<Text>().text = "Katja";
 		reporterChatHistory.SetActive(false);
+
 
 		officerChatHistory = (GameObject)Instantiate(Resources.Load ("Prefabs/Chat"));
 		officerChatHistory.name = "OfficerChatHistory";
 		UnityEngine.Object.DontDestroyOnLoad(officerChatHistory);
-//		ChatWindow officerChatWindow = officerChatHistory.GetComponent<ChatWindow>();
-//		officerChatWindow.SetNPCAvatar("agent");
+
+		ChatWindow officerChatWindow = officerChatHistory.GetComponent<ChatWindow>();
+		officerChatWindow.SetNPCAvatar("agent2");
+
 		officerChatHistory.transform.Find("topbar/Title").GetComponent<Text>().text = "Agent";
 		officerChatHistory.SetActive(false);
+
 
 		artistChatHistory = (GameObject)Instantiate(Resources.Load ("Prefabs/Chat"));
 		artistChatHistory.name = "ArtistChatHistory";
 		UnityEngine.Object.DontDestroyOnLoad(artistChatHistory);
+
+		ChatWindow artistChatWindow = artistChatHistory.GetComponent<ChatWindow>();
+		artistChatWindow.SetNPCAvatar("kunstenaar");
+
 		artistChatHistory.transform.Find("topbar/Title").GetComponent<Text>().text = "Frank";
 		artistChatHistory.SetActive(false);
 	}

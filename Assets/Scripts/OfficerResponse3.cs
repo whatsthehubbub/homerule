@@ -127,7 +127,7 @@ public class OfficerResponse3 : MonoBehaviour {
 		button3.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 
-			cw.AddPlayerBubble("Je bent gewoon bang dat het een rommeltje wordt. Maar zo'n vaart zal het echt niet lopen.");
+			cw.AddPlayerBubble("U bent gewoon bang dat het een rommeltje wordt. Maar zo'n vaart zal het echt niet lopen.");
 			
 			Invoke ("ShowResponse", 0.5f);
 		});
@@ -177,7 +177,7 @@ public class OfficerResponse3 : MonoBehaviour {
 	public void ShowClose() {
 		mm.callBusy = false;
 
-		mm.targetText = "Ga terug naar het beginpunt";
+		mm.targetText = "Ga terug naar het begin";
 		mm.UpdateTargetText();
 		
 		GameObject.Destroy(chat);

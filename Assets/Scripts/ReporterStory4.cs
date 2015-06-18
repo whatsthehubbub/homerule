@@ -56,7 +56,7 @@ public class ReporterStory4 : MonoBehaviour {
 		if (mm.story3Attribution == Story3Attribution.FRANK) {
 			button = cw.AddButton ("Hoi");
 		} else if (mm.story3Attribution == Story3Attribution.KATJA) {
-			button = cw.AddButton ("He");
+			button = cw.AddButton ("Hé");
 		} else if (mm.story3Attribution == Story3Attribution.ANONYMOUS) {
 			button = cw.AddButton ("Hoi");
 		}
@@ -69,7 +69,7 @@ public class ReporterStory4 : MonoBehaviour {
 			} else if (mm.story3Attribution == Story3Attribution.KATJA) {
 				cw.AddPlayerBubble("Hé, hebben ze je vrijgelaten?.");
 			} else if (mm.story3Attribution == Story3Attribution.ANONYMOUS) {
-				cw.AddPlayerBubble("Jij ook hoi.");
+				cw.AddPlayerBubble("Ook hoi. Heb je nog nieuws?");
 			}
 			
 			Invoke ("ShowChat", 0.5f);
@@ -86,11 +86,11 @@ public class ReporterStory4 : MonoBehaviour {
 		cw.DisableBack();
 
 		if (mm.story3Attribution == Story3Attribution.FRANK) {
-			cw.AddNPCBubble("Ik heb goed nieuws. Frank is vrijgelaten, en ik heb het idee dat jij daar iets mee te maken hebt.");
+			cw.AddNPCBubble("Goed nieuws, Frank is vrijgelaten. Jij hebt op de politie ingepraat, hè? Dat heeft er vast iets mee te maken.");
 		} else if (mm.story3Attribution == Story3Attribution.KATJA) {
-			cw.AddPlayerBubble("Gelukkig wel! En ik heb het idee dat jij daar iets mee te maken hebt.");
+			cw.AddPlayerBubble("Gelukkig wel! En ik heb het idee dat jij daar iets mee te maken hebt. Jij hebt op de politie ingepraat, hè?");
 		} else if (mm.story3Attribution == Story3Attribution.ANONYMOUS) {
-			cw.AddPlayerBubble("Ik heb goed nieuws. De politie heeft ons laten weten dat ze ons voorlopig niet meer in de gaten houden. Klopt het dat jij daar iets mee te maken hebt?");
+			cw.AddPlayerBubble("Ik krijg het idee dat de politie zich nu op andere dingen richt. Misschien omdat jij op ze hebt ingepraat.");
 		}
 
 		GameObject button = cw.AddButton("Weet niet");
@@ -135,9 +135,9 @@ public class ReporterStory4 : MonoBehaviour {
 	}
 
 	public void ShowDont() {
-		cw.AddNPCBubble("Dat zei ik ook al. Hoe dan ook, je hebt het echt goed gedaan. Dankzij jou is iedereen op z'n pootjes terechtgekomen.");
+		cw.AddNPCBubble("Dat zei ik ook al. Hoe dan ook, je hebt het echt goed gedaan.");
 
-		cw.AddNPCBubble("En de mensen hebben veel nagedacht over vrijheid. Jij ook?");
+		cw.AddNPCBubble("Iedereen is in orde. En de mensen hebben veel nagedacht over vrijheid. Jij ook?");
 
 		GameObject button = cw.AddButton("Ja");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -150,8 +150,10 @@ public class ReporterStory4 : MonoBehaviour {
 	}
 
 	public void ShowBye() {
-		cw.AddNPCBubble("Mooi. Dan was het allemaal niet voor niets.");
+		cw.AddNPCBubble("Mooi.");
 
+		cw.AddNPCBubble("Ik ben benieuwd hoe lang het rustig blijft. Vrijheid is niet vanzelfsprekend, daar moet je aan blijven werken.");
+				
 		cw.AddNPCBubble("Wij gaan een kopje thee drinken hier. Nog een fijne dag!");
 
 		GameObject button = cw.AddButton("Ok");

@@ -391,8 +391,8 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11406008, guid: fb4343f437c6e1c4faa5a4811551bf77, type: 2}
       propertyPath: m_Text
-      value: Je bent er helemaal klaar voor! Ga naar de kast met medailles, dan begint
-        het spel.
+      value: Je bent er helemaal klaar voor! Kun je naar deze plek in de kamer met
+        medailles gaan? Daar begint het spel.
       objectReference: {fileID: 0}
     - target: {fileID: 169838, guid: fb4343f437c6e1c4faa5a4811551bf77, type: 2}
       propertyPath: m_IsActive

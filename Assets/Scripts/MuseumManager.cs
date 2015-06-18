@@ -115,6 +115,10 @@ public class MuseumManager : MonoBehaviour {
 	public Queue<string> storyQueue = new Queue<string>();
 	public bool callBusy = false;
 
+	public GameObject reporterButton;
+	public GameObject officerButton;
+	public GameObject artistButton;
+
 	public GameObject reporterChatHistory;
 	public GameObject officerChatHistory;
 	public GameObject artistChatHistory;
@@ -267,6 +271,17 @@ public class MuseumManager : MonoBehaviour {
 	
 	void OnLevelWasLoaded(int level) {
 		UpdateTargetText();
+
+		if (Application.loadedLevelName.Equals("Underway")) {
+			// Hide the chat history buttons of people we haven't talked to yet
+			reporterButton = GameObject.Find("ChatSenderReporter");
+			officerButton = GameObject.Find("ChatSenderOfficer");
+			artistButton = GameObject.Find("ChatSenderActivist");
+			
+			reporterButton.SetActive(false);
+			officerButton.SetActive(false);
+			artistButton.SetActive(false);
+		}
 	}
 	
 	private void OnBeaconRangeChanged(List<Beacon> beacons) {

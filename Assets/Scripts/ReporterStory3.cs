@@ -194,9 +194,17 @@ public class ReporterStory3 : MonoBehaviour {
 		cw.AddNPCBubble("Dit was niet het enige. De vlag en wimpel, afbeeldingen van koningshuisleden. Alles werd verboden.");
 
 		cw.AddNPCBubble("De vrijheid om je politieke overtuiging te uiten, die verdween. Je kon niet meer zijn wie je wilde zijn. Veel mensen gingen het daarom stiekem doen.");
+	
+		GameObject button = cw.AddButton ("Jemig");
+		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			cw.ClearButtons();
+			cw.AddPlayerBubble("Jemig, wat een verhaal.");
 
-		// TODO Alper, zou je hier een knop kunnen invoegen met de tekst 'Jemig' en het zinnetje 'Jemig, wat een verhaal.'
+			Invoke ("SharePicture", 0.5f);
+		});
+	}
 
+	public void SharePicture() {
 		cw.AddNPCBubble("Het lijkt op wat er hier bij mij gebeurt. De vogels willen vrij zijn, maar mogen dat niet. En de politie liegt erover!");
 
 		cw.AddNPCBubble("Dus ik ga je foto delen. Maar hoe?");

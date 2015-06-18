@@ -359,7 +359,7 @@ public class ReporterStory3 : MonoBehaviour {
 		
 		mm.story3Done = true;
 
-		mm.targetText = "";
+		mm.targetText = "Verken het museum";
 		mm.UpdateTargetText();
 		
 		mm.storyQueue.Enqueue("OFFICERRESPONSE3");

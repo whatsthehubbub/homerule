@@ -170,6 +170,9 @@ public class ReporterStory4 : MonoBehaviour {
 		cw.EnableBack();
 		chat.SetActive(false);
 
+		mm.targetText = "Het spel is klaar";
+		mm.UpdateTargetText();
+
 		mm.story4Done = true;
 		mm.callBusy = false;
 		

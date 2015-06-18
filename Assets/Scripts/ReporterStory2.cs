@@ -405,6 +405,7 @@ public class ReporterStory2 : MonoBehaviour {
 
 			mm.story2Done = true;
 
+			mm.targetText = "Verken het museum";
 			mm.UpdateTargetText();
 
 			mm.storyQueue.Enqueue("OFFICERRESPONSE2");

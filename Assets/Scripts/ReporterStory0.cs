@@ -15,6 +15,9 @@ public class ReporterStory0 : MonoBehaviour {
 	void Start () {
 		GameObject main = GameObject.Find("Main");
 		mm = main.GetComponentInChildren<MuseumManager>();
+
+		// Show the reporter history button since we talked to her
+		mm.reporterButton.SetActive(true);
 		
 		AudioClip ringtone = Resources.Load<AudioClip>("Audio/ringtone");
 		this.audioSource = main.GetComponent<AudioSource>();

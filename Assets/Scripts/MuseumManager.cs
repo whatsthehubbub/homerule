@@ -6,29 +6,18 @@ using System.Linq;
 using System;
 
 
-public struct Location {
-	public string name;
-	public int minor;
-	public bool shown;
-	
-	public Location(string name, int minor, bool shown) {
-		this.name = name;
-		this.minor = minor;
-		this.shown = shown;
-	}
-}
+//public struct Location {
+//	public string name;
+//	public int minor;
+//	public bool shown;
+//	
+//	public Location(string name, int minor, bool shown) {
+//		this.name = name;
+//		this.minor = minor;
+//		this.shown = shown;
+//	}
+//}
 
-public struct Story {
-	public string name;
-
-	public bool active;
-
-	public Story(string name) {
-		this.name = name;
-
-		this.active = true;
-	}
-}
 
 public enum Story1OpinionAnswer {
 	CLEAN,
@@ -100,15 +89,18 @@ public enum Story3Attribution {
 
 public class MuseumManager : MonoBehaviour {
 
-	private Dictionary<int, Location> locations = new Dictionary<int, Location>(){
-		{53868, new Location("EPISODE0", 53868, false)},
-		{48618, new Location("EPISODE1", 48618, false)},
-		{22290, new Location("EPISODE2", 22290, false)},
-		{48174, new Location("EPISODE3", 48174, false)},
-//		{"MARKET", new Location("MARKET", "Market Scene", 53868)},
-//		{"STATION", new Location("STATION", "Station Scene", 45444)},
-//		{"UNDERWAY", new Location("UNDERWAY", "Underway", -1)}
-	};
+//	private Dictionary<int, Location> locations = new Dictionary<int, Location>(){
+//		{53868, new Location("EPISODE0", 53868, false)},
+//		{48618, new Location("EPISODE1", 48618, false)},
+//		{22290, new Location("EPISODE2", 22290, false)},
+//		{48174, new Location("EPISODE3", 48174, false)},
+//		{53868, new Location("EPISODE4", 53868, false)},
+////		{"MARKET", new Location("MARKET", "Market Scene", 53868)},
+////		{"STATION", new Location("STATION", "Station Scene", 45444)},
+////		{"UNDERWAY", new Location("UNDERWAY", "Underway", -1)}
+//	};
+
+	public List<int> locations = new List<int>(new int[] {53868, 48618, 22290, 48174});
 
 	public bool forceCalls = false;
 
@@ -152,6 +144,8 @@ public class MuseumManager : MonoBehaviour {
 	public string story3Text = "";
 
 	public bool story3Done = false;
+
+	public bool story4Done = false;
 
 
 	public Texture2D storyImage;
@@ -205,6 +199,13 @@ public class MuseumManager : MonoBehaviour {
 
 		artistChatHistory.transform.Find("topbar/Title").GetComponent<Text>().text = "Frank";
 		artistChatHistory.SetActive(false);
+
+		// Initialization
+		this.story0Done = false;
+		this.story1Done = false;
+		this.story2Done = false;
+		this.story3Done = false;
+		this.story4Done = false;
 	}
 	
 	void OnDestroy() {
@@ -318,23 +319,29 @@ public class MuseumManager : MonoBehaviour {
 		bool found = false;
 		foreach (Beacon b in mybeacons) {
 			if (b.range == BeaconRange.NEAR || b.range == BeaconRange.IMMEDIATE) {
-//			if (b.range == BeaconRange.IMMEDIATE) {
-				
-				foreach(KeyValuePair<int, Location> entry in locations) {
-					if (entry.Value.minor == b.minor) {
-						found = true;
+//			if (b.range == BeaconRange.IMMEDIATE) {\
 
-						MovedIntoBeaconRange(entry.Value.minor);
+				if (locations.IndexOf(b.minor) != -1) {
+					found = true;
 
-//						if (playerLocation != entry.Value.name) {
-//							NewEvent(entry.Value.name);
-//						}
-
-//						if (!this.playerState.Equals (entry.Value.name)) {
-//							NewLocation(entry.Value.name);
-//						}
-					}
+					MovedIntoBeaconRange(b.minor);
 				}
+				
+//				foreach(KeyValuePair<int, Location> entry in locations) {
+//					if (entry.Value.minor == b.minor) {
+//						found = true;
+//
+//						MovedIntoBeaconRange(entry.Value.minor);
+//
+////						if (playerLocation != entry.Value.name) {
+////							NewEvent(entry.Value.name);
+////						}
+//
+////						if (!this.playerState.Equals (entry.Value.name)) {
+////							NewLocation(entry.Value.name);
+////						}
+//					}
+//				}
 			} else if (b.range == BeaconRange.FAR) {
 //			} else if (b.range == BeaconRange.FAR || b.range == BeaconRange.NEAR) {
 				// We want to keep it at this location unless another one is nearer
@@ -354,44 +361,44 @@ public class MuseumManager : MonoBehaviour {
 
 //		Debug.Log (string.Join(", ", Array.ConvertAll(this.storyQueue.ToArray(), i => i.ToString())));
 
-		Location loc = this.locations[number];
+//		Location loc = this.locations[number];
 
 		bool showedLocation = false;
 
 		switch (number) {
 			case 53868:
-				if (!loc.shown) {
+				if (!this.story0Done) {
 					showedLocation = true;
 					TakeImmediateCall(0);
+				} else if (this.story3Done && !this.story4Done) {
+					showedLocation = true;
+					TakeImmediateCall(4);
 				}
 				break;
 			case 48618:
-				if (!loc.shown && this.story0Done) {
+				if (this.story0Done && !this.story1Done) {
 					showedLocation = true;
 					TakeImmediateCall(1);
 				}
 				break;
 			case 22290:
-				if (!loc.shown && this.story1Done) {
+				if (this.story1Done && !this.story2Done) {
 					showedLocation = true;
 					TakeImmediateCall(2);
 				}
 				break;
 			case 48174:
-				if (!loc.shown && this.story2Done) {
+				if (this.story2Done && !this.story3Done) {
 					showedLocation = true;
 					TakeImmediateCall(3);
 				}
 				break;
 		}
 
-		if (showedLocation) {
-			loc.shown = true;
-		} else {
+		if (!showedLocation) {
 			TakeCall ();
 		}
 
-		this.locations[number] = loc;
 	}
 
 	public void MovedOutOfBeaconRange() {
@@ -420,7 +427,6 @@ public class MuseumManager : MonoBehaviour {
 				this.gameObject.AddComponent<OfficerResponse1>();
 				
 				break;
-
 			case "REPORTERRESPONSE1":
 				this.gameObject.AddComponent<ReporterResponse1>();
 				
@@ -439,10 +445,6 @@ public class MuseumManager : MonoBehaviour {
 				break;
 			case "OFFICERRESPONSE3":
 				this.gameObject.AddComponent<OfficerResponse3>();
-				
-				break;
-			case "ARTISTRESPONSE2":
-				this.gameObject.AddComponent<ArtistResponse2>();
 				
 				break;
 			}
@@ -469,6 +471,10 @@ public class MuseumManager : MonoBehaviour {
 					break;
 				case 3:
 					this.gameObject.AddComponent<ReporterStory3>();
+
+					break;
+				case 4:
+					this.gameObject.AddComponent<ReporterStory4>();
 
 					break;
 				}

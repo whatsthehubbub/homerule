@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class ArtistResponse2 : MonoBehaviour {
+public class ReporterStory4 : MonoBehaviour {
 
 	public MuseumManager mm;
 	
@@ -167,7 +167,8 @@ public class ArtistResponse2 : MonoBehaviour {
 	public void ShowClose() {
 		cw.EnableBack();
 		chat.SetActive(false);
-		
+
+		mm.story4Done = true;
 		mm.callBusy = false;
 		
 		GameObject.Destroy(this);

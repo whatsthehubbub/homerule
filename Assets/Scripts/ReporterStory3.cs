@@ -355,7 +355,6 @@ public class ReporterStory3 : MonoBehaviour {
 		mm.UpdateTargetText();
 		
 		mm.storyQueue.Enqueue("OFFICERRESPONSE3");
-		mm.storyQueue.Enqueue("ARTISTRESPONSE2");
 		
 		Destroy(chat);
 		GameObject.Destroy(this);

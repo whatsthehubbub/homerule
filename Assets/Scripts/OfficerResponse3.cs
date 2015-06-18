@@ -49,7 +49,7 @@ public class OfficerResponse3 : MonoBehaviour {
 		cw = chat.GetComponent<ChatWindow>();
 		cw.SetArchivalChat(mm.officerChatHistory.GetComponent<ChatWindow>());
 		
-		cw.AddNPCBubble(" Ahum. Ik wil toch nog even met u spreken.");
+		cw.AddNPCBubble("Ahum. Ik wil toch nog even met u spreken.");
 		
 		GameObject button = cw.AddButton ("Oké.");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -76,22 +76,22 @@ public class OfficerResponse3 : MonoBehaviour {
 		storyBubble.GetComponentInChildren<Image>().sprite = articleSprite;
 
 		if (mm.story3Attribution == Story3Attribution.FRANK) {
-			cw.AddNPCBubble("Die vrije vogels zorgen voor veel onrust. Dat kunnen we ons niet veroorloven. Daarom moesten we Frank oppakken.");
+			cw.AddNPCBubble("Die vogel zorgde voor veel onrust. Dat kunnen we niet hebben. Daarom moesten we hem arresteren.");
 		
 			Invoke ("ShowStatement", 0.5f);
 		} else if (mm.story3Attribution == Story3Attribution.KATJA) {
-			cw.AddNPCBubble("Dit soort berichten zorgen voor veel onrust. We konden Katja niet langer haar gang laten gaan. De orde staat op het spel!");
+			cw.AddNPCBubble("Dit soort berichten zorgen voor veel onrust. We konden Katja niet meer laten lopen. De orde staat op het spel!");
 		
 			Invoke ("ShowStatement", 0.5f);
 		} else if (mm.story3Attribution == Story3Attribution.ANONYMOUS) {
-			cw.AddNPCBubble("Ik heb het idee dat u meer weet over de bron van dit bericht, maar ik kan er niets mee. We houden Katja en Frank, en u, in de gaten.");
+			cw.AddNPCBubble("Volgens mij weet u donders goed wie hierachter zit! We houden u in de gaten.");
 		
 			Invoke ("ShowStatement", 0.5f);
 		}
 	}
 
 	public void ShowStatement() {
-		cw.AddNPCBubble("Door zo'n bericht gaan mensen anders denken. We moeten dit in de hand houden, anders loopt het helemaal fout.");
+		cw.AddNPCBubble("Door zo'n bericht gaan mensen anders denken. We moeten dit in de hand houden, anders gaat het fout.");
 
 		GameObject button = cw.AddButton ("Oneens");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -118,7 +118,7 @@ public class OfficerResponse3 : MonoBehaviour {
 		button2.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 
-			cw.AddPlayerBubble("Hier in het Airborne Museum zie je wat er gebeurt als mensen hun vrijheid moeten opgeven. Dan maar iets minder orde!");
+			cw.AddPlayerBubble("Hier in het museum zie je wat er gebeurt als mensen hun vrijheid moeten opgeven. Dan maar iets minder orde!");
 			
 			Invoke ("ShowResponse", 0.5f);
 		});
@@ -127,20 +127,20 @@ public class OfficerResponse3 : MonoBehaviour {
 		button3.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 
-			cw.AddPlayerBubble("Je bent gewoon bang dat het een rommeltje wordt. Maar doe rustig aan, zo'n vaart zal het niet lopen.");
+			cw.AddPlayerBubble("Je bent gewoon bang dat het een rommeltje wordt. Maar zo'n vaart zal het echt niet lopen.");
 			
 			Invoke ("ShowResponse", 0.5f);
 		});
 	}
 
 	public void ShowResponse() {
-		cw.AddNPCBubble("Hm, ik weet het niet. Ik volg ook maar de regels. Ik moet hier even over nadenken.");
+		cw.AddNPCBubble("Hm, ik weet het niet. Ik volg gewoon de regels.");
 
-		GameObject button = cw.AddButton ("Doe dat");
+		GameObject button = cw.AddButton ("Dan niet");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 
-			cw.AddPlayerBubble("Oké, doe dat maar.");
+			cw.AddPlayerBubble("Nou, dan niet.");
 			
 			Invoke ("ShowConclusion", 0.5f);
 		});
@@ -160,7 +160,9 @@ public class OfficerResponse3 : MonoBehaviour {
 		Sprite videoCallSprite = Resources.Load<Sprite>("Sprites/agent video 2");
 		displayImage.GetComponentInChildren<Image>().sprite = videoCallSprite;
 
-		cw.AddNPCBubble("Hebt u alles al gezien in het museum? Als u klaar bent, kunt u teruggaan naar waar u bent begonnen.");
+		cw.AddNPCBubble("Wat brutaal. U gaat met de verkeerde mensen om. Pas daarmee op.");
+
+		cw.AddNPCBubble("Hebt u alles al gezien in het museum? Ga terug naar de ruimte met de medailles als u klaar bent.");
 
 		GameObject button = cw.AddButton ("Oké");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {

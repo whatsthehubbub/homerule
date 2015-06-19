@@ -48,7 +48,9 @@ public class ReporterStory4 : MonoBehaviour {
 		GameObject displayImage = GameObject.Find ("DisplayImage");
 		Sprite videoCallSprite = Resources.Load<Sprite>("Sprites/katja video");
 		displayImage.GetComponentInChildren<Image>().sprite = videoCallSprite;
-		
+
+		cw.AddDivider();
+
 		cw.AddNPCBubble("Hé, hoi.");
 
 		GameObject button = null;

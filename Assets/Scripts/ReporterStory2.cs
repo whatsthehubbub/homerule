@@ -63,6 +63,8 @@ public class ReporterStory2 : MonoBehaviour {
 		
 		cw = chat.GetComponent<ChatWindow>();
 		cw.SetArchivalChat(mm.reporterChatHistory.GetComponent<ChatWindow>());
+
+		cw.AddDivider();
 		
 		cw.AddNPCBubble("Hoi!");
 		cw.AddNPCBubble("Er is weer iets aan de hand. Moet je zien!");

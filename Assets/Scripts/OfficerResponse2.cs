@@ -48,6 +48,8 @@ public class OfficerResponse2 : MonoBehaviour {
 		
 		cw = chat.GetComponent<ChatWindow>();
 		cw.SetArchivalChat(mm.officerChatHistory.GetComponent<ChatWindow>());
+
+		cw.AddDivider();
 		
 		cw.AddNPCBubble("Aha, daar bent u. Kunnen we even praten?");
 		

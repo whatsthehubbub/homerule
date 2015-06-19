@@ -139,6 +139,23 @@ public class ChatWindow : MonoBehaviour {
 		return button;
 	}
 
+	public GameObject AddDivider() {
+		if (this.archivalChat != null) {
+			this.archivalChat.AddDivider();
+		} else if (!this.gameObject.name.Equals ("VideoCall")) {
+			// Don't add the new messages prefab to videocalls
+			GameObject divider = (GameObject)Instantiate(Resources.Load("Prefabs/NewMessages"));
+			divider.name = "Divider";
+			
+			GameObject scrollContent = this.gameObject.transform.Find("ScrollView/ScrollContent").gameObject;
+			divider.transform.SetParent (scrollContent.transform, false);
+			
+			return divider;
+		}
+
+		return null;
+	}
+
 	public void SetNPCAvatar(string avatar_suffix) {
 		GameObject avatar = this.gameObject.transform.Find("topbar/avatar npc").gameObject;
 		Image avatarImage = avatar.GetComponentInChildren<Image>();

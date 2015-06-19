@@ -10,6 +10,15 @@ public class ReporterStory3 : MonoBehaviour {
 	public MuseumManager mm;
 
 	public AudioSource audioSource;
+
+	void OnEnable() {
+		NativeToolkit.OnCameraShotComplete += CameraShotComplete;
+	}
+	
+	void OnDisable ()
+	{
+		NativeToolkit.OnCameraShotComplete -= CameraShotComplete;
+	}
 	
 	// Use this for initialization
 	void Start () {
@@ -114,13 +123,34 @@ public class ReporterStory3 : MonoBehaviour {
 			cw.ClearButtons();
 			
 			if (Application.platform == RuntimePlatform.IPhonePlayer) {
-//				cw.AddPlayerImageBubble();
-				
-//				NativeToolkit.TakeCameraShot();
+				GameObject imageBubble = cw.AddPlayerImageBubble();
+				imageBubble.name = "PlayerRawImage3";
+
+				NativeToolkit.TakeCameraShot();
 			} else {
 				Invoke ("ShowPictureResponse", 0.5f);
 			}
 		});
+	}
+
+	/*
+	 * Methods to handle taking an image using CamerShot
+	 */
+	void CameraShotComplete(Texture2D img, string path)
+	{
+		//		string imagePath = path;
+		//		Debug.Log ("Camera shot saved to: " + imagePath);
+		//		Destroy (img);
+		
+		// TODO check if taking the picture has been cancelled.
+		mm.story3Image = img;
+		
+		GameObject imageObject = GameObject.Find ("PlayerRawImage3");
+		RawImage raw = imageObject.GetComponentInChildren<RawImage>();
+		
+		raw.texture = img;
+		
+		Invoke ("ShowPictureResponse", 0.5f);
 	}
 
 	public void ShowPictureResponse() {
@@ -264,8 +294,15 @@ public class ReporterStory3 : MonoBehaviour {
 			message += " Anonieme bron";
 		}
 
-		GameObject storyBubble = cw.AddNPCBubble(message);
 		Sprite articleSprite = Resources.Load<Sprite>("Sprites/chat_artikel");
+
+		GameObject imageBubble = cw.AddNPCImageBubble();
+		imageBubble.GetComponentInChildren<Image>().sprite = articleSprite;
+		GameObject imageObject = imageBubble.transform.Find ("BubbleImage").gameObject;
+		Image storyImage = imageObject.GetComponentInChildren<Image>();
+		storyImage.sprite = Sprite.Create (mm.story3Image, new Rect(0, 0, 200, 300), new Vector2(0.5f, 0.5f));
+
+		GameObject storyBubble = cw.AddNPCBubble(message);
 		storyBubble.GetComponentInChildren<Image>().sprite = articleSprite;
 		storyBubble.GetComponentInChildren<Text>().color = Color.black;
 

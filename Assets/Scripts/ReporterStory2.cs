@@ -158,7 +158,8 @@ public class ReporterStory2 : MonoBehaviour {
 			cw.ClearButtons();
 
 			if (Application.platform == RuntimePlatform.IPhonePlayer) {
-				cw.AddPlayerImageBubble();
+				GameObject imageBubble = cw.AddPlayerImageBubble();
+				imageBubble.name = "PlayerRawImage2";
 
 				NativeToolkit.TakeCameraShot();
 			} else {
@@ -177,12 +178,11 @@ public class ReporterStory2 : MonoBehaviour {
 		//		Destroy (img);
 		
 		// TODO check if taking the picture has been cancelled.
-		
-		GameObject imageObject = GameObject.Find ("PlayerRawImage");
-		RawImage raw = imageObject.GetComponentInChildren<RawImage>();
-		Debug.Log ("Got raw");
-		
 		mm.story2Image = img;
+
+		GameObject imageObject = GameObject.Find ("PlayerRawImage2");
+		RawImage raw = imageObject.GetComponentInChildren<RawImage>();
+
 		raw.texture = img;
 		
 		Invoke ("ShowFindObjectResponse", 0.5f);

@@ -155,7 +155,7 @@ public class OfficerResponse3 : MonoBehaviour {
 		chat.name = "VideoCall";
 
 		cw = chat.GetComponent<ChatWindow>();
-		cw.SetArchivalChat(mm.reporterChatHistory.GetComponent<ChatWindow>());
+		cw.SetArchivalChat(mm.officerChatHistory.GetComponent<ChatWindow>());
 
 		GameObject displayImage = GameObject.Find ("DisplayImage");
 		Sprite videoCallSprite = Resources.Load<Sprite>("Sprites/agent video 2");

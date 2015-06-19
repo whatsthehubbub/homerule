@@ -48,6 +48,8 @@ public class ReporterResponse2 : MonoBehaviour {
 		
 		cw = chat.GetComponent<ChatWindow>();
 		cw.SetArchivalChat(mm.reporterChatHistory.GetComponent<ChatWindow>());
+
+		cw.AddDivider();
 		
 		cw.AddNPCBubble("Hoi, ik verveel me! Niks om over te schrijven.");
 		cw.AddNPCBubble("Heb jij toevallig nog een nieuwtje opgepikt?");

@@ -46,6 +46,8 @@ public class ReporterResponse1 : MonoBehaviour {
 		
 		cw = chat.GetComponent<ChatWindow>();
 		cw.DisableBack();
+
+		cw.AddDivider();
 		
 		cw.AddNPCBubble("De politie wil me spreken. Maar ik doe toch niks verkeerd?");
 		

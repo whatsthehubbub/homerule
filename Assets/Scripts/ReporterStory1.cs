@@ -11,6 +11,15 @@ public class ReporterStory1 : MonoBehaviour {
 
 	public AudioSource audioSource;
 
+	void OnEnable() {
+		NativeToolkit.OnCameraShotComplete += CameraShotComplete;
+	}
+	
+	void OnDisable ()
+	{
+		NativeToolkit.OnCameraShotComplete -= CameraShotComplete;
+	}
+
 	// Use this for initialization
 	void Start () {
 		GameObject main = GameObject.Find("Main");
@@ -149,13 +158,33 @@ public class ReporterStory1 : MonoBehaviour {
 		camera.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 
-			cw.AddNPCBubble("Goeie foto!");
+			if (Application.platform == RuntimePlatform.IPhonePlayer) {
+				GameObject bubble = cw.AddPlayerImageBubble();
+				bubble.name = "PlayerRawImage1";
 
-			Invoke ("FactQuestion", 0.5f);
+				NativeToolkit.TakeCameraShot();
+			} else {
+				Invoke ("FactQuestion", 0.5f);
+			}
 		});
+	}
+	
+	// Method to handle taking the picture
+	void CameraShotComplete(Texture2D img, string path) {
+		// TODO check if taking the picture has been cancelled.
+		
+		GameObject imageObject = GameObject.Find ("PlayerRawImage1");
+		RawImage raw = imageObject.GetComponentInChildren<RawImage>();
+		
+		mm.story2Image = img;
+		raw.texture = img;
+		
+		Invoke ("FactQuestion", 0.5f);
 	}
 
 	public void FactQuestion() {
+		cw.AddNPCBubble("Goeie foto!");
+
 		cw.AddNPCBubble("Een Engelse soldaat, Tony Crane, heeft in de oorlog op dat behang geschreven.");
 		cw.AddNPCBubble("Waarom deed hij dat, denk jij? Je mag overleggen!");
 

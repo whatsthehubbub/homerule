@@ -106,6 +106,7 @@ public class MuseumManager : MonoBehaviour {
 	public Story2OpinionAnswer story2FinalOpinion;
 	public string story2Text = "";
 	public bool story2Done = false;
+	[System.NonSerialized] public Texture2D story2Image;
 
 	public OfficerResponse2Opinion officer2Opinion;
 
@@ -116,14 +117,11 @@ public class MuseumManager : MonoBehaviour {
 	public Story3FactAnswer story3Fact;
 	public Story3Attribution story3Attribution;
 	public string story3Text = "";
-
 	public bool story3Done = false;
+	[System.NonSerialized] public Texture2D story3Image;
 
 	public bool story4Done = false;
 
-
-	public Texture2D storyImage;
-	
 	private List<Beacon> mybeacons = new List<Beacon>();
 	private bool scanning = true;
 

@@ -166,6 +166,27 @@ public class ReporterStory2 : MonoBehaviour {
 			}
 		});
 	}
+
+	/*
+	 * Methods to handle taking an image using CamerShot
+	 */
+	void CameraShotComplete(Texture2D img, string path)
+	{
+		//		string imagePath = path;
+		//		Debug.Log ("Camera shot saved to: " + imagePath);
+		//		Destroy (img);
+		
+		// TODO check if taking the picture has been cancelled.
+		
+		GameObject imageObject = GameObject.Find ("PlayerRawImage");
+		RawImage raw = imageObject.GetComponentInChildren<RawImage>();
+		Debug.Log ("Got raw");
+		
+		mm.story2Image = img;
+		raw.texture = img;
+		
+		Invoke ("ShowFindObjectResponse", 0.5f);
+	}
 	
 	public void ShowFindObjectResponse() {
 		cw.AddNPCBubble("Goeie foto!");
@@ -298,7 +319,7 @@ public class ReporterStory2 : MonoBehaviour {
 		imageBubble.GetComponentInChildren<Image>().sprite = articleSprite;
 		GameObject imageObject = imageBubble.transform.Find ("BubbleImage").gameObject;
 		Image storyImage = imageObject.GetComponentInChildren<Image>();
-		storyImage.sprite = Sprite.Create (mm.storyImage, new Rect(0, 0, 200, 300), new Vector2(0.5f, 0.5f));
+		storyImage.sprite = Sprite.Create (mm.story2Image, new Rect(0, 0, 200, 300), new Vector2(0.5f, 0.5f));
 
 		string argument = "";
 		if (mm.story2FinalOpinion == Story2OpinionAnswer.SAD) {
@@ -417,27 +438,6 @@ public class ReporterStory2 : MonoBehaviour {
 			Destroy(chat);
 			GameObject.Destroy(this);
 		});
-	}
-
-	/*
-	 * Methods to handle taking an image using CamerShot
-	 */
-
-	void CameraShotComplete(Texture2D img, string path)
-	{
-//		string imagePath = path;
-//		Debug.Log ("Camera shot saved to: " + imagePath);
-//		Destroy (img);
-
-		// TODO check if taking the picture has been cancelled.
-
-		GameObject imageObject = GameObject.Find ("PlayerRawImage");
-		RawImage raw = imageObject.GetComponentInChildren<RawImage>();
-		Debug.Log ("Got raw");
-
-		raw.texture = img;
-
-		Invoke ("ShowFindObjectResponse", 0.5f);
 	}
 
 // TODO remove this old camerashot code at some point

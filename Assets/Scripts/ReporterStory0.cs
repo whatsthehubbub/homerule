@@ -103,6 +103,12 @@ public class ReporterStory0 : MonoBehaviour {
 	}
 
 	public void ShowInstruction() {
+		// Show image of where the location is
+		GameObject imageBubble = cw.AddNPCImageBubble();
+		GameObject imageObject = imageBubble.transform.Find ("BubbleImage").gameObject;
+		Image storyImage = imageObject.GetComponentInChildren<Image>();
+		storyImage.sprite = Resources.Load<Sprite>("Sprites/locatie_behang");
+
 		cw.AddNPCBubble("Fijn! Ga eerst kijken in deze gang. Daar hangt een stuk behang.");
 
 		GameObject ok = cw.AddButton ("Is goed");

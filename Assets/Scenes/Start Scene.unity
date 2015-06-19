@@ -400,6 +400,14 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11469840, guid: fb4343f437c6e1c4faa5a4811551bf77, type: 2}
+      propertyPath: m_Text
+      value: VRIJE VOGELS
+      objectReference: {fileID: 0}
+    - target: {fileID: 11469840, guid: fb4343f437c6e1c4faa5a4811551bf77, type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 85
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fb4343f437c6e1c4faa5a4811551bf77, type: 2}
   m_IsPrefabParent: 0

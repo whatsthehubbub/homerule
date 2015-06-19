@@ -74,6 +74,7 @@ public class OfficerResponse3 : MonoBehaviour {
 		Sprite articleSprite = Resources.Load<Sprite>("Sprites/chat_artikel");
 		GameObject storyBubble = cw.AddNPCBubble(mm.story3Text);
 		storyBubble.GetComponentInChildren<Image>().sprite = articleSprite;
+		storyBubble.GetComponentInChildren<Text>().color = Color.black;
 
 		if (mm.story3Attribution == Story3Attribution.FRANK) {
 			cw.AddNPCBubble("Die vogel zorgde voor veel onrust. Dat kunnen we niet hebben. Daarom moesten we hem arresteren.");

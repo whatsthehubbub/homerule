@@ -315,6 +315,7 @@ public class ReporterStory2 : MonoBehaviour {
 
 		GameObject storyFactBubble = cw.AddNPCBubble(storyText);
 		storyFactBubble.GetComponentInChildren<Image>().sprite = articleSprite;
+		storyFactBubble.GetComponentInChildren<Text>().color = Color.black;
 		
 		Invoke ("ShowSend", 0.5f);
 	}

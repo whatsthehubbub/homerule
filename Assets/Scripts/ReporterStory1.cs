@@ -291,6 +291,7 @@ public class ReporterStory1 : MonoBehaviour {
 		GameObject storyBubble = cw.AddNPCBubble(message);
 		Sprite articleSprite = Resources.Load<Sprite>("Sprites/chat_artikel");
 		storyBubble.GetComponentInChildren<Image>().sprite = articleSprite;
+		storyBubble.GetComponentInChildren<Text>().color = Color.black;
 
 		mm.story1Text = message;
 

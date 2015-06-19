@@ -83,6 +83,7 @@ public class OfficerResponse2 : MonoBehaviour {
 		
 		GameObject storyBubble = cw.AddNPCBubble(mm.story2Text);
 		storyBubble.GetComponentInChildren<Image>().sprite = articleSprite;
+		storyBubble.GetComponentInChildren<Text>().color = Color.black;
 		
 		GameObject button = cw.AddButton ("OK");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {

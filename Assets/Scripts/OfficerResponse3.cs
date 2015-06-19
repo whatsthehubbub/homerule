@@ -72,6 +72,13 @@ public class OfficerResponse3 : MonoBehaviour {
 		cw.AddNPCBubble("Fijn. Zeg, dit bericht hebt u vast eerder gezien.");
 
 		Sprite articleSprite = Resources.Load<Sprite>("Sprites/chat_artikel");
+
+		GameObject imageBubble = cw.AddNPCImageBubble();
+		imageBubble.GetComponentInChildren<Image>().sprite = articleSprite;
+		GameObject imageObject = imageBubble.transform.Find ("BubbleImage").gameObject;
+		Image storyImage = imageObject.GetComponentInChildren<Image>();
+		storyImage.sprite = Sprite.Create (mm.story3Image, new Rect(0, 0, 200, 300), new Vector2(0.5f, 0.5f));
+
 		GameObject storyBubble = cw.AddNPCBubble(mm.story3Text);
 		storyBubble.GetComponentInChildren<Image>().sprite = articleSprite;
 		storyBubble.GetComponentInChildren<Text>().color = Color.black;

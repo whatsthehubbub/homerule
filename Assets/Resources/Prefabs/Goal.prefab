@@ -46,7 +46,7 @@ GameObject:
   - 222: {fileID: 22278028}
   - 114: {fileID: 11472554}
   m_Layer: 5
-  m_Name: Goal
+  m_Name: GoalTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

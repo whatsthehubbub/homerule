@@ -81,12 +81,21 @@ public class Underway : MonoBehaviour {
 			this.post1.SetActive(true);
 			
 			this.post1.transform.Find("PostContainer/PostText").GetComponent<Text>().text = mm.story1Text;
+			this.post1.transform.Find("PostContainer/PostImage").GetComponent<Image>().sprite = Sprite.Create (mm.story1Image, new Rect(0, 0, 200, 300), new Vector2(0.5f, 0.5f));;
 		}
 
 		if (mm.story2Done) {
 			this.post2.SetActive(true);
 
 			this.post2.transform.Find("PostContainer/PostText").GetComponent<Text>().text = mm.story2Text;
+			this.post2.transform.Find("PostContainer/PostImage").GetComponent<Image>().sprite = Sprite.Create (mm.story2Image, new Rect(0, 0, 200, 300), new Vector2(0.5f, 0.5f));;
+		}
+
+		if (mm.story3Done) {
+			this.post3.SetActive(true);
+
+			this.post3.transform.Find ("PostContainer/PostText").GetComponent<Text>().text = mm.story3Text;
+			this.post3.transform.Find("PostContainer/PostImage").GetComponent<Image>().sprite = Sprite.Create (mm.story3Image, new Rect(0, 0, 200, 300), new Vector2(0.5f, 0.5f));;
 		}
 	}
 

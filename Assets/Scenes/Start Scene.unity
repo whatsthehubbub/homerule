@@ -133,6 +133,7 @@ MonoBehaviour:
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
+  m_RepeatDelay: .5
   m_AllowActivationOnMobileDevice: 0
 --- !u!114 &273516603
 MonoBehaviour:
@@ -278,6 +279,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+  m_StereoMirrorMode: 0
 --- !u!4 &529240742
 Transform:
   m_ObjectHideFlags: 0
@@ -398,6 +400,14 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11469840, guid: fb4343f437c6e1c4faa5a4811551bf77, type: 2}
+      propertyPath: m_Text
+      value: VRIJE VOGELS
+      objectReference: {fileID: 0}
+    - target: {fileID: 11469840, guid: fb4343f437c6e1c4faa5a4811551bf77, type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 85
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fb4343f437c6e1c4faa5a4811551bf77, type: 2}
   m_IsPrefabParent: 0
@@ -429,8 +439,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb8094256419b47ed848296ce7beb000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  locations: 6cd20000eabd0000125700002ebc0000
   forceCalls: 1
   callBusy: 0
+  reporterButton: {fileID: 0}
+  officerButton: {fileID: 0}
+  artistButton: {fileID: 0}
   reporterChatHistory: {fileID: 0}
   officerChatHistory: {fileID: 0}
   artistChatHistory: {fileID: 0}
@@ -454,6 +468,7 @@ MonoBehaviour:
   story3Attribution: 0
   story3Text: 
   story3Done: 0
+  story4Done: 0
   storyImage: {fileID: 0}
 --- !u!4 &1313762165
 Transform:

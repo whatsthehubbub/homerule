@@ -90,6 +90,7 @@ public class MuseumManager : MonoBehaviour {
 	public GameObject artistChatHistory;
 
 	public string targetText = "";
+	public Sprite targetImage;
 
 	public bool story0Done = false;
 

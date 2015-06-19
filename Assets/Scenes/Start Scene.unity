@@ -408,6 +408,19 @@ Prefab:
       propertyPath: m_FontData.m_FontSize
       value: 85
       objectReference: {fileID: 0}
+    - target: {fileID: 118524, guid: fb4343f437c6e1c4faa5a4811551bf77, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11434158, guid: fb4343f437c6e1c4faa5a4811551bf77, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3f627791c00f84f269241fa8851de62d,
+        type: 3}
+    - target: {fileID: 11434158, guid: fb4343f437c6e1c4faa5a4811551bf77, type: 2}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fb4343f437c6e1c4faa5a4811551bf77, type: 2}
   m_IsPrefabParent: 0
@@ -449,6 +462,7 @@ MonoBehaviour:
   officerChatHistory: {fileID: 0}
   artistChatHistory: {fileID: 0}
   targetText: 
+  targetImage: {fileID: 21300000, guid: 3f627791c00f84f269241fa8851de62d, type: 3}
   story0Done: 0
   story1Opinion: 0
   story1Fact: 0

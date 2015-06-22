@@ -383,7 +383,7 @@ public class ReporterStory1 : MonoBehaviour {
 		case Story1OpinionDescription.CITIZEN:
 			cw.AddNPCBubble("Het loopt met een sisser af. Maar niet iedereen is blij.");
 
-			spriteString = "";
+			spriteString = "S1 meh";
 			break;
 		case Story1OpinionDescription.ARTIST:
 			cw.AddNPCBubble("Die man is nu een beroemdheid! Maar niet iedereen is blij.");

@@ -70,7 +70,9 @@ public class Underway : MonoBehaviour {
 
 	public void ShowChatHistory() {
 		GameObject.Find ("ChatsTabButton").GetComponent<Button>().interactable = false;
-		GameObject.Find ("PostsTabButton").GetComponent<Button>().interactable = true;
+			
+		// Temporarily disabled because of removing posts button
+		//		GameObject.Find ("PostsTabButton").GetComponent<Button>().interactable = true;
 
 		postHistoryContainer.SetActive(false);
 		chatHistoryContainer.SetActive(true);

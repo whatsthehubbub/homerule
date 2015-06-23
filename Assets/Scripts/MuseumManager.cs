@@ -397,6 +397,10 @@ public class MuseumManager : MonoBehaviour {
 
 			this.callBusy = true;
 
+			// Move to the posts tab because the chat tab is broken on taking a call
+			Underway u = (Underway)FindObjectOfType (typeof(Underway));
+			u.ShowChatHistory();
+
 			switch (storyBit) {
 
 			// New style labels for the various calls you can get
@@ -433,6 +437,10 @@ public class MuseumManager : MonoBehaviour {
 			// Only advance the story if we don't have any outstanding response calls
 			if (this.storyQueue.Count == 0) {
 				this.callBusy = true;
+
+				// Move to the posts tab because the chat tab is broken on taking a call
+				Underway u = (Underway)FindObjectOfType (typeof(Underway));
+				u.ShowChatHistory();
 
 				switch (episodeNumber) {
 				case 0:

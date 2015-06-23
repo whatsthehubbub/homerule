@@ -90,9 +90,9 @@ public class ReporterStory4 : MonoBehaviour {
 		if (mm.story3Attribution == Story3Attribution.FRANK) {
 			cw.AddNPCBubble("Goed nieuws, Frank is vrijgelaten. Jij hebt op de politie ingepraat, hè? Dat heeft er vast iets mee te maken.");
 		} else if (mm.story3Attribution == Story3Attribution.KATJA) {
-			cw.AddPlayerBubble("Gelukkig wel! En ik heb het idee dat jij daar iets mee te maken hebt. Jij hebt op de politie ingepraat, hè?");
+			cw.AddNPCBubble("Gelukkig wel! En ik heb het idee dat jij daar iets mee te maken hebt. Jij hebt op de politie ingepraat, hè?");
 		} else if (mm.story3Attribution == Story3Attribution.ANONYMOUS) {
-			cw.AddPlayerBubble("Ik krijg het idee dat de politie zich nu op andere dingen richt. Misschien omdat jij op ze hebt ingepraat.");
+			cw.AddNPCBubble("Ik krijg het idee dat de politie zich nu op andere dingen richt. Misschien omdat jij op ze hebt ingepraat.");
 		}
 
 		GameObject button = cw.AddButton("Weet niet");
@@ -107,7 +107,7 @@ public class ReporterStory4 : MonoBehaviour {
 
 	public void ShowResponse() {
 
-		cw.AddNPCBubble("Niet zo bescheiden joh!");
+		cw.AddNPCBubble("Niet zo bescheiden joh! We hebben geluk gehad, maar jij hebt ook echt geholpen.");
 
 		cw.AddNPCBubble("Je krijgt trouwens de groeten van Frank.");
 
@@ -122,9 +122,7 @@ public class ReporterStory4 : MonoBehaviour {
 	}
 
 	public void ShowHello() {
-		cw.AddNPCBubble("Bij dezen gedaan. Frank zegt dat je de politie aan het denken hebt gezet. En dat de vogels dankzij jou hun vrijheid terug hebben.");
-
-		cw.AddNPCBubble("Hij zegt ook dat hij zin heeft om je naam op een muur te schrijven.");
+		cw.AddNPCBubble("Bij dezen gedaan. Frank zegt dat hij zin heeft om je naam op een muur te schrijven.");
 
 		GameObject button = cw.AddButton("Niet doen");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -137,7 +135,7 @@ public class ReporterStory4 : MonoBehaviour {
 	}
 
 	public void ShowDont() {
-		cw.AddNPCBubble("Dat zei ik ook al. Hoe dan ook, je hebt het echt goed gedaan.");
+		cw.AddNPCBubble("Dat zei ik ook al. Hoe dan ook, je hebt het goed gedaan.");
 
 		cw.AddNPCBubble("Iedereen is in orde. En de mensen hebben veel nagedacht over vrijheid. Jij ook?");
 

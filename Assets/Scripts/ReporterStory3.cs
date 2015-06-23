@@ -371,14 +371,13 @@ public class ReporterStory3 : MonoBehaviour {
 
 	public void ShowResultConclusion() {
 		if (mm.story3Attribution == Story3Attribution.FRANK) {
-			cw.AddNPCBubble("Nou ja, we hebben verteld wat er gebeurt. We hebben onze mening gegeven. Daardoor veranderen er dingen.");
-
-			cw.AddNPCBubble("Hopelijk komt het goed met Frank en de vrije vogels. Kijk jij nog even rond in het museum?");
+			cw.AddNPCBubble("Nou ja, we hebben verteld wat er gebeurt. En onze mening gegeven. Daardoor veranderen er dingen.");
+			cw.AddNPCBubble("Hopelijk komt het goed met Frank. Kijk jij nog even rond in het museum?");
 		} else if (mm.story3Attribution == Story3Attribution.KATJA) {
 			cw.AddNPCBubble("Katja heeft het juiste gedaan. Maar ze is er wel de dupe van geworden!");
 			cw.AddNPCBubble("Hopelijk komt het goed. Kijk jij ondertussen nog even rond in het museum?");
 		} else if (mm.story3Attribution == Story3Attribution.ANONYMOUS) {
-			cw.AddNPCBubble("Dit is geweldig! We hebben verteld wat er gebeurt. We hebben onze mening gegeven. Daardoor veranderen er dingen.");
+			cw.AddNPCBubble("Dit is geweldig! We hebben verteld wat er gebeurt. En onze mening gegeven. Daardoor veranderen er dingen.");
 			cw.AddNPCBubble("Kijk rustig rond als je wilt, er is nog van alles te zien in het museum.");
 		}
 

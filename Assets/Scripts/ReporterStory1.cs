@@ -162,7 +162,7 @@ public class ReporterStory1 : MonoBehaviour {
 
 			if (Application.platform == RuntimePlatform.IPhonePlayer) {
 				GameObject bubble = cw.AddPlayerImageBubble();
-				bubble.name = "PlayerRawImage1";
+				bubble.name = "PlayerImage1";
 
 				NativeToolkit.TakeCameraShot();
 			} else {
@@ -174,12 +174,14 @@ public class ReporterStory1 : MonoBehaviour {
 	// Method to handle taking the picture
 	void CameraShotComplete(Texture2D img, string path) {
 		// TODO check if taking the picture has been cancelled.
-		
-		GameObject imageObject = GameObject.Find ("PlayerRawImage1");
-		RawImage raw = imageObject.GetComponentInChildren<RawImage>();
-		
+
 		mm.story1Image = img;
-		raw.texture = img;
+
+		GameObject bubble = GameObject.Find ("PlayerImage1");
+		GameObject bubbleImage = bubble.transform.Find ("BubbleImage").gameObject;
+		Image im = bubbleImage.GetComponentInChildren<Image>();
+
+		im.sprite = Sprite.Create (mm.story1Image, new Rect(0, 0, mm.story1Image.width, mm.story1Image.height), new Vector2(0.5f, 0.5f));
 		
 		Invoke ("FactQuestion", 0.5f);
 	}

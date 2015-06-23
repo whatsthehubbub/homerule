@@ -284,7 +284,7 @@ public class MuseumManager : MonoBehaviour {
 			}
 		}
 		
-		foreach (Beacon b in mybeacons) {
+		foreach (Beacon b in mybeacons.ToList()) {
 			if (b.lastSeen.AddSeconds(10) < DateTime.Now) {
 				// we delete the beacon if it was last seen more than 10 seconds ago
 				// this would be the place where the BeaconOutOfRangeEvent would have been spawned in the earlier versions

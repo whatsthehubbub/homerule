@@ -10,6 +10,7 @@ GameObject:
   - 224: {fileID: 22485374}
   - 222: {fileID: 22286868}
   - 114: {fileID: 11437694}
+  - 114: {fileID: 11402274}
   m_Layer: 5
   m_Name: PostImage
   m_TagString: Untagged
@@ -45,6 +46,7 @@ GameObject:
   - 224: {fileID: 22485278}
   - 222: {fileID: 22269324}
   - 114: {fileID: 11422352}
+  - 114: {fileID: 11479622}
   m_Layer: 5
   m_Name: PostContainer
   m_TagString: Untagged
@@ -69,6 +71,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &11402274
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 156196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1679637790, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: 250
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
 --- !u!114 &11422352
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -175,6 +195,26 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "Korte samenvatting van de inhoud van het artikel en\r een indicatie van
     de mening die de speler over deze\r kwestie heeft gegeven.\n..."
+--- !u!114 &11479622
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1297475563, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 10
+    m_Right: 10
+    m_Top: 10
+    m_Bottom: 10
+  m_ChildAlignment: 4
+  m_Spacing: 10
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
 --- !u!222 &22269324
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -240,10 +280,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 22485278}
   m_RootOrder: 1
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: -160}
-  m_SizeDelta: {x: 560, y: 260}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22485278
 RectTransform:
@@ -261,8 +301,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: 1}
   m_AnchorMax: {x: .5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -440}
-  m_SizeDelta: {x: 600, y: 600}
+  m_AnchoredPosition: {x: 0, y: -357}
+  m_SizeDelta: {x: 600, y: 441.899994}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22485374
 RectTransform:
@@ -276,10 +316,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 22485278}
   m_RootOrder: 0
-  m_AnchorMin: {x: .5, y: 1}
-  m_AnchorMax: {x: .5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -175}
-  m_SizeDelta: {x: 560, y: 280}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!1001 &100100000
 Prefab:

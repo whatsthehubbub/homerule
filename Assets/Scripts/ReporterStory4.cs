@@ -69,7 +69,7 @@ public class ReporterStory4 : MonoBehaviour {
 			if (mm.story3Attribution == Story3Attribution.FRANK) {
 				cw.AddPlayerBubble("Jij ook hoi.");
 			} else if (mm.story3Attribution == Story3Attribution.KATJA) {
-				cw.AddPlayerBubble("Hé, hebben ze je vrijgelaten?.");
+				cw.AddPlayerBubble("Hé, hebben ze je vrijgelaten?");
 			} else if (mm.story3Attribution == Story3Attribution.ANONYMOUS) {
 				cw.AddPlayerBubble("Ook hoi. Heb je nog nieuws?");
 			}

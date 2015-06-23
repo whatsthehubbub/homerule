@@ -77,7 +77,7 @@ public class ReporterStory3 : MonoBehaviour {
 	}
 
 	public void ShowSituation() {
-		cw.AddNPCBubble("Super. Er is ook weer iets aan de hand hier. Moet je zien!");
+		cw.AddNPCBubble("Super! Hier is ook weer iets aan de hand.");
 
 		GameObject button = cw.AddButton("Wat?");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -96,9 +96,7 @@ public class ReporterStory3 : MonoBehaviour {
 
 		cw.AddNPCBubble("Ik zit hier met Frank, hij heeft me alles verteld. Er is bewijs dat de vrije vogels worden tegengewerkt.");
 
-		cw.AddNPCBubble("Ik wil erover schrijven, maar de politie staat al voor de deur!");
-
-		cw.AddNPCBubble("Kun je me helpen?");
+		cw.AddNPCBubble("Ik wil erover schrijven, maar de politie staat al voor de deur! Kun je helpen?");
 
 		GameObject button = cw.AddButton("Ja");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {

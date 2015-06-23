@@ -128,6 +128,9 @@ public class ReporterStory3 : MonoBehaviour {
 
 				NativeToolkit.TakeCameraShot();
 			} else {
+				// Create a blank texture
+				mm.story3Image = new Texture2D(2, 2, TextureFormat.ARGB32, false);
+
 				Invoke ("ShowPictureResponse", 0.5f);
 			}
 		});

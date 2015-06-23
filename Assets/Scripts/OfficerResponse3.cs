@@ -188,6 +188,7 @@ public class OfficerResponse3 : MonoBehaviour {
 		mm.callBusy = false;
 
 		mm.targetText = "Ga terug naar het begin";
+		mm.targetImage = Resources.Load<Sprite>("Sprites/locatie_start");
 		mm.UpdateTargetText();
 		
 		GameObject.Destroy(chat);

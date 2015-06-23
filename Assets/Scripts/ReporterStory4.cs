@@ -173,6 +173,7 @@ public class ReporterStory4 : MonoBehaviour {
 		chat.SetActive(false);
 
 		mm.targetText = "Het spel is klaar";
+		mm.targetImage = null;
 		mm.UpdateTargetText();
 
 		mm.story4Done = true;

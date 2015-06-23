@@ -351,15 +351,15 @@ public class ReporterStory3 : MonoBehaviour {
 		if (mm.story3Attribution == Story3Attribution.FRANK) {
 			cw.AddNPCBubble("O nee, Frank wordt opgepakt. We hadden hem moeten beschermen!");
 
-			spriteString = "S3 vogel gearresteerd";
+			spriteString = "S3 frank arrest";
 		} else if (mm.story3Attribution == Story3Attribution.KATJA) {
 			cw.AddNPCBubble("Help!");
 
-			spriteString = "S3 katja gearresteerd";
+			spriteString = "S3 katja arrest";
 		} else if (mm.story3Attribution == Story3Attribution.ANONYMOUS) {
 			cw.AddNPCBubble("Die agent is goed chagrijnig. Maar hij kan niks doen! En de mensen weten nu van de vrije vogels.");
 
-			spriteString = "S3 agent dissed";
+			spriteString = "S3 agent weg";
 		}
 
 		GameObject displayImage = GameObject.Find ("DisplayImage");

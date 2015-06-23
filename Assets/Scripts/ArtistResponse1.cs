@@ -71,8 +71,8 @@ public class ArtistResponse1 : MonoBehaviour {
 		cw = chat.GetComponent<ChatWindow>();
 		cw.DisableBack();
 		
-		cw.AddNPCBubble("Klopt.");
-		cw.AddNPCBubble("Ik was bijna opgepakt vanwege mijn poëzie.");
+		cw.AddNPCBubble("Klopt. Ik was bijna opgepakt vanwege mijn poëzie.");
+		cw.AddNPCBubble("Ik weet dat ik niet op gebouwen mag schrijven, maar doe het toch. Het moet er gewoon uit!");
 		cw.AddNPCBubble("Ik heet Frank, trouwens. Aangenaam.");
 		
 		GameObject nice = cw.AddButton("Aangenaam");
@@ -137,13 +137,26 @@ public class ArtistResponse1 : MonoBehaviour {
 			
 			cw.AddPlayerBubble("Hoe bedoel je, lastig?");
 			
-			Invoke ("ShowArtistExplanation", 0.5f);
+			Invoke ("ShowArtistExplanation1", 0.5f);
 		});
 	}
 
-	public void ShowArtistExplanation() {
-		cw.AddNPCBubble("We zijn eigenwijs en luidruchtig. En oké, soms betalen we de huur niet op tijd.");
+	public void ShowArtistExplanation1() {
+		cw.AddNPCBubble("We zijn eigenwijs en luidruchtig. We zitten vaak buiten op de stoep, muziek te maken.");
+		
+		cw.AddNPCBubble("Het mag niet, we zorgen zogenaamd voor overlast, maar wij zijn gewoon dol op onze fluitconcerten.");
+		
+		GameObject button = cw.AddButton("Lastig!");
+		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			cw.ClearButtons();
+			
+			cw.AddPlayerBubble("Ik kan me voorstellen dat ze dat lastig vinden!");
 
+			Invoke ("ShowArtistExplanation2", 0.5f);
+		});
+	}
+
+	public void ShowArtistExplanation2() {
 		cw.AddNPCBubble("Lastig of niet, ze moeten niet de waarheid verdraaien. Dat kan echt niet door de beugel.");
 
 		cw.AddNPCBubble("Maar ik bel eigenlijk om je iets te vragen.");

@@ -321,7 +321,7 @@ public class ReporterStory2 : MonoBehaviour {
 		imageBubble.GetComponentInChildren<Image>().sprite = articleSprite;
 		GameObject imageObject = imageBubble.transform.Find ("BubbleImage").gameObject;
 		Image storyImage = imageObject.GetComponentInChildren<Image>();
-		storyImage.sprite = Sprite.Create (mm.story2Image, new Rect(0, 0, 200, 300), new Vector2(0.5f, 0.5f));
+		storyImage.sprite = Sprite.Create (mm.story2Image, new Rect(0, 0, mm.story2Image.width, mm.story2Image.height), new Vector2(0.5f, 0.5f));
 
 		string argument = "";
 		if (mm.story2FinalOpinion == Story2OpinionAnswer.SAD) {

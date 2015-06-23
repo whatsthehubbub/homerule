@@ -301,6 +301,7 @@ public class MuseumManager : MonoBehaviour {
 				if (locations.IndexOf(b.minor) != -1) {
 					found = true;
 
+					Debug.Log ("Moved into beacon range " + b.minor);
 					MovedIntoBeaconRange(b.minor);
 				}
 				
@@ -327,6 +328,7 @@ public class MuseumManager : MonoBehaviour {
 		}
 
 		if (!found) {
+			Debug.Log ("Moved out of beacon range");
 			MovedOutOfBeaconRange();
 //			ShowIdle ();
 //			NewLocation("UNDERWAY");

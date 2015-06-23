@@ -41,6 +41,7 @@ public class Underway : MonoBehaviour {
 		goal.name = "Goal";
 
 		GameObject.Find ("GoalTitle").GetComponentInChildren<Text>().text = mm.targetText;
+
 		GameObject.Find ("Uitleg").GetComponentInChildren<Image>().sprite = mm.targetImage;
 
 		if (!mm.story0Done) {

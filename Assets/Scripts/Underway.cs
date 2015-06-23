@@ -43,6 +43,11 @@ public class Underway : MonoBehaviour {
 		GameObject.Find ("GoalTitle").GetComponentInChildren<Text>().text = mm.targetText;
 
 		GameObject.Find ("Uitleg").GetComponentInChildren<Image>().sprite = mm.targetImage;
+		if (mm.targetImage != null) {
+			GameObject.Find ("Uitleg").GetComponentInChildren<Image>().color = Color.white;
+		} else {
+			GameObject.Find ("Uitleg").GetComponentInChildren<Image>().color = Color.clear;
+		}
 
 		if (!mm.story0Done) {
 

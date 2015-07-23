@@ -397,7 +397,7 @@ public class ReporterStory2 : MonoBehaviour {
 		} else if (mm.story2FinalOpinion == Story2OpinionAnswer.GOOD) {
 			cw.AddNPCBubble("Iedereen volgt netjes de regels. Maar niet iedereen is blij.");
 		} else if (mm.story2FinalOpinion == Story2OpinionAnswer.WRONG) {
-			cw.AddNPCBubble("Sommige mensen luisteren niet. Ze krijgen ruzie en er wordt gevochten! ");
+			cw.AddNPCBubble("Sommige mensen luisteren niet. Ze krijgen ruzie en er wordt gevochten!");
 		}
 
 		GameObject ok = cw.AddButton("Oké");

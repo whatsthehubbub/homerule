@@ -86,7 +86,7 @@ public class ReporterResponse2 : MonoBehaviour {
 		cw = chat.GetComponent<ChatWindow>();
 		cw.DisableBack();
 		
-		cw.AddNPCBubble("Als dat klopt, moeten we erover schrijven! Maar hoe weet jij het eigenlijk? ");
+		cw.AddNPCBubble("Als dat klopt, moeten we erover schrijven! Maar hoe weet jij het eigenlijk?");
 		
 		GameObject button1 = cw.AddButton("Frank");
 		button1.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -144,7 +144,7 @@ public class ReporterResponse2 : MonoBehaviour {
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 
-			cw.AddPlayerBubble("Oké");
+			cw.AddPlayerBubble("Oké.");
 			
 			mm.callBusy = false;
 

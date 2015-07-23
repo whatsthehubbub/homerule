@@ -4,6 +4,7 @@ using System.Xml;
 
 public class MuseumKids : MonoBehaviour {
 
+	// Class to do the API calls on http://museumkids.ijspreview.nl/api/tester/
 	public string email;
 
 	public string authtoken;
@@ -100,6 +101,10 @@ public class MuseumKids : MonoBehaviour {
 		Debug.Log ("Posting to url: " + url + " with session " + this.sessiontoken + " and score " + this.score);
 
 		yield return www;
+
+		// TODO 
+		// The result should be visible here if your score is higher than the previous one:
+		// http://museumkids.ijspreview.nl/game-info/shachi/20
 
 		Debug.Log (www.text);
 	}

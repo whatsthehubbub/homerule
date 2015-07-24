@@ -274,6 +274,20 @@ public class MuseumManager : MonoBehaviour {
 	
 	private void OnBeaconRangeChanged(List<Beacon> beacons) {
 
+		// Print out all the beacons there are
+		Debug.Log ("============= Beacon range changed");
+		var orderMap = new Dictionary<BeaconRange, int>() {
+			{ BeaconRange.IMMEDIATE, 0},
+			{ BeaconRange.NEAR, 1},
+			{ BeaconRange.FAR, 2},
+			{ BeaconRange.UNKNOWN, 3}
+		};
+		List<Beacon> sortedBeacons = beacons.OrderBy(b => orderMap[b.range]).ToList();
+		foreach (Beacon b in sortedBeacons) {
+			Debug.Log ("Minor: " + b.minor + " Range: " + b.range);
+		}
+
+
 		foreach (Beacon b in beacons) {
 			if (mybeacons.Contains(b)) {
 				mybeacons[mybeacons.IndexOf(b)] = b;

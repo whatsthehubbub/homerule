@@ -1,27 +1,37 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Xml;
 
 public class MuseumKids : MonoBehaviour {
 
 	// Class to do the API calls on http://museumkids.ijspreview.nl/api/tester/
-	public string email;
 
 	public string authtoken;
 
 	public string sessiontoken;
 
-	public int score;
-
 	// Use this for initialization
 	void Start () {
-		this.email = "alper@hubbub.eu";
-	
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	public string GetEmail() {
+		var emailField = GameObject.Find ("EmailText");
+
+		return emailField.GetComponentInChildren<Text>().text;
+	}
+
+	public int GetScore() {
+		GameObject scoreField = GameObject.Find ("ScoreText");
+
+		string score = scoreField.GetComponentInChildren<Text>().text;
+
+		return int.Parse(score);
 	}
 
 	public void LoginButtonPressed() {
@@ -32,12 +42,12 @@ public class MuseumKids : MonoBehaviour {
 		var url = "http://museumkids.ijspreview.nl/api/login";
 
 		WWWForm form = new WWWForm();
-		form.AddField("email", this.email);
+		form.AddField("email", GetEmail ());
 		form.AddField("platform_name", "Tablet");
 		// This field needs to be added because this stuff is broken
 		form.AddField("gamesession_hash", "");
 
-		Debug.Log ("Post to URL: " + url + " with email: " + this.email);
+		Debug.Log ("Post to URL: " + url + " with email: " + GetEmail());
 
 		WWW www = new WWW(url, form);
 
@@ -94,11 +104,11 @@ public class MuseumKids : MonoBehaviour {
 
 		WWWForm form = new WWWForm();
 		form.AddField("gamesession_hash", this.sessiontoken);
-		form.AddField("score", this.score);
+		form.AddField("score", GetScore ());
 
 		WWW www = new WWW(url, form);
 
-		Debug.Log ("Posting to url: " + url + " with session " + this.sessiontoken + " and score " + this.score);
+		Debug.Log ("Posting to url: " + url + " with session " + this.sessiontoken + " and score " + GetScore ());
 
 		yield return www;
 

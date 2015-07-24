@@ -156,11 +156,11 @@ public class ReporterStory4 : MonoBehaviour {
 				
 		cw.AddNPCBubble("Wij gaan een kopje thee drinken hier. Nog een fijne dag!");
 
-		GameObject button = cw.AddButton("Ok");
+		GameObject button = cw.AddButton("Oké");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 			
-			cw.AddPlayerBubble("Ok");
+			cw.AddPlayerBubble("Oké.");
 			
 			Invoke ("ShowClose", 0.5f);
 		});

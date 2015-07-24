@@ -283,7 +283,7 @@ public class ReporterStory3 : MonoBehaviour {
 	public void ShowArticle() {
 		cw.AddNPCBubble("Oké! Ik heb er dit bericht van gemaakt:");
 
-		string message = "Net als nu mochten de mensen in Nederland niet uitkomen voor hun politieke ideeën, vrije vogel of koningsgezind! Was getekend… ";
+		string message = "Net als nu mochten de mensen in Nederland niet uitkomen voor hun politieke ideeën, vrije vogel of koningsgezind! Was getekend…";
 
 		if (mm.story3Attribution == Story3Attribution.FRANK) {
 			message += " Frank de kunstenaar";

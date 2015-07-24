@@ -53,7 +53,7 @@ public class OfficerResponse3 : MonoBehaviour {
 		
 		cw.AddNPCBubble("Ahum. Ik wil toch nog even met u spreken.");
 		
-		GameObject button = cw.AddButton ("Oké.");
+		GameObject button = cw.AddButton ("Oké");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.AddPlayerBubble("Vooruit dan.");
 			

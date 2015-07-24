@@ -484,7 +484,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Ga naar de kast met medailles
+  m_Text: Ga naar de kamer met medailles
 --- !u!114 &11496020
 MonoBehaviour:
   m_ObjectHideFlags: 1

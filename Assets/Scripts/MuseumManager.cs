@@ -486,7 +486,7 @@ public class MuseumManager : MonoBehaviour {
 	}
 
 	public void StartGameButton() {
-		Application.LoadLevel ("UNDERWAY");
+		Application.LoadLevel ("NewUnderway");
 
 		this.callBusy = false;
 	}

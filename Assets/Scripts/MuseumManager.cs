@@ -404,7 +404,7 @@ public class MuseumManager : MonoBehaviour {
 
 	public void UpdateTargetText() {
 		// Put the text in the right place
-		GameObject.Find ("GoalCanvas").GetComponentInChildren<Text>().text = this.targetText;
+		GameObject.Find ("GoalButton").GetComponentInChildren<Text>().text = this.targetText;
 	}
 
 	public void TakeCall() {

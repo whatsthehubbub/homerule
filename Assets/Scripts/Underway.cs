@@ -15,8 +15,8 @@ public class Underway : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		GameObject main = GameObject.Find("Main");
-		mm = main.GetComponentInChildren<MuseumManager>();
+//		GameObject main = GameObject.Find("Main");
+//		mm = main.GetComponentInChildren<MuseumManager>();
 	}
 	
 	// Update is called once per frame
@@ -70,6 +70,7 @@ public class Underway : MonoBehaviour {
 
 	public void ShowChatHistory() {
 		GameObject.Find ("ChatsTabButton").GetComponent<Button>().interactable = false;
+		GameObject.Find ("PostsTabButton").GetComponent<Button>().interactable = true;
 			
 		// Temporarily disabled because of removing posts button
 		//		GameObject.Find ("PostsTabButton").GetComponent<Button>().interactable = true;
@@ -84,6 +85,9 @@ public class Underway : MonoBehaviour {
 
 		postHistoryContainer.SetActive(true);
 		chatHistoryContainer.SetActive(false);
+
+		// TODO Remove
+		return;
 
 		// Fill in the various posts
 		if (mm.story1Done) {
@@ -108,6 +112,7 @@ public class Underway : MonoBehaviour {
 		}
 	}
 
+	// TODO remove this code
 	public void DebugButton() {
 		mm.TakeImmediateCall(2);
 	}

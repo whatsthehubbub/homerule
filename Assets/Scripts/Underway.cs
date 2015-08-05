@@ -37,8 +37,10 @@ public class Underway : MonoBehaviour {
 	}
 
 	public void ShowGoal() {
-		GameObject goal = (GameObject)Instantiate(Resources.Load ("Prefabs/Goal"));
-		goal.name = "Goal";
+		GameObject goal = (GameObject)Instantiate(Resources.Load ("Prefabs/GoalOverlay"));
+		goal.name = "GoalOverlay";
+
+		goal.transform.SetParent(GameObject.Find ("Canvas").transform, false);
 
 		GameObject.Find ("GoalTitle").GetComponentInChildren<Text>().text = mm.targetText;
 

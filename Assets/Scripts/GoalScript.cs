@@ -14,7 +14,7 @@ public class GoalScript : MonoBehaviour {
 	}
 	
 	public void CloseGoal() {
-		GameObject goal = GameObject.Find("Goal");
+		GameObject goal = GameObject.Find("GoalOverlay");
 		
 		Destroy (goal);
 	}

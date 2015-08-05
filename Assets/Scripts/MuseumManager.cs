@@ -81,6 +81,8 @@ public class MuseumManager : MonoBehaviour {
 	public Queue<string> storyQueue = new Queue<string>();
 	public bool callBusy = false;
 
+	public GameObject canvas;
+
 	public GameObject reporterButton;
 	public GameObject officerButton;
 	public GameObject artistButton;
@@ -140,42 +142,6 @@ public class MuseumManager : MonoBehaviour {
 		this.callBusy = true;
 
 		this.targetText = "Ga naar het begin";
-
-		// Create the chat windows to keep the history in (and make sure they don't get destroyed on scene change)
-		reporterChatHistory = (GameObject)Instantiate(Resources.Load ("Prefabs/Chat"));
-		reporterChatHistory.name = "ReporterChatHistory";
-		UnityEngine.Object.DontDestroyOnLoad(reporterChatHistory);
-
-		ChatWindow reporterChatWindow = reporterChatHistory.GetComponent<ChatWindow>();
-		reporterChatWindow.SetNPCAvatar("katja");
-		reporterChatWindow.SetLastMessageDisplay("Reporter");
-
-		reporterChatHistory.transform.Find("topbar/Title").GetComponent<Text>().text = "Katja";
-		reporterChatHistory.SetActive(false);
-
-
-		officerChatHistory = (GameObject)Instantiate(Resources.Load ("Prefabs/Chat"));
-		officerChatHistory.name = "OfficerChatHistory";
-		UnityEngine.Object.DontDestroyOnLoad(officerChatHistory);
-
-		ChatWindow officerChatWindow = officerChatHistory.GetComponent<ChatWindow>();
-		officerChatWindow.SetNPCAvatar("agent2");
-		officerChatWindow.SetLastMessageDisplay("Officer");
-
-		officerChatHistory.transform.Find("topbar/Title").GetComponent<Text>().text = "Agent";
-		officerChatHistory.SetActive(false);
-
-
-		artistChatHistory = (GameObject)Instantiate(Resources.Load ("Prefabs/Chat"));
-		artistChatHistory.name = "ArtistChatHistory";
-		UnityEngine.Object.DontDestroyOnLoad(artistChatHistory);
-
-		ChatWindow artistChatWindow = artistChatHistory.GetComponent<ChatWindow>();
-		artistChatWindow.SetNPCAvatar("kunstenaar");
-		artistChatWindow.SetLastMessageDisplay("Artist");
-
-		artistChatHistory.transform.Find("topbar/Title").GetComponent<Text>().text = "Frank";
-		artistChatHistory.SetActive(false);
 
 		// Initialization
 		this.story0Done = false;
@@ -260,12 +226,54 @@ public class MuseumManager : MonoBehaviour {
 	void OnLevelWasLoaded(int level) {
 		UpdateTargetText();
 
-		if (Application.loadedLevelName.Equals("Underway")) {
-			// Hide the chat history buttons of people we haven't talked to yet
-			reporterButton = GameObject.Find("ChatSenderReporter");
-			officerButton = GameObject.Find("ChatSenderOfficer");
-			artistButton = GameObject.Find("ChatSenderArtist");
+		if (Application.loadedLevelName.Equals("NewUnderway")) {
+			this.canvas = GameObject.Find ("Canvas");
+
+			// Create the chat windows to keep the history in (and make sure they don't get destroyed on scene change)
+			reporterChatHistory = (GameObject)Instantiate(Resources.Load ("Prefabs/NewChat"));
+			reporterChatHistory.transform.SetParent(canvas.transform, false);
+			reporterChatHistory.name = "ReporterChatHistory";
+			UnityEngine.Object.DontDestroyOnLoad(this.reporterChatHistory);
 			
+			ChatWindow reporterChatWindow = reporterChatHistory.GetComponent<ChatWindow>();
+			reporterChatWindow.SetNPCAvatar("katja");
+			reporterChatWindow.SetLastMessageDisplay("Reporter");
+			
+			reporterChatHistory.transform.Find("topbar/Title").GetComponent<Text>().text = "Katja";
+			reporterChatHistory.SetActive(false);
+			
+			
+			officerChatHistory = (GameObject)Instantiate(Resources.Load ("Prefabs/NewChat"));
+			officerChatHistory.transform.SetParent(canvas.transform, false);
+			officerChatHistory.name = "OfficerChatHistory";
+			UnityEngine.Object.DontDestroyOnLoad(officerChatHistory);
+			
+			ChatWindow officerChatWindow = officerChatHistory.GetComponent<ChatWindow>();
+			officerChatWindow.SetNPCAvatar("agent2");
+			officerChatWindow.SetLastMessageDisplay("Officer");
+			
+			officerChatHistory.transform.Find("topbar/Title").GetComponent<Text>().text = "Agent";
+			officerChatHistory.SetActive(false);
+			
+			
+			artistChatHistory = (GameObject)Instantiate(Resources.Load ("Prefabs/NewChat"));
+			artistChatHistory.transform.SetParent(canvas.transform, false);
+			artistChatHistory.name = "ArtistChatHistory";
+			UnityEngine.Object.DontDestroyOnLoad(artistChatHistory);
+			
+			ChatWindow artistChatWindow = artistChatHistory.GetComponent<ChatWindow>();
+			artistChatWindow.SetNPCAvatar("kunstenaar");
+			artistChatWindow.SetLastMessageDisplay("Artist");
+			
+			artistChatHistory.transform.Find("topbar/Title").GetComponent<Text>().text = "Frank";
+			artistChatHistory.SetActive(false);
+
+			// Hook up the buttons
+			reporterButton = GameObject.Find("ReporterChatsButton");
+			officerButton = GameObject.Find("OfficerChatsButton");
+			artistButton = GameObject.Find("ArtistChatsButton");
+
+			// Hide the chat history buttons of people we haven't talked to yet
 			reporterButton.SetActive(false);
 			officerButton.SetActive(false);
 			artistButton.SetActive(false);

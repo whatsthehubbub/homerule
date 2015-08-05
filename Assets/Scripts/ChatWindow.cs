@@ -178,11 +178,11 @@ public class ChatWindow : MonoBehaviour {
 	}
 
 	public void DisableBack() {
-		this.gameObject.transform.Find ("TopBar/Terug").GetComponent<Button>().interactable = false;
+		this.gameObject.transform.Find ("TopBar/Back").GetComponent<Button>().interactable = false;
 	}
 
 	public void EnableBack() {
-		this.gameObject.transform.Find ("TopBar/Terug").GetComponent<Button>().interactable = true;
+		this.gameObject.transform.Find ("TopBar/Back").GetComponent<Button>().interactable = true;
 	}
 
 }

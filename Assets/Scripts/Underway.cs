@@ -42,7 +42,7 @@ public class Underway : MonoBehaviour {
 
 		goal.transform.SetParent(GameObject.Find ("Canvas").transform, false);
 
-		GameObject.Find ("GoalTitle").GetComponentInChildren<Text>().text = mm.targetText;
+		GameObject.Find ("GoalText").GetComponentInChildren<Text>().text = mm.targetText;
 
 		GameObject.Find ("Uitleg").GetComponentInChildren<Image>().sprite = mm.targetImage;
 		if (mm.targetImage != null) {

@@ -64,7 +64,7 @@ GameObject:
   - 222: {fileID: 22208618}
   - 114: {fileID: 11451518}
   m_Layer: 5
-  m_Name: topbar
+  m_Name: TopBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -184,7 +184,7 @@ GameObject:
   - 114: {fileID: 11429908}
   - 114: {fileID: 11404452}
   m_Layer: 5
-  m_Name: Terug
+  m_Name: Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -686,7 +686,7 @@ RectTransform:
   m_GameObject: {fileID: 119084}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.40295458, y: 2.40295458, z: 2.40295458}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 22462336}
   - {fileID: 22477404}

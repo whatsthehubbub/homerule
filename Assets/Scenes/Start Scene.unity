@@ -385,15 +385,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22469838, guid: fb4343f437c6e1c4faa5a4811551bf77, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22469838, guid: fb4343f437c6e1c4faa5a4811551bf77, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22469838, guid: fb4343f437c6e1c4faa5a4811551bf77, type: 2}
       propertyPath: m_SizeDelta.x
-      value: -158.924469
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22469838, guid: fb4343f437c6e1c4faa5a4811551bf77, type: 2}
       propertyPath: m_SizeDelta.y

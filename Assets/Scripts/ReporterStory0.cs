@@ -120,7 +120,8 @@ public class ReporterStory0 : MonoBehaviour {
 			cw.EnableBack();
 			chat.SetActive(false);
 			
-			chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
+			chat = (GameObject)Instantiate(Resources.Load ("Prefabs/NewVideoCall"));
+			chat.transform.SetParent(GameObject.Find ("Canvas").transform, false);
 			chat.name = "VideoCall";
 
 			// Show the correct sprite (Journalist)

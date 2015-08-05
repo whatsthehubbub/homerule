@@ -19,8 +19,9 @@ public class OfficerResponse1 : MonoBehaviour {
 		// Enable the officer history button after our first chat
 		mm.officerButton.SetActive(true);
 
-		GameObject call = (GameObject)Instantiate(Resources.Load ("Prefabs/Agent belt"));
-		call.name = "Agent belt";
+		GameObject call = (GameObject)Instantiate(Resources.Load ("Prefabs/OfficerCalling"));
+		call.transform.SetParent(GameObject.Find ("Canvas").transform, false);
+		call.name = "Officer Calling";
 
 		AudioClip ringtone = Resources.Load<AudioClip>("Audio/ringtone");
 		this.audioSource = main.GetComponent<AudioSource>();
@@ -42,7 +43,8 @@ public class OfficerResponse1 : MonoBehaviour {
 	}
 
 	public void ShowVideoCall() {
-		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
+		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/NewVideoCall"));
+		chat.transform.SetParent(GameObject.Find ("Canvas").transform, false);
 		chat.name = "VideoCall";
 		
 		// Remove the static image in the video call

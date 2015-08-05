@@ -16,8 +16,9 @@ public class OfficerResponse3 : MonoBehaviour {
 		GameObject main = GameObject.Find("Main");
 		mm = main.GetComponentInChildren<MuseumManager>();
 		
-		GameObject call = (GameObject)Instantiate(Resources.Load ("Prefabs/Agent belt"));
-		call.name = "Agent belt";
+		GameObject call = (GameObject)Instantiate(Resources.Load ("Prefabs/OfficerCalling"));
+		call.transform.SetParent(GameObject.Find ("Canvas").transform, false);
+		call.name = "Officer Calling";
 
 		AudioClip ringtone = Resources.Load<AudioClip>("Audio/ringtone");
 		this.audioSource = main.GetComponent<AudioSource>();
@@ -39,7 +40,8 @@ public class OfficerResponse3 : MonoBehaviour {
 	}
 
 	public void ShowVideoCall() {
-		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
+		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/NewVideoCall"));
+		chat.transform.SetParent(GameObject.Find ("Canvas").transform, false);
 		chat.name = "VideoCall";
 
 		GameObject displayImage = GameObject.Find ("DisplayImage");
@@ -192,7 +194,8 @@ public class OfficerResponse3 : MonoBehaviour {
 		cw.EnableBack();
 		chat.SetActive(false);
 
-		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
+		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/NewVideoCall"));
+		chat.transform.SetParent(GameObject.Find ("Canvas").transform, false);
 		chat.name = "VideoCall";
 
 		cw = chat.GetComponent<ChatWindow>();

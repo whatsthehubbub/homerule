@@ -18,7 +18,7 @@ public class ReporterStory4 : MonoBehaviour {
 		
 		GameObject call = (GameObject)Instantiate(Resources.Load ("Prefabs/ReporterCalling"));
 		call.transform.SetParent(GameObject.Find ("Canvas").transform, false);
-		call.name = "Katja belt";
+		call.name = "Reporter Calling";
 
 		AudioClip ringtone = Resources.Load<AudioClip>("Audio/ringtone");
 		this.audioSource = main.GetComponent<AudioSource>();

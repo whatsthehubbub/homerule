@@ -16,8 +16,9 @@ public class ReporterResponse2 : MonoBehaviour {
 		GameObject main = GameObject.Find("Main");
 		mm = main.GetComponentInChildren<MuseumManager>();
 		
-		GameObject call = (GameObject)Instantiate(Resources.Load ("Prefabs/Katja belt"));
-		call.name = "Katja belt";
+		GameObject call = (GameObject)Instantiate(Resources.Load ("Prefabs/ReporterCalling"));
+		call.transform.SetParent(GameObject.Find ("Canvas").transform, false);
+		call.name = "Reporter Calling";
 
 		AudioClip ringtone = Resources.Load<AudioClip>("Audio/ringtone");
 		this.audioSource = main.GetComponent<AudioSource>();
@@ -39,7 +40,8 @@ public class ReporterResponse2 : MonoBehaviour {
 	}
 
 	public void ShowVideoCall() {
-		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
+		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/NewVideoCall"));
+		chat.transform.SetParent(GameObject.Find ("Canvas").transform, false);
 		chat.name = "VideoCall";
 
 		GameObject displayImage = GameObject.Find ("DisplayImage");

@@ -34,7 +34,7 @@ public class ReporterStory2 : MonoBehaviour {
 
 		GameObject call = (GameObject)Instantiate(Resources.Load ("Prefabs/ReporterCalling"));
 		call.transform.SetParent(GameObject.Find ("Canvas").transform, false);
-		call.name = "Katja belt";
+		call.name = "Reporter Calling";
 		
 		call.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			audioSource.Stop();

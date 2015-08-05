@@ -19,8 +19,9 @@ public class ArtistResponse1 : MonoBehaviour {
 		// Enable the artist button after our first chat
 		mm.artistButton.SetActive(true);
 
-		GameObject call = (GameObject)Instantiate(Resources.Load ("Prefabs/Kunstenaar belt"));
-		call.name = "Kunstenaar belt";
+		GameObject call = (GameObject)Instantiate(Resources.Load ("Prefabs/ArtistCalling"));
+		call.transform.SetParent(GameObject.Find ("Canvas").transform, false);
+		call.name = "Artist Calling";
 
 		AudioClip ringtone = Resources.Load<AudioClip>("Audio/ringtone");
 		this.audioSource = main.GetComponent<AudioSource>();
@@ -42,7 +43,8 @@ public class ArtistResponse1 : MonoBehaviour {
 	}
 
 	public void ShowVideoCall() {
-		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
+		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/NewVideoCall"));
+		chat.transform.SetParent(GameObject.Find ("Canvas").transform, false);
 		chat.name = "VideoCall";
 
 		cw = chat.GetComponent<ChatWindow>();

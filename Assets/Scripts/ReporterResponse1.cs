@@ -16,8 +16,9 @@ public class ReporterResponse1 : MonoBehaviour {
 		GameObject main = GameObject.Find("Main");
 		mm = main.GetComponentInChildren<MuseumManager>();
 		
-		GameObject call = (GameObject)Instantiate(Resources.Load ("Prefabs/Katja belt"));
-		call.name = "Katja belt";
+		GameObject call = (GameObject)Instantiate(Resources.Load ("Prefabs/ReporterCalling"));
+		call.transform.SetParent(GameObject.Find ("Canvas").transform, false);
+		call.name = "Reporter Calling";
 
 		AudioClip ringtone = Resources.Load<AudioClip>("Audio/ringtone");
 		this.audioSource = main.GetComponent<AudioSource>();

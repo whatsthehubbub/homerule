@@ -31,7 +31,8 @@ public class ReporterStory1 : MonoBehaviour {
 		audioSource.clip = ringtone;
 		audioSource.Play ();
 		
-		GameObject call = (GameObject)Instantiate(Resources.Load ("Prefabs/Katja belt"));
+		GameObject call = (GameObject)Instantiate(Resources.Load ("Prefabs/ReporterCalling"));
+		call.transform.SetParent(GameObject.Find ("Canvas").transform, false);
 		call.name = "Katja belt";
 		
 		call.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -50,7 +51,8 @@ public class ReporterStory1 : MonoBehaviour {
 
 	public void StartStory() {
 		// Pause the change scene
-		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
+		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/NewVideoCall"));
+		chat.transform.SetParent(GameObject.Find ("Canvas").transform, false);
 		chat.name = "VideoCall";
 		
 		// Show the correct sprite (Journalist)
@@ -354,7 +356,8 @@ public class ReporterStory1 : MonoBehaviour {
 		cw.EnableBack();
 		chat.SetActive(false);
 
-		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
+		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/NewVideoCall"));
+		chat.transform.SetParent(GameObject.Find ("Canvas").transform, false);
 		chat.name = "VideoCall";
 
 		// Show the correct sprite (Journalist)

@@ -3100,9 +3100,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   postHistoryContainer: {fileID: 715277310}
   chatHistoryContainer: {fileID: 1154079499}
-  post1: {fileID: 0}
-  post2: {fileID: 0}
-  post3: {fileID: 0}
+  post1: {fileID: 1956534722}
+  post2: {fileID: 310269110}
+  post3: {fileID: 1172467476}
 --- !u!1 &1956534722
 GameObject:
   m_ObjectHideFlags: 0

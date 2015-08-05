@@ -157,7 +157,7 @@ public class ChatWindow : MonoBehaviour {
 	}
 
 	public void SetNPCAvatar(string avatar_suffix) {
-		GameObject avatar = this.gameObject.transform.Find("topbar/avatar npc").gameObject;
+		GameObject avatar = this.gameObject.transform.Find("TopBar/avatar npc").gameObject;
 		Image avatarImage = avatar.GetComponentInChildren<Image>();
 
 		Sprite sprite = Resources.Load<Sprite>("Sprites/avatar_" + avatar_suffix);
@@ -178,11 +178,11 @@ public class ChatWindow : MonoBehaviour {
 	}
 
 	public void DisableBack() {
-		this.gameObject.transform.Find ("topbar/Terug").GetComponent<Button>().interactable = false;
+		this.gameObject.transform.Find ("TopBar/Terug").GetComponent<Button>().interactable = false;
 	}
 
 	public void EnableBack() {
-		this.gameObject.transform.Find ("topbar/Terug").GetComponent<Button>().interactable = true;
+		this.gameObject.transform.Find ("TopBar/Terug").GetComponent<Button>().interactable = true;
 	}
 
 }

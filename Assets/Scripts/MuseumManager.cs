@@ -239,7 +239,7 @@ public class MuseumManager : MonoBehaviour {
 			reporterChatWindow.SetNPCAvatar("katja");
 			reporterChatWindow.SetLastMessageDisplay("Reporter");
 			
-			reporterChatHistory.transform.Find("topbar/Title").GetComponent<Text>().text = "Katja";
+			reporterChatHistory.transform.Find("TopBar/Title").GetComponent<Text>().text = "Katja";
 			reporterChatHistory.SetActive(false);
 			
 			
@@ -252,7 +252,7 @@ public class MuseumManager : MonoBehaviour {
 			officerChatWindow.SetNPCAvatar("agent2");
 			officerChatWindow.SetLastMessageDisplay("Officer");
 			
-			officerChatHistory.transform.Find("topbar/Title").GetComponent<Text>().text = "Agent";
+			officerChatHistory.transform.Find("TopBar/Title").GetComponent<Text>().text = "Agent";
 			officerChatHistory.SetActive(false);
 			
 			
@@ -265,7 +265,7 @@ public class MuseumManager : MonoBehaviour {
 			artistChatWindow.SetNPCAvatar("kunstenaar");
 			artistChatWindow.SetLastMessageDisplay("Artist");
 			
-			artistChatHistory.transform.Find("topbar/Title").GetComponent<Text>().text = "Frank";
+			artistChatHistory.transform.Find("TopBar/Title").GetComponent<Text>().text = "Frank";
 			artistChatHistory.SetActive(false);
 
 			// Hook up the buttons
@@ -274,9 +274,9 @@ public class MuseumManager : MonoBehaviour {
 			artistButton = GameObject.Find("ArtistChatsButton");
 
 			// Hide the chat history buttons of people we haven't talked to yet
-			reporterButton.SetActive(false);
-			officerButton.SetActive(false);
-			artistButton.SetActive(false);
+//			reporterButton.SetActive(false);
+//			officerButton.SetActive(false);
+//			artistButton.SetActive(false);
 		}
 	}
 	

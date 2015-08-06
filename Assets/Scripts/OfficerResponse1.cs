@@ -62,7 +62,7 @@ public class OfficerResponse1 : MonoBehaviour {
 		cw = chat.GetComponent<ChatWindow>();
 		cw.SetArchivalChat(mm.officerChatHistory.GetComponent<ChatWindow>());
 		
-		cw.AddNPCBubble("Hallo. De naam is Wolfsen. Kan ik u even spreken?");
+		cw.AddNPCBubble("Wolfsen. Aangenaam. Kunnen wij u spreken?");
 		
 		GameObject what = cw.AddButton ("Wat is er?");
 		what.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -81,8 +81,8 @@ public class OfficerResponse1 : MonoBehaviour {
 		cw = chat.GetComponent<ChatWindow>();
 		cw.DisableBack();
 		
-		cw.AddNPCBubble("Niets ernstigs. De kladderaar is opgefladderd.");
-		cw.AddNPCBubble("Wij willen alleen weten of u deze persoon kent. Ze is een journalist, wat je noemt een schrijvende pers.");
+		cw.AddNPCBubble("Weinig, gelukkig. Die kladderaar is opgefladderd.");
+		cw.AddNPCBubble("Wij willen alleen nog weten of u deze verslaggever kent.");
 		
 		GameObject imageBubble = cw.AddNPCImageBubble();
 		Sprite katjaPhotoSprite = Resources.Load<Sprite>("Sprites/katja foto");
@@ -119,7 +119,7 @@ public class OfficerResponse1 : MonoBehaviour {
 		if (mm.officer1Answer == OfficerResponse1Answer.NEVER_SEEN) {
 			playerResponseText = "Sorry, ik ken haar niet.";
 		} else if (mm.officer1Answer == OfficerResponse1Answer.YES) {
-			playerResponseText = "Ja, ik heb haar net nog gesproken.";
+			playerResponseText = "Ja, ik sprak haar net nog.";
 		} else if (mm.officer1Answer == OfficerResponse1Answer.WHY) {
 			playerResponseText = "Waarom vraagt u dit aan mij?";
 		}
@@ -134,11 +134,11 @@ public class OfficerResponse1 : MonoBehaviour {
 		string officerResponseText = "";
 		
 		if (mm.officer1Answer == OfficerResponse1Answer.NEVER_SEEN) {
-			officerResponseText = "Jammer, we willen met haar praten over wat ze schrijft.";
+			officerResponseText = "Jammer. Wij willen haar spreken over wat ze schrijft.";
 		} else if (mm.officer1Answer == OfficerResponse1Answer.YES) {
 			officerResponseText = "Is dat zo? Interessant!";
 		} else if (mm.officer1Answer == OfficerResponse1Answer.WHY) {
-			officerResponseText = "We willen met haar praten over wat ze schrijft.";
+			officerResponseText = "Wij willen haar spreken over wat ze schrijft.";
 		}
 		
 		cw.AddNPCBubble(officerResponseText);
@@ -147,7 +147,7 @@ public class OfficerResponse1 : MonoBehaviour {
 	}
 
 	public void ShowOfficerCommand() {
-		cw.AddNPCBubble("Als u deze journalist spreekt, zeg dan dat ze contact met ons moet opnemen.");
+		cw.AddNPCBubble("Komt u haar tegen, laat haar dan contact opnemen met ons.");
 		
 		GameObject ok = cw.AddButton ("Oké");
 		ok.GetComponentInChildren<Button>().onClick.AddListener(() => {

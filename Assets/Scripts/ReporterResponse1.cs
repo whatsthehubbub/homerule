@@ -50,7 +50,7 @@ public class ReporterResponse1 : MonoBehaviour {
 
 		cw.AddDivider();
 		
-		cw.AddNPCBubble("De politie wil me spreken. Maar ik doe toch niks verkeerd?");
+		cw.AddNPCBubble("De politie zoekt me. Maar ik doe toch niks verkeerd?");
 		
 		GameObject action = cw.AddButton("Bel ze");
 		action.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -64,12 +64,12 @@ public class ReporterResponse1 : MonoBehaviour {
 	public void ShowResponse() {
 		cw.AddNPCBubble("Dat ga ik mooi niet doen.");
 		
-		cw.AddNPCBubble("Ik vind het belangrijk om te vertellen wat er gebeurt. Daar ga ik gewoon mee door!");
+		cw.AddNPCBubble("Het is belangrijk om op te schrijven wat er gebeurt. Daar ga ik gewoon mee door!");
 		
-		GameObject ok = cw.AddButton("Oké");
+		GameObject ok = cw.AddButton("Doe dat");
 		ok.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble("Oké");
+			cw.AddPlayerBubble("Doe dat vooral. Tot later!");
 
 			cw.EnableBack();
 			chat.SetActive(false);

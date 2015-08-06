@@ -132,7 +132,7 @@ public class ReporterStory0 : MonoBehaviour {
 			cw = chat.GetComponent<ChatWindow>();
 			cw.SetArchivalChat(mm.reporterChatHistory.GetComponent<ChatWindow>());
 
-			cw.AddPlayerBubble("Øké, ik ga het behang zoeken.");
+			cw.AddPlayerBubble("Oké, ik ga het behang zoeken.");
 			
 			Invoke ("ShowClose", 0.5f);
 		});

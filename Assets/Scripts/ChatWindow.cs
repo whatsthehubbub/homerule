@@ -54,7 +54,7 @@ public class ChatWindow : MonoBehaviour {
 		GameObject scrollContent = this.gameObject.transform.Find("ScrollView/ScrollContent").gameObject;
 		
 		GameObject bubble = (GameObject)Instantiate(Resources.Load (prefabName));
-		bubble.name = party + "Button";
+		bubble.name = party + "Bubble";
 		
 		Text chatText = bubble.GetComponentInChildren<Text>();
 		chatText.text = text;

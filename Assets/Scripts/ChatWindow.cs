@@ -18,6 +18,8 @@ public class ChatWindow : MonoBehaviour {
 		buttonSound = Resources.Load<AudioClip>("Audio/choice");
 
 		this.audioSource = GameObject.Find ("Main").GetComponent<AudioSource>();
+
+		this.lastMessageDisplay = null;
 	}
 	
 	// Update is called once per frame
@@ -65,15 +67,11 @@ public class ChatWindow : MonoBehaviour {
 
 		if (party.Equals("NPC") && this.lastMessageDisplay != null) {
 			// Show the last message by the NPC in the last message display
-			try {
-				GameObject chatsender = GameObject.Find ("ChatSender" + this.lastMessageDisplay);
-				GameObject lastMessageText = chatsender.transform.Find ("ChatsButton/SenderLastMessageText").gameObject;
-				
-				lastMessageText.GetComponentInChildren<Text>().text = text;
-			} catch (System.NullReferenceException nr) {
-			}
+			GameObject chatButton = GameObject.Find (this.lastMessageDisplay + "ChatsButton");
+			GameObject lastMessageText = chatButton.transform.Find ("SenderLastMessageText").gameObject;
+			
+			lastMessageText.GetComponentInChildren<Text>().text = text;
 		}
-
 		
 		bubble.transform.SetParent (scrollContent.transform, false);
 		

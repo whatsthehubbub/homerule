@@ -6,7 +6,7 @@ public class ChatWindow : MonoBehaviour {
 
 	private ChatWindow archivalChat;
 
-	private string lastMessageDisplay;
+	public string lastMessageDisplay;
 
 	public AudioClip bubbleSound;
 	public AudioClip buttonSound;
@@ -18,8 +18,6 @@ public class ChatWindow : MonoBehaviour {
 		buttonSound = Resources.Load<AudioClip>("Audio/choice");
 
 		this.audioSource = GameObject.Find ("Main").GetComponent<AudioSource>();
-
-		this.lastMessageDisplay = null;
 	}
 	
 	// Update is called once per frame
@@ -65,12 +63,15 @@ public class ChatWindow : MonoBehaviour {
 			this.archivalChat.AddBubble(text, party);
 		}
 
-		if (party.Equals("NPC") && this.lastMessageDisplay != null) {
+		if (party.Equals("NPC") && this.lastMessageDisplay != null && !this.lastMessageDisplay.Equals("")) {
 			// Show the last message by the NPC in the last message display
 			GameObject chatButton = GameObject.Find (this.lastMessageDisplay + "ChatsButton");
-			GameObject lastMessageText = chatButton.transform.Find ("SenderLastMessageText").gameObject;
-			
-			lastMessageText.GetComponentInChildren<Text>().text = text;
+
+			if (chatButton != null) {
+				GameObject lastMessageText = chatButton.transform.Find ("SenderLastMessageText").gameObject;
+				
+				lastMessageText.GetComponentInChildren<Text>().text = text;
+			}
 		}
 		
 		bubble.transform.SetParent (scrollContent.transform, false);
@@ -83,8 +84,6 @@ public class ChatWindow : MonoBehaviour {
 	}
 
 	public GameObject AddNPCBubble(string text) {
-
-
 		return this.AddBubble(text, "NPC");
 	}
 

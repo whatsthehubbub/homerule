@@ -57,7 +57,7 @@ public class ReporterStory0 : MonoBehaviour {
 		cw = chat.GetComponent<ChatWindow>();
 		cw.SetArchivalChat(mm.reporterChatHistory.GetComponent<ChatWindow>());
 
-		cw.AddNPCBubble("Hoi! Ik ben Katja. Ik werk als journalist.");
+		cw.AddNPCBubble("Hoi, mijn naam is Katja. Ik ben verslaggever.");
 		
 		GameObject hello = cw.AddButton("Hoi");
 		hello.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -77,9 +77,9 @@ public class ReporterStory0 : MonoBehaviour {
 		cw = chat.GetComponent<ChatWindow>();
 		cw.DisableBack();
 
-		cw.AddNPCBubble("Ik zie dat je in het Airborne Museum bent. Da's cool.");
+		cw.AddNPCBubble("Je bent in het Airborne Museum! Da's cool.");
 
-		cw.AddNPCBubble("Ik wil graag schrijven over vrijheid, en in het museum is daarover van alles te zien. Jij kan me helpen!");
+		cw.AddNPCBubble("Ik wil schrijven over vrijheid. In het museum is daarover van alles te zien. Kan je me helpen?");
 
 		GameObject how = cw.AddButton ("Hoe?");
 		how.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -92,13 +92,13 @@ public class ReporterStory0 : MonoBehaviour {
 	}
 
 	public void ShowHow() {
-		cw.AddNPCBubble("Loop door het museum en let goed op. Kijk wat je kunt leren over vrijheid. Ik bel als ik een vraag voor je heb.");
+		cw.AddNPCBubble("Loop door het museum en kijk wat je kan leren over vrijheid. Ik bel als ik een vraag heb.");
 
-		GameObject ok = cw.AddButton ("Oké");
+		GameObject ok = cw.AddButton ("Goed");
 		ok.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 			
-			cw.AddPlayerBubble("Dat kan ik wel.");
+			cw.AddPlayerBubble("Is goed!");
 			
 			Invoke ("ShowInstruction", 0.5f);
 		});
@@ -111,9 +111,9 @@ public class ReporterStory0 : MonoBehaviour {
 		Image storyImage = imageObject.GetComponentInChildren<Image>();
 		storyImage.sprite = Resources.Load<Sprite>("Sprites/locatie_behang");
 
-		cw.AddNPCBubble("Fijn! Ga eerst kijken in deze gang. Daar hangt een stuk behang.");
+		cw.AddNPCBubble("Fijn. Ga je naar deze gang? Daar hangt een oud stuk behang.");
 
-		GameObject ok = cw.AddButton ("Is goed");
+		GameObject ok = cw.AddButton ("Oké");
 		ok.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 
@@ -132,7 +132,7 @@ public class ReporterStory0 : MonoBehaviour {
 			cw = chat.GetComponent<ChatWindow>();
 			cw.SetArchivalChat(mm.reporterChatHistory.GetComponent<ChatWindow>());
 
-			cw.AddPlayerBubble("Is goed, ik ga op zoek naar het behang.");
+			cw.AddPlayerBubble("Øké, ik ga het behang zoeken.");
 			
 			Invoke ("ShowClose", 0.5f);
 		});

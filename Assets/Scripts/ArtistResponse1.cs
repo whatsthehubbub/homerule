@@ -58,8 +58,15 @@ public class ArtistResponse1 : MonoBehaviour {
 		
 		GameObject what = cw.AddButton ("Ja");
 		what.GetComponentInChildren<Button>().onClick.AddListener(() => {
-			cw.AddPlayerBubble("Jij bent die kunstenaar, toch?");
-			
+
+			if (mm.story1OpinionDescription == Story1OpinionDescription.VANDAL) {
+				cw.AddPlayerBubble("Jij bent die vandaal, toch?");
+			} else if (mm.story1OpinionDescription == Story1OpinionDescription.CITIZEN) {
+				cw.AddPlayerBubble("Jij bent die man van de graffiti, toch?");
+			} else if (mm.story1OpinionDescription == Story1OpinionDescription.ARTIST) {
+				cw.AddPlayerBubble("Jij bent die kunstenaar, toch?");
+			}
+				
 			Invoke ("ShowChat", 0.5f);
 		});
 	}
@@ -72,10 +79,17 @@ public class ArtistResponse1 : MonoBehaviour {
 		
 		cw = chat.GetComponent<ChatWindow>();
 		cw.DisableBack();
+
+		if (mm.story1OpinionDescription == Story1OpinionDescription.VANDAL) {
+			cw.AddPlayerBubble("Vandaal? Even dimmen, ik ben een dichter!");
+		} else if (mm.story1OpinionDescription == Story1OpinionDescription.CITIZEN) {
+			cw.AddPlayerBubble("Klopt. Zelf noem ik het een stadsgedicht.");
+		} else if (mm.story1OpinionDescription == Story1OpinionDescription.ARTIST) {
+			cw.AddPlayerBubble("Klopt. Ik was bijna opgepakt vanwege mijn gedichten.");
+		}
 		
-		cw.AddNPCBubble("Klopt. Ik was bijna opgepakt vanwege mijn poëzie.");
-		cw.AddNPCBubble("Ik weet dat ik niet op gebouwen mag schrijven, maar doe het toch. Het moet er gewoon uit!");
-		cw.AddNPCBubble("Ik heet Frank, trouwens. Aangenaam.");
+		cw.AddNPCBubble("Ik weet dat ik niet op gebouwen mag schrijven. Maar soms doe ik het toch. Als ik echt iets te zeggen heb.");
+		cw.AddNPCBubble("Ik ben trouwens Frank. Aangenaam kennis te maken.");
 		
 		GameObject nice = cw.AddButton("Aangenaam");
 		nice.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -88,7 +102,7 @@ public class ArtistResponse1 : MonoBehaviour {
 	}
 
 	public void ShowArtistStatement() {
-		cw.AddNPCBubble("Zeg, is je niets raars opgevallen net, met die huizen?");
+		cw.AddNPCBubble("Zeg, is je iets raars opgevallen net, met die huizen?");
 
 		GameObject no = cw.AddButton("Nee");
 		no.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -118,7 +132,7 @@ public class ArtistResponse1 : MonoBehaviour {
 	}
 
 	public void ShowArtistSafety() {
-		cw.AddNPCBubble("Inderdaad. En wij vogels houden van vrijheid. We vinden het niks als iemand ons vertelt wat we moeten doen.");
+		cw.AddNPCBubble("Inderdaad. Wij vogels houden van vrijheid. We vinden het niks als iemand zegt wat we moeten doen.");
 
 		cw.AddNPCBubble("Daarom zijn we uit onze huizen gezet.");
 
@@ -146,9 +160,9 @@ public class ArtistResponse1 : MonoBehaviour {
 	}
 
 	public void ShowArtistExplanation1() {
-		cw.AddNPCBubble("We zijn eigenwijs en luidruchtig. We zitten vaak buiten op de stoep, muziek te maken.");
+		cw.AddNPCBubble("We zitten vaak buiten op de stoep, muziek te maken.");
 		
-		cw.AddNPCBubble("Het mag niet, we zorgen zogenaamd voor overlast, maar wij zijn gewoon dol op onze fluitconcerten.");
+		cw.AddNPCBubble("Dat mag niet, de politie zegt dat het zorgt voor overlast. Maar wij zijn dol op onze fluitconcerten.");
 		
 		GameObject button = cw.AddButton("Lastig!");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -161,9 +175,9 @@ public class ArtistResponse1 : MonoBehaviour {
 	}
 
 	public void ShowArtistExplanation2() {
-		cw.AddNPCBubble("Lastig of niet, ze moeten niet de waarheid verdraaien. Dat kan echt niet door de beugel.");
+		cw.AddNPCBubble("Lastig of niet, ze moeten niet liegen. Vrije vogels vinden dat verschrikkelijk!");
 
-		cw.AddNPCBubble("Maar ik bel eigenlijk om je iets te vragen.");
+		cw.AddNPCBubble("Maar ik bel om je iets te vragen.");
 		
 		GameObject button = cw.AddButton("Wat?");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -176,7 +190,7 @@ public class ArtistResponse1 : MonoBehaviour {
 	}
 
 	public void ShowArtistQuestion() {
-		cw.AddNPCBubble("Jij kent toch die journalist? Wil je me helpen dit verhaal naar buiten te brengen? Overleg als je wilt.");
+		cw.AddNPCBubble("Jij kent toch die verslaggever? Wil je me helpen dit verhaal naar buiten te brengen?");
 
 		GameObject scared = cw.AddButton("Durf niet");
 		scared.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -206,7 +220,7 @@ public class ArtistResponse1 : MonoBehaviour {
 
 			mm.artist1Answer = Artist1Answer.CONFIRM;
 
-			cw.AddPlayerBubble("Oké, ik doe het.");
+			cw.AddPlayerBubble("Oké. Ik doe het.");
 			
 			Invoke ("ShowArtistResponse", 0.5f);
 		});
@@ -214,25 +228,28 @@ public class ArtistResponse1 : MonoBehaviour {
 
 	public void ShowArtistResponse() {
 		if (mm.artist1Answer == Artist1Answer.SCARED) {
-			cw.AddNPCBubble("Kom op! Ik snap dat je het spannend vindt, de politie houdt je in de gaten. Maar dit is zo belangrijk!");
+			cw.AddNPCBubble("Ik begrijp het. De politie houdt je in de gaten, het is spannend. Maar dit is zo belangrijk. Wees moedig!");
 
 		} else if (mm.artist1Answer == Artist1Answer.DUNNO) {
-			cw.AddNPCBubble("Ik snap dat je het spannend vindt, de politie houdt je in de gaten. Maar dit is zo belangrijk!");
+			cw.AddNPCBubble("Ik begrijp het. De politie houdt je in de gaten, het is spannend. Maar dit is zo belangrijk. Wees moedig!");
 		} else if (mm.artist1Answer == Artist1Answer.CONFIRM) {
-			cw.AddNPCBubble("Wat fijn! Kun je het tegen haar zeggen als je haar spreekt?");
+			cw.AddNPCBubble("Wat fijn! Kun je haar vertellen wat er aan de hand is?");
 		}
 
 		Invoke ("ShowConclusion", 0.5f);
 	}
 
 	public void ShowConclusion() {
-		cw.AddNPCBubble("Het is schandalig hoe ze ons behandelen. Wij zijn altijd de gebeten honden!");
 
 		GameObject button = cw.AddButton("Oké");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 			
 			cw.AddPlayerBubble("Oké…");
+
+			cw.AddNPCBubble("Het is schandalig hoe ze ons behandelen. Wij zijn altijd de gebeten honden! Dat moet stoppen.");
+			cw.AddNPCBubble("Zeg, ik voel een gedicht opkomen. Ik hang op.");
+
 			
 			Invoke ("ShowClose", 0.5f);
 		});
@@ -240,9 +257,11 @@ public class ArtistResponse1 : MonoBehaviour {
 	
 	public void ShowClose() {
 		
-		GameObject button = cw.AddButton ("OK");
+		GameObject button = cw.AddButton ("Succes");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
+
+			cw.AddPlayerBubble("Succes ermee. Tot later!");
 			
 			cw.EnableBack();
 			chat.SetActive(false);

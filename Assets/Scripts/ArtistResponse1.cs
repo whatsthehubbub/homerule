@@ -103,7 +103,9 @@ public class ArtistResponse1 : MonoBehaviour {
 	public void ShowArtistLook() {
 		cw.AddNPCBubble("Kijk nog eens goed.");
 
-		// TODO add picture of the birds
+		GameObject imageBubble = cw.AddNPCImageBubble();
+		Sprite homesSprite = Resources.Load<Sprite>("Sprites/s2 intro wide");
+		imageBubble.transform.Find("BubbleImage").GetComponentInChildren<Image>().sprite = homesSprite;
 		
 		GameObject button = cw.AddButton("Vogels");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {

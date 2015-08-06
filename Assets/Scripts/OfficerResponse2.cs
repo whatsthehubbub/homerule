@@ -100,7 +100,7 @@ public class OfficerResponse2 : MonoBehaviour {
 	
 	public void ShowPossibilities() {
 		if (mm.story2FinalOpinion == Story2OpinionAnswer.SAD) {
-			cw.AddNPCBubble("Door dit bericht hebben wij extra werk. Wat een toestand! Was dat nou echt nodig?");
+			cw.AddNPCBubble("Door dit bericht hebben wij extra werk. Wat een toestand! Was die extra zorg echt nodig?");
 			cw.AddNPCBubble("Het zou fijn zijn als de verslaggever ons voortaan vraagt of het bericht in orde is.");
 		} else if (mm.story2FinalOpinion == Story2OpinionAnswer.GOOD) {
 			cw.AddNPCBubble("Dit bericht heeft geholpen. De mensen luisterden naar ons, ze gingen netjes hun huizen uit.");
@@ -154,21 +154,9 @@ public class OfficerResponse2 : MonoBehaviour {
 			cw.AddNPCBubble("O ja? Vindt u dat? Dat is goed om te weten. Wij houden u in de gaten…");
 		}
 		
-		Invoke ("ShowOfficerCloseOff", 0.5f);
+		Invoke ("ShowOfficerBye", 0.5f);
 	}
-	
-	public void ShowOfficerCloseOff() {
-		cw.AddNPCBubble("Dat was het wel.");
 		
-		GameObject button = cw.AddButton ("Oké");
-		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
-			cw.ClearButtons();
-			cw.AddPlayerBubble("Oké.");
-			
-			Invoke ("ShowOfficerBye", 0.5f);
-		});
-	}
-	
 	public void ShowOfficerBye() {
 		
 		GameObject button = cw.AddButton ("Tot ziens");

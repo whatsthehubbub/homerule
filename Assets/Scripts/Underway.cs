@@ -88,9 +88,6 @@ public class Underway : MonoBehaviour {
 		postHistoryContainer.SetActive(true);
 		chatHistoryContainer.SetActive(false);
 
-		// TODO Remove
-		return;
-
 		// Fill in the various posts
 		if (mm.story1Done) {
 			this.post1.SetActive(true);
@@ -112,10 +109,5 @@ public class Underway : MonoBehaviour {
 			this.post3.transform.Find ("PostContainer/PostText").GetComponent<Text>().text = mm.story3Text;
 			this.post3.transform.Find("PostContainer/PostImage").GetComponent<Image>().sprite = Sprite.Create (mm.story3Image, new Rect(0, 0, 200, 300), new Vector2(0.5f, 0.5f));;
 		}
-	}
-
-	// TODO remove this code
-	public void DebugButton() {
-		mm.TakeImmediateCall(2);
 	}
 }

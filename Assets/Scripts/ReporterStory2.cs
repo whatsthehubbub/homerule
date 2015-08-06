@@ -159,12 +159,7 @@ public class ReporterStory2 : MonoBehaviour {
 		
 		GameObject camera = cw.AddButton("Camera starten");
 		camera.GetComponentInChildren<Button>().onClick.AddListener(() => {
-			cw.ClearButtons();
-
 			if (Application.platform == RuntimePlatform.IPhonePlayer) {
-				GameObject imageBubble = cw.AddPlayerImageBubble();
-				imageBubble.name = "PlayerImage2";
-
 				NativeToolkit.TakeCameraShot();
 			} else {
 				// Create a blank texture
@@ -180,15 +175,24 @@ public class ReporterStory2 : MonoBehaviour {
 	 */
 	void CameraShotComplete(Texture2D img, string path)
 	{
-		mm.story2Image = img;
-		
-		GameObject bubble = GameObject.Find ("PlayerImage2");
-		GameObject bubbleImage = bubble.transform.Find ("BubbleImage").gameObject;
-		Image im = bubbleImage.GetComponentInChildren<Image>();
-		
-		im.sprite = Sprite.Create (mm.story2Image, new Rect(0, 0, mm.story2Image.width, mm.story2Image.height), new Vector2(0.5f, 0.5f));
-		
-		Invoke ("ShowFindObjectResponse", 0.5f);
+		if (path.Equals("Cancelled")) {
+			// We don't actually have to do anything, the interface is still there
+		} else {
+			cw.ClearButtons();
+
+			mm.story2Image = img;
+			
+			GameObject imageBubble = cw.AddPlayerImageBubble();
+			imageBubble.name = "PlayerImage2";
+			
+			GameObject bubbleImage = imageBubble.transform.Find ("BubbleImage").gameObject;
+			Image im = bubbleImage.GetComponentInChildren<Image>();
+			
+			im.sprite = Sprite.Create (mm.story2Image, new Rect(0, 0, mm.story2Image.width, mm.story2Image.height), new Vector2(0.5f, 0.5f));
+			
+			Invoke ("ShowFindObjectResponse", 0.5f);
+		}
+
 	}
 	
 	public void ShowFindObjectResponse() {

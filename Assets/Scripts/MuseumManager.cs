@@ -416,11 +416,21 @@ public class MuseumManager : MonoBehaviour {
 		GameObject.Find ("GoalButton").GetComponentInChildren<Text>().text = this.targetText;
 	}
 
+	public void PreCallCleanUp() {
+		GameObject goal = GameObject.Find("GoalOverlay");
+
+		if (goal != null) {
+			Destroy (goal);
+		}
+	}
+
 	public void TakeCall() {
 		if (!this.callBusy && this.storyQueue.Count > 0) {
 			string storyBit = this.storyQueue.Dequeue();
 
 			this.callBusy = true;
+
+			PreCallCleanUp();
 
 			switch (storyBit) {
 
@@ -458,6 +468,8 @@ public class MuseumManager : MonoBehaviour {
 			// Only advance the story if we don't have any outstanding response calls
 			if (this.storyQueue.Count == 0) {
 				this.callBusy = true;
+
+				PreCallCleanUp();
 
 				switch (episodeNumber) {
 				case 0:

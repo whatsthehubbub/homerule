@@ -77,6 +77,8 @@ public class ReporterResponse1 : MonoBehaviour {
 			mm.callBusy = false;
 
 			mm.targetText = "Ga naar het bord 'verboden Arnhem te betreden'";
+			mm.targetImage = Resources.Load<Sprite>("Sprites/Locaties/bord");
+
 			mm.UpdateTargetText();
 			
 			chat.SetActive(false);

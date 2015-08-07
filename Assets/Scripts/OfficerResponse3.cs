@@ -156,8 +156,21 @@ public class OfficerResponse3 : MonoBehaviour {
 
 			// TODO include news message here
 
-			// TODO make this conditional
-			cw.AddPlayerBubble("Door wat wij schreven [moest Frank de muur boenen/mocht de graffiti blijven staan/werd Frank beroemd].");
+			string resultText = "";
+			
+			switch (mm.story1Opinion) {
+				case Story1OpinionAnswer.CLEAN:
+					resultText = "moest Frank de muur boenen";
+					break;
+				case Story1OpinionAnswer.LEAVE:
+					resultText = "mocht de graffiti blijven staan";
+					break;
+				case Story1OpinionAnswer.DISPLAY:
+					resultText = "werd Frank beroemd";
+					break;
+			}
+
+			cw.AddPlayerBubble("Door wat wij schreven " + resultText + ".");
 			
 			Invoke ("PlayerRecap2", 0.5f);
 		});

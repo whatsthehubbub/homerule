@@ -154,7 +154,20 @@ public class OfficerResponse3 : MonoBehaviour {
 			
 			cw.AddPlayerBubble("U weet vast nog wel dat Frank graffiti had gespoten.");
 
-			// TODO include news message here
+			// Boiler plate to include the story
+			// TODO maybe turn that into a call
+			Sprite articleSprite = Resources.Load<Sprite>("Sprites/chat_artikel");
+			
+			GameObject imageBubble = cw.AddPlayerImageBubble();
+			imageBubble.GetComponentInChildren<Image>().sprite = articleSprite;
+			GameObject imageObject = imageBubble.transform.Find ("BubbleImage").gameObject;
+			Image storyImage = imageObject.GetComponentInChildren<Image>();
+			storyImage.sprite = Sprite.Create (mm.story1Image, new Rect(0, 0, mm.story1Image.width, mm.story1Image.height), new Vector2(0.5f, 0.5f));
+			
+			GameObject storyBubble = cw.AddPlayerBubble(mm.story1Text);
+			storyBubble.GetComponentInChildren<Image>().sprite = articleSprite;
+			storyBubble.GetComponentInChildren<Text>().color = Color.black;
+
 
 			string resultText = "";
 			
@@ -185,7 +198,20 @@ public class OfficerResponse3 : MonoBehaviour {
 			
 			cw.AddPlayerBubble("En u weet vast ook nog wel wat we  schreven over de huizen van de vogels.");
 			
-			// TODO include news message here
+			// Boiler plate to include the story
+			// TODO maybe turn that into a call
+			Sprite articleSprite = Resources.Load<Sprite>("Sprites/chat_artikel");
+			
+			GameObject imageBubble = cw.AddPlayerImageBubble();
+			imageBubble.GetComponentInChildren<Image>().sprite = articleSprite;
+			GameObject imageObject = imageBubble.transform.Find ("BubbleImage").gameObject;
+			Image storyImage = imageObject.GetComponentInChildren<Image>();
+			storyImage.sprite = Sprite.Create (mm.story2Image, new Rect(0, 0, mm.story2Image.width, mm.story2Image.height), new Vector2(0.5f, 0.5f));
+			
+			GameObject storyBubble = cw.AddPlayerBubble(mm.story2Text);
+			storyBubble.GetComponentInChildren<Image>().sprite = articleSprite;
+			storyBubble.GetComponentInChildren<Text>().color = Color.black;
+
 
 			string resultText = "";
 			switch (mm.story2FinalOpinion) {

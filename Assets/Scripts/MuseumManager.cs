@@ -143,6 +143,8 @@ public class MuseumManager : MonoBehaviour {
 
 		this.targetText = "Ga naar het begin";
 
+		this.targetImage = Resources.Load<Sprite>("Sprites/Locaties/geweer");
+
 		// Initialization
 		this.story0Done = false;
 		this.story1Done = false;

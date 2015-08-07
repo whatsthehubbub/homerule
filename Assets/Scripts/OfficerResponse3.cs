@@ -186,9 +186,21 @@ public class OfficerResponse3 : MonoBehaviour {
 			cw.AddPlayerBubble("En u weet vast ook nog wel wat we  schreven over de huizen van de vogels.");
 			
 			// TODO include news message here
-			
-			// TODO make this conditional
-			cw.AddPlayerBubble("Dat zorgde ervoor dat [er extra voor de mensen werd gezorgd/het rustig bleef/er rellen uitbraken].");
+
+			string resultText = "";
+			switch (mm.story2FinalOpinion) {
+				case Story2OpinionAnswer.GOOD:
+					resultText = "het rustig bleef";
+					break;
+				case Story2OpinionAnswer.SAD:
+					resultText = "er extra voor de mensen werd gezorgd";
+					break;
+				case Story2OpinionAnswer.WRONG:
+					resultText = "er rellen uitbraken";
+					break;
+			}
+
+			cw.AddPlayerBubble("Dat zorgde ervoor dat " + resultText + ".");
 			
 			Invoke ("PlayerRecap2", 0.5f);
 		});

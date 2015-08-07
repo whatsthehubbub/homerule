@@ -45,7 +45,7 @@ public class OfficerResponse3 : MonoBehaviour {
 		chat.name = "VideoCall";
 
 		GameObject displayImage = GameObject.Find ("DisplayImage");
-		Sprite videoCallSprite = Resources.Load<Sprite>("Sprites/agent video 2");
+		Sprite videoCallSprite = Resources.Load<Sprite>("Sprites/agent video");
 		displayImage.GetComponentInChildren<Image>().sprite = videoCallSprite;
 		
 		cw = chat.GetComponent<ChatWindow>();
@@ -320,7 +320,7 @@ public class OfficerResponse3 : MonoBehaviour {
 		cw.SetArchivalChat(mm.officerChatHistory.GetComponent<ChatWindow>());
 
 		GameObject displayImage = GameObject.Find ("DisplayImage");
-		Sprite videoCallSprite = Resources.Load<Sprite>("Sprites/agent video 2");
+		Sprite videoCallSprite = Resources.Load<Sprite>("Sprites/agent video");
 		displayImage.GetComponentInChildren<Image>().sprite = videoCallSprite;
 
 		cw.AddNPCBubble("Wat brutaal. U gaat duidelijk met de verkeerde mensen om. Dit gesprek moest maar eens voorbij zijn.");

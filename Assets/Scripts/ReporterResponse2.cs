@@ -45,7 +45,7 @@ public class ReporterResponse2 : MonoBehaviour {
 		chat.name = "VideoCall";
 
 		GameObject displayImage = GameObject.Find ("DisplayImage");
-		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/katja video");
+		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/portrait katja wide");
 		displayImage.GetComponentInChildren<Image>().sprite = katjaSprite;
 		
 		cw = chat.GetComponent<ChatWindow>();

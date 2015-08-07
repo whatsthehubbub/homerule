@@ -57,7 +57,7 @@ public class ReporterStory1 : MonoBehaviour {
 		
 		// Show the correct sprite (Journalist)
 		GameObject displayImage = GameObject.Find ("DisplayImage");
-		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/katja video");
+		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/portrait katja wide");
 		displayImage.GetComponentInChildren<Image>().sprite = katjaSprite;
 		
 		cw = chat.GetComponent<ChatWindow>();
@@ -80,7 +80,7 @@ public class ReporterStory1 : MonoBehaviour {
 	public void ShowStorySituation() {
 		// TODO input start image here
 		GameObject displayImage = GameObject.Find ("DisplayImage");
-		Sprite introSprite = Resources.Load<Sprite>("Sprites/S1 intro");
+		Sprite introSprite = Resources.Load<Sprite>("Sprites/S1 intro wide");
 		displayImage.GetComponentInChildren<Image>().sprite = introSprite;
 		
 		cw.AddNPCBubble("Die man wordt opgepakt. Heeft hij die graffiti gemaakt?");
@@ -363,7 +363,7 @@ public class ReporterStory1 : MonoBehaviour {
 
 		// Show the correct sprite (Journalist)
 		GameObject displayImage = GameObject.Find ("DisplayImage");
-		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/katja video");
+		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/portrait katja wide");
 		displayImage.GetComponentInChildren<Image>().sprite = katjaSprite;
 		
 		cw = chat.GetComponent<ChatWindow>();
@@ -387,17 +387,17 @@ public class ReporterStory1 : MonoBehaviour {
 		switch (mm.story1OpinionDescription) {
 		case Story1OpinionDescription.VANDAL:
 			cw.AddNPCBubble("De agent krijgt zijn zin. De vandaal maakt de muur schoon.");
-			spriteString = "S1 slecht";
+			spriteString = "S1 slecht wide";
 			break;
 		case Story1OpinionDescription.CITIZEN:
 			cw.AddNPCBubble("Het loopt met een sisser af. Maar niet iedereen is blij.");
 
-			spriteString = "S1 meh";
+			spriteString = "S1 meh wide";
 			break;
 		case Story1OpinionDescription.ARTIST:
 			cw.AddNPCBubble("Die kunstenaar is nu beroemd! Maar niet iedereen is blij.");
 
-			spriteString = "S1 goed";
+			spriteString = "S1 goed wide";
 			break;
 		}
 

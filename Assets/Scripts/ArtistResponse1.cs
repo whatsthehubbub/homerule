@@ -51,7 +51,7 @@ public class ArtistResponse1 : MonoBehaviour {
 		cw.SetArchivalChat(mm.artistChatHistory.GetComponent<ChatWindow>());
 
 		GameObject displayImage = GameObject.Find ("DisplayImage");
-		Sprite videoCallSprite = Resources.Load<Sprite>("Sprites/kunstenaar video");
+		Sprite videoCallSprite = Resources.Load<Sprite>("Sprites/portrait kunstenaar wide");
 		displayImage.GetComponentInChildren<Image>().sprite = videoCallSprite;
 		
 		cw.AddNPCBubble("Hoi, weet je wie ik ben?");
@@ -118,7 +118,7 @@ public class ArtistResponse1 : MonoBehaviour {
 		cw.AddNPCBubble("Kijk nog eens goed.");
 
 		GameObject imageBubble = cw.AddNPCImageBubble();
-		Sprite homesSprite = Resources.Load<Sprite>("Sprites/s2 intro wide");
+		Sprite homesSprite = Resources.Load<Sprite>("Sprites/S2 intro wide");
 		imageBubble.transform.Find("BubbleImage").GetComponentInChildren<Image>().sprite = homesSprite;
 		
 		GameObject button = cw.AddButton("Vogels");

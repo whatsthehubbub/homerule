@@ -45,7 +45,7 @@ public class OfficerResponse2 : MonoBehaviour {
 		chat.name = "VideoCall";
 
 		GameObject displayImage = GameObject.Find ("DisplayImage");
-		Sprite videoCallSprite = Resources.Load<Sprite>("Sprites/agent video");
+		Sprite videoCallSprite = Resources.Load<Sprite>("Sprites/portrait agent wide");
 		displayImage.GetComponentInChildren<Image>().sprite = videoCallSprite;
 		
 		cw = chat.GetComponent<ChatWindow>();

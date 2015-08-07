@@ -93,7 +93,7 @@ public class ReporterStory3 : MonoBehaviour {
 	public void ShowSituationImage() {
 		// Show the correct sprite (Journalist)
 		GameObject displayImage = GameObject.Find ("DisplayImage");
-		Sprite introSprite = Resources.Load<Sprite>("Sprites/S3 intro");
+		Sprite introSprite = Resources.Load<Sprite>("Sprites/S3 intro wide");
 		displayImage.GetComponentInChildren<Image>().sprite = introSprite;
 
 		cw.AddNPCBubble("Ik zit hier met Frank. Hij heeft me alles verteld. Er is bewijs, de vrije vogels worden echt tegengewerkt.");
@@ -358,15 +358,15 @@ public class ReporterStory3 : MonoBehaviour {
 		if (mm.story3Attribution == Story3Attribution.FRANK) {
 			cw.AddNPCBubble("O nee, Frank wordt opgepakt. We hadden hem moeten beschermen!");
 
-			spriteString = "S3 frank arrest";
+			spriteString = "S3 frank arrest wide";
 		} else if (mm.story3Attribution == Story3Attribution.KATJA) {
 			cw.AddNPCBubble("Help!");
 
-			spriteString = "S3 katja arrest";
+			spriteString = "S3 katja arrest wide";
 		} else if (mm.story3Attribution == Story3Attribution.ANONYMOUS) {
 			cw.AddNPCBubble("Die agent is niet blij. Maar hij kan niks doen! En de mensen weten nu van de vrije vogels.");
 
-			spriteString = "S3 agent weg";
+			spriteString = "S3 agent weg wide";
 		}
 
 		GameObject displayImage = GameObject.Find ("DisplayImage");

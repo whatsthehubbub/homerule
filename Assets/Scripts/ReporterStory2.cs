@@ -60,7 +60,7 @@ public class ReporterStory2 : MonoBehaviour {
 
 		// Show the correct sprite (Journalist)
 		GameObject displayImage = GameObject.Find ("DisplayImage");
-		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/katja video");
+		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/portrait katja wide");
 		displayImage.GetComponentInChildren<Image>().sprite = katjaSprite;
 		
 		cw = chat.GetComponent<ChatWindow>();
@@ -83,7 +83,7 @@ public class ReporterStory2 : MonoBehaviour {
 	
 	public void ShowReporterResponse1() {
 		GameObject displayImage = GameObject.Find ("DisplayImage");
-		Sprite introSprite = Resources.Load<Sprite>("Sprites/S2 intro");
+		Sprite introSprite = Resources.Load<Sprite>("Sprites/S2 intro wide");
 		displayImage.GetComponentInChildren<Image>().sprite = introSprite;
 
 		cw.AddNPCBubble("Mensen moeten hun huis uit, omdat er in de buurt gebouwd wordt. Maar niet iedereen wil weg.");
@@ -387,11 +387,11 @@ public class ReporterStory2 : MonoBehaviour {
 		// Show the correct sprite (Journalist)
 		string spriteName = "";
 		if (mm.story2FinalOpinion == Story2OpinionAnswer.GOOD) { 
-			spriteName = "S2 goed";
+			spriteName = "S2 goed wide";
 		} else if (mm.story2FinalOpinion == Story2OpinionAnswer.SAD) {
-			spriteName = "S2 zielig";
+			spriteName = "S2 zielig wide";
 		} else if (mm.story2FinalOpinion == Story2OpinionAnswer.WRONG) {
-			spriteName = "S2 slecht";
+			spriteName = "S2 slecht wide";
 		}
 		Sprite showSprite = Resources.Load<Sprite>("Sprites/" + spriteName);;
 

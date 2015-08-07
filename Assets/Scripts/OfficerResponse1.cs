@@ -56,7 +56,7 @@ public class OfficerResponse1 : MonoBehaviour {
 
 		// Show the correct sprite (Officer)
 		GameObject displayImage = GameObject.Find ("DisplayImage");
-		Sprite videoCallSprite = Resources.Load<Sprite>("Sprites/agent video");
+		Sprite videoCallSprite = Resources.Load<Sprite>("Sprites/portrait agent wide");
 		displayImage.GetComponentInChildren<Image>().sprite = videoCallSprite;
 		
 		cw = chat.GetComponent<ChatWindow>();

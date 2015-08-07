@@ -249,7 +249,7 @@ public class MuseumManager : MonoBehaviour {
 			UnityEngine.Object.DontDestroyOnLoad(officerChatHistory);
 			
 			ChatWindow officerChatWindow = officerChatHistory.GetComponent<ChatWindow>();
-			officerChatWindow.SetNPCAvatar("agent2");
+			officerChatWindow.SetNPCAvatar("agent");
 			officerChatWindow.SetLastMessageDisplay("Officer");
 			
 			officerChatHistory.transform.Find("TopBar/Title").GetComponent<Text>().text = "Agent";

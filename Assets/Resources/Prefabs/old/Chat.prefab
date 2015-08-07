@@ -242,6 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0041352571dd5459e9658a205fe99f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastMessageDisplay: 
   bubbleSound: {fileID: 0}
   buttonSound: {fileID: 0}
   audioSource: {fileID: 0}
@@ -477,8 +478,7 @@ MonoBehaviour:
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

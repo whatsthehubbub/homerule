@@ -54,7 +54,7 @@ public class OfficerResponse1 : MonoBehaviour {
 //		GameObject animatedOfficer = (GameObject)Instantiate(Resources.Load ("Prefabs/Agent Animated"));
 //		animatedOfficer.transform.parent = chat.transform;
 
-		// Show the correct sprite (Journalist)
+		// Show the correct sprite (Officer)
 		GameObject displayImage = GameObject.Find ("DisplayImage");
 		Sprite videoCallSprite = Resources.Load<Sprite>("Sprites/agent video 2");
 		displayImage.GetComponentInChildren<Image>().sprite = videoCallSprite;

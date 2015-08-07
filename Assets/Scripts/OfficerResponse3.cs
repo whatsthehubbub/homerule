@@ -55,7 +55,7 @@ public class OfficerResponse3 : MonoBehaviour {
 		
 		cw.AddNPCBubble("Ahum. Ik wil toch nog even met u spreken.");
 		
-		GameObject button = cw.AddButton ("Oké");
+		GameObject button = cw.AddButton ("Vooruit");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.AddPlayerBubble("Vooruit dan.");
 			
@@ -73,7 +73,7 @@ public class OfficerResponse3 : MonoBehaviour {
 		cw = chat.GetComponent<ChatWindow>();
 		cw.DisableBack();
 
-		cw.AddNPCBubble("Fijn. Zeg, dit bericht hebt u vast eerder gezien.");
+		cw.AddNPCBubble("Fijn. Dit bericht hebt u vast eerder gezien.");
 
 		Sprite articleSprite = Resources.Load<Sprite>("Sprites/chat_artikel");
 
@@ -88,22 +88,22 @@ public class OfficerResponse3 : MonoBehaviour {
 		storyBubble.GetComponentInChildren<Text>().color = Color.black;
 
 		if (mm.story3Attribution == Story3Attribution.FRANK) {
-			cw.AddNPCBubble("Die vogel zorgde voor veel onrust, daarom moesten we hem arresteren.");
+			cw.AddNPCBubble("Die flierefluiters zorgden voor onrust. Daarom hebben we de dichter gearresteerd.");
 
 			Invoke ("ShowStatement1", 0.5f);
 		} else if (mm.story3Attribution == Story3Attribution.KATJA) {
-			cw.AddNPCBubble("Dit soort nieuws zorgt voor onrust, we konden die journalist niet laten lopen.");
+			cw.AddNPCBubble("Dit soort nieuws zorgt voor onrust. We konden die schrijvende pers niet laten lopen.");
 
 			Invoke ("ShowStatement1", 0.5f);
 		} else if (mm.story3Attribution == Story3Attribution.ANONYMOUS) {
-			cw.AddNPCBubble("Volgens mij weet u donders goed wie hierachter zit! We houden u in de gaten.");
+			cw.AddNPCBubble("U weet donders goed wie hierachter zit! We houden u in de gaten.");
 
 			Invoke ("ShowStatement1", 0.5f);
 		}
 	}
 
 	public void ShowStatement1() {
-		cw.AddNPCBubble("We moeten hard optreden, dan kunnen we dit soort gedoe voortaan voorkomen.");
+		cw.AddNPCBubble("We moeten hard optreden. Dan kunnen we dit gedoe voortaan voorkomen.");
 
 		GameObject button = cw.AddButton ("Oneens");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -153,7 +153,7 @@ public class OfficerResponse3 : MonoBehaviour {
 		button1.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 
-			cw.AddPlayerBubble("Orde is belangrijk, maar niet zo belangrijk dat mensen er hun vrijheid voor moeten opgeven.");
+			cw.AddPlayerBubble("Orde is belangrijk. Maar niet zo belangrijk dat mensen hun vrijheid ervoor moeten opgeven.");
 			
 			Invoke ("ShowResponse", 0.5f);
 		});
@@ -171,7 +171,7 @@ public class OfficerResponse3 : MonoBehaviour {
 		button3.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 
-			cw.AddPlayerBubble("U bent gewoon bang dat het een rommeltje wordt. Maar zo'n vaart zal het heus niet lopen.");
+			cw.AddPlayerBubble("U bent gewoon bang dat het een rommeltje wordt. Maar zo'n vaart zal het niet lopen.");
 			
 			Invoke ("ShowResponse", 0.5f);
 		});
@@ -207,7 +207,7 @@ public class OfficerResponse3 : MonoBehaviour {
 
 		cw.AddNPCBubble("Wat brutaal. U gaat duidelijk met de verkeerde mensen om. Dit gesprek moest maar eens voorbij zijn.");
 
-		cw.AddNPCBubble("Gaat u terug naar de ruimte met de medailles als u klaar bent?");
+		cw.AddNPCBubble("Gaat u terug naar het geweer als u klaar bent in het museum?");
 
 		GameObject button = cw.AddButton ("Oké");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {

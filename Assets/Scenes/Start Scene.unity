@@ -2254,9 +2254,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.20000005
-  m_Text: 'De tablet weet waar je bent in het museum, en de figuren vertellen je waar
-    je heen moet. Je hoeft alleen te zoeken op de begane grond en de eerste verdieping
-    van het Airborne Museum.
+  m_Text: 'De tablet weet waar je bent in het museum. Je hoeft alleen te zoeken op
+    de begane grond en de eerste verdieping van het Airborne Museum.
 
 
     Ben je er klaar voor? Ga dan naar deze plek om het spel te beginnen:

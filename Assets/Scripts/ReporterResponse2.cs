@@ -54,7 +54,7 @@ public class ReporterResponse2 : MonoBehaviour {
 		cw.AddDivider();
 		
 		cw.AddNPCBubble("Hoi, ik verveel me! Niks om over te schrijven.");
-		cw.AddNPCBubble("Heb jij toevallig nog een nieuwtje opgepikt?");
+		cw.AddNPCBubble("Heb jij nog nieuws?");
 
 		GameObject button = cw.AddButton ("Vogels");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -73,7 +73,7 @@ public class ReporterResponse2 : MonoBehaviour {
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons ();
 
-			cw.AddPlayerBubble("Omdat ze lastig zijn, omdat ze van vrijheid houden.");
+			cw.AddPlayerBubble("Omdat ze lastig zijn. Omdat ze van vrijheid houden.");
 			
 			Invoke ("ShowChat", 0.5f);
 		});
@@ -88,12 +88,21 @@ public class ReporterResponse2 : MonoBehaviour {
 		cw = chat.GetComponent<ChatWindow>();
 		cw.DisableBack();
 		
-		cw.AddNPCBubble("Als dat klopt, moeten we erover schrijven! Maar hoe weet jij het eigenlijk?");
+		cw.AddNPCBubble("Als dat klopt, moeten we erover schrijven! Maar hoe weet je dat?");
 		
 		GameObject button1 = cw.AddButton("Frank");
 		button1.GetComponentInChildren<Button>().onClick.AddListener(() => {
-			cw.AddPlayerBubble("Ik hoorde het van Frank, de man die op de muur had geschreven.");
 
+			if (mm.story1OpinionDescription == Story1OpinionDescription.VANDAL) {
+				cw.AddPlayerBubble("Ik hoorde het van Frank. Je weet wel, die vandaal. Hij noemt zichzelf dichter.");
+			} else if (mm.story1OpinionDescription == Story1OpinionDescription.CITIZEN) {
+				cw.AddPlayerBubble("Ik hoorde het van Frank, die man van de graffiti. Zelf noemt hij het een gedicht.");
+			} else if (mm.story1OpinionDescription == Story1OpinionDescription.ARTIST) {
+				cw.AddPlayerBubble("Ik hoorde het van Frank. Je weet wel, die kunstenaar. Zelf noemt hij zich dichter.");
+			}
+
+			cw.AddPlayerBubble("Als we erover schrijven, weet ik niet of we Frank in het bericht moeten zetten. Anders wordt hij misschien opgepakt.");
+			
 			mm.reporter2Source = Reporter2Source.FRANK;
 
 			cw.ClearButtons();
@@ -103,7 +112,7 @@ public class ReporterResponse2 : MonoBehaviour {
 
 		GameObject button2 = cw.AddButton("Zelf ontdekt");
 		button2.GetComponentInChildren<Button>().onClick.AddListener(() => {
-			cw.AddPlayerBubble("Ik heb het zelf ontdekt. Maar ik weet nog niet of ik mijn naam onder het bericht wil, de politie houdt ons in de gaten.");
+			cw.AddPlayerBubble("Ik heb het zelf ontdekt. Als we erover schrijven, weet ik niet of we het bericht moeten ondertekenen. De politie houdt ons in de gaten.");
 
 			mm.reporter2Source = Reporter2Source.SELF;
 
@@ -114,7 +123,7 @@ public class ReporterResponse2 : MonoBehaviour {
 
 		GameObject button3 = cw.AddButton("Anonieme bron");
 		button3.GetComponentInChildren<Button>().onClick.AddListener(() => {
-			cw.AddPlayerBubble("Ik heb het van een kwetsbaar iemand. We moeten geheimhouden wie hij is, anders wordt hij misschien opgepakt.");
+			cw.AddPlayerBubble("Ik hoorde het van een kwetsbaar iemand. We moeten geheimhouden wie hij is. Anders wordt hij misschien opgepakt.");
 
 			mm.reporter2Source = Reporter2Source.ANONYMOUS;
 
@@ -138,9 +147,7 @@ public class ReporterResponse2 : MonoBehaviour {
 	}
 
 	public void ShowGoal() {
-		cw.AddNPCBubble("Ik heb een idee. Kun je in het museum op zoek gaan naar de munten met koningin Wilhelmina erop?");
-
-		cw.AddNPCBubble("Misschien kunnen we daar een foto van maken. Ik vertel straks wel waarom.");
+		cw.AddNPCBubble("Ik heb een idee. Kun je op zoek gaan naar de foto van koningin Wilhelmina? Ik leg het straks wel uit.");
 
 		GameObject button = cw.AddButton ("Oké");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {

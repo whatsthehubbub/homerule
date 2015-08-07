@@ -105,24 +105,91 @@ public class OfficerResponse3 : MonoBehaviour {
 	public void ShowStatement1() {
 		cw.AddNPCBubble("We moeten hard optreden. Dan kunnen we dit gedoe voortaan voorkomen.");
 
-		GameObject button = cw.AddButton ("Oneens");
-		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
+		GameObject disagreeButton = cw.AddButton ("Oneens");
+		disagreeButton.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 			cw.AddPlayerBubble("Daar ben ik het niet mee eens.");
 			
-			Invoke ("ShowStatement2", 0.5f);
+			Invoke ("OfficerQuestionWhy1", 0.5f);
+		});
+
+		GameObject understandButton = cw.AddButton ("Snap ik");
+		understandButton.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			cw.ClearButtons();
+			cw.AddPlayerBubble("Ik snap dat u dat zegt. Maar het is niet verstandig.");
+			
+			Invoke ("OfficerQuestionWhy2", 0.5f);
 		});
 	}
 
-	public void ShowStatement2() {
+	public void OfficerQuestionWhy1() {
 		cw.AddNPCBubble("O nee, waarom dan niet?");
-		
+
+		StartPlayerRecap();
+	}
+
+	public void OfficerQuestionWhy2() {
+		cw.AddNPCBubble("Niet verstandig? Kunt u dat uitleggen?");
+
+		StartPlayerRecap();
+	}
+
+	public void StartPlayerRecap() {
 		GameObject button = cw.AddButton ("Berichten");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble("Kijk nog eens naar de berichten van de afgelopen tijd. Die hebben veranderd hoe de mensen denken.");
-			cw.AddPlayerBubble("Er zijn altijd manieren om te vertellen wat er gebeurt.");
 
+			cw.AddPlayerBubble("Kijk nog eens naar de berichten van de afgelopen tijd.");
+
+			Invoke ("PlayerRecap1", 0.5f);
+		});
+	}
+
+	public void PlayerRecap1() {
+		cw.AddNPCBubble("Wat is daarmee?");
+
+		GameObject button = cw.AddButton ("Graffiti");
+		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			cw.ClearButtons();
+			
+			cw.AddPlayerBubble("U weet vast nog wel dat Frank graffiti had gespoten.");
+
+			// TODO include news message here
+
+			// TODO make this conditional
+			cw.AddPlayerBubble("Door wat wij schreven [moest Frank de muur boenen/mocht de graffiti blijven staan/werd Frank beroemd].");
+			
+			Invoke ("PlayerRecap2", 0.5f);
+		});
+	}
+
+	public void PlayerRecap2() {
+		cw.AddNPCBubble("Ja…");
+
+		GameObject button = cw.AddButton ("Huizen");
+		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			cw.ClearButtons();
+			
+			cw.AddPlayerBubble("En u weet vast ook nog wel wat we  schreven over de huizen van de vogels.");
+			
+			// TODO include news message here
+			
+			// TODO make this conditional
+			cw.AddPlayerBubble("Dat zorgde ervoor dat [er extra voor de mensen werd gezorgd/het rustig bleef/er rellen uitbraken].");
+			
+			Invoke ("PlayerRecap2", 0.5f);
+		});
+	}
+
+	public void PlayerRecapClose() {
+		cw.AddNPCBubble("Dat weet ik nog wel, ja!");
+
+		GameObject button = cw.AddButton ("Niet te stoppen");
+		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			cw.ClearButtons();
+			
+			cw.AddPlayerBubble("Verslaggevers zijn niet te stoppen. Ze zullen altijd schrijven over wat er gebeurt. Daar moet de politie rekening mee houden.");
+			
 			Invoke ("ShowStatement3", 0.5f);
 		});
 	}

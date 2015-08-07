@@ -116,7 +116,7 @@ public class OfficerResponse3 : MonoBehaviour {
 		GameObject understandButton = cw.AddButton ("Snap ik");
 		understandButton.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble("Ik snap dat u dat zegt. Maar het is niet verstandig.");
+			cw.AddPlayerBubble("Ik snap dat u dat zegt.");
 			
 			Invoke ("OfficerQuestionWhy2", 0.5f);
 		});
@@ -129,7 +129,7 @@ public class OfficerResponse3 : MonoBehaviour {
 	}
 
 	public void OfficerQuestionWhy2() {
-		cw.AddNPCBubble("Niet verstandig? Kunt u dat uitleggen?");
+		cw.AddNPCBubble("Fijn! Hoe kijkt u hier zelf tegenaan?");
 
 		StartPlayerRecap();
 	}
@@ -139,14 +139,14 @@ public class OfficerResponse3 : MonoBehaviour {
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 
-			cw.AddPlayerBubble("Kijk nog eens naar de berichten van de afgelopen tijd.");
+			cw.AddPlayerBubble("De berichten van de afgelopen tijd zeggen eigenlijk alles.");
 
 			Invoke ("PlayerRecap1", 0.5f);
 		});
 	}
 
 	public void PlayerRecap1() {
-		cw.AddNPCBubble("Wat is daarmee?");
+		cw.AddNPCBubble("Hoe bedoelt u?");
 
 		GameObject button = cw.AddButton ("Graffiti");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -196,7 +196,7 @@ public class OfficerResponse3 : MonoBehaviour {
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 			
-			cw.AddPlayerBubble("En u weet vast ook nog wel wat we  schreven over de huizen van de vogels.");
+			cw.AddPlayerBubble("En u weet vast ook nog wat we schreven over de huizen van de vogels.");
 			
 			// Boiler plate to include the story
 			// TODO maybe turn that into a call
@@ -257,7 +257,7 @@ public class OfficerResponse3 : MonoBehaviour {
 			} else if (mm.story3Attribution == Story3Attribution.KATJA) {
 				cw.AddPlayerBubble("Wat gebeurt er bijvoorbeeld als de arrestatie van Katja in het nieuws komt?");
 			} else if (mm.story3Attribution == Story3Attribution.ANONYMOUS) {
-				cw.AddPlayerBubble("Wat gebeurt er bijvoorbeeld als ik iedereen vertel hoe u nu tegen mij praat?");
+				cw.AddPlayerBubble("Wat gebeurt er bijvoorbeeld als ik opschrijf wat u net zei over hard optreden?");
 			}
 
 			Invoke ("ShowQuestion", 0.5f);
@@ -276,11 +276,11 @@ public class OfficerResponse3 : MonoBehaviour {
 			Invoke ("ShowResponse", 0.5f);
 		});
 
-		GameObject button2 = cw.AddButton ("Oorlog");
+		GameObject button2 = cw.AddButton ("Bezetting");
 		button2.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 
-			cw.AddPlayerBubble("Hier in het museum zie je wat er gebeurt als mensen hun vrijheid moeten opgeven. Dan maar iets minder orde!");
+			cw.AddPlayerBubble("Hier in het museum zie je wat er gebeurt als mensen hun vrijheid moeten opgeven. De bezetting was ook orderlijk bedoeld!");
 			
 			Invoke ("ShowResponse", 0.5f);
 		});

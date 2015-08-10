@@ -77,6 +77,7 @@ public class MuseumManager : MonoBehaviour {
 	public List<int> locations = new List<int>(new int[] {53868, 48618, 22290, 48174});
 
 	public bool forceCalls = false;
+	public float callDelay = 10.0f;
 
 	public Queue<string> storyQueue = new Queue<string>();
 	public bool callBusy = false;
@@ -439,41 +440,47 @@ public class MuseumManager : MonoBehaviour {
 	}
 
 	public void TakeCall() {
+		// Do the check and if we have a call to show, then block and invoke that in 10 seconds
 		if (!this.callBusy && this.storyQueue.Count > 0) {
-			string storyBit = this.storyQueue.Dequeue();
-
+			Debug.Log ("Going to take a call in a bit (delayed).");
 			this.callBusy = true;
 
-			PreCallCleanUp();
+			Invoke("TakeCallDelayed", UnityEngine.Random.Range(callDelay*0.66f, callDelay*1.33f));
+		}
+	}
 
-			switch (storyBit) {
+	public void TakeCallDelayed() {
+		string storyBit = this.storyQueue.Dequeue();
 
-			// New style labels for the various calls you can get
-			case "OFFICERRESPONSE1":
-				this.gameObject.AddComponent<OfficerResponse1>();
-				
-				break;
-			case "REPORTERRESPONSE1":
-				this.gameObject.AddComponent<ReporterResponse1>();
-				
-				break;
-			case "OFFICERRESPONSE2":
-				this.gameObject.AddComponent<OfficerResponse2>();
-				
-				break;
-			case "ARTISTRESPONSE1":
-				this.gameObject.AddComponent<ArtistResponse1>();
-				
-				break;
-			case "REPORTERRESPONSE2":
-				this.gameObject.AddComponent<ReporterResponse2>();
-				
-				break;
-			case "OFFICERRESPONSE3":
-				this.gameObject.AddComponent<OfficerResponse3>();
-				
-				break;
-			}
+		PreCallCleanUp();
+
+		switch (storyBit) {
+
+		// New style labels for the various calls you can get
+		case "OFFICERRESPONSE1":
+			this.gameObject.AddComponent<OfficerResponse1>();
+			
+			break;
+		case "REPORTERRESPONSE1":
+			this.gameObject.AddComponent<ReporterResponse1>();
+			
+			break;
+		case "OFFICERRESPONSE2":
+			this.gameObject.AddComponent<OfficerResponse2>();
+			
+			break;
+		case "ARTISTRESPONSE1":
+			this.gameObject.AddComponent<ArtistResponse1>();
+			
+			break;
+		case "REPORTERRESPONSE2":
+			this.gameObject.AddComponent<ReporterResponse2>();
+			
+			break;
+		case "OFFICERRESPONSE3":
+			this.gameObject.AddComponent<OfficerResponse3>();
+			
+			break;
 		}
 	}
 

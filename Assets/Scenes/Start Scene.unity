@@ -1870,7 +1870,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   locations: 6cd20000eabd0000125700002ebc0000
-  forceCalls: 1
+  forceCalls: 0
+  callDelay: 10
   callBusy: 0
   canvas: {fileID: 0}
   reporterButton: {fileID: 0}

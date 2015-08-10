@@ -71,6 +71,11 @@ public enum Story3Attribution {
 	ANONYMOUS
 }
 
+public enum Officer3Response {
+	DISAGREE,
+	UNDERSTAND
+}
+
 
 
 public class MuseumManager : MonoBehaviour {
@@ -126,6 +131,8 @@ public class MuseumManager : MonoBehaviour {
 	[System.NonSerialized] public Texture2D story3Image;
 
 	public bool story4Done = false;
+
+	public Officer3Response officer3Response;
 
 	private List<Beacon> mybeacons = new List<Beacon>();
 	private bool scanning = true;

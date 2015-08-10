@@ -111,6 +111,8 @@ public class OfficerResponse3 : MonoBehaviour {
 		disagreeButton.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 			cw.AddPlayerBubble("Daar ben ik het niet mee eens.");
+
+			mm.officer3Response = Officer3Response.DISAGREE;
 			
 			Invoke ("OfficerQuestionWhy1", 0.5f);
 		});
@@ -119,6 +121,8 @@ public class OfficerResponse3 : MonoBehaviour {
 		understandButton.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 			cw.AddPlayerBubble("Ik snap dat u dat zegt.");
+
+			mm.officer3Response = Officer3Response.UNDERSTAND;
 			
 			Invoke ("OfficerQuestionWhy2", 0.5f);
 		});

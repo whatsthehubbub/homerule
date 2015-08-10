@@ -57,6 +57,8 @@ public class OfficerResponse3 : MonoBehaviour {
 		
 		GameObject button = cw.AddButton ("Vooruit");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			cw.ClearButtons();
+
 			cw.AddPlayerBubble("Vooruit dan.");
 			
 			Invoke ("ShowArticle", 0.5f);

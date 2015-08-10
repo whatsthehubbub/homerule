@@ -327,8 +327,8 @@ public class MuseumManager : MonoBehaviour {
 		
 		bool found = false;
 		foreach (Beacon b in mybeacons) {
-//			if (b.range == BeaconRange.NEAR || b.range == BeaconRange.IMMEDIATE) {
-			if (b.range == BeaconRange.IMMEDIATE) {
+			if (b.range == BeaconRange.NEAR || b.range == BeaconRange.IMMEDIATE) {
+//			if (b.range == BeaconRange.IMMEDIATE) {
 
 				if (locations.IndexOf(b.minor) != -1) {
 					found = true;

@@ -151,6 +151,13 @@ public class MuseumManager : MonoBehaviour {
 		this.story2Done = false;
 		this.story3Done = false;
 		this.story4Done = false;
+
+		// On desktop we want to initialize all the images with something otherwise we get a null if we jump randomly through the story
+		if (Application.platform != RuntimePlatform.IPhonePlayer) {
+			story1Image = new Texture2D(2, 2, TextureFormat.ARGB32, false);
+			story2Image = new Texture2D(2, 2, TextureFormat.ARGB32, false);
+			story3Image = new Texture2D(2, 2, TextureFormat.ARGB32, false);
+		}
 	}
 	
 	void OnDestroy() {

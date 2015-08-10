@@ -304,11 +304,21 @@ public class OfficerResponse3 : MonoBehaviour {
 	public void ShowResponse() {
 		cw.AddNPCBubble("Ik weet het niet… Ik volg ook maar gewoon de regels.");
 
-		GameObject button = cw.AddButton ("Dan niet");
+		GameObject button = null;
+		if (mm.officer3Response == Officer3Response.DISAGREE) {
+			button = cw.AddButton ("Dan niet");
+		} else if (mm.officer3Response == Officer3Response.UNDERSTAND) {
+			button = cw.AddButton ("Begrijp ik");
+		}
+
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 
-			cw.AddPlayerBubble("Nou, dan niet.");
+			if (mm.officer3Response == Officer3Response.DISAGREE) {
+				cw.AddPlayerBubble("Nou, dan niet.");
+			} else if (mm.officer3Response == Officer3Response.UNDERSTAND) {
+				cw.AddPlayerBubble("Dat begrijp ik. U doet uw best.");
+			}
 			
 			Invoke ("ShowConclusion", 0.5f);
 		});
@@ -329,7 +339,11 @@ public class OfficerResponse3 : MonoBehaviour {
 		Sprite videoCallSprite = Resources.Load<Sprite>("Sprites/portrait agent wide");
 		displayImage.GetComponentInChildren<Image>().sprite = videoCallSprite;
 
-		cw.AddNPCBubble("Wat brutaal. U gaat duidelijk met de verkeerde mensen om. Dit gesprek moest maar eens voorbij zijn.");
+		if (mm.officer3Response == Officer3Response.DISAGREE) {
+			cw.AddNPCBubble("Wat brutaal. U gaat duidelijk met de verkeerde mensen om. Dit gesprek moest maar eens voorbij zijn.");
+		} else if (mm.officer3Response == Officer3Response.UNDERSTAND) {
+			cw.AddNPCBubble("Dat waardeer ik. De vogelproblematiek is pittig.");
+		}
 
 		cw.AddNPCBubble("Gaat u terug naar het geweer als u klaar bent in het museum?");
 

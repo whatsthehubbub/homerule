@@ -424,6 +424,11 @@ public class MuseumManager : MonoBehaviour {
 		if (goal != null) {
 			Destroy (goal);
 		}
+
+		// Close the chat histories
+		reporterChatHistory.SetActive(false);
+		officerChatHistory.SetActive(false);
+		artistChatHistory.SetActive(false);
 	}
 
 	public void TakeCall() {

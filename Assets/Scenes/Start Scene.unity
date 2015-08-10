@@ -1560,8 +1560,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.20000005
-  m_Text: Wil je samen spelen? Dat kan! Lees aan elkaar voor, en overleg over de keuzes.
-    Ouders mogen ook meedoen!
+  m_Text: Wil je samen spelen? Dat kan. Lees de teksten hardop voor, en overleg met
+    elkaar. Ouders mogen ook meedoen!
 --- !u!222 &1198826208
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2112,10 +2112,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.20000005
-  m_Text: "Welkom bij <b>Vrije Vogels</b>!\n\nTijdens dit spel ontmoet je allerlei
-    figuren die je via deze tablet om hulp gaan vragen. Bijvoorbeeld door foto\u2019s
-    te maken of mee te denken over lastige beslissingen.\n\nEn let op: elke keuze
-    kan gevolgen hebben!"
+  m_Text: "Welkom bij <b>Vrije Vogels</b>.\n\nIn dit spel moet je mensen helpen door
+    foto\u2019s te maken en mee te denken over lastige beslissingen. Elke keuze kan
+    gevolgen hebben!"
 --- !u!222 &1504017768
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2253,9 +2252,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.20000005
-  m_Text: "Je hoeft tijdens het spel alleen maar te zoeken op de begane grond en de
-    eerste verdieping van het <b>Airborne Museum</b>. \n\nBen je er klaar voor? Ga
-    dan naar deze plek om het spel te beginnen:\n"
+  m_Text: 'De tablet weet waar je bent in het museum. Je hoeft alleen te zoeken op
+    de begane grond en de eerste verdieping van het <b>Airborne Museum</b>.
+
+
+    Ben je er klaar voor? Ga dan naar deze plek om het spel te beginnen:'
 --- !u!222 &1778503390
 CanvasRenderer:
   m_ObjectHideFlags: 0

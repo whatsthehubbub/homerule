@@ -278,11 +278,11 @@ public class OfficerResponse3 : MonoBehaviour {
 			Invoke ("ShowResponse", 0.5f);
 		});
 
-		GameObject button2 = cw.AddButton ("Bezetting");
+		GameObject button2 = cw.AddButton ("Oorlog");
 		button2.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 
-			cw.AddPlayerBubble("Hier in het museum zie je wat er gebeurt als mensen hun vrijheid moeten opgeven. De bezetting was ook orderlijk bedoeld!");
+			cw.AddPlayerBubble("Hier in het museum zie je wat er gebeurt als mensen hun vrijheid moeten opgeven. Dan maar iets minder orde!");
 			
 			Invoke ("ShowResponse", 0.5f);
 		});

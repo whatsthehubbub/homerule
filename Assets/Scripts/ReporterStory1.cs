@@ -315,7 +315,7 @@ public class ReporterStory1 : MonoBehaviour {
 	public void WritePiece() {
 		cw.AddNPCBubble("Oké! Dit is mijn bericht:");
 
-		string message = "Als iemand op een muur schrijft, is dat niet altijd slecht bedoeld. ";
+		string message = "Als iemand op een muur schrijft, is dat niet altijd slecht bedoeld.";
 
 		switch (mm.story1OpinionDescription) {
 		case Story1OpinionDescription.VANDAL:

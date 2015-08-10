@@ -162,6 +162,8 @@ public class ReporterStory2 : MonoBehaviour {
 			if (Application.platform == RuntimePlatform.IPhonePlayer) {
 				NativeToolkit.TakeCameraShot();
 			} else {
+				cw.ClearButtons();
+
 				// Create a blank texture
 				mm.story2Image = new Texture2D(2, 2, TextureFormat.ARGB32, false);
 

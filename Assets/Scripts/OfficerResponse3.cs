@@ -228,7 +228,7 @@ public class OfficerResponse3 : MonoBehaviour {
 
 			cw.AddPlayerBubble("Dat zorgde ervoor dat " + resultText + ".");
 			
-			Invoke ("PlayerRecap2", 0.5f);
+			Invoke ("PlayerRecapClose", 0.5f);
 		});
 	}
 

@@ -109,7 +109,7 @@ public class ReporterStory0 : MonoBehaviour {
 		GameObject imageBubble = cw.AddNPCImageBubble();
 		GameObject imageObject = imageBubble.transform.Find ("BubbleImage").gameObject;
 		Image storyImage = imageObject.GetComponentInChildren<Image>();
-		storyImage.sprite = Resources.Load<Sprite>("Sprites/locatie_behang");
+		storyImage.sprite = Resources.Load<Sprite>("Sprites/Locaties/behang");
 
 		cw.AddNPCBubble("Fijn. Ga je naar deze gang? Daar hangt een oud stuk behang.");
 

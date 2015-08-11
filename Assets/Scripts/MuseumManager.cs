@@ -415,9 +415,6 @@ public class MuseumManager : MonoBehaviour {
 	}
 
 	public void MovedOutOfBeaconRange() {
-
-//		Debug.Log (string.Join(", ", Array.ConvertAll(this.storyQueue.ToArray(), i => i.ToString())));
-
 		// Check whether we have a bit of story to show and give that
 		TakeCall ();
 	}

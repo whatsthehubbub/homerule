@@ -157,7 +157,7 @@ public class ReporterResponse2 : MonoBehaviour {
 			
 			mm.callBusy = false;
 
-			mm.targetText = "Ga naar de Wilhelmina-munten";
+			mm.targetText = "Ga naar de foto van koningin Wilhelmina";
 			mm.targetImage = Resources.Load<Sprite>("Sprites/Locaties/wilhelmina");
 
 			mm.UpdateTargetText();

@@ -425,11 +425,16 @@ public class MuseumManager : MonoBehaviour {
 	}
 
 	public void PreCallCleanUp() {
+		// Destroy the overlay if there is one
 		GameObject goal = GameObject.Find("GoalOverlay");
 
 		if (goal != null) {
 			Destroy (goal);
 		}
+
+		// Switch back to the Calls Tab because of some weird Unity stuff
+		GameObject camera = GameObject.Find ("Main Camera");
+		camera.GetComponentInChildren<Underway>().ShowChatHistory();
 
 		// Close the chat histories
 		reporterChatHistory.SetActive(false);

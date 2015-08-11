@@ -823,9 +823,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Als er op muren wordt geklad, is dat niet altijd bedoeld om dingen kapot
-    of vies te maken\u2026 er zit vast een diepere reden achter. Mensen zijn mensen,
-    in de oorlog en nu. Ze zitten ingewikkeld in elkaar."
+  m_Text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean congue tempus
+    nunc, non pellentesque nunc tempor in. Etiam ultrices est.
 --- !u!222 &438938910
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -913,9 +912,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Als er op muren wordt geklad, is dat niet altijd bedoeld om dingen kapot
-    of vies te maken\u2026 er zit vast een diepere reden achter. Mensen zijn mensen,
-    in de oorlog en nu. Ze zitten ingewikkeld in elkaar."
+  m_Text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean congue tempus
+    nunc, non pellentesque nunc tempor in. Etiam ultrices est.
 --- !u!222 &713037725
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2527,12 +2525,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Als er op muren wordt geklad, is dat niet altijd bedoeld om dingen kapot
-    of vies te maken\u2026 er zit vast een diepere reden achter. Mensen zijn mensen,
-    in de oorlog en nu. Ze zittr zit vast een diepere reden achter. Mensen zijn mensen,
-    in de oorlog en nu. Ze zittr zit vast een diepere reden achter. Mensen zijn mensen,
-    in de oorlog en nu. Ze zittr z sth sntahu sntaeho usanthoeu sanoehtu saenouht
-    esahtn aosehtnu asntheo snahto uaeotnshau snhuat "
+  m_Text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean congue tempus
+    nunc, non pellentesque nunc tempor in. Etiam ultrices est.
 --- !u!222 &1474944027
 CanvasRenderer:
   m_ObjectHideFlags: 0

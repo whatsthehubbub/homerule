@@ -291,10 +291,9 @@ public class MuseumManager : MonoBehaviour {
 			artistButton = GameObject.Find("ArtistChatsButton");
 
 			// Hide the chat history buttons of people we haven't talked to yet
-			// TODO switch this back on.
-//			reporterButton.SetActive(false);
-//			officerButton.SetActive(false);
-//			artistButton.SetActive(false);
+			reporterButton.SetActive(false);
+			officerButton.SetActive(false);
+			artistButton.SetActive(false);
 		}
 	}
 	

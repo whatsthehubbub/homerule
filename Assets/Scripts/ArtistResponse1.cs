@@ -58,6 +58,7 @@ public class ArtistResponse1 : MonoBehaviour {
 		
 		GameObject what = cw.AddButton ("Ja");
 		what.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			cw.ClearButtons();
 
 			if (mm.story1OpinionDescription == Story1OpinionDescription.VANDAL) {
 				cw.AddPlayerBubble("Jij bent die vandaal, toch?");

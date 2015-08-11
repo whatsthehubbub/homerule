@@ -61,8 +61,9 @@ public class ReporterStory0 : MonoBehaviour {
 		
 		GameObject hello = cw.AddButton("Hoi");
 		hello.GetComponentInChildren<Button>().onClick.AddListener(() => {
-			cw.AddPlayerBubble("Hoi Katja!");
 			cw.ClearButtons();
+
+			cw.AddPlayerBubble("Hoi Katja!");
 
 			Invoke ("ShowHello", 0.5f);
 		});

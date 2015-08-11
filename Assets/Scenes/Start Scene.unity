@@ -1902,6 +1902,7 @@ MonoBehaviour:
   story3Text: 
   story3Done: 0
   story4Done: 0
+  officer3Response: 0
 --- !u!4 &1313762165
 Transform:
   m_ObjectHideFlags: 0

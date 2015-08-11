@@ -66,6 +66,8 @@ public class OfficerResponse1 : MonoBehaviour {
 		
 		GameObject what = cw.AddButton ("Wat is er?");
 		what.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			cw.ClearButtons();
+
 			cw.AddPlayerBubble("Wat is er aan de hand?");
 			
 			Invoke ("ShowChatButton", 0.5f);

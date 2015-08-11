@@ -400,7 +400,7 @@ PlayerSettings:
   WebGL::emscriptenArgs: 
   WebGL::template: APPLICATION:Default
   firstStreamedSceneWithResources: 0
-  cloudProjectId: 
+  cloudProjectId: 52ba7a50-61bc-4f46-9876-31b377aeff0f
   projectId: 
   projectName: 
   organizationId: 

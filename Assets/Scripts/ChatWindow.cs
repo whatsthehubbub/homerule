@@ -51,6 +51,8 @@ public class ChatWindow : MonoBehaviour {
 				break;
 		}
 
+		ScrollToBottom();
+
 		GameObject scrollContent = this.gameObject.transform.Find("ScrollView/ScrollContent").gameObject;
 		
 		GameObject bubble = (GameObject)Instantiate(Resources.Load (prefabName));
@@ -104,6 +106,8 @@ public class ChatWindow : MonoBehaviour {
 		default:
 			break;
 		}
+
+		ScrollToBottom();
 	
 		GameObject imageBubble = (GameObject)Instantiate(Resources.Load (prefabName));
 		imageBubble.name = party + " ImageBubble";
@@ -134,6 +138,14 @@ public class ChatWindow : MonoBehaviour {
 		button.transform.SetParent(buttonArea.transform, false);
 
 		return button;
+	}
+
+	public void ScrollToBottom() {
+		// Scroll the view all the way to the bottom
+		GameObject scrollView = this.gameObject.transform.Find("ScrollView").gameObject;
+		ScrollRect rect = scrollView.GetComponent<ScrollRect>();
+
+		rect.verticalNormalizedPosition = 0.0f;
 	}
 
 	public GameObject AddDivider() {

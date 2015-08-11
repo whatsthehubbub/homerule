@@ -448,7 +448,14 @@ public class MuseumManager : MonoBehaviour {
 			Debug.Log ("Going to take a call in a bit (delayed).");
 			this.callBusy = true;
 
-			Invoke("TakeCallDelayed", UnityEngine.Random.Range(callDelay*0.66f, callDelay*1.33f));
+			float delay = UnityEngine.Random.Range(callDelay*0.66f, callDelay*1.33f);
+
+			if (Application.platform == RuntimePlatform.OSXEditor) {
+				// Remove this for testing on desktop
+				delay = 0.0f;
+			}
+
+			Invoke("TakeCallDelayed", delay);
 		}
 	}
 

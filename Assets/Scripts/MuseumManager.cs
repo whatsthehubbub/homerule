@@ -376,11 +376,6 @@ public class MuseumManager : MonoBehaviour {
 
 	public void MovedIntoBeaconRange(int number) {
 		// If there is an episode here that we want to go to, show that
-
-//		Debug.Log (string.Join(", ", Array.ConvertAll(this.storyQueue.ToArray(), i => i.ToString())));
-
-//		Location loc = this.locations[number];
-
 		bool showedLocation = false;
 
 		switch (number) {

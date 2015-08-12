@@ -114,24 +114,9 @@ public class ReporterStory0 : MonoBehaviour {
 
 		cw.AddNPCBubble("Fijn. Ga je naar deze gang? Daar hangt een oud stuk behang.");
 
-		GameObject ok = cw.AddButton ("Oké");
+		GameObject ok = cw.AddButton ("Oké"); // TODO: Don't switch back to videocall UI after this, just carry on in chat UI -KA
 		ok.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-
-			cw.EnableBack();
-			chat.SetActive(false);
-			
-			chat = (GameObject)Instantiate(Resources.Load ("Prefabs/NewVideoCall"));
-			chat.transform.SetParent(GameObject.Find ("Canvas").transform, false);
-			chat.name = "VideoCall";
-
-			// Show the correct sprite (Journalist)
-			GameObject displayImage = GameObject.Find ("DisplayImage");
-			Sprite katjaSprite = Resources.Load<Sprite>("Sprites/portrait katja wide");
-			displayImage.GetComponentInChildren<Image>().sprite = katjaSprite;
-			
-			cw = chat.GetComponent<ChatWindow>();
-			cw.SetArchivalChat(mm.reporterChatHistory.GetComponent<ChatWindow>());
 
 			cw.AddPlayerBubble("Oké, ik ga het behang zoeken.");
 			
@@ -155,9 +140,8 @@ public class ReporterStory0 : MonoBehaviour {
 			mm.targetImage = Resources.Load<Sprite>("Sprites/Locaties/behang");
 			mm.UpdateTargetText();
 
-			Destroy(chat);
-			GameObject.Destroy(this);
-
+			cw.EnableBack();
+			chat.SetActive(false);
 		});
 	}
 }

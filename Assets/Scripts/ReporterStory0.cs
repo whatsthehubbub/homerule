@@ -114,7 +114,7 @@ public class ReporterStory0 : MonoBehaviour {
 
 		cw.AddNPCBubble("Fijn. Ga je naar deze gang? Daar hangt een oud stuk behang.");
 
-		GameObject ok = cw.AddButton ("Oké");
+		GameObject ok = cw.AddButton ("Oké"); // TODO: Don't switch back to videocall UI after this, just carry on in chat UI -KA
 		ok.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 

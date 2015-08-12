@@ -241,9 +241,9 @@ public class MuseumManager : MonoBehaviour {
 	}
 	
 	void OnLevelWasLoaded(int level) {
-		UpdateTargetText();
-
 		if (Application.loadedLevelName.Equals("NewUnderway")) {
+			UpdateTargetText();
+
 			this.canvas = GameObject.Find ("Canvas");
 
 			// Create the chat windows to keep the history in (and make sure they don't get destroyed on scene change)
@@ -533,5 +533,17 @@ public class MuseumManager : MonoBehaviour {
 		Application.LoadLevel ("NewUnderway");
 
 		this.callBusy = false;
+	}
+
+	public void QuitGame() {
+		Destroy (this.reporterChatHistory);
+		Destroy (this.officerChatHistory);
+		Destroy (this.artistChatHistory);
+
+		Destroy (this.gameObject);
+		Destroy (this);
+		Destroy (GameObject.Find ("IBeaconReceiver"));
+
+		Application.LoadLevel ("Start Scene");
 	}
 }

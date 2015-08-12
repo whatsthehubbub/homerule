@@ -200,6 +200,7 @@ GameObject:
   - 222: {fileID: 22219602}
   - 114: {fileID: 11427590}
   - 114: {fileID: 11467550}
+  - 114: {fileID: 11421118}
   m_Layer: 5
   m_Name: EndGame
   m_TagString: Untagged
@@ -420,6 +421,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11421118
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 170478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5b627cba57f744549580b1201e514e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11421660
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -845,7 +857,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 11427590}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11421118}
+        m_MethodName: QuitPlayingButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &11469328

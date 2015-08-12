@@ -250,7 +250,7 @@ public class MuseumManager : MonoBehaviour {
 			reporterChatHistory = (GameObject)Instantiate(Resources.Load ("Prefabs/NewChat"));
 			reporterChatHistory.transform.SetParent(canvas.transform, false);
 			reporterChatHistory.name = "ReporterChatHistory";
-			UnityEngine.Object.DontDestroyOnLoad(this.reporterChatHistory);
+			UnityEngine.Object.DontDestroyOnLoad(reporterChatHistory);
 			
 			ChatWindow reporterChatWindow = reporterChatHistory.GetComponent<ChatWindow>();
 			reporterChatWindow.SetNPCAvatar("katja");

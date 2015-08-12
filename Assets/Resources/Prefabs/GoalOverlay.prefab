@@ -266,7 +266,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Ga naar de kamer met de medailles. Daar vind je vast wat je zoekt.
+  m_Text: Ga op zoek naar het geweer. Het staat op de eerste verdieping.
 --- !u!114 &11415962
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -532,7 +532,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Loop lekker rond
+  m_Text: Zoek het geweer
 --- !u!114 &11469328
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -596,11 +596,11 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: b68e93d494d667047b932adb8d7e2a9b, type: 3}
     m_FontSize: 50
-    m_FontStyle: 0
+    m_FontStyle: 2
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 3
+    m_Alignment: 4
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
@@ -755,7 +755,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 22486390}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 0, y: 156}
@@ -826,7 +826,7 @@ RectTransform:
   m_RootOrder: 6
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -3.05175781e-05, y: -440}
+  m_AnchoredPosition: {x: -3.05175781e-05, y: -550}
   m_SizeDelta: {x: 1280, y: 200}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22422578
@@ -861,12 +861,12 @@ RectTransform:
   - {fileID: 22406948}
   - {fileID: 22404210}
   m_Father: {fileID: 22486390}
-  m_RootOrder: 3
-  m_AnchorMin: {x: .5, y: 0}
-  m_AnchorMax: {x: .5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 110}
+  m_RootOrder: 5
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: 0, y: -360}
   m_SizeDelta: {x: 512, y: 32}
-  m_Pivot: {x: .5, y: 1}
+  m_Pivot: {x: .5, y: .5}
 --- !u!224 &22426696
 RectTransform:
   m_ObjectHideFlags: 1
@@ -916,7 +916,7 @@ RectTransform:
   m_RootOrder: 7
   m_AnchorMin: {x: .5, y: 0}
   m_AnchorMax: {x: .5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 200}
+  m_AnchoredPosition: {x: 0, y: 70}
   m_SizeDelta: {x: 1280, y: 200}
   m_Pivot: {x: .5, y: 0}
 --- !u!224 &22455904
@@ -947,7 +947,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 22486390}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -220}
@@ -966,9 +966,9 @@ RectTransform:
   - {fileID: 22426696}
   - {fileID: 22440828}
   - {fileID: 22407610}
-  - {fileID: 22423232}
   - {fileID: 22478540}
   - {fileID: 22402100}
+  - {fileID: 22423232}
   - {fileID: 22418980}
   - {fileID: 22453524}
   m_Father: {fileID: 0}

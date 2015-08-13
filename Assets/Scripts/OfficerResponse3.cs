@@ -205,7 +205,6 @@ public class OfficerResponse3 : MonoBehaviour {
 			cw.AddPlayerBubble("En u weet vast ook nog wat we schreven over de huizen van de vogels.");
 			
 			// Boiler plate to include the story
-			// TODO maybe turn that into a call
 			Sprite articleSprite = Resources.Load<Sprite>("Sprites/chat_artikel");
 			
 			GameObject imageBubble = cw.AddPlayerImageBubble();

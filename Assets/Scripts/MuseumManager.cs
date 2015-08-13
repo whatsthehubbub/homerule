@@ -113,6 +113,12 @@ public struct Goal {
 
 
 public class MuseumManager : MonoBehaviour {
+	/* In order these are:
+	 * - the gun
+	 * - the wallpaper
+	 * - the sign
+	 * - wilhelmina
+	 */
 	public List<int> locations = new List<int>(new int[] {53868, 48618, 22290, 48174});
 
 	public bool forceCalls = false;

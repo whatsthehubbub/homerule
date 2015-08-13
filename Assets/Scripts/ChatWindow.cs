@@ -89,6 +89,11 @@ public class ChatWindow : MonoBehaviour {
 		return this.AddBubble(text, "NPC");
 	}
 
+	/*
+	 * Note: These are properly archived because they are only ever called on chat windows which are the archive
+	 * windows as well. If they would be called during VideoCalls they would not be looped through to the archive
+	 * because of how image bubbles work.
+	 */
 	public GameObject AddImageBubble(string party) {
 		if (this.audioSource != null) {
 			audioSource.PlayOneShot(bubbleSound);

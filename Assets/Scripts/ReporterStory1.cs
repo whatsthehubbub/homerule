@@ -78,10 +78,15 @@ public class ReporterStory1 : MonoBehaviour {
 	}
 
 	public void ShowStorySituation() {
-		// TODO input start image here
 		GameObject displayImage = GameObject.Find ("DisplayImage");
 		Sprite introSprite = Resources.Load<Sprite>("Sprites/S1 intro wide");
 		displayImage.GetComponentInChildren<Image>().sprite = introSprite;
+
+		// Add the sprite we show in the video call to the archive
+		GameObject bubble = cw.archivalChat.AddPlayerImageBubble();
+		GameObject bubbleImage = bubble.transform.Find ("BubbleImage").gameObject;
+		Image image = bubbleImage.GetComponent<Image>();
+		image.sprite = introSprite;
 		
 		cw.AddNPCBubble("Die man wordt opgepakt. Heeft hij die graffiti gemaakt?");
 		cw.AddNPCBubble("Kun je me helpen hierover te schrijven?");
@@ -407,6 +412,12 @@ public class ReporterStory1 : MonoBehaviour {
 		GameObject displayImage = GameObject.Find ("DisplayImage");
 		Sprite conclusionSprite = Resources.Load<Sprite>("Sprites/" + spriteString);
 		displayImage.GetComponentInChildren<Image>().sprite = conclusionSprite;
+
+		// Add the sprite we show in the video call to the archive
+		GameObject bubble = cw.archivalChat.AddPlayerImageBubble();
+		GameObject bubbleImage = bubble.transform.Find ("BubbleImage").gameObject;
+		Image image = bubbleImage.GetComponent<Image>();
+		image.sprite = conclusionSprite;
 
 		cw.AddNPCBubble("Leuk zeg! Door op te schrijven wat er gebeurt, veranderen er dingen.");
 		cw.AddNPCBubble("Ik bel als ik je nodig heb. In het museum is van alles te zien, dus kijk rustig rond.");

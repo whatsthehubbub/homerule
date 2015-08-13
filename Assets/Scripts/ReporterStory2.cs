@@ -86,6 +86,12 @@ public class ReporterStory2 : MonoBehaviour {
 		Sprite introSprite = Resources.Load<Sprite>("Sprites/S2 intro wide");
 		displayImage.GetComponentInChildren<Image>().sprite = introSprite;
 
+		// Add the sprite we show in the video call to the archive
+		GameObject bubble = cw.archivalChat.AddPlayerImageBubble();
+		GameObject bubbleImage = bubble.transform.Find ("BubbleImage").gameObject;
+		Image image = bubbleImage.GetComponent<Image>();
+		image.sprite = introSprite;
+
 		cw.AddNPCBubble("Mensen moeten hun huis uit, omdat er in de buurt gebouwd wordt. Maar niet iedereen wil weg.");
 		cw.AddNPCBubble("Help je me hierover te schrijven?");
 		
@@ -399,6 +405,13 @@ public class ReporterStory2 : MonoBehaviour {
 
 		GameObject displayImage = GameObject.Find ("DisplayImage");
 		displayImage.GetComponentInChildren<Image>().sprite = showSprite;
+
+
+		// Add the sprite we show in the video call to the archive
+		GameObject bubble = cw.archivalChat.AddPlayerImageBubble();
+		GameObject bubbleImage = bubble.transform.Find ("BubbleImage").gameObject;
+		Image image = bubbleImage.GetComponent<Image>();
+		image.sprite = showSprite;
 		
 		
 		if (mm.story2FinalOpinion == Story2OpinionAnswer.SAD) {

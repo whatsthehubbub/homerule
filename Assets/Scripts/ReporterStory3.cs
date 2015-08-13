@@ -96,6 +96,12 @@ public class ReporterStory3 : MonoBehaviour {
 		Sprite introSprite = Resources.Load<Sprite>("Sprites/S3 intro wide");
 		displayImage.GetComponentInChildren<Image>().sprite = introSprite;
 
+		// Add the sprite we show in the video call to the archive
+		GameObject bubble = cw.archivalChat.AddPlayerImageBubble();
+		GameObject bubbleImage = bubble.transform.Find ("BubbleImage").gameObject;
+		Image image = bubbleImage.GetComponent<Image>();
+		image.sprite = introSprite;
+
 		cw.AddNPCBubble("Ik zit hier met Frank. Hij heeft me alles verteld. Er is bewijs, de vrije vogels worden echt tegengewerkt.");
 
 		cw.AddNPCBubble("Ik wil erover schrijven. Maar de politie is ons op het spoor! Kun je helpen?");
@@ -374,6 +380,12 @@ public class ReporterStory3 : MonoBehaviour {
 		GameObject displayImage = GameObject.Find ("DisplayImage");
 		Sprite resultSprite = Resources.Load<Sprite>("Sprites/" + spriteString);
 		displayImage.GetComponentInChildren<Image>().sprite = resultSprite;
+
+		// Add the sprite we show in the video call to the archive
+		GameObject bubble = cw.archivalChat.AddPlayerImageBubble();
+		GameObject bubbleImage = bubble.transform.Find ("BubbleImage").gameObject;
+		Image image = bubbleImage.GetComponent<Image>();
+		image.sprite = resultSprite;
 
 		Invoke ("ShowResultConclusion", 0.5f);
 	}

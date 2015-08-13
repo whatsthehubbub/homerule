@@ -4,7 +4,7 @@ using System.Collections;
 
 public class ChatWindow : MonoBehaviour {
 
-	private ChatWindow archivalChat;
+	public ChatWindow archivalChat;
 
 	public string lastMessageDisplay;
 

@@ -450,8 +450,14 @@ public class ReporterStory2 : MonoBehaviour {
 
 			mm.story2Done = true;
 
-			mm.targetText = "Verken het museum";
-			mm.UpdateTargetText();
+			Goal g = default(Goal);
+			g.minor = -1;
+			g.goalTextUnkown = "";
+			g.goalTextFar = "Verken het museum";
+			g.overlayTextUnknown = "";
+			g.overlayTextFar = "Voel je vrij om het museum te verkennen. Je wordt gebeld als iemand je nodig heeft.";
+			g.locationSprite = "";
+			mm.goal = g;
 
 			mm.storyQueue.Enqueue("OFFICERRESPONSE2");
 			mm.storyQueue.Enqueue("ARTISTRESPONSE1");

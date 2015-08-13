@@ -21,7 +21,11 @@ public class Underway : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		try {
+			GameObject.Find ("GoalText").GetComponentInChildren<Text>().text = mm.goal.GetGoalText();
+			GameObject.Find ("GoalTextExtra").GetComponentInChildren<Text>().text = mm.goal.GetOverlayText();
+		} catch {
+		}
 	}
 
 	public void ShowJournalistChats() {
@@ -42,13 +46,12 @@ public class Underway : MonoBehaviour {
 
 		goal.transform.SetParent(GameObject.Find ("Canvas").transform, false);
 
-		GameObject.Find ("GoalText").GetComponentInChildren<Text>().text = mm.targetText;
-
-		GameObject.Find ("GoalImage").GetComponentInChildren<Image>().sprite = mm.targetImage;
-		if (mm.targetImage != null) {
-			GameObject.Find ("GoalImage").GetComponentInChildren<Image>().color = Color.white;
-		} else {
+		if ("".Equals(mm.goal.locationSprite)) {
+			GameObject.Find ("GoalImage").GetComponentInChildren<Image>().sprite = null;
 			GameObject.Find ("GoalImage").GetComponentInChildren<Image>().color = Color.clear;
+		} else {
+			GameObject.Find ("GoalImage").GetComponentInChildren<Image>().sprite = Resources.Load<Sprite>("Sprites/locaties/" + mm.goal.locationSprite);
+//			GameObject.Find ("GoalImage").GetComponentInChildren<Image>().color = Color.white;
 		}
 
 		if (!mm.story0Done) {

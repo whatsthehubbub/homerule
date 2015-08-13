@@ -1880,8 +1880,6 @@ MonoBehaviour:
   reporterChatHistory: {fileID: 0}
   officerChatHistory: {fileID: 0}
   artistChatHistory: {fileID: 0}
-  targetText: 
-  targetImage: {fileID: 21300000, guid: 3f627791c00f84f269241fa8851de62d, type: 3}
   story0Done: 0
   story1Opinion: 0
   story1Fact: 0

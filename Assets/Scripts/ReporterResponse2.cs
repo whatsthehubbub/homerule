@@ -157,10 +157,14 @@ public class ReporterResponse2 : MonoBehaviour {
 			
 			mm.callBusy = false;
 
-			mm.targetText = "Ga naar de foto van koningin Wilhelmina";
-			mm.targetImage = Resources.Load<Sprite>("Sprites/Locaties/wilhelmina");
-
-			mm.UpdateTargetText();
+			Goal g = default(Goal);
+			g.minor = 48174;
+			g.goalTextUnkown = "Ga dichter naar de foto toe ";
+			g.goalTextFar = "Zoek de foto";
+			g.overlayTextUnknown = "Ga op zoek naar de foto van koningin Wilhelmina. Deze hangt bij de trap tussen de eerste verdieping en de begane grond.";
+			g.overlayTextFar = "Je bent vlakbij de foto. Ga erheen met de tablet!";
+			g.locationSprite = "wilhelmina";
+			mm.goal = g;
 
 			cw.EnableBack();
 			chat.SetActive(false);

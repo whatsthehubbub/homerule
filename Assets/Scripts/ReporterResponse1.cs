@@ -76,10 +76,14 @@ public class ReporterResponse1 : MonoBehaviour {
 
 			mm.callBusy = false;
 
-			mm.targetText = "Ga naar het bord 'verboden Arnhem te betreden'";
-			mm.targetImage = Resources.Load<Sprite>("Sprites/Locaties/bord");
-
-			mm.UpdateTargetText();
+			Goal g = default(Goal);
+			g.minor = 22290;
+			g.goalTextUnkown = "Ga dichter naar het bord toe";
+			g.goalTextFar = "Zoek het bord";
+			g.overlayTextUnknown = "Ga op zoek naar het bord “Verboden Arnhem te betreden”. Dit hangt op de begane grond.";
+			g.overlayTextFar = "Je bent vlakbij het bord “Verboden Arnhem te betreden”. Ga erheen met de tablet!";
+			g.locationSprite = "bord";
+			mm.goal = g;
 			
 			chat.SetActive(false);
 			GameObject.Destroy(this);

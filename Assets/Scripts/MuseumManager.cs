@@ -76,6 +76,40 @@ public enum Officer3Response {
 	UNDERSTAND
 }
 
+public struct Goal {
+	public int minor;
+	public BeaconRange? range;
+	public string goalTextFar;
+	public string goalTextUnkown;
+	public string overlayTextFar;
+	public string overlayTextUnknown;
+	public string locationSprite;
+
+	public string GetGoalText() {
+		if (this.minor == -1) {
+			return this.goalTextFar;
+		}
+
+		if (this.range == BeaconRange.FAR) {
+			return this.goalTextFar;
+		} else {
+			return this.goalTextUnkown;
+		}
+	}
+
+	public string GetOverlayText() {
+		if (this.minor == -1) {
+			return this.overlayTextFar;
+		}
+
+		if (this.range == BeaconRange.FAR) {
+			return this.overlayTextFar;
+		} else {
+			return this.overlayTextUnknown;
+		}
+	}
+}
+
 
 
 public class MuseumManager : MonoBehaviour {
@@ -96,9 +130,8 @@ public class MuseumManager : MonoBehaviour {
 	public GameObject reporterChatHistory;
 	public GameObject officerChatHistory;
 	public GameObject artistChatHistory;
-
-	public string targetText = "";
-	public Sprite targetImage;
+	
+	public Goal goal;
 
 	public bool story0Done = false;
 
@@ -149,9 +182,14 @@ public class MuseumManager : MonoBehaviour {
 
 		this.callBusy = true;
 
-		this.targetText = "Ga naar het begin";
-
-		this.targetImage = Resources.Load<Sprite>("Sprites/Locaties/geweer");
+		Goal g = new Goal();
+		g.minor = 53868;
+		g.goalTextUnkown = "Zoek het geweer";
+		g.goalTextFar = "Ga dichter naar het geweer toe";
+		g.overlayTextUnknown = "Ga op zoek naar het geweer. Het staat op de eerste verdieping.";
+		g.overlayTextFar = "Je bent vlakbij het geweer. Ga erheen met de tablet!";
+		g.locationSprite = "geweer";
+		this.goal = g;
 
 		// Initialization
 		this.story0Done = false;
@@ -209,6 +247,10 @@ public class MuseumManager : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.Alpha4)) {
 			MovedOutOfBeaconRange();
 		}
+
+		if (Application.loadedLevelName.Equals("NewUnderway")) {
+			UpdateTargetText();
+		}
 	}
 	
 	void Awake() {
@@ -242,8 +284,6 @@ public class MuseumManager : MonoBehaviour {
 	
 	void OnLevelWasLoaded(int level) {
 		if (Application.loadedLevelName.Equals("NewUnderway")) {
-			UpdateTargetText();
-
 			this.canvas = GameObject.Find ("Canvas");
 
 			// Create the chat windows to keep the history in (and make sure they don't get destroyed on scene change)
@@ -330,12 +370,18 @@ public class MuseumManager : MonoBehaviour {
 				mybeacons.Remove(b);
 			}
 		}
-		
+
+		// We start the goal range on null and then set it if the beacon is within the current set
+		goal.range = null;
 		
 		bool found = false;
 		foreach (Beacon b in mybeacons) {
 			if (b.range == BeaconRange.NEAR || b.range == BeaconRange.IMMEDIATE) {
 //			if (b.range == BeaconRange.IMMEDIATE) {
+
+				if (b.minor == goal.minor) {
+					goal.range = b.range;
+				}
 
 				if (locations.IndexOf(b.minor) != -1) {
 					found = true;
@@ -418,10 +464,10 @@ public class MuseumManager : MonoBehaviour {
 		// Check whether we have a bit of story to show and give that
 		TakeCall ();
 	}
-
+	
 	public void UpdateTargetText() {
 		// Put the text in the right place
-		GameObject.Find ("GoalBar").GetComponentInChildren<Text>().text = this.targetText;
+		GameObject.Find ("GoalBar").GetComponentInChildren<Text>().text = this.goal.GetGoalText();
 	}
 
 	public void PreCallCleanUp() {

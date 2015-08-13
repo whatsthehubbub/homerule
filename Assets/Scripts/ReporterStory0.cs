@@ -136,9 +136,15 @@ public class ReporterStory0 : MonoBehaviour {
 			
 			mm.story0Done = true;
 
-			mm.targetText = "Ga naar de gang met het behang";
-			mm.targetImage = Resources.Load<Sprite>("Sprites/Locaties/behang");
-			mm.UpdateTargetText();
+			Goal g = default(Goal);
+			g.minor = 48618;
+			g.goalTextUnkown = "Zoek het behang";
+			g.goalTextFar = "Ga dichter naar het behang toe";
+			g.overlayTextUnknown = "Ga op zoek naar het behang. Dat hangt op de eerste verdieping.";
+			g.overlayTextFar = "Je bent vlakbij het behang. Ga erheen met de tablet!";
+			g.locationSprite = "behang";
+			mm.goal = g;
+
 
 			cw.EnableBack();
 			chat.SetActive(false);

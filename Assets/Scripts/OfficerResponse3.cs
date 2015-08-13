@@ -360,10 +360,14 @@ public class OfficerResponse3 : MonoBehaviour {
 	public void ShowClose() {
 		mm.callBusy = false;
 
-		mm.targetText = "Ga terug naar het begin";
-		mm.targetImage = Resources.Load<Sprite>("Sprites/Locaties/geweer");
-
-		mm.UpdateTargetText();
+		Goal g = default(Goal);
+		g.minor = 53868;
+		g.goalTextUnkown = "Ga dichter naar het geweer toe";
+		g.goalTextFar = "Ga terug naar het geweer";
+		g.overlayTextUnknown = "Ga terug naar het geweer op de eerste verdieping.";
+		g.overlayTextFar = " Je bent vlakbij het geweer. Ga erheen met de tablet!";
+		g.locationSprite = "geweer";
+		mm.goal = g;
 		
 		GameObject.Destroy(chat);
 		GameObject.Destroy(this);

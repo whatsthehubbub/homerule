@@ -37,23 +37,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &109284
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 224: {fileID: 22477404}
-  - 222: {fileID: 22273546}
-  - 114: {fileID: 11454278}
-  m_Layer: 5
-  m_Name: avatar speler
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
 --- !u!1 &119084
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,6 +279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0041352571dd5459e9658a205fe99f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  archivalChat: {fileID: 0}
   lastMessageDisplay: 
   bubbleSound: {fileID: 0}
   buttonSound: {fileID: 0}
@@ -481,27 +465,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Katja
---- !u!114 &11454278
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 109284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300000, guid: 058b12ed1acf65d45a4d0184995e2eca, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 1
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!114 &11455568
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -659,12 +622,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 182124}
---- !u!222 &22273546
-CanvasRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 109284}
 --- !u!222 &22296082
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -699,15 +656,14 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 22462336}
-  - {fileID: 22477404}
   - {fileID: 22497594}
   - {fileID: 22443486}
   m_Father: {fileID: 22447504}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 768, y: -120}
-  m_SizeDelta: {x: 1536, y: 280}
+  m_AnchoredPosition: {x: 768, y: -100}
+  m_SizeDelta: {x: 1536, y: 200}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22443486
 RectTransform:
@@ -722,11 +678,11 @@ RectTransform:
   - {fileID: 22479528}
   - {fileID: 22493198}
   m_Father: {fileID: 22407998}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_AnchorMin: {x: 0, y: .5}
   m_AnchorMax: {x: 0, y: .5}
-  m_AnchoredPosition: {x: 220, y: 0}
-  m_SizeDelta: {x: 300, y: 150}
+  m_AnchoredPosition: {x: 190, y: 0}
+  m_SizeDelta: {x: 300, y: 140}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22447504
 RectTransform:
@@ -782,23 +738,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 800, y: 120}
   m_Pivot: {x: .5, y: .5}
---- !u!224 &22477404
-RectTransform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 109284}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 22407998}
-  m_RootOrder: 1
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -260, y: 0}
-  m_SizeDelta: {x: 64, y: 64}
-  m_Pivot: {x: .5, y: .5}
 --- !u!224 &22479528
 RectTransform:
   m_ObjectHideFlags: 1
@@ -831,8 +770,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: 1}
   m_AnchorMax: {x: .5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -256}
-  m_SizeDelta: {x: 1536, y: 1504}
+  m_AnchoredPosition: {x: 0, y: -200}
+  m_SizeDelta: {x: 1536, y: 1560}
   m_Pivot: {x: .5, y: 1}
 --- !u!224 &22493198
 RectTransform:
@@ -862,10 +801,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 22407998}
-  m_RootOrder: 2
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 620, y: -3.05175781e-05}
+  m_RootOrder: 1
+  m_AnchorMin: {x: 1, y: .5}
+  m_AnchorMax: {x: 1, y: .5}
+  m_AnchoredPosition: {x: -120, y: -3.05175781e-05}
   m_SizeDelta: {x: 160, y: 160}
   m_Pivot: {x: .5, y: .5}
 --- !u!1001 &100100000

@@ -434,7 +434,7 @@ public class ReporterStory2 : MonoBehaviour {
 	public void ShowResultClose() {
 		// Switch back to Katja from the image
 		GameObject displayImage = GameObject.Find ("DisplayImage");
-		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/katja video");
+		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/portrait katja wide");
 		displayImage.GetComponentInChildren<Image>().sprite = katjaSprite;
 
 		cw.AddNPCBubble("Heftig! Door op te schrijven wat er gebeurt, veranderen er dingen.");

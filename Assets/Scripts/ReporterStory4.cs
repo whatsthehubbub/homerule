@@ -172,18 +172,12 @@ public class ReporterStory4 : MonoBehaviour {
 		cw.EnableBack();
 		chat.SetActive(false);
 
-		Goal g = default(Goal);
-		g.minor = -1;
-		g.goalTextUnkown = "";
-		g.goalTextFar = "Het spel is klaar";
-		g.overlayTextUnknown = "";
-		g.overlayTextFar = "Het spel is klaar";
-		g.locationSprite = "";
-		mm.goal = g;
-
 		mm.story4Done = true;
 		mm.callBusy = false;
 		
 		GameObject.Destroy(this);
+
+		GameObject endGame = (GameObject)Instantiate(Resources.Load ("Prefabs/EndgameOverlay"));
+		endGame.transform.SetParent(GameObject.Find ("Canvas").transform, false);
 	}
 }

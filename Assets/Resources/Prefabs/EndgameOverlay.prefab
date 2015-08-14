@@ -44,7 +44,7 @@ GameObject:
   - 224: {fileID: 22427954}
   - 222: {fileID: 22278700}
   - 114: {fileID: 11442314}
-  - 114: {fileID: 11459610}
+  - 114: {fileID: 11466346}
   m_Layer: 5
   m_Name: EndgameOverlay
   m_TagString: Untagged
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11459610
+--- !u!114 &11466346
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 154402}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3806c642cd5c249389c7295877f62a50, type: 3}
+  m_Script: {fileID: 11500000, guid: d5b627cba57f744549580b1201e514e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &11487444
@@ -243,8 +243,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
+      - m_Target: {fileID: 11466346}
+        m_MethodName: QuitPlayingButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -119,7 +119,7 @@ public class MuseumManager : MonoBehaviour {
 	 * - the sign
 	 * - wilhelmina
 	 */
-	public List<int> locations = new List<int>(new int[] {53868, 48618, 22290, 48174});
+	private List<int> locations = new List<int>(new int[] {53868, 48618, 22290, 48174});
 
 	public bool forceCalls = false;
 	public float callDelay = 10.0f;
@@ -127,6 +127,7 @@ public class MuseumManager : MonoBehaviour {
 	public Queue<string> storyQueue = new Queue<string>();
 	public bool callBusy = false;
 
+	[Header("Interface objects")]
 	public GameObject canvas;
 
 	public GameObject reporterButton;
@@ -139,6 +140,7 @@ public class MuseumManager : MonoBehaviour {
 	
 	public Goal goal;
 
+	[Header("Story data")]
 	public bool story0Done = false;
 
 	public Story1OpinionAnswer story1Opinion;

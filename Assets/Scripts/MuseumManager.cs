@@ -595,8 +595,11 @@ public class MuseumManager : MonoBehaviour {
 		Destroy (this.artistChatHistory);
 
 		Destroy (this.gameObject);
-		Destroy (this);
+
 		Destroy (GameObject.Find ("IBeaconReceiver"));
+
+		Destroy (this);
+
 
 		Application.LoadLevel ("Start Scene");
 	}

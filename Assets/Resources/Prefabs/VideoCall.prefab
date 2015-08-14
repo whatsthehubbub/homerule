@@ -12,7 +12,7 @@ GameObject:
   - 114: {fileID: 11448056}
   - 114: {fileID: 11483116}
   m_Layer: 5
-  m_Name: NewVideoCall
+  m_Name: VideoCall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

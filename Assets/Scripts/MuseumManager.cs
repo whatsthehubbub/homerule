@@ -256,7 +256,7 @@ public class MuseumManager : MonoBehaviour {
 			MovedOutOfBeaconRange();
 		}
 
-		if (Application.loadedLevelName.Equals("NewUnderway")) {
+		if (Application.loadedLevelName.Equals("Underway")) {
 			UpdateTargetText();
 		}
 	}
@@ -291,7 +291,7 @@ public class MuseumManager : MonoBehaviour {
 	}
 	
 	void OnLevelWasLoaded(int level) {
-		if (Application.loadedLevelName.Equals("NewUnderway")) {
+		if (Application.loadedLevelName.Equals("Underway")) {
 			this.canvas = GameObject.Find ("Canvas");
 
 			// Create the chat windows to keep the history in (and make sure they don't get destroyed on scene change)
@@ -584,7 +584,7 @@ public class MuseumManager : MonoBehaviour {
 	}
 
 	public void StartGameButton() {
-		Application.LoadLevel ("NewUnderway");
+		Application.LoadLevel ("Underway");
 
 		this.callBusy = false;
 	}

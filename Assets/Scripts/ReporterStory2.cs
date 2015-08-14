@@ -54,7 +54,7 @@ public class ReporterStory2 : MonoBehaviour {
 
 	public void StartStory() {
 		// Pause the change scene
-		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/NewVideoCall"));
+		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
 		chat.transform.SetParent(GameObject.Find ("Canvas").transform, false);
 		chat.name = "VideoCall";
 
@@ -385,7 +385,7 @@ public class ReporterStory2 : MonoBehaviour {
 		cw.EnableBack();
 		chat.SetActive(false);
 
-		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/NewVideoCall"));
+		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
 		chat.transform.SetParent(GameObject.Find ("Canvas").transform, false);
 		chat.name = "VideoCall";
 

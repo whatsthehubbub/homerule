@@ -40,7 +40,7 @@ public class ReporterStory4 : MonoBehaviour {
 	}
 
 	public void ShowVideoCall() {
-		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/NewVideoCall"));
+		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
 		chat.transform.SetParent(GameObject.Find ("Canvas").transform, false);
 		chat.name = "VideoCall";
 		

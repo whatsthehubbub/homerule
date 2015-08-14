@@ -295,7 +295,7 @@ public class MuseumManager : MonoBehaviour {
 			this.canvas = GameObject.Find ("Canvas");
 
 			// Create the chat windows to keep the history in (and make sure they don't get destroyed on scene change)
-			reporterChatHistory = (GameObject)Instantiate(Resources.Load ("Prefabs/NewChat"));
+			reporterChatHistory = (GameObject)Instantiate(Resources.Load ("Prefabs/Chat"));
 			reporterChatHistory.transform.SetParent(canvas.transform, false);
 			reporterChatHistory.name = "ReporterChatHistory";
 			UnityEngine.Object.DontDestroyOnLoad(reporterChatHistory);
@@ -308,7 +308,7 @@ public class MuseumManager : MonoBehaviour {
 			reporterChatHistory.SetActive(false);
 			
 			
-			officerChatHistory = (GameObject)Instantiate(Resources.Load ("Prefabs/NewChat"));
+			officerChatHistory = (GameObject)Instantiate(Resources.Load ("Prefabs/Chat"));
 			officerChatHistory.transform.SetParent(canvas.transform, false);
 			officerChatHistory.name = "OfficerChatHistory";
 			UnityEngine.Object.DontDestroyOnLoad(officerChatHistory);
@@ -321,7 +321,7 @@ public class MuseumManager : MonoBehaviour {
 			officerChatHistory.SetActive(false);
 			
 			
-			artistChatHistory = (GameObject)Instantiate(Resources.Load ("Prefabs/NewChat"));
+			artistChatHistory = (GameObject)Instantiate(Resources.Load ("Prefabs/Chat"));
 			artistChatHistory.transform.SetParent(canvas.transform, false);
 			artistChatHistory.name = "ArtistChatHistory";
 			UnityEngine.Object.DontDestroyOnLoad(artistChatHistory);

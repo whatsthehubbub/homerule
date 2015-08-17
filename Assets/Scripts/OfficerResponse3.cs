@@ -360,11 +360,8 @@ public class OfficerResponse3 : MonoBehaviour {
 		mm.callBusy = false;
 
 		Goal g = default(Goal);
-		g.minor = 53868;
-		g.goalTextUnkown = "Ga dichter naar het geweer toe";
-		g.goalTextFar = "Ga terug naar het geweer";
-		g.overlayTextUnknown = "Ga terug naar het geweer op de eerste verdieping.";
-		g.overlayTextFar = " Je bent vlakbij het geweer. Ga erheen met de tablet!";
+		g.goalText = "Ga terug naar het geweer";
+		g.overlayText = "Ga terug naar het geweer op de eerste verdieping.";
 		g.locationSprite = "geweer";
 		mm.goal = g;
 		

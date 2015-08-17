@@ -137,11 +137,8 @@ public class ReporterStory0 : MonoBehaviour {
 			mm.story0Done = true;
 
 			Goal g = default(Goal);
-			g.minor = 48618;
-			g.goalTextUnkown = "Zoek het behang";
-			g.goalTextFar = "Ga dichter naar het behang toe";
-			g.overlayTextUnknown = "Ga op zoek naar het behang. Dat hangt op de eerste verdieping.";
-			g.overlayTextFar = "Je bent vlakbij het behang. Ga erheen met de tablet!";
+			g.goalText = "Zoek het behang";
+			g.overlayText = "Ga op zoek naar het behang. Dat hangt op de eerste verdieping.";
 			g.locationSprite = "behang";
 			mm.goal = g;
 

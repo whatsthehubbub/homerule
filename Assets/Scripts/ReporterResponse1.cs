@@ -77,11 +77,8 @@ public class ReporterResponse1 : MonoBehaviour {
 			mm.callBusy = false;
 
 			Goal g = default(Goal);
-			g.minor = 22290;
-			g.goalTextUnkown = "Ga dichter naar het bord toe";
-			g.goalTextFar = "Zoek het bord";
-			g.overlayTextUnknown = "Ga op zoek naar het bord “Verboden Arnhem te betreden”. Dit hangt op de begane grond.";
-			g.overlayTextFar = "Je bent vlakbij het bord “Verboden Arnhem te betreden”. Ga erheen met de tablet!";
+			g.goalText = "Zoek het bord";
+			g.overlayText = "Ga op zoek naar het bord “Verboden Arnhem te betreden”. Dit hangt op de begane grond.";
 			g.locationSprite = "bord";
 			mm.goal = g;
 			

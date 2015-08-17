@@ -436,11 +436,8 @@ public class ReporterStory1 : MonoBehaviour {
 			mm.story1Done = true;
 
 			Goal g = default(Goal);
-			g.minor = -1;
-			g.goalTextUnkown = "";
-			g.goalTextFar = "Verken het museum";
-			g.overlayTextUnknown = "";
-			g.overlayTextFar = "Voel je vrij om het museum te verkennen. Je wordt gebeld als iemand je nodig heeft.";
+			g.goalText = "Verken het museum";
+			g.overlayText = "Voel je vrij om het museum te verkennen. Je wordt gebeld als iemand je nodig heeft.";
 			g.locationSprite = "";
 			mm.goal = g;
 

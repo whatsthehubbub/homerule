@@ -158,11 +158,8 @@ public class ReporterResponse2 : MonoBehaviour {
 			mm.callBusy = false;
 
 			Goal g = default(Goal);
-			g.minor = 48174;
-			g.goalTextUnkown = "Ga dichter naar de foto toe ";
-			g.goalTextFar = "Zoek de foto";
-			g.overlayTextUnknown = "Ga op zoek naar de foto van koningin Wilhelmina. Deze hangt bij de trap tussen de eerste verdieping en de begane grond.";
-			g.overlayTextFar = "Je bent vlakbij de foto. Ga erheen met de tablet!";
+			g.goalText = "Zoek de foto";
+			g.overlayText = "Ga op zoek naar de foto van koningin Wilhelmina. Deze hangt bij de trap tussen de eerste verdieping en de begane grond.";
 			g.locationSprite = "wilhelmina";
 			mm.goal = g;
 

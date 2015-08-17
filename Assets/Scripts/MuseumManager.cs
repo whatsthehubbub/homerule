@@ -77,36 +77,39 @@ public enum Officer3Response {
 }
 
 public struct Goal {
-	public int minor;
-	public BeaconRange? range;
-	public string goalTextFar;
-	public string goalTextUnkown;
-	public string overlayTextFar;
-	public string overlayTextUnknown;
+//	public int minor;
+//	public BeaconRange? range;
+//	public string goalTextFar;
+	public string goalText;
+//	public string overlayTextFar;
+	public string overlayText;
 	public string locationSprite;
 
 	public string GetGoalText() {
-		if (this.minor == -1) {
-			return this.goalTextFar;
-		}
+//		if (this.minor == -1) {
+//			return this.goalTextFar;
+//		}
+//
+//		if (this.range == BeaconRange.FAR) {
+//			return this.goalTextFar;
+//		} else {
+//			return this.goalTextUnkown;
+//		}
 
-		if (this.range == BeaconRange.FAR) {
-			return this.goalTextFar;
-		} else {
-			return this.goalTextUnkown;
-		}
+		return this.goalText;
 	}
 
 	public string GetOverlayText() {
-		if (this.minor == -1) {
-			return this.overlayTextFar;
-		}
-
-		if (this.range == BeaconRange.FAR) {
-			return this.overlayTextFar;
-		} else {
-			return this.overlayTextUnknown;
-		}
+//		if (this.minor == -1) {
+//			return this.overlayTextFar;
+//		}
+//
+//		if (this.range == BeaconRange.FAR) {
+//			return this.overlayTextFar;
+//		} else {
+//			return this.overlayTextUnknown;
+//		}
+		return this.overlayText;
 	}
 }
 
@@ -191,11 +194,8 @@ public class MuseumManager : MonoBehaviour {
 		this.callBusy = true;
 
 		Goal g = new Goal();
-		g.minor = 53868;
-		g.goalTextUnkown = "Zoek het geweer";
-		g.goalTextFar = "Ga dichter naar het geweer toe";
-		g.overlayTextUnknown = "Ga op zoek naar het geweer. Het staat op de eerste verdieping.";
-		g.overlayTextFar = "Je bent vlakbij het geweer. Ga erheen met de tablet!";
+		g.goalText = "Zoek het geweer";
+		g.overlayText = "Ga op zoek naar het geweer. Het staat op de eerste verdieping.";
 		g.locationSprite = "geweer";
 		this.goal = g;
 
@@ -380,16 +380,16 @@ public class MuseumManager : MonoBehaviour {
 		}
 
 		// We start the goal range on null and then set it if the beacon is within the current set
-		goal.range = null;
+//		goal.range = null;
 		
 		bool found = false;
 		foreach (Beacon b in mybeacons) {
 			if (b.range == BeaconRange.NEAR || b.range == BeaconRange.IMMEDIATE) {
 //			if (b.range == BeaconRange.IMMEDIATE) {
 
-				if (b.minor == goal.minor) {
-					goal.range = b.range;
-				}
+//				if (b.minor == goal.minor) {
+//					goal.range = b.range;
+//				}
 
 				if (locations.IndexOf(b.minor) != -1) {
 					found = true;

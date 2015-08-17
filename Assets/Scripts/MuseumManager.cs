@@ -594,6 +594,10 @@ public class MuseumManager : MonoBehaviour {
 		Destroy (this.officerChatHistory);
 		Destroy (this.artistChatHistory);
 
+		Destroy (this.story1Image);
+		Destroy (this.story2Image);
+		Destroy (this.story3Image);
+
 		Destroy (this.gameObject);
 
 		Destroy (GameObject.Find ("IBeaconReceiver"));

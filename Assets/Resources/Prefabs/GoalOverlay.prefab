@@ -472,9 +472,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 190258}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 11497158}
+        m_MethodName: ShowStopOverlay
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -749,9 +749,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 190258}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 11497158}
+        m_MethodName: HideStopOverlay
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -773,6 +773,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3806c642cd5c249389c7295877f62a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stopOverlay: {fileID: 0}
 --- !u!114 &11464236
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1025,6 +1026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3806c642cd5c249389c7295877f62a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stopOverlay: {fileID: 190258}
 --- !u!114 &11498060
 MonoBehaviour:
   m_ObjectHideFlags: 1

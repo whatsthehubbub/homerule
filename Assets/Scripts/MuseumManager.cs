@@ -77,39 +77,15 @@ public enum Officer3Response {
 }
 
 public struct Goal {
-//	public int minor;
-//	public BeaconRange? range;
-//	public string goalTextFar;
 	public string goalText;
-//	public string overlayTextFar;
 	public string overlayText;
 	public string locationSprite;
-
-	// TODO remove this complicated Goaling stuff
+	
 	public string GetGoalText() {
-//		if (this.minor == -1) {
-//			return this.goalTextFar;
-//		}
-//
-//		if (this.range == BeaconRange.FAR) {
-//			return this.goalTextFar;
-//		} else {
-//			return this.goalTextUnkown;
-//		}
-
 		return this.goalText;
 	}
 
 	public string GetOverlayText() {
-//		if (this.minor == -1) {
-//			return this.overlayTextFar;
-//		}
-//
-//		if (this.range == BeaconRange.FAR) {
-//			return this.overlayTextFar;
-//		} else {
-//			return this.overlayTextUnknown;
-//		}
 		return this.overlayText;
 	}
 }
@@ -349,17 +325,17 @@ public class MuseumManager : MonoBehaviour {
 	private void OnBeaconRangeChanged(List<Beacon> beacons) {
 
 		// Print out all the beacons there are
-		Debug.Log ("============= Beacon range changed");
-		var orderMap = new Dictionary<BeaconRange, int>() {
-			{ BeaconRange.IMMEDIATE, 0},
-			{ BeaconRange.NEAR, 1},
-			{ BeaconRange.FAR, 2},
-			{ BeaconRange.UNKNOWN, 3}
-		};
-		List<Beacon> sortedBeacons = beacons.OrderBy(b => orderMap[b.range]).ToList();
-		foreach (Beacon b in sortedBeacons) {
-			Debug.Log ("Minor: " + b.minor + " Range: " + b.range);
-		}
+//		Debug.Log ("============= Beacon range changed");
+//		var orderMap = new Dictionary<BeaconRange, int>() {
+//			{ BeaconRange.IMMEDIATE, 0},
+//			{ BeaconRange.NEAR, 1},
+//			{ BeaconRange.FAR, 2},
+//			{ BeaconRange.UNKNOWN, 3}
+//		};
+//		List<Beacon> sortedBeacons = beacons.OrderBy(b => orderMap[b.range]).ToList();
+//		foreach (Beacon b in sortedBeacons) {
+//			Debug.Log ("Minor: " + b.minor + " Range: " + b.range);
+//		}
 
 
 		foreach (Beacon b in beacons) {
@@ -379,18 +355,11 @@ public class MuseumManager : MonoBehaviour {
 				mybeacons.Remove(b);
 			}
 		}
-
-		// We start the goal range on null and then set it if the beacon is within the current set
-//		goal.range = null;
 		
 		bool found = false;
 		foreach (Beacon b in mybeacons) {
 			if (b.range == BeaconRange.NEAR || b.range == BeaconRange.IMMEDIATE) {
 //			if (b.range == BeaconRange.IMMEDIATE) {
-
-//				if (b.minor == goal.minor) {
-//					goal.range = b.range;
-//				}
 
 				if (locations.IndexOf(b.minor) != -1) {
 					found = true;

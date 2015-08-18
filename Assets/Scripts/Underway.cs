@@ -54,22 +54,14 @@ public class Underway : MonoBehaviour {
 //			GameObject.Find ("GoalImage").GetComponentInChildren<Image>().color = Color.white;
 		}
 
-		if (!mm.story0Done) {
-
-		} else if (!mm.story1Done) {
-			GameObject.Find ("dot1").GetComponentInChildren<Image>().enabled = true;
-		} else if (!mm.story2Done) {
-			GameObject.Find ("dot1").GetComponentInChildren<Image>().enabled = true;
-			GameObject.Find ("dot2").GetComponentInChildren<Image>().enabled = true;
-		} else if (!mm.story3Done) {
-			GameObject.Find ("dot1").GetComponentInChildren<Image>().enabled = true;
-			GameObject.Find ("dot2").GetComponentInChildren<Image>().enabled = true;
-			GameObject.Find ("dot3").GetComponentInChildren<Image>().enabled = true;
-		} else {
-			GameObject.Find ("dot1").GetComponentInChildren<Image>().enabled = true;
-			GameObject.Find ("dot2").GetComponentInChildren<Image>().enabled = true;
-			GameObject.Find ("dot3").GetComponentInChildren<Image>().enabled = true;
-			GameObject.Find ("dot4").GetComponentInChildren<Image>().enabled = true;
+		if (mm.story4Done) {
+			GameObject.Find ("ProgressTimeline").GetComponentInChildren<Image>().sprite = Resources.Load<Sprite>("Sprites/UI/timelinedot4");
+		} else if (mm.story3Done) {
+			GameObject.Find ("ProgressTimeline").GetComponentInChildren<Image>().sprite = Resources.Load<Sprite>("Sprites/UI/timelinedot3");
+		} else if (mm.story2Done) {
+			GameObject.Find ("ProgressTimeline").GetComponentInChildren<Image>().sprite = Resources.Load<Sprite>("Sprites/UI/timelinedot2");
+		} else if (mm.story1Done) {
+			GameObject.Find ("ProgressTimeline").GetComponentInChildren<Image>().sprite = Resources.Load<Sprite>("Sprites/UI/timelinedot1");
 		}
 	}
 

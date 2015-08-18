@@ -85,6 +85,7 @@ public struct Goal {
 	public string overlayText;
 	public string locationSprite;
 
+	// TODO remove this complicated Goaling stuff
 	public string GetGoalText() {
 //		if (this.minor == -1) {
 //			return this.goalTextFar;

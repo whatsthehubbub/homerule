@@ -83,8 +83,8 @@ public class ReporterStory1 : MonoBehaviour {
 		displayImage.GetComponentInChildren<Image>().sprite = introSprite;
 
 		// Add the sprite we show in the video call to the archive
-		GameObject bubble = cw.archivalChat.AddPlayerImageBubble();
-		GameObject bubbleImage = bubble.transform.Find ("BubbleImage").gameObject;
+		GameObject bubble = cw.archivalChat.AddNPCImageBubble();
+		GameObject bubbleImage = bubble.transform.Find ("Bubble/BubbleImage").gameObject;
 		Image image = bubbleImage.GetComponent<Image>();
 		image.sprite = introSprite;
 		
@@ -189,7 +189,7 @@ public class ReporterStory1 : MonoBehaviour {
 
 			GameObject bubble = cw.AddPlayerImageBubble();
 			bubble.name = "PlayerImage1";
-			GameObject bubbleImage = bubble.transform.Find ("BubbleImage").gameObject;
+			GameObject bubbleImage = bubble.transform.Find ("Bubble/BubbleImage").gameObject;
 			Image im = bubbleImage.GetComponentInChildren<Image>();
 			
 			im.sprite = Sprite.Create (mm.story1Image, new Rect(0, 0, mm.story1Image.width, mm.story1Image.height), new Vector2(0.5f, 0.5f));
@@ -340,7 +340,7 @@ public class ReporterStory1 : MonoBehaviour {
 
 		GameObject imageBubble = cw.AddNPCImageBubble();
 		imageBubble.GetComponentInChildren<Image>().sprite = articleSprite;
-		GameObject imageObject = imageBubble.transform.Find ("BubbleImage").gameObject;
+		GameObject imageObject = imageBubble.transform.Find ("Bubble/BubbleImage").gameObject;
 		Image storyImage = imageObject.GetComponentInChildren<Image>();
 		storyImage.sprite = Sprite.Create (mm.story1Image, new Rect(0, 0, mm.story1Image.width, mm.story1Image.height), new Vector2(0.5f, 0.5f));
 
@@ -414,8 +414,8 @@ public class ReporterStory1 : MonoBehaviour {
 		displayImage.GetComponentInChildren<Image>().sprite = conclusionSprite;
 
 		// Add the sprite we show in the video call to the archive
-		GameObject bubble = cw.archivalChat.AddPlayerImageBubble();
-		GameObject bubbleImage = bubble.transform.Find ("BubbleImage").gameObject;
+		GameObject bubble = cw.archivalChat.AddNPCImageBubble();
+		GameObject bubbleImage = bubble.transform.Find ("Bubble/BubbleImage").gameObject;
 		Image image = bubbleImage.GetComponent<Image>();
 		image.sprite = conclusionSprite;
 

@@ -120,7 +120,7 @@ public class ArtistResponse1 : MonoBehaviour {
 
 		GameObject imageBubble = cw.AddNPCImageBubble();
 		Sprite homesSprite = Resources.Load<Sprite>("Sprites/S2 intro wide");
-		imageBubble.transform.Find("BubbleImage").GetComponentInChildren<Image>().sprite = homesSprite;
+		imageBubble.transform.Find("Bubble/BubbleImage").GetComponentInChildren<Image>().sprite = homesSprite;
 		
 		GameObject button = cw.AddButton("Vogels");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {

@@ -108,7 +108,7 @@ public class ReporterStory0 : MonoBehaviour {
 	public void ShowInstruction() {
 		// Show image of where the location is
 		GameObject imageBubble = cw.AddNPCImageBubble();
-		GameObject imageObject = imageBubble.transform.Find ("BubbleImage").gameObject;
+		GameObject imageObject = imageBubble.transform.Find ("Bubble/BubbleImage").gameObject;
 		Image storyImage = imageObject.GetComponentInChildren<Image>();
 		storyImage.sprite = Resources.Load<Sprite>("Sprites/Locaties/behang");
 

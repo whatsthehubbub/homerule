@@ -87,8 +87,8 @@ public class ReporterStory2 : MonoBehaviour {
 		displayImage.GetComponentInChildren<Image>().sprite = introSprite;
 
 		// Add the sprite we show in the video call to the archive
-		GameObject bubble = cw.archivalChat.AddPlayerImageBubble();
-		GameObject bubbleImage = bubble.transform.Find ("BubbleImage").gameObject;
+		GameObject bubble = cw.archivalChat.AddNPCImageBubble();
+		GameObject bubbleImage = bubble.transform.Find ("Bubble/BubbleImage").gameObject;
 		Image image = bubbleImage.GetComponent<Image>();
 		image.sprite = introSprite;
 
@@ -193,7 +193,7 @@ public class ReporterStory2 : MonoBehaviour {
 			GameObject imageBubble = cw.AddPlayerImageBubble();
 			imageBubble.name = "PlayerImage2";
 			
-			GameObject bubbleImage = imageBubble.transform.Find ("BubbleImage").gameObject;
+			GameObject bubbleImage = imageBubble.transform.Find ("Bubble/BubbleImage").gameObject;
 			Image im = bubbleImage.GetComponentInChildren<Image>();
 			
 			im.sprite = Sprite.Create (mm.story2Image, new Rect(0, 0, mm.story2Image.width, mm.story2Image.height), new Vector2(0.5f, 0.5f));
@@ -332,7 +332,7 @@ public class ReporterStory2 : MonoBehaviour {
 		// Display the story image
 		GameObject imageBubble = cw.AddNPCImageBubble();
 		imageBubble.GetComponentInChildren<Image>().sprite = articleSprite;
-		GameObject imageObject = imageBubble.transform.Find ("BubbleImage").gameObject;
+		GameObject imageObject = imageBubble.transform.Find ("Bubble/BubbleImage").gameObject;
 		Image storyImage = imageObject.GetComponentInChildren<Image>();
 		storyImage.sprite = Sprite.Create (mm.story2Image, new Rect(0, 0, mm.story2Image.width, mm.story2Image.height), new Vector2(0.5f, 0.5f));
 
@@ -408,8 +408,8 @@ public class ReporterStory2 : MonoBehaviour {
 
 
 		// Add the sprite we show in the video call to the archive
-		GameObject bubble = cw.archivalChat.AddPlayerImageBubble();
-		GameObject bubbleImage = bubble.transform.Find ("BubbleImage").gameObject;
+		GameObject bubble = cw.archivalChat.AddNPCImageBubble();
+		GameObject bubbleImage = bubble.transform.Find ("Bubble/BubbleImage").gameObject;
 		Image image = bubbleImage.GetComponent<Image>();
 		image.sprite = showSprite;
 		

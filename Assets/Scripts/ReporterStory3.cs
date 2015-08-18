@@ -25,6 +25,8 @@ public class ReporterStory3 : MonoBehaviour {
 		GameObject main = GameObject.Find("Main");
 		mm = main.GetComponentInChildren<MuseumManager>();
 
+		mm.reporterChatHistory.GetComponent<ChatWindow>().FlushChildren();
+
 		AudioClip ringtone = Resources.Load<AudioClip>("Audio/ringtone");
 		this.audioSource = main.GetComponent<AudioSource>();
 		audioSource.loop = true;
@@ -63,7 +65,7 @@ public class ReporterStory3 : MonoBehaviour {
 		cw = chat.GetComponent<ChatWindow>();
 		cw.SetArchivalChat(mm.reporterChatHistory.GetComponent<ChatWindow>());
 
-		cw.AddDivider();
+//		cw.AddDivider();
 		
 		cw.AddNPCBubble("Hoi!");
 		cw.AddNPCBubble("Ben je bij die foto?");

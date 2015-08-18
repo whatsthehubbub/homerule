@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class ChatWindow : MonoBehaviour {
 
@@ -151,6 +152,21 @@ public class ChatWindow : MonoBehaviour {
 		ScrollRect rect = scrollView.GetComponent<ScrollRect>();
 
 		rect.verticalNormalizedPosition = 0.0f;
+	}
+
+	/*
+	 * Removes all the chat bubbles in the chat window.
+	 */
+	public void FlushChildren() {
+		GameObject scrollContent = this.gameObject.transform.Find ("ScrollView/ScrollContent").gameObject;
+
+		List<GameObject> children = new List<GameObject>();
+
+		foreach (Transform child in scrollContent.transform) {
+			children.Add(child.gameObject);
+		}
+
+		children.ForEach(child => Destroy(child));
 	}
 
 	public GameObject AddDivider() {

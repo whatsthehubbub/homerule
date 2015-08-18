@@ -364,7 +364,8 @@ public class MuseumManager : MonoBehaviour {
 				if (locations.IndexOf(b.minor) != -1) {
 					found = true;
 
-					Debug.Log ("Moved into beacon range " + b.minor);
+//					Debug.Log ("Moved into beacon range " + b.minor);
+
 					MovedIntoBeaconRange(b.minor);
 				}
 				

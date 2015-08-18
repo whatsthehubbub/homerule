@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 50
+    m_Left: 48
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
@@ -308,7 +308,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: m_Padding.m_Left
-      value: 40
+      value: 48
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Padding.m_Right

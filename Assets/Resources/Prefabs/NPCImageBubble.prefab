@@ -157,7 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding:
     m_Left: 0
-    m_Right: 50
+    m_Right: 48
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 3
@@ -294,7 +294,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Padding.m_Right
-      value: 40
+      value: 48
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Padding.m_Top

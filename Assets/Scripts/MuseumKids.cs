@@ -82,6 +82,8 @@ public class MuseumKids : MonoBehaviour {
 
 		// The response document contains all kind of stuff, like my name, e-mail and score for this game
 
+		Debug.Log(www.text);
+
 		XmlDocument response = new XmlDocument();
 		response.LoadXml(www.text);
 		
@@ -100,21 +102,24 @@ public class MuseumKids : MonoBehaviour {
 	}
 
 	public IEnumerator DoPost() {
-		var url = "http://museumkids.ijspreview.nl/api/setScore";
+		var url = "http://museumkids.ijspreview.nl/api/setItemWithUserdata";
+
+		var text = "Test tekst bij item";
+
+		var tex = new Texture2D(100, 100);
+
 
 		WWWForm form = new WWWForm();
 		form.AddField("gamesession_hash", this.sessiontoken);
-		form.AddField("score", GetScore ());
+		form.AddField("item_id", 90);
+		form.AddField("text", text);
+//		form.AddBinaryData("file", tex.EncodeToPNG());
 
 		WWW www = new WWW(url, form);
 
-		Debug.Log ("Posting to url: " + url + " with session " + this.sessiontoken + " and score " + GetScore ());
+		Debug.Log ("Posting to url: " + url + " with session " + this.sessiontoken + " and text " + text);
 
 		yield return www;
-
-		// TODO 
-		// The result should be visible here if your score is higher than the previous one:
-		// http://museumkids.ijspreview.nl/game-info/shachi/20
 
 		Debug.Log (www.text);
 	}

@@ -14,9 +14,9 @@ public class GoalScript : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
+//	void Update () {
+//		
+//	}
 
 	public void ShowStopOverlay() {
 		mm.callBusy = true;

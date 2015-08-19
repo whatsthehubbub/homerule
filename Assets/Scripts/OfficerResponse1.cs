@@ -38,9 +38,9 @@ public class OfficerResponse1 : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
+//	void Update () {
+//		
+//	}
 
 	public void ShowVideoCall() {
 		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));

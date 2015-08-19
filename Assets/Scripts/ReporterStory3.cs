@@ -47,9 +47,9 @@ public class ReporterStory3 : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
+//	void Update () {
+//		
+//	}
 	
 	public void StartStory() {
 		// Pause the change scene

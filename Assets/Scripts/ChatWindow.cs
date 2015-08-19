@@ -22,8 +22,8 @@ public class ChatWindow : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	}
+//	void Update () {
+//	}
 
 	public void SetArchivalChat(ChatWindow cw) {
 		this.archivalChat = cw;

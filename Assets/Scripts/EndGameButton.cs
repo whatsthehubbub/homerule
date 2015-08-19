@@ -12,9 +12,9 @@ public class EndGameButton : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
-	}
+//	void Update () {
+//	
+//	}
 
 	public void QuitPlayingButton() {
 		mm.QuitGame();

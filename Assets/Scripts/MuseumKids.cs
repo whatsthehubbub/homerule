@@ -16,9 +16,9 @@ public class MuseumKids : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
-	}
+//	void Update () {
+//	
+//	}
 
 	public string GetEmail() {
 		var emailField = GameObject.Find ("EmailText");

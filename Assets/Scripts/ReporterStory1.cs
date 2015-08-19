@@ -338,17 +338,13 @@ public class ReporterStory1 : MonoBehaviour {
 
 		mm.story1Text = message;
 
-		Sprite articleSprite = Resources.Load<Sprite>("Sprites/chat_artikel");
 
-		GameObject imageBubble = cw.AddNPCImageBubble();
-		imageBubble.GetComponentInChildren<Image>().sprite = articleSprite;
+		GameObject imageBubble = cw.AddArticleImageBubble();
 		GameObject imageObject = imageBubble.transform.Find ("Bubble/BubbleImage").gameObject;
 		Image storyImage = imageObject.GetComponentInChildren<Image>();
 		storyImage.sprite = Sprite.Create (mm.story1Image, new Rect(0, 0, mm.story1Image.width, mm.story1Image.height), new Vector2(0.5f, 0.5f));
 
-		GameObject storyBubble = cw.AddNPCBubble(mm.story1Text);
-		storyBubble.GetComponentInChildren<Image>().sprite = articleSprite;
-		storyBubble.GetComponentInChildren<Text>().color = Color.black;
+		GameObject storyBubble = cw.AddArticleBubble(mm.story1Text);
 
 		cw.AddNPCBubble("Ik vind het een goed bericht. Jij ook?");
 

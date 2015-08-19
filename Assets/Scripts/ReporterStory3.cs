@@ -309,17 +309,12 @@ public class ReporterStory3 : MonoBehaviour {
 			message += "een geheime bron";
 		}
 
-		Sprite articleSprite = Resources.Load<Sprite>("Sprites/chat_artikel");
-
-		GameObject imageBubble = cw.AddNPCImageBubble();
-		imageBubble.GetComponentInChildren<Image>().sprite = articleSprite;
+		GameObject imageBubble = cw.AddArticleImageBubble();
 		GameObject imageObject = imageBubble.transform.Find ("Bubble/BubbleImage").gameObject;
 		Image storyImage = imageObject.GetComponentInChildren<Image>();
 		storyImage.sprite = Sprite.Create (mm.story3Image, new Rect(0, 0, mm.story3Image.width, mm.story3Image.height), new Vector2(0.5f, 0.5f));
 
-		GameObject storyBubble = cw.AddNPCBubble(message);
-		storyBubble.GetComponentInChildren<Image>().sprite = articleSprite;
-		storyBubble.GetComponentInChildren<Text>().color = Color.black;
+		GameObject storyBubble = cw.AddArticleBubble(message);
 
 		mm.story3Text = message;
 

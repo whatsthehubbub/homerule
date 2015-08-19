@@ -48,6 +48,9 @@ public class ChatWindow : MonoBehaviour {
 			case "NPC":
 				prefabName = "Prefabs/NPCChatbubble";
 				break;
+			case "ARTICLE":
+				prefabName = "Prefabs/ArticleChatbubble";
+				break;
 			default:
 				break;
 		}
@@ -90,6 +93,10 @@ public class ChatWindow : MonoBehaviour {
 		return this.AddBubble(text, "NPC");
 	}
 
+	public GameObject AddArticleBubble(string text) {
+		return this.AddBubble (text, "ARTICLE");
+	}
+
 	/*
 	 * Note: These are properly archived because they are only ever called on chat windows which are the archive
 	 * windows as well. If they would be called during VideoCalls they would not be looped through to the archive
@@ -108,6 +115,9 @@ public class ChatWindow : MonoBehaviour {
 			break;
 		case "NPC":
 			prefabName = "Prefabs/NPCImageBubble";
+			break;
+		case "ARTICLE":
+			prefabName = "Prefabs/ArticleImageBubble";
 			break;
 		default:
 			break;
@@ -130,6 +140,10 @@ public class ChatWindow : MonoBehaviour {
 
 	public GameObject AddNPCImageBubble() {
 		return this.AddImageBubble ("NPC");
+	}
+
+	public GameObject AddArticleImageBubble() {
+		return this.AddImageBubble ("ARTICLE");
 	}
 
 	public GameObject AddButton(string text) {

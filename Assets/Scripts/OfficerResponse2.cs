@@ -77,17 +77,12 @@ public class OfficerResponse2 : MonoBehaviour {
 		cw.AddNPCBubble("Fijn. Wij zien net dit bericht.");
 		
 		// Display the story image
-		Sprite articleSprite = Resources.Load<Sprite>("Sprites/chat_artikel");
-
-		GameObject imageBubble = cw.AddNPCImageBubble();
-		imageBubble.GetComponentInChildren<Image>().sprite = articleSprite;
+		GameObject imageBubble = cw.AddArticleImageBubble();
 		GameObject imageObject = imageBubble.transform.Find ("Bubble/BubbleImage").gameObject;
 		Image storyImage = imageObject.GetComponentInChildren<Image>();
 		storyImage.sprite = Sprite.Create (mm.story2Image, new Rect(0, 0, mm.story2Image.width, mm.story2Image.height), new Vector2(0.5f, 0.5f));
 		
-		GameObject storyBubble = cw.AddNPCBubble(mm.story2Text);
-		storyBubble.GetComponentInChildren<Image>().sprite = articleSprite;
-		storyBubble.GetComponentInChildren<Text>().color = Color.black;
+		GameObject storyBubble = cw.AddArticleBubble(mm.story2Text);
 		
 		GameObject button = cw.AddButton ("OK");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {

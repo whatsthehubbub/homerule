@@ -77,17 +77,12 @@ public class OfficerResponse3 : MonoBehaviour {
 
 		cw.AddNPCBubble("Fijn. Dit bericht hebt u vast eerder gezien.");
 
-		Sprite articleSprite = Resources.Load<Sprite>("Sprites/chat_artikel");
-
-		GameObject imageBubble = cw.AddNPCImageBubble();
-		imageBubble.GetComponentInChildren<Image>().sprite = articleSprite;
+		GameObject imageBubble = cw.AddArticleImageBubble();
 		GameObject imageObject = imageBubble.transform.Find ("Bubble/BubbleImage").gameObject;
 		Image storyImage = imageObject.GetComponentInChildren<Image>();
 		storyImage.sprite = Sprite.Create (mm.story3Image, new Rect(0, 0, mm.story3Image.width, mm.story3Image.height), new Vector2(0.5f, 0.5f));
 
-		GameObject storyBubble = cw.AddNPCBubble(mm.story3Text);
-		storyBubble.GetComponentInChildren<Image>().sprite = articleSprite;
-		storyBubble.GetComponentInChildren<Text>().color = Color.black;
+		GameObject storyBubble = cw.AddArticleBubble(mm.story3Text);
 
 		if (mm.story3Attribution == Story3Attribution.FRANK) {
 			cw.AddNPCBubble("Die flierefluiters zorgden voor onrust. Daarom hebben we de dichter gearresteerd.");
@@ -161,19 +156,13 @@ public class OfficerResponse3 : MonoBehaviour {
 			cw.AddPlayerBubble("U weet vast nog wel dat Frank graffiti had gespoten.");
 
 			// Boiler plate to include the story
-			// TODO maybe turn that into a call
-			Sprite articleSprite = Resources.Load<Sprite>("Sprites/chat_artikel");
-			
-			GameObject imageBubble = cw.AddPlayerImageBubble();
-			imageBubble.GetComponentInChildren<Image>().sprite = articleSprite;
+
+			GameObject imageBubble = cw.AddArticleImageBubble();
 			GameObject imageObject = imageBubble.transform.Find ("Bubble/BubbleImage").gameObject;
 			Image storyImage = imageObject.GetComponentInChildren<Image>();
 			storyImage.sprite = Sprite.Create (mm.story1Image, new Rect(0, 0, mm.story1Image.width, mm.story1Image.height), new Vector2(0.5f, 0.5f));
 			
-			GameObject storyBubble = cw.AddPlayerBubble(mm.story1Text);
-			storyBubble.GetComponentInChildren<Image>().sprite = articleSprite;
-			storyBubble.GetComponentInChildren<Text>().color = Color.black;
-
+			GameObject storyBubble = cw.AddArticleBubble(mm.story1Text);
 
 			string resultText = "";
 			
@@ -205,18 +194,12 @@ public class OfficerResponse3 : MonoBehaviour {
 			cw.AddPlayerBubble("En u weet vast ook nog wat we schreven over de huizen van de vogels.");
 			
 			// Boiler plate to include the story
-			Sprite articleSprite = Resources.Load<Sprite>("Sprites/chat_artikel");
-			
-			GameObject imageBubble = cw.AddPlayerImageBubble();
-			imageBubble.GetComponentInChildren<Image>().sprite = articleSprite;
+			GameObject imageBubble = cw.AddArticleImageBubble();
 			GameObject imageObject = imageBubble.transform.Find ("Bubble/BubbleImage").gameObject;
 			Image storyImage = imageObject.GetComponentInChildren<Image>();
 			storyImage.sprite = Sprite.Create (mm.story2Image, new Rect(0, 0, mm.story2Image.width, mm.story2Image.height), new Vector2(0.5f, 0.5f));
 			
-			GameObject storyBubble = cw.AddPlayerBubble(mm.story2Text);
-			storyBubble.GetComponentInChildren<Image>().sprite = articleSprite;
-			storyBubble.GetComponentInChildren<Text>().color = Color.black;
-
+			GameObject storyBubble = cw.AddArticleBubble(mm.story2Text);
 
 			string resultText = "";
 			switch (mm.story2FinalOpinion) {

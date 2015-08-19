@@ -329,11 +329,8 @@ public class ReporterStory2 : MonoBehaviour {
 	public void ShowArgumentResponse() {
 		cw.AddNPCBubble("Oké! Dit is mijn bericht:");
 
-		Sprite articleSprite = Resources.Load<Sprite>("Sprites/chat_artikel");
-
 		// Display the story image
-		GameObject imageBubble = cw.AddNPCImageBubble();
-		imageBubble.GetComponentInChildren<Image>().sprite = articleSprite;
+		GameObject imageBubble = cw.AddArticleImageBubble();
 		GameObject imageObject = imageBubble.transform.Find ("Bubble/BubbleImage").gameObject;
 		Image storyImage = imageObject.GetComponentInChildren<Image>();
 		storyImage.sprite = Sprite.Create (mm.story2Image, new Rect(0, 0, mm.story2Image.width, mm.story2Image.height), new Vector2(0.5f, 0.5f));
@@ -351,9 +348,7 @@ public class ReporterStory2 : MonoBehaviour {
 			"\n" + "Dat is " + argument;
 		mm.story2Text = storyText;
 
-		GameObject storyFactBubble = cw.AddNPCBubble(storyText);
-		storyFactBubble.GetComponentInChildren<Image>().sprite = articleSprite;
-		storyFactBubble.GetComponentInChildren<Text>().color = Color.black;
+		GameObject storyFactBubble = cw.AddArticleBubble(storyText);
 		
 		Invoke ("ShowSend", 0.5f);
 	}

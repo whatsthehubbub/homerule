@@ -2368,7 +2368,7 @@ RectTransform:
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 32, y: 0}
-  m_SizeDelta: {x: 290, y: 128}
+  m_SizeDelta: {x: 310, y: 128}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1455434273
 MonoBehaviour:
@@ -2396,7 +2396,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Chats
+  m_Text: Gesprekken
 --- !u!222 &1455434274
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2920,7 +2920,7 @@ RectTransform:
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 32, y: 0}
-  m_SizeDelta: {x: 290, y: 128}
+  m_SizeDelta: {x: 310, y: 128}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1585567023
 MonoBehaviour:
@@ -2948,7 +2948,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Posts
+  m_Text: Berichten
 --- !u!222 &1585567024
 CanvasRenderer:
   m_ObjectHideFlags: 0

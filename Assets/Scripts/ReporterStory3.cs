@@ -395,7 +395,7 @@ public class ReporterStory3 : MonoBehaviour {
 			cw.AddNPCBubble("Katja heeft iets goeds gedaan. En is daar de dupe van geworden!");
 			cw.AddNPCBubble("Hopelijk komt het goed. Kijk jij ondertussen nog even rond in het museum?");
 		} else if (mm.story3Attribution == Story3Attribution.ANONYMOUS) {
-			cw.AddNPCBubble("Dit is geweldig! Door op te schrijven wat er gebeurt, veranderen er dingen. En niet zo'n beetje ook");
+			cw.AddNPCBubble("Dit is geweldig! Door op te schrijven wat er gebeurt, veranderen er dingen. En niet zo'n beetje ook.");
 			cw.AddNPCBubble("Kijk rustig rond in het museum, er is nog van alles te zien.");
 		}
 

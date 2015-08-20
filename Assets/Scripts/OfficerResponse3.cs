@@ -255,7 +255,7 @@ public class OfficerResponse3 : MonoBehaviour {
 	public void ShowQuestion() {
 		cw.AddNPCBubble("Maar… we kunnen iedereen toch niet zomaar zijn gang laten gaan?");
 
-		GameObject button1 = cw.AddButton ("Vrijheid");
+		GameObject button1 = cw.AddButton ("Orde");
 		button1.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 
@@ -264,7 +264,7 @@ public class OfficerResponse3 : MonoBehaviour {
 			Invoke ("ShowResponse", 0.5f);
 		});
 
-		GameObject button2 = cw.AddButton ("Oorlog");
+		GameObject button2 = cw.AddButton ("Vrijheid");
 		button2.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 

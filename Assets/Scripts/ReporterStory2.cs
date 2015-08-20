@@ -348,7 +348,7 @@ public class ReporterStory2 : MonoBehaviour {
 			"\n" + "Dat is " + argument;
 		mm.story2Text = storyText;
 
-		GameObject storyFactBubble = cw.AddArticleBubble(storyText);
+		cw.AddArticleBubble(storyText);
 		
 		Invoke ("ShowSend", 0.5f);
 	}

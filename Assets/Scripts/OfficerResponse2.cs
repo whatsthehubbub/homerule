@@ -82,7 +82,7 @@ public class OfficerResponse2 : MonoBehaviour {
 		Image storyImage = imageObject.GetComponentInChildren<Image>();
 		storyImage.sprite = Sprite.Create (mm.story2Image, new Rect(0, 0, mm.story2Image.width, mm.story2Image.height), new Vector2(0.5f, 0.5f));
 		
-		GameObject storyBubble = cw.AddArticleBubble(mm.story2Text);
+		cw.AddArticleBubble(mm.story2Text);
 		
 		GameObject button = cw.AddButton ("OK");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {

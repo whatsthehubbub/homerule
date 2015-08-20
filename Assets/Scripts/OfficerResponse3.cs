@@ -82,7 +82,7 @@ public class OfficerResponse3 : MonoBehaviour {
 		Image storyImage = imageObject.GetComponentInChildren<Image>();
 		storyImage.sprite = Sprite.Create (mm.story3Image, new Rect(0, 0, mm.story3Image.width, mm.story3Image.height), new Vector2(0.5f, 0.5f));
 
-		GameObject storyBubble = cw.AddArticleBubble(mm.story3Text);
+		cw.AddArticleBubble(mm.story3Text);
 
 		if (mm.story3Attribution == Story3Attribution.FRANK) {
 			cw.AddNPCBubble("Die flierefluiters zorgden voor onrust. Daarom hebben we de dichter gearresteerd.");
@@ -162,7 +162,7 @@ public class OfficerResponse3 : MonoBehaviour {
 			Image storyImage = imageObject.GetComponentInChildren<Image>();
 			storyImage.sprite = Sprite.Create (mm.story1Image, new Rect(0, 0, mm.story1Image.width, mm.story1Image.height), new Vector2(0.5f, 0.5f));
 			
-			GameObject storyBubble = cw.AddArticleBubble(mm.story1Text);
+			cw.AddArticleBubble(mm.story1Text);
 
 			string resultText = "";
 			
@@ -199,7 +199,7 @@ public class OfficerResponse3 : MonoBehaviour {
 			Image storyImage = imageObject.GetComponentInChildren<Image>();
 			storyImage.sprite = Sprite.Create (mm.story2Image, new Rect(0, 0, mm.story2Image.width, mm.story2Image.height), new Vector2(0.5f, 0.5f));
 			
-			GameObject storyBubble = cw.AddArticleBubble(mm.story2Text);
+			cw.AddArticleBubble(mm.story2Text);
 
 			string resultText = "";
 			switch (mm.story2FinalOpinion) {

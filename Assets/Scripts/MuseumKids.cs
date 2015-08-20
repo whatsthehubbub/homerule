@@ -58,7 +58,7 @@ public class MuseumKids : MonoBehaviour {
 
 		Debug.Log(www.text);
 
-		XmlNode accountStatus = response.GetElementsByTagName("accountstatus")[0];
+//		XmlNode accountStatus = response.GetElementsByTagName("accountstatus")[0];
 		XmlNode authToken = response.GetElementsByTagName("authtoken")[0];
 
 		this.authtoken = authToken.InnerText;
@@ -106,7 +106,7 @@ public class MuseumKids : MonoBehaviour {
 
 		var text = "Test tekst bij item";
 
-		var tex = new Texture2D(100, 100);
+//		var tex = new Texture2D(100, 100);
 
 
 		WWWForm form = new WWWForm();

@@ -344,7 +344,7 @@ public class ReporterStory1 : MonoBehaviour {
 		Image storyImage = imageObject.GetComponentInChildren<Image>();
 		storyImage.sprite = Sprite.Create (mm.story1Image, new Rect(0, 0, mm.story1Image.width, mm.story1Image.height), new Vector2(0.5f, 0.5f));
 
-		GameObject storyBubble = cw.AddArticleBubble(mm.story1Text);
+		cw.AddArticleBubble(mm.story1Text);
 
 		cw.AddNPCBubble("Ik vind het een goed bericht. Jij ook?");
 

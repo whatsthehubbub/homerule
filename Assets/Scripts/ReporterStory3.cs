@@ -314,7 +314,7 @@ public class ReporterStory3 : MonoBehaviour {
 		Image storyImage = imageObject.GetComponentInChildren<Image>();
 		storyImage.sprite = Sprite.Create (mm.story3Image, new Rect(0, 0, mm.story3Image.width, mm.story3Image.height), new Vector2(0.5f, 0.5f));
 
-		GameObject storyBubble = cw.AddArticleBubble(message);
+		cw.AddArticleBubble(message);
 
 		mm.story3Text = message;
 

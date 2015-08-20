@@ -236,6 +236,8 @@ public class MuseumManager : MonoBehaviour {
 		if (Application.loadedLevelName.Equals("Underway")) {
 			UpdateTargetText();
 		}
+
+		TakeCall ();
 	}
 	
 	void Awake() {

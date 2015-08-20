@@ -470,15 +470,16 @@ public class MuseumManager : MonoBehaviour {
 	public void TakeCall() {
 		// Do the check and if we have a call to show, then block and invoke that in 10 seconds
 		if (!this.callBusy && this.storyQueue.Count > 0) {
-			Debug.Log ("Going to take a call in a bit (delayed).");
 			this.callBusy = true;
 
-			float delay = UnityEngine.Random.Range(callDelay*0.66f, callDelay*1.33f);
+			float delay = callDelay; // UnityEngine.Random.Range(callDelay*0.66f, callDelay*1.33f);
 
 			if (Application.platform == RuntimePlatform.OSXEditor) {
 				// Remove this for testing on desktop
 				delay = 0.0f;
 			}
+
+			Debug.Log ("Going to take a call in: " + delay);
 
 			Invoke("TakeCallDelayed", delay);
 		}

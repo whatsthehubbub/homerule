@@ -7,6 +7,9 @@ public class MuseumKids : MonoBehaviour {
 
 	// Class to do the API calls on http://museumkids.ijspreview.nl/api/tester/
 
+	// Site on the staging site.
+	// http://museumkids.ijspreview.nl/game-info/shachi/20
+
 	public string authtoken;
 
 	public string sessiontoken;
@@ -14,11 +17,6 @@ public class MuseumKids : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 	}
-	
-	// Update is called once per frame
-//	void Update () {
-//	
-//	}
 
 	public string GetEmail() {
 		var emailField = GameObject.Find ("EmailText");
@@ -105,15 +103,22 @@ public class MuseumKids : MonoBehaviour {
 		var url = "http://museumkids.ijspreview.nl/api/setItemWithUserdata";
 
 		var text = "Test tekst bij item";
+		var item_id = 92;
 
-//		var tex = new Texture2D(100, 100);
+		Sprite sprite = Resources.Load<Sprite>("Sprites/Locaties/behang");
+		Debug.Log (sprite);
+		Texture2D tex = sprite.texture;
+		Debug.Log (tex);
+		byte[] imageData = tex.EncodeToJPG();
+		Debug.Log(imageData);
 
+		Debug.Log ("Post to URL: " + url + " with session: " + this.sessiontoken + " item: " + item_id + " and text: " + text);
 
 		WWWForm form = new WWWForm();
 		form.AddField("gamesession_hash", this.sessiontoken);
-		form.AddField("item_id", 90);
+		form.AddField("item_id", item_id);
 		form.AddField("text", text);
-//		form.AddBinaryData("file", tex.EncodeToPNG());
+		form.AddBinaryData("file", imageData, "foto.jpg", "image/jpeg");
 
 		WWW www = new WWW(url, form);
 

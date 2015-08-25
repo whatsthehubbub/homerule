@@ -82,11 +82,11 @@ public class ArtistResponse1 : MonoBehaviour {
 		cw.DisableBack();
 
 		if (mm.story1OpinionDescription == Story1OpinionDescription.VANDAL) {
-			cw.AddPlayerBubble("Vandaal? Even dimmen, ik ben een dichter!");
+			cw.AddNPCBubble("Vandaal? Even dimmen, ik ben een dichter!");
 		} else if (mm.story1OpinionDescription == Story1OpinionDescription.CITIZEN) {
-			cw.AddPlayerBubble("Klopt. Zelf noem ik het een stadsgedicht.");
+			cw.AddNPCBubble("Klopt. Zelf noem ik het een stadsgedicht.");
 		} else if (mm.story1OpinionDescription == Story1OpinionDescription.ARTIST) {
-			cw.AddPlayerBubble("Klopt. Ik was bijna opgepakt vanwege mijn gedichten.");
+			cw.AddNPCBubble("Klopt. Ik was bijna opgepakt vanwege mijn gedichten.");
 		}
 		
 		cw.AddNPCBubble("Ik weet dat ik niet op gebouwen mag schrijven. Maar soms doe ik het toch. Als ik echt iets te zeggen heb.");

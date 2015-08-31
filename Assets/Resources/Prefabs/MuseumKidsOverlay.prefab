@@ -11,7 +11,7 @@ GameObject:
   - 222: {fileID: 22279786}
   - 114: {fileID: 11466834}
   m_Layer: 5
-  m_Name: Text
+  m_Name: EmailFieldText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,9 +97,9 @@ GameObject:
   - 224: {fileID: 22427954}
   - 222: {fileID: 22278700}
   - 114: {fileID: 11442314}
-  - 114: {fileID: 11466346}
+  - 114: {fileID: 11462572}
   m_Layer: 5
-  m_Name: MuseumKidsLoginOverlay
+  m_Name: MuseumKidsOverlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -341,7 +341,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 11423626}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11462572}
+        m_MethodName: CloseLoginOverlay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &11455446
@@ -391,7 +402,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11466346
+--- !u!114 &11462572
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -399,7 +410,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 154402}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5b627cba57f744549580b1201e514e0, type: 3}
+  m_Script: {fileID: 11500000, guid: 87854a82a397c459dbc6df86100943f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &11466834
@@ -561,8 +572,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11466346}
-        m_MethodName: QuitPlayingButton
+      - m_Target: {fileID: 11462572}
+        m_MethodName: SendButtonPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -680,7 +691,7 @@ RectTransform:
   m_Children:
   - {fileID: 22463296}
   m_Father: {fileID: 22427954}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_AnchorMin: {x: 0, y: .5}
   m_AnchorMax: {x: 1, y: .5}
   m_AnchoredPosition: {x: 0, y: 608}
@@ -696,10 +707,10 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 22450378}
   - {fileID: 22427360}
   - {fileID: 22431354}
   - {fileID: 22465366}
-  - {fileID: 22450378}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
@@ -720,7 +731,7 @@ RectTransform:
   - {fileID: 22420194}
   - {fileID: 22433730}
   m_Father: {fileID: 22427954}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 0, y: 190}
@@ -772,7 +783,7 @@ RectTransform:
   m_Children:
   - {fileID: 22446256}
   m_Father: {fileID: 22427954}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 613, y: 899}
@@ -807,10 +818,10 @@ RectTransform:
   m_Children:
   - {fileID: 22424872}
   m_Father: {fileID: 22427954}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_AnchorMin: {x: .5, y: 0}
   m_AnchorMax: {x: .5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 200}
+  m_AnchoredPosition: {x: 0, y: 1014}
   m_SizeDelta: {x: 1280, y: 200}
   m_Pivot: {x: .5, y: .5}
 --- !u!1001 &100100000

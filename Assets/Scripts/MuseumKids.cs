@@ -10,12 +10,17 @@ public class MuseumKids : MonoBehaviour {
 	// Site on the staging site.
 	// http://museumkids.ijspreview.nl/game-info/shachi/20
 
+	public string email;
+
 	public string authtoken;
 
 	public string sessiontoken;
 
+	public int storyToShare;
+
 	// Use this for initialization
 	void Start () {
+		storyToShare = -1;
 	}
 
 	public string GetEmail() {
@@ -40,12 +45,12 @@ public class MuseumKids : MonoBehaviour {
 		var url = "http://museumkids.ijspreview.nl/api/login";
 
 		WWWForm form = new WWWForm();
-		form.AddField("email", GetEmail ());
+		form.AddField("email", this.email);
 		form.AddField("platform_name", "Tablet");
 		// This field needs to be added because this stuff is broken
 		form.AddField("gamesession_hash", "");
 
-		Debug.Log ("Post to URL: " + url + " with email: " + GetEmail());
+		Debug.Log ("Post to URL: " + url + " with email: " + this.email);
 
 		WWW www = new WWW(url, form);
 

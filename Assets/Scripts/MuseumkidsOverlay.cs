@@ -8,12 +8,18 @@ public class MuseumkidsOverlay : MonoBehaviour {
 	public GameObject share;
 	
 	private MuseumKids m;
+	private MuseumManager mm;
 
 	// Use this for initialization
 	void Start () {
 		Debug.Log ("in overlay start");
 
 		m = GameObject.Find ("Main Camera").GetComponent<MuseumKids>();
+
+		GameObject main = GameObject.Find("Main");
+		mm = main.GetComponentInChildren<MuseumManager>();
+
+		mm.callBusy = true;
 
 		if (LoggedIn()) {
 			ShowSharePanel();
@@ -61,6 +67,8 @@ public class MuseumkidsOverlay : MonoBehaviour {
 	}
 
 	public void CloseLoginOverlay() {
+		mm.callBusy = false;
+
 		Destroy (this.gameObject);
 	}
 

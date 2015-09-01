@@ -472,8 +472,6 @@ public class MuseumManager : MonoBehaviour {
 	public void TakeCall() {
 		// Do the check and if we have a call to show, then block and invoke that in 10 seconds
 		if (!this.callBusy && this.storyQueue.Count > 0) {
-			this.callBusy = true;
-
 			float delay = callDelay; // UnityEngine.Random.Range(callDelay*0.66f, callDelay*1.33f);
 
 			if (Application.platform == RuntimePlatform.OSXEditor) {
@@ -488,6 +486,17 @@ public class MuseumManager : MonoBehaviour {
 	}
 
 	public void TakeCallDelayed() {
+		// We can become busy between TakeCall and TakeCallDelayed (like for instance when sharing)
+		// Don't take a call then but call this method again in a bit
+		if (this.callBusy) {
+			Debug.Log ("Busy now. Trying later.");
+
+			Invoke ("TakeCallDelayed", 10.0f);
+			return;
+		}
+
+		this.callBusy = true;
+
 		string storyBit = this.storyQueue.Dequeue();
 
 		PreCallCleanUp();

@@ -24,24 +24,6 @@ public class MuseumKids : MonoBehaviour {
 		storyToShare = -1;
 	}
 
-	public string GetEmail() {
-		var emailField = GameObject.Find ("EmailText");
-
-		return emailField.GetComponentInChildren<Text>().text;
-	}
-
-	public int GetScore() {
-		GameObject scoreField = GameObject.Find ("ScoreText");
-
-		string score = scoreField.GetComponentInChildren<Text>().text;
-
-		return int.Parse(score);
-	}
-
-	public void LoginButtonPressed() {
-		StartCoroutine(DoLogin());
-	}
-
 	public IEnumerator DoLogin() {
 		var url = "http://museumkids.ijspreview.nl/api/login";
 
@@ -68,12 +50,6 @@ public class MuseumKids : MonoBehaviour {
 		this.authtoken = authToken.InnerText;
 	}
 
-	public void SessionButtonPressed() {
-		Debug.Log ("Session button pressed");
-		
-		StartCoroutine(GetSessionToken());
-	}
-	
 	public IEnumerator GetSessionToken() {
 		var url = "http://museumkids.ijspreview.nl/api/usersession/tikkit/Shachi/" + this.authtoken;
 		
@@ -99,24 +75,11 @@ public class MuseumKids : MonoBehaviour {
 
 	}
 
-	public void PostButtonPressed() {
-		Debug.Log ("Post button pressed");
-
-		StartCoroutine(DoPost());
-	}
-
 	public IEnumerator DoPost() {
 		var url = "http://museumkids.ijspreview.nl/api/setItemWithUserdata";
 
 		// TODO set the correct item id
 		var item_id = 92;
-
-//		Sprite sprite = Resources.Load<Sprite>("Sprites/Locaties/behang");
-//		Debug.Log (sprite);
-//		Texture2D tex = sprite.texture;
-//		Debug.Log (tex);
-//		byte[] imageData = tex.EncodeToJPG();
-//		Debug.Log(imageData);
 
 		Debug.Log ("Post to URL: " + url + " with session: " + this.sessiontoken + " item: " + item_id + " and text: " + textToShare);
 

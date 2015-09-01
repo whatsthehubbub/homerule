@@ -87,47 +87,6 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &362444842
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 362444844}
-  - 114: {fileID: 362444843}
-  m_Layer: 0
-  m_Name: MuseumKidsHolder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &362444843
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 362444842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d45f094951894324b52ee0890583662, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  authtoken: 
-  sessiontoken: 
---- !u!4 &362444844
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 362444842}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 160, y: 284.5, z: -2154.27319}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
 --- !u!1 &369047206
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,6 +362,7 @@ GameObject:
   - 92: {fileID: 610355726}
   - 124: {fileID: 610355725}
   - 81: {fileID: 610355724}
+  - 114: {fileID: 610355729}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -459,6 +419,7 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
+  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -476,6 +437,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &610355729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 610355723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d45f094951894324b52ee0890583662, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  email: 
+  authtoken: 
+  sessiontoken: 
+  storyToShare: 0
+  textToShare: 
+  imageToShare: {fileID: 0}
 --- !u!1 &655688217
 GameObject:
   m_ObjectHideFlags: 0
@@ -553,6 +531,7 @@ GameObject:
   - 223: {fileID: 736854185}
   - 114: {fileID: 736854184}
   - 114: {fileID: 736854183}
+  - 114: {fileID: 736854186}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -635,6 +614,17 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
+--- !u!114 &736854186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 736854181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57e1e8ae250b34446ab9dcfa6e8ace72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1147919606
 GameObject:
   m_ObjectHideFlags: 0
@@ -760,7 +750,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: SetItem
+  m_Text: Call SetItem
 --- !u!222 &1203911387
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -842,7 +832,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 362444843}
+      - m_Target: {fileID: 736854186}
         m_MethodName: PostButtonPressed
         m_Mode: 1
         m_Arguments:
@@ -957,7 +947,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 362444843}
+      - m_Target: {fileID: 736854186}
         m_MethodName: SessionButtonPressed
         m_Mode: 1
         m_Arguments:
@@ -1138,7 +1128,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 362444843}
+      - m_Target: {fileID: 736854186}
         m_MethodName: LoginButtonPressed
         m_Mode: 1
         m_Arguments:

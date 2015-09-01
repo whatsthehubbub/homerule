@@ -14,7 +14,7 @@ public class MuseumkidsOverlay : MonoBehaviour {
 	void Start () {
 		Debug.Log ("in overlay start");
 
-		m = GameObject.Find ("Main Camera").GetComponent<MuseumKids>();
+		m = GameObject.Find ("Main").GetComponent<MuseumKids>();
 
 		GameObject main = GameObject.Find("Main");
 		mm = main.GetComponentInChildren<MuseumManager>();

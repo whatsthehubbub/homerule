@@ -3741,7 +3741,6 @@ GameObject:
   - 124: {fileID: 1820636011}
   - 81: {fileID: 1820636010}
   - 114: {fileID: 1820636015}
-  - 114: {fileID: 1820636016}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3832,23 +3831,6 @@ MonoBehaviour:
   post1: {fileID: 1956534722}
   post2: {fileID: 310269110}
   post3: {fileID: 1172467476}
---- !u!114 &1820636016
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1820636009}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d45f094951894324b52ee0890583662, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  email: 
-  authtoken: 
-  sessiontoken: 
-  storyToShare: 0
-  textToShare: 
-  imageToShare: {fileID: 0}
 --- !u!1 &1889150144
 GameObject:
   m_ObjectHideFlags: 0

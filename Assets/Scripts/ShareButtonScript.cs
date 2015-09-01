@@ -8,7 +8,7 @@ public class ShareButtonScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		// Get Mumeuskids object
-		m = GameObject.Find ("Main Camera").GetComponent<MuseumKids>();
+		m = GameObject.Find ("Main").GetComponent<MuseumKids>();
 	}
 
 //	// Update is called once per frame

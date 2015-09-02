@@ -101,7 +101,7 @@ public class MuseumManager : MonoBehaviour {
 	 */
 	private List<int> locations = new List<int>(new int[] {53868, 48618, 22290, 48174});
 
-	public Dictionary<string, float> delays = new Dictionary<string, float> {
+	public Dictionary<string, float> callDelays = new Dictionary<string, float> {
 		{"OFFICERRESPONSE1", 1.2f},
 		{"REPORTERRESPONSE1", 10.0f},
 		{"OFFICERRESPONSE2", 5.0f},
@@ -111,7 +111,6 @@ public class MuseumManager : MonoBehaviour {
 	};
 
 	public bool forceCalls = false;
-	public float callDelay = 10.0f;
 
 	public Queue<string> storyQueue = new Queue<string>();
 	public bool waitingForCall = false;
@@ -484,7 +483,7 @@ public class MuseumManager : MonoBehaviour {
 		if (!this.callBusy && !this.waitingForCall && this.storyQueue.Count > 0) {
 			this.waitingForCall = true;
 
-			float delay = delays[this.storyQueue.Peek ()];
+			float delay = callDelays[this.storyQueue.Peek ()];
 
 //			if (Application.platform == RuntimePlatform.OSXEditor) {
 //				// Remove this for testing on desktop

@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.Analytics;
 
 public class Underway : MonoBehaviour {
 
@@ -17,6 +19,9 @@ public class Underway : MonoBehaviour {
 	void Start () {
 		GameObject main = GameObject.Find("Main");
 		mm = main.GetComponentInChildren<MuseumManager>();
+
+		//Added custom event to test if code was getting stripped out
+		Analytics.CustomEvent("Start", new Dictionary<string, object> { {"Starting", 0 } });
 	}
 	
 	// Update is called once per frame

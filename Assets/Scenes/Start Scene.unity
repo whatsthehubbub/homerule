@@ -1872,7 +1872,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceCalls: 0
-  callDelay: 10
   waitingForCall: 0
   callBusy: 0
   canvas: {fileID: 0}

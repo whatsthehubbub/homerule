@@ -474,10 +474,10 @@ public class MuseumManager : MonoBehaviour {
 		if (!this.callBusy && this.storyQueue.Count > 0) {
 			float delay = callDelay; // UnityEngine.Random.Range(callDelay*0.66f, callDelay*1.33f);
 
-			if (Application.platform == RuntimePlatform.OSXEditor) {
-				// Remove this for testing on desktop
-				delay = 0.0f;
-			}
+//				if (Application.platform == RuntimePlatform.OSXEditor) {
+//				// Remove this for testing on desktop
+//				delay = 0.0f;
+//			}
 
 			Debug.Log ("Going to take a call in: " + delay);
 

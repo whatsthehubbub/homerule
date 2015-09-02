@@ -80,16 +80,30 @@ public class ReporterStory1 : MonoBehaviour {
 	}
 
 	public void ShowStorySituation() {
-		GameObject displayImage = GameObject.Find ("DisplayImage");
 		Sprite introSprite = Resources.Load<Sprite>("Sprites/S1 intro wide");
-		displayImage.GetComponentInChildren<Image>().sprite = introSprite;
+
+		// Show the situation in an image overlay
+		GameObject imageOverlay = (GameObject)Instantiate(Resources.Load ("Prefabs/ImageOverlay"));
+		imageOverlay.transform.SetParent(GameObject.Find ("Canvas").transform, false);
+		imageOverlay.name = "ImageOverlay";
+		imageOverlay.GetComponent<Image>().sprite = introSprite;
 
 		// Add the sprite we show in the video call to the archive
 		GameObject bubble = cw.archivalChat.AddNPCImageBubble();
 		GameObject bubbleImage = bubble.transform.Find ("Bubble/BubbleImage").gameObject;
 		Image image = bubbleImage.GetComponent<Image>();
 		image.sprite = introSprite;
+
+		// Already destroy the chat here
+		GameObject.Destroy(chat);
 		
+		chat = mm.reporterChatHistory;
+		mm.reporterChatHistory.SetActive(true);
+		
+		cw = chat.GetComponent<ChatWindow>();
+		cw.DisableBack();
+
+
 		cw.AddNPCBubble("Die man wordt opgepakt. Heeft hij die graffiti gemaakt?");
 		cw.AddNPCBubble("Kun je me helpen hierover te schrijven?");
 		
@@ -97,14 +111,6 @@ public class ReporterStory1 : MonoBehaviour {
 		ja.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 			cw.AddPlayerBubble("Natuurlijk help ik je.");
-
-			GameObject.Destroy(chat);
-			
-			chat = mm.reporterChatHistory;
-			mm.reporterChatHistory.SetActive(true);
-			
-			cw = chat.GetComponent<ChatWindow>();
-			cw.DisableBack();
 			
 			Invoke ("GiveOpinion0", 0.8f);
 		});

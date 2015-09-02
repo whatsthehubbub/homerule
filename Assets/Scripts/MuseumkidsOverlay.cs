@@ -104,6 +104,9 @@ public class MuseumkidsOverlay : MonoBehaviour {
 
 		// TODO return a message that we succeeded
 
+		// Disable the share button that this is about
+		GameObject.Find ("Share" + m.storyToShare + "Button").GetComponent<Button>().interactable = false;
+
 		CloseLoginOverlay();
 	}
 }

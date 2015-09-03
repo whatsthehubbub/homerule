@@ -88,6 +88,8 @@ public class ReporterStory1 : MonoBehaviour {
 		imageOverlay.name = "ImageOverlay";
 		imageOverlay.GetComponent<Image>().sprite = introSprite;
 
+		ImageOverlay.onImageOverlayClose += ShowStoryIntro;
+
 		// Add the sprite we show in the video call to the archive
 		GameObject bubble = cw.archivalChat.AddNPCImageBubble();
 		GameObject bubbleImage = bubble.transform.Find ("Bubble/BubbleImage").gameObject;
@@ -102,7 +104,10 @@ public class ReporterStory1 : MonoBehaviour {
 		
 		cw = chat.GetComponent<ChatWindow>();
 		cw.DisableBack();
+	}
 
+	public void ShowStoryIntro() {
+		ImageOverlay.onImageOverlayClose -= ShowStoryIntro;
 
 		cw.AddNPCBubble("Die man wordt opgepakt. Heeft hij die graffiti gemaakt?");
 		cw.AddNPCBubble("Kun je me helpen hierover te schrijven?");
@@ -388,34 +393,34 @@ public class ReporterStory1 : MonoBehaviour {
 			cw.ClearButtons();
 			cw.AddPlayerBubble("Laat zien!");
 			
-			Invoke ("PieceResult", 0.5f);
+			Invoke ("ShowResultImage", 0.5f);
 		});
 	}
 
-	public void PieceResult() {
+	public void ShowResultImage() {
 		string spriteString = "";
 
 		switch (mm.story1OpinionDescription) {
 		case Story1OpinionDescription.VANDAL:
-			cw.AddNPCBubble("De agent krijgt zijn zin. De vandaal maakt de muur schoon.");
 			spriteString = "S1 slecht wide";
 			break;
 		case Story1OpinionDescription.CITIZEN:
-			cw.AddNPCBubble("Het loopt met een sisser af. Maar niet iedereen is blij.");
-
 			spriteString = "S1 meh wide";
 			break;
 		case Story1OpinionDescription.ARTIST:
-			cw.AddNPCBubble("Die kunstenaar is nu beroemd! Maar niet iedereen is blij.");
-
 			spriteString = "S1 goed wide";
 			break;
 		}
 
-		// Show the sprite for the result of this episode
-		GameObject displayImage = GameObject.Find ("DisplayImage");
 		Sprite conclusionSprite = Resources.Load<Sprite>("Sprites/" + spriteString);
-		displayImage.GetComponentInChildren<Image>().sprite = conclusionSprite;
+
+		// Show the situation in an image overlay
+		GameObject imageOverlay = (GameObject)Instantiate(Resources.Load ("Prefabs/ImageOverlay"));
+		imageOverlay.transform.SetParent(GameObject.Find ("Canvas").transform, false);
+		imageOverlay.name = "ImageOverlay";
+		imageOverlay.GetComponent<Image>().sprite = conclusionSprite;
+		
+		ImageOverlay.onImageOverlayClose += ShowResultText;
 
 		// Add the sprite we show in the video call to the archive
 		GameObject bubble = cw.archivalChat.AddNPCImageBubble();
@@ -423,13 +428,46 @@ public class ReporterStory1 : MonoBehaviour {
 		Image image = bubbleImage.GetComponent<Image>();
 		image.sprite = conclusionSprite;
 
-		cw.AddNPCBubble("Leuk zeg! Door op te schrijven wat er gebeurt, veranderen er dingen.");
-		cw.AddNPCBubble("Ik bel als ik je nodig heb. In het museum is van alles te zien, dus kijk rustig rond.");
+		// Destroy the chat here
+		GameObject.Destroy(chat);
+		
+		chat = mm.reporterChatHistory;
+		mm.reporterChatHistory.SetActive(true);
+		
+		cw = chat.GetComponent<ChatWindow>();
+		cw.DisableBack();
+	}
 
-		Invoke ("ShowResultClose", 0.5f);
+	public void ShowResultText() {
+		ImageOverlay.onImageOverlayClose -= ShowResultText;
+
+		switch (mm.story1OpinionDescription) {
+		case Story1OpinionDescription.VANDAL:
+			cw.AddNPCBubble("De agent krijgt zijn zin. De vandaal maakt de muur schoon.");
+			break;
+		case Story1OpinionDescription.CITIZEN:
+			cw.AddNPCBubble("Het loopt met een sisser af. Maar niet iedereen is blij.");
+
+			break;
+		case Story1OpinionDescription.ARTIST:
+			cw.AddNPCBubble("Die kunstenaar is nu beroemd! Maar niet iedereen is blij.");
+
+			break;
+		}
+
+		GameObject send = cw.AddButton("Mooi");
+		send.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			cw.ClearButtons();
+			cw.AddPlayerBubble("Mooi zo!");
+			
+			Invoke ("ShowResultClose", 0.5f);
+		});
 	}
 
 	public void ShowResultClose() {
+		cw.AddNPCBubble("Leuk zeg! Door op te schrijven wat er gebeurt, veranderen er dingen.");
+		cw.AddNPCBubble("Ik bel als ik je nodig heb. In het museum is van alles te zien, dus kijk rustig rond.");
+
 		GameObject ok = cw.AddButton("Tot ziens");
 		ok.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();

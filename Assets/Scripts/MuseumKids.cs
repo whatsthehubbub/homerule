@@ -72,7 +72,6 @@ public class MuseumKids : MonoBehaviour {
 		Debug.Log (session.InnerText);
 		
 		this.sessiontoken = session.InnerText;
-
 	}
 
 	public IEnumerator DoPost() {

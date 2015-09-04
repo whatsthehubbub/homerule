@@ -3,8 +3,10 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class MuseumkidsOverlay : MonoBehaviour {
+
 	public GameObject login;
 	public GameObject share;
+	public GameObject loggedin;
 	
 	private MuseumKids m;
 	private MuseumManager mm;
@@ -21,7 +23,7 @@ public class MuseumkidsOverlay : MonoBehaviour {
 		mm.callBusy = true;
 
 		if (m.LoggedIn()) {
-			ShowSharePanel();
+			ShowLoggedinPanel();
 		} else {
 			ShowLoginPanel();
 		}
@@ -35,10 +37,20 @@ public class MuseumkidsOverlay : MonoBehaviour {
 	public void ShowLoginPanel() {
 		this.login.SetActive(true);
 		this.share.SetActive(false);
+		this.loggedin.SetActive(false);
+	}
+
+	public void ShowLoggedinPanel() {
+		this.login.SetActive(false);
+		this.share.SetActive(false);
+		this.loggedin.SetActive(true);
+
+		GameObject.Find("LoggedInExplanation").GetComponentInChildren<Text>().text = "Je bent ingelogd als: " + m.email;
 	}
 
 	public void ShowSharePanel() {
 		this.login.SetActive(false);
+		this.loggedin.SetActive(false);
 		this.share.SetActive(true);
 
 		// Set the right text and image of the story we want to share
@@ -65,6 +77,16 @@ public class MuseumkidsOverlay : MonoBehaviour {
 		mm.callBusy = false;
 
 		Destroy (this.gameObject);
+	}
+
+	public void GoOnShareButtonPressed() {
+		this.ShowSharePanel();
+	}
+
+	public void LogoutButtonPressed() {
+		m.Logout();
+
+		this.ShowLoginPanel();
 	}
 
 	public void LoginButtonPressed() {

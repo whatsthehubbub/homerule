@@ -3,7 +3,6 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class MuseumkidsOverlay : MonoBehaviour {
-
 	public GameObject login;
 	public GameObject share;
 	
@@ -14,7 +13,7 @@ public class MuseumkidsOverlay : MonoBehaviour {
 	void Start () {
 		Debug.Log ("in overlay start");
 
-		m = GameObject.Find ("Main").GetComponent<MuseumKids>();
+		m = GameObject.Find ("MuseumkidsHolder").GetComponent<MuseumKids>();
 
 		GameObject main = GameObject.Find("Main");
 		mm = main.GetComponentInChildren<MuseumManager>();
@@ -89,7 +88,6 @@ public class MuseumkidsOverlay : MonoBehaviour {
 		yield return StartCoroutine(m.GetSessionToken());
 
 		// Close login screen
-
 		ShowSharePanel();
 
 		// Go on with Sharing

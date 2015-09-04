@@ -107,4 +107,10 @@ public class Underway : MonoBehaviour {
 			this.post3.transform.Find("PostImage").GetComponent<Image>().sprite = Sprite.Create (mm.story3Image, new Rect(0, 0, mm.story3Image.width, mm.story3Image.height), new Vector2(0.5f, 0.5f));
 		}
 	}
+
+	public void LogoutButton() {
+		MuseumKids m = GameObject.Find ("MuseumkidsHolder").GetComponent<MuseumKids>();
+
+		m.Logout();
+	}
 }

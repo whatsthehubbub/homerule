@@ -10,6 +10,11 @@ public class MuseumKids : MonoBehaviour {
 	// Site on the staging site.
 	// http://museumkids.ijspreview.nl/game-info/shachi/20
 
+	public delegate void MuseumkidsHandler();
+	public static event MuseumkidsHandler onMuseumkidsLoggedIn;
+	public static event MuseumkidsHandler onMuseumkidsLoggedOut;
+
+
 	public string email;
 
 	public string authtoken;
@@ -19,9 +24,23 @@ public class MuseumKids : MonoBehaviour {
 	public string textToShare;
 	public Texture2D imageToShare;
 
+
+	private static MuseumKids instance;
+
+	void Awake() {
+		if (instance == null) {
+			instance = this;
+		} else if (instance != this) {
+			Destroy (gameObject);
+			return;
+		}
+	}
+
 	// Use this for initialization
 	void Start () {
 		storyToShare = -1;
+
+		DontDestroyOnLoad(this.gameObject);
 	}
 
 	public IEnumerator DoLogin() {
@@ -72,6 +91,10 @@ public class MuseumKids : MonoBehaviour {
 		Debug.Log (session.InnerText);
 		
 		this.sessiontoken = session.InnerText;
+
+		if (onMuseumkidsLoggedIn != null) {
+			onMuseumkidsLoggedIn();
+		}
 	}
 
 	public IEnumerator DoPost() {
@@ -98,5 +121,15 @@ public class MuseumKids : MonoBehaviour {
 		yield return www;
 
 		Debug.Log (www.text);
+	}
+
+	public void Logout() {
+		this.email = "";
+		this.sessiontoken = "";
+		this.authtoken = "";
+
+		if (onMuseumkidsLoggedOut != null) {
+			onMuseumkidsLoggedOut();
+		}
 	}
 }

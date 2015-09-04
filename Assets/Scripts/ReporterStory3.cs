@@ -358,43 +358,51 @@ public class ReporterStory3 : MonoBehaviour {
 	}
 
 	public void ShowResultImage() {
-		cw.EnableBack();
-		chat.SetActive(false);
-
-		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
-		chat.transform.SetParent(GameObject.Find ("Canvas").transform, false);
-		chat.name = "VideoCall";
-
-		cw = chat.GetComponent<ChatWindow>();
-		cw.SetArchivalChat(mm.reporterChatHistory.GetComponent<ChatWindow>());
-
 		string spriteString = "";
-
-		if (mm.story3Attribution == Story3Attribution.FRANK) {
-			cw.AddNPCBubble("O nee, Frank wordt opgepakt. We hadden hem moeten beschermen!");
-
+		
+		if (mm.story3Attribution == Story3Attribution.FRANK) {		
 			spriteString = "S3 frank arrest wide";
-		} else if (mm.story3Attribution == Story3Attribution.KATJA) {
-			cw.AddNPCBubble("Help!");
-
+		} else if (mm.story3Attribution == Story3Attribution.KATJA) {		
 			spriteString = "S3 katja arrest wide";
 		} else if (mm.story3Attribution == Story3Attribution.ANONYMOUS) {
-			cw.AddNPCBubble("Die agent is niet blij. Maar hij kan niks doen! En de mensen weten nu van de vrije vogels.");
-
 			spriteString = "S3 agent weg wide";
 		}
 
-		GameObject displayImage = GameObject.Find ("DisplayImage");
 		Sprite resultSprite = Resources.Load<Sprite>("Sprites/" + spriteString);
-		displayImage.GetComponentInChildren<Image>().sprite = resultSprite;
 
-		// Add the sprite we show in the video call to the archive
-		GameObject bubble = cw.archivalChat.AddNPCImageBubble();
+		// Show the situation in an image overlay
+		GameObject imageOverlay = (GameObject)Instantiate(Resources.Load ("Prefabs/ImageOverlay"));
+		imageOverlay.transform.SetParent(GameObject.Find ("Canvas").transform, false);
+		imageOverlay.name = "ImageOverlay";
+		imageOverlay.GetComponent<Image>().sprite = resultSprite;
+		
+		ImageOverlay.onImageOverlayClose += ShowResultText;
+		
+		// Add the sprite we show in the overlay to the archive
+		GameObject bubble = cw.AddNPCImageBubble();
 		GameObject bubbleImage = bubble.transform.Find ("Bubble/BubbleImage").gameObject;
 		Image image = bubbleImage.GetComponent<Image>();
 		image.sprite = resultSprite;
+	}
 
-		Invoke ("ShowResultConclusion", 0.5f);
+	public void ShowResultText() {
+		ImageOverlay.onImageOverlayClose -= ShowResultText;
+
+		if (mm.story3Attribution == Story3Attribution.FRANK) {
+			cw.AddNPCBubble("O nee, Frank wordt opgepakt. We hadden hem moeten beschermen!");
+		} else if (mm.story3Attribution == Story3Attribution.KATJA) {
+			cw.AddNPCBubble("Help!");
+		} else if (mm.story3Attribution == Story3Attribution.ANONYMOUS) {
+			cw.AddNPCBubble("Die agent is niet blij. Maar hij kan niks doen! En de mensen weten nu van de vrije vogels.");
+		}
+
+		GameObject button = cw.AddButton("Oh Jee PLACEHOLDER");
+		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			cw.ClearButtons();
+			cw.AddPlayerBubble("Oh jee.");
+			
+			Invoke ("ShowResultConclusion", 0.5f);
+		});
 	}
 
 	public void ShowResultConclusion() {
@@ -423,6 +431,9 @@ public class ReporterStory3 : MonoBehaviour {
 		
 		mm.story3Done = true;
 
+		cw.EnableBack();
+		chat.SetActive(false);
+
 		Goal g = default(Goal);
 		g.goalText = "Verken het museum";
 		g.overlayText = "Voel je vrij om het museum te verkennen. Je wordt gebeld als iemand je nodig heeft.";
@@ -430,8 +441,7 @@ public class ReporterStory3 : MonoBehaviour {
 		mm.goal = g;
 		
 		mm.storyQueue.Enqueue("OFFICERRESPONSE3");
-		
-		Destroy(chat);
+
 		GameObject.Destroy(this);
 	}
 }

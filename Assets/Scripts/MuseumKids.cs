@@ -43,6 +43,10 @@ public class MuseumKids : MonoBehaviour {
 		DontDestroyOnLoad(this.gameObject);
 	}
 
+	public bool LoggedIn() {
+		return !string.IsNullOrEmpty(authtoken) && !string.IsNullOrEmpty(sessiontoken);
+	}
+
 	public IEnumerator DoLogin() {
 		var url = "http://museumkids.ijspreview.nl/api/login";
 

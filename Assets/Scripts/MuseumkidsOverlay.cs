@@ -20,7 +20,7 @@ public class MuseumkidsOverlay : MonoBehaviour {
 
 		mm.callBusy = true;
 
-		if (LoggedIn()) {
+		if (m.LoggedIn()) {
 			ShowSharePanel();
 		} else {
 			ShowLoginPanel();
@@ -31,10 +31,6 @@ public class MuseumkidsOverlay : MonoBehaviour {
 //	void Update () {
 //	
 //	}
-
-	public bool LoggedIn() {
-		return !string.IsNullOrEmpty(m.authtoken) && !string.IsNullOrEmpty(m.sessiontoken);
-	}
 
 	public void ShowLoginPanel() {
 		this.login.SetActive(true);

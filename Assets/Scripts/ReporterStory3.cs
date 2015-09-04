@@ -77,7 +77,6 @@ public class ReporterStory3 : MonoBehaviour {
 			
 			Invoke ("ShowSituation", 0.5f);
 		});
-		
 	}
 
 	public void ShowSituation() {
@@ -93,10 +92,16 @@ public class ReporterStory3 : MonoBehaviour {
 	}
 
 	public void ShowSituationImage() {
-		// Show the correct sprite (Journalist)
-		GameObject displayImage = GameObject.Find ("DisplayImage");
 		Sprite introSprite = Resources.Load<Sprite>("Sprites/S3 intro wide");
-		displayImage.GetComponentInChildren<Image>().sprite = introSprite;
+
+		// Show the situation in an image overlay
+		GameObject imageOverlay = (GameObject)Instantiate(Resources.Load ("Prefabs/ImageOverlay"));
+		imageOverlay.transform.SetParent(GameObject.Find ("Canvas").transform, false);
+		imageOverlay.name = "ImageOverlay";
+		imageOverlay.GetComponent<Image>().sprite = introSprite;
+
+		// We will only move to the next issue when this is called
+		ImageOverlay.onImageOverlayClose += ShowSituationText;
 
 		// Add the sprite we show in the video call to the archive
 		GameObject bubble = cw.archivalChat.AddNPCImageBubble();
@@ -104,10 +109,23 @@ public class ReporterStory3 : MonoBehaviour {
 		Image image = bubbleImage.GetComponent<Image>();
 		image.sprite = introSprite;
 
+
+		GameObject.Destroy(chat);
+		
+		chat = mm.reporterChatHistory;
+		mm.reporterChatHistory.SetActive(true);
+		
+		cw = chat.GetComponent<ChatWindow>();
+		cw.DisableBack();
+	}
+
+	public void ShowSituationText() {
+		ImageOverlay.onImageOverlayClose -= ShowSituationText;
+
 		cw.AddNPCBubble("Ik zit hier met Frank. Hij heeft me alles verteld. Er is bewijs, de vrije vogels worden echt tegengewerkt.");
-
+		
 		cw.AddNPCBubble("Ik wil erover schrijven. Maar de politie is ons op het spoor! Kun je helpen?");
-
+		
 		GameObject button = cw.AddButton("Ja");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
@@ -118,14 +136,6 @@ public class ReporterStory3 : MonoBehaviour {
 	}
 
 	public void ShowTakePicture() {
-		GameObject.Destroy(chat);
-		
-		chat = mm.reporterChatHistory;
-		mm.reporterChatHistory.SetActive(true);
-		
-		cw = chat.GetComponent<ChatWindow>();
-		cw.DisableBack();
-
 		cw.AddNPCBubble("Kun je een foto maken van koningin Wilhelmina? Een foto van de foto?");
 
 		GameObject camera = cw.AddButton("Camera starten");

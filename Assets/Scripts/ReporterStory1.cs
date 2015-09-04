@@ -423,7 +423,7 @@ public class ReporterStory1 : MonoBehaviour {
 		
 		ImageOverlay.onImageOverlayClose += ShowResultText;
 
-		// Add the sprite we show in the video call to the archive
+		// Add the sprite we show in the overlay to the archive
 		GameObject bubble = cw.archivalChat.AddNPCImageBubble();
 		GameObject bubbleImage = bubble.transform.Find ("Bubble/BubbleImage").gameObject;
 		Image image = bubbleImage.GetComponent<Image>();

@@ -390,16 +390,6 @@ public class ReporterStory2 : MonoBehaviour {
 	}
 	
 	public void ShowResultResponse() {
-		cw.EnableBack();
-		chat.SetActive(false);
-
-		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
-		chat.transform.SetParent(GameObject.Find ("Canvas").transform, false);
-		chat.name = "VideoCall";
-
-		cw = chat.GetComponent<ChatWindow>();
-		cw.SetArchivalChat(mm.reporterChatHistory.GetComponent<ChatWindow>());
-
 		// Show the correct sprite (Journalist)
 		string spriteName = "";
 		if (mm.story2FinalOpinion == Story2OpinionAnswer.GOOD) { 
@@ -409,19 +399,26 @@ public class ReporterStory2 : MonoBehaviour {
 		} else if (mm.story2FinalOpinion == Story2OpinionAnswer.WRONG) {
 			spriteName = "S2 slecht wide";
 		}
-		Sprite showSprite = Resources.Load<Sprite>("Sprites/" + spriteName);;
+		Sprite showSprite = Resources.Load<Sprite>("Sprites/" + spriteName);
 
-		GameObject displayImage = GameObject.Find ("DisplayImage");
-		displayImage.GetComponentInChildren<Image>().sprite = showSprite;
+		// Show the situation in an image overlay
+		GameObject imageOverlay = (GameObject)Instantiate(Resources.Load ("Prefabs/ImageOverlay"));
+		imageOverlay.transform.SetParent(GameObject.Find ("Canvas").transform, false);
+		imageOverlay.name = "ImageOverlay";
+		imageOverlay.GetComponent<Image>().sprite = showSprite;
+		
+		ImageOverlay.onImageOverlayClose += ShowResultResponseText;
 
-
-		// Add the sprite we show in the video call to the archive
-		GameObject bubble = cw.archivalChat.AddNPCImageBubble();
+		// Add the sprite we show in the overlay to the archive
+		GameObject bubble = cw.AddNPCImageBubble();
 		GameObject bubbleImage = bubble.transform.Find ("Bubble/BubbleImage").gameObject;
 		Image image = bubbleImage.GetComponent<Image>();
 		image.sprite = showSprite;
-		
-		
+	}
+
+	public void ShowResultResponseText() {
+		ImageOverlay.onImageOverlayClose -= ShowResultResponseText;
+
 		if (mm.story2FinalOpinion == Story2OpinionAnswer.SAD) {
 			cw.AddNPCBubble("Gelukkig wordt er goed voor de mensen gezorgd.");
 		} else if (mm.story2FinalOpinion == Story2OpinionAnswer.GOOD) {
@@ -429,7 +426,7 @@ public class ReporterStory2 : MonoBehaviour {
 		} else if (mm.story2FinalOpinion == Story2OpinionAnswer.WRONG) {
 			cw.AddNPCBubble("Sommige mensen luisteren niet. Ze krijgen ruzie en er wordt gevochten!");
 		}
-
+		
 		GameObject ok = cw.AddButton("Oké");
 		ok.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
@@ -440,11 +437,6 @@ public class ReporterStory2 : MonoBehaviour {
 	}
 	
 	public void ShowResultClose() {
-		// Switch back to Katja from the image
-		GameObject displayImage = GameObject.Find ("DisplayImage");
-		Sprite katjaSprite = Resources.Load<Sprite>("Sprites/portrait katja wide");
-		displayImage.GetComponentInChildren<Image>().sprite = katjaSprite;
-
 		cw.AddNPCBubble("Heftig! Door op te schrijven wat er gebeurt, veranderen er dingen.");
 		
 		cw.AddNPCBubble("Ik bel als ik je nodig heb. Kijk rustig rond in het museum.");
@@ -453,6 +445,9 @@ public class ReporterStory2 : MonoBehaviour {
 		ok.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 			cw.AddPlayerBubble("Tot ziens, Katja!");
+
+			cw.EnableBack();
+			chat.SetActive(false);
 
 			mm.callBusy = false;
 
@@ -468,8 +463,6 @@ public class ReporterStory2 : MonoBehaviour {
 			mm.storyQueue.Enqueue("ARTISTRESPONSE1");
 			mm.storyQueue.Enqueue("REPORTERRESPONSE2");
 
-
-			Destroy(chat);
 			GameObject.Destroy(this);
 		});
 	}

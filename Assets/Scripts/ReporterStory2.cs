@@ -84,15 +84,34 @@ public class ReporterStory2 : MonoBehaviour {
 	}
 	
 	public void ShowReporterResponse1() {
-		GameObject displayImage = GameObject.Find ("DisplayImage");
 		Sprite introSprite = Resources.Load<Sprite>("Sprites/S2 intro wide");
-		displayImage.GetComponentInChildren<Image>().sprite = introSprite;
+
+		// Show the situation in an image overlay
+		GameObject imageOverlay = (GameObject)Instantiate(Resources.Load ("Prefabs/ImageOverlay"));
+		imageOverlay.transform.SetParent(GameObject.Find ("Canvas").transform, false);
+		imageOverlay.name = "ImageOverlay";
+		imageOverlay.GetComponent<Image>().sprite = introSprite;
+		
+		// We will only move to the next issue when this is called
+		ImageOverlay.onImageOverlayClose += ShowOpinion0;
 
 		// Add the sprite we show in the video call to the archive
 		GameObject bubble = cw.archivalChat.AddNPCImageBubble();
 		GameObject bubbleImage = bubble.transform.Find ("Bubble/BubbleImage").gameObject;
 		Image image = bubbleImage.GetComponent<Image>();
 		image.sprite = introSprite;
+
+		GameObject.Destroy(chat);
+		
+		chat = mm.reporterChatHistory;
+		mm.reporterChatHistory.SetActive(true);
+		
+		cw = chat.GetComponent<ChatWindow>();
+		cw.DisableBack();
+	}
+
+	public void ShowOpinion0() {
+		ImageOverlay.onImageOverlayClose -= ShowOpinion0;
 
 		cw.AddNPCBubble("Mensen moeten hun huis uit, omdat er in de buurt gebouwd wordt. Maar niet iedereen wil weg.");
 		cw.AddNPCBubble("Help je me hierover te schrijven?");
@@ -107,14 +126,6 @@ public class ReporterStory2 : MonoBehaviour {
 	}
 	
 	public void ShowOpinion1() {
-		GameObject.Destroy(chat);
-
-		chat = mm.reporterChatHistory;
-		mm.reporterChatHistory.SetActive(true);
-
-		cw = chat.GetComponent<ChatWindow>();
-		cw.DisableBack();
-
 		cw.AddNPCBubble("Ze willen dat mensen tijdelijk verhuizen, omdat het gevaarlijk is waar ze wonen.");
 		cw.AddNPCBubble("Wat vind je daarvan? Overleg gerust!");
 		

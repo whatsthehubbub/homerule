@@ -88,6 +88,7 @@ public class ReporterStory1 : MonoBehaviour {
 		imageOverlay.name = "ImageOverlay";
 		imageOverlay.GetComponent<Image>().sprite = introSprite;
 
+		// We will only move to the next issue when this is called
 		ImageOverlay.onImageOverlayClose += ShowStoryIntro;
 
 		// Add the sprite we show in the video call to the archive

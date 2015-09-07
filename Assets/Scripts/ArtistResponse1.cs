@@ -119,7 +119,7 @@ public class ArtistResponse1 : MonoBehaviour {
 		cw.AddNPCBubble("Kijk nog eens goed.");
 
 		GameObject imageBubble = cw.AddNPCImageBubble();
-		Sprite homesSprite = Resources.Load<Sprite>("Sprites/S2 intro wide");
+		Sprite homesSprite = Resources.Load<Sprite>("Sprites/S2 intro closeup");
 		imageBubble.transform.Find("Bubble/BubbleImage").GetComponentInChildren<Image>().sprite = homesSprite;
 		
 		GameObject button = cw.AddButton("Vogels");

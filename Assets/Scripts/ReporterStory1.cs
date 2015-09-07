@@ -486,8 +486,7 @@ public class ReporterStory1 : MonoBehaviour {
 
 			mm.storyQueue.Enqueue("OFFICERRESPONSE1");
 			mm.storyQueue.Enqueue("REPORTERRESPONSE1");
-			
-			Destroy(chat);
+
 			GameObject.Destroy(this);
 		});
 	}

@@ -7,6 +7,7 @@ public class MuseumkidsOverlay : MonoBehaviour {
 	public GameObject login;
 	public GameObject share;
 	public GameObject loggedin;
+	public GameObject shared;
 	
 	private MuseumKids m;
 	private MuseumManager mm;
@@ -36,12 +37,14 @@ public class MuseumkidsOverlay : MonoBehaviour {
 		this.login.SetActive(true);
 		this.share.SetActive(false);
 		this.loggedin.SetActive(false);
+		this.shared.SetActive(false);
 	}
 
 	public void ShowLoggedinPanel() {
 		this.login.SetActive(false);
 		this.share.SetActive(false);
 		this.loggedin.SetActive(true);
+		this.shared.SetActive(false);
 
 		GameObject.Find("LoggedInExplanation").GetComponentInChildren<Text>().text = "Welkom terug " + m.email + ". Je bent ingelogd en je kunt nu berichten delen.";
 	}
@@ -50,6 +53,7 @@ public class MuseumkidsOverlay : MonoBehaviour {
 		this.login.SetActive(false);
 		this.loggedin.SetActive(false);
 		this.share.SetActive(true);
+		this.shared.SetActive(false);
 
 		// Set the right text and image of the story we want to share
 		GameObject main = GameObject.Find("Main");
@@ -69,6 +73,13 @@ public class MuseumkidsOverlay : MonoBehaviour {
 		Sprite s = Sprite.Create (m.imageToShare, new Rect(0, 0, m.imageToShare.width, m.imageToShare.height), new Vector2(0.5f, 0.5f));
 		GameObject.Find ("ShareImage").GetComponentInChildren<Image>().sprite = s;
 		GameObject.Find ("ShareText").GetComponentInChildren<Text>().text = m.textToShare;
+	}
+
+	public void ShowSharedPanel() {
+		this.login.SetActive(false);
+		this.loggedin.SetActive(false);
+		this.share.SetActive(false);
+		this.shared.SetActive(true);
 	}
 
 	public void CloseOverlay() {
@@ -117,6 +128,6 @@ public class MuseumkidsOverlay : MonoBehaviour {
 		// Disable the share button that this is about
 		GameObject.Find ("Share" + m.storyToShare + "Button").GetComponent<Button>().interactable = false;
 
-		CloseOverlay();
+		ShowSharedPanel();
 	}
 }

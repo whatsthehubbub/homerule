@@ -607,9 +607,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Vul je e-mailadres in om je aan te melden bij Museumkids. Als je al een
-    account hebt wordt je automatisch ingelogd. Als je geen account hebt, maken we
-    er \xE9\xE9n voor je aan."
+  m_Text: Bericht dat naar Museumkids gaat
 --- !u!114 &11431512
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1000,9 +998,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Vul je e-mailadres in om je aan te melden bij Museumkids. Als je al een
-    account hebt wordt je automatisch ingelogd. Als je geen account hebt, maken we
-    er \xE9\xE9n voor je aan."
+  m_Text: Weet je zeker dat je dit bericht wil delen op Museumkids?
 --- !u!114 &11462512
 MonoBehaviour:
   m_ObjectHideFlags: 1

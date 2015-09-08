@@ -456,17 +456,17 @@ public class ReporterStory1 : MonoBehaviour {
 			break;
 		}
 
-		GameObject send = cw.AddButton("Mooi");
+		GameObject send = cw.AddButton("Oké");
 		send.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble("Mooi zo!");
+			cw.AddPlayerBubble("Oké!");
 			
 			Invoke ("ShowResultClose", 0.5f);
 		});
 	}
 
 	public void ShowResultClose() {
-		cw.AddNPCBubble("Leuk zeg! Door op te schrijven wat er gebeurt, veranderen er dingen.");
+		cw.AddNPCBubble("Leuk zeg. Door op te schrijven wat er gebeurt, veranderen er dingen.");
 		cw.AddNPCBubble("Ik bel als ik je nodig heb. In het museum is van alles te zien, dus kijk rustig rond.");
 
 		GameObject ok = cw.AddButton("Tot ziens");

@@ -298,7 +298,7 @@ public class ReporterStory3 : MonoBehaviour {
 		GameObject button3 = cw.AddButton("Geen naam");
 		button3.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble("Frank is de bron, maar hij is kwetsbaar. We moeten geheimhouden wie hij is. Anders wordt hij opgepakt.");
+			cw.AddPlayerBubble("Frank is de bron, maar we moeten geheimhouden wie hij is. Anders wordt hij opgepakt.");
 
 			mm.story3Attribution = Story3Attribution.ANONYMOUS;
 

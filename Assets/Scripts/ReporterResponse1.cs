@@ -57,19 +57,33 @@ public class ReporterResponse1 : MonoBehaviour {
 			cw.ClearButtons();
 			cw.AddPlayerBubble("Ze zeggen dat je ze moet bellen.");
 			
-			Invoke ("ShowResponse", 0.5f);
+			Invoke ("ShowResponse1", 0.5f);
 		});
 	}
-	
-	public void ShowResponse() {
+
+	public void ShowResponse1() {
 		cw.AddNPCBubble("Dat ga ik mooi niet doen.");
 		
 		cw.AddNPCBubble("Het is belangrijk om op te schrijven wat er gebeurt. Daar ga ik gewoon mee door!");
+
+		GameObject button = cw.AddButton("Doe dat");
+		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
+			cw.ClearButtons();
+			cw.AddPlayerBubble("Doe dat vooral.");
+			
+			Invoke ("ShowResponse2", 0.5f);
+		});
+	}
+
+	public void ShowResponse2() {
+		cw.AddNPCBubble("Echt wel!");
+
+		cw.AddNPCBubble("Zeg, kun je in het museum zoeken naar het bord “Verboden Arnhem te betreden”?");
 		
-		GameObject ok = cw.AddButton("Doe dat");
+		GameObject ok = cw.AddButton("Doe ik");
 		ok.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble("Doe dat vooral. Tot later!");
+			cw.AddPlayerBubble("Dat zal ik doen. Tot later!");
 
 			cw.EnableBack();
 			chat.SetActive(false);

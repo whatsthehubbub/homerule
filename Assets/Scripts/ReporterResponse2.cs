@@ -123,7 +123,7 @@ public class ReporterResponse2 : MonoBehaviour {
 
 		GameObject button3 = cw.AddButton("Geheime bron");
 		button3.GetComponentInChildren<Button>().onClick.AddListener(() => {
-			cw.AddPlayerBubble("Ik hoorde het van een kwetsbaar iemand. We moeten geheimhouden wie hij is. Anders wordt hij misschien opgepakt.");
+			cw.AddPlayerBubble("Dat heb ik van iemand gehoord. We moeten geheimhouden wie hij is. Anders wordt hij misschien opgepakt.");
 
 			mm.reporter2Source = Reporter2Source.ANONYMOUS;
 

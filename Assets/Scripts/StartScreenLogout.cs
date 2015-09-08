@@ -29,10 +29,17 @@ public class StartScreenLogout : MonoBehaviour {
 	}
 
 	public void LogoutButton() {
-		m.Logout();
+		MuseumKids.onMuseumkidsLoggedOut += LogoutCompleted;
 
-		GameObject.Find ("LoggedInText").GetComponent<Text>().text = "Uitgelogd!";
+		GameObject login = (GameObject)Instantiate(Resources.Load ("Prefabs/MuseumkidsLogoutOverlay"));
+		login.name = "MuseumkidsLogoutOverlay";
+		
+		login.transform.SetParent(GameObject.Find ("Start UI").transform, false);
+	}
 
-		GameObject.Find ("LogoutButton").GetComponent<Button>().interactable = false;
+	public void LogoutCompleted() {
+		MuseumKids.onMuseumkidsLoggedOut -= LogoutCompleted;
+
+		GameObject.Find ("LogoutPanel").SetActive(false);
 	}
 }

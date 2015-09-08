@@ -13,8 +13,6 @@ public class MuseumkidsOverlay : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Debug.Log ("in overlay start");
-
 		m = GameObject.Find ("MuseumkidsHolder").GetComponent<MuseumKids>();
 
 		GameObject main = GameObject.Find("Main");
@@ -23,7 +21,7 @@ public class MuseumkidsOverlay : MonoBehaviour {
 		mm.callBusy = true;
 
 		if (m.LoggedIn()) {
-			ShowLoggedinPanel();
+			ShowSharePanel();
 		} else {
 			ShowLoginPanel();
 		}
@@ -45,7 +43,7 @@ public class MuseumkidsOverlay : MonoBehaviour {
 		this.share.SetActive(false);
 		this.loggedin.SetActive(true);
 
-		GameObject.Find("LoggedInExplanation").GetComponentInChildren<Text>().text = "Je bent ingelogd als: " + m.email;
+		GameObject.Find("LoggedInExplanation").GetComponentInChildren<Text>().text = "Welkom terug " + m.email + ". Je bent ingelogd en je kunt nu berichten delen.";
 	}
 
 	public void ShowSharePanel() {
@@ -73,7 +71,7 @@ public class MuseumkidsOverlay : MonoBehaviour {
 		GameObject.Find ("ShareText").GetComponentInChildren<Text>().text = m.textToShare;
 	}
 
-	public void CloseLoginOverlay() {
+	public void CloseOverlay() {
 		mm.callBusy = false;
 
 		Destroy (this.gameObject);
@@ -83,20 +81,16 @@ public class MuseumkidsOverlay : MonoBehaviour {
 		this.ShowSharePanel();
 	}
 
-	public void LogoutButtonPressed() {
-		m.Logout();
-
-		this.ShowLoginPanel();
-	}
-
 	public void LoginButtonPressed() {
 		// Get e-mail
 		var emailField = GameObject.Find ("EmailFieldText");
 		string text = emailField.GetComponentInChildren<Text>().text;
 
-		m.email = text;
-
-		StartCoroutine(LoginSequence());
+		if (!string.IsNullOrEmpty(text)) {
+			m.email = text;
+			
+			StartCoroutine(LoginSequence());
+		}
 	}
 
 	public IEnumerator LoginSequence() {
@@ -106,7 +100,7 @@ public class MuseumkidsOverlay : MonoBehaviour {
 		yield return StartCoroutine(m.GetSessionToken());
 
 		// Close login screen
-		ShowSharePanel();
+		ShowLoggedinPanel();
 
 		// Go on with Sharing
 	}
@@ -123,6 +117,6 @@ public class MuseumkidsOverlay : MonoBehaviour {
 		// Disable the share button that this is about
 		GameObject.Find ("Share" + m.storyToShare + "Button").GetComponent<Button>().interactable = false;
 
-		CloseLoginOverlay();
+		CloseOverlay();
 	}
 }

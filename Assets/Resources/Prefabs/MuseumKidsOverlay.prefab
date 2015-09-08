@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &101680
 GameObject:
   m_ObjectHideFlags: 1
@@ -1066,7 +1066,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Je bent ingelogd als:'
+  m_Text: Welkom terug [naam]. Je bent ingelogd en je kunt nu berichten delen.
 --- !u!114 &11474234
 MonoBehaviour:
   m_ObjectHideFlags: 1

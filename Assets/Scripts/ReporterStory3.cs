@@ -147,7 +147,7 @@ public class ReporterStory3 : MonoBehaviour {
 
 				// Create a blank texture
 				Sprite tempSprite = Resources.Load<Sprite>("Sprites/Locaties/wilhelmina");
-				mm.story3Image = tempSprite;
+				mm.story3Image = tempSprite.texture;
 
 				Invoke ("ShowPictureResponse", 0.5f);
 			}

@@ -185,7 +185,8 @@ public class ReporterStory1 : MonoBehaviour {
 				cw.ClearButtons();
 
 				// Create a blank texture
-				mm.story1Image = new Texture2D(2, 2, TextureFormat.ARGB32, false);
+				Sprite tempSprite = Resources.Load<Sprite>("Sprites/Locaties/behang");
+				mm.story1Image = tempSprite.texture;
 
 				Invoke ("FactQuestion", 0.5f);
 			}

@@ -153,7 +153,7 @@ public class OfficerResponse3 : MonoBehaviour {
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 			
-			cw.AddPlayerBubble("U weet vast nog wel dat Frank graffiti had gespoten.");
+			cw.AddPlayerBubble("U weet vast nog wel dat de dichter graffiti had gespoten.");
 
 			// Boiler plate to include the story
 
@@ -168,13 +168,13 @@ public class OfficerResponse3 : MonoBehaviour {
 			
 			switch (mm.story1Opinion) {
 				case Story1OpinionAnswer.CLEAN:
-					resultText = "moest Frank de muur boenen";
+					resultText = "moest hij de muur boenen";
 					break;
 				case Story1OpinionAnswer.LEAVE:
 					resultText = "mocht de graffiti blijven staan";
 					break;
 				case Story1OpinionAnswer.DISPLAY:
-					resultText = "werd Frank beroemd";
+					resultText = "werd hij beroemd";
 					break;
 			}
 
@@ -241,7 +241,7 @@ public class OfficerResponse3 : MonoBehaviour {
 			cw.ClearButtons();
 
 			if (mm.story3Attribution == Story3Attribution.FRANK) {
-				cw.AddPlayerBubble("Wat gebeurt er bijvoorbeeld als de arrestatie van Frank in het nieuws komt?");
+				cw.AddPlayerBubble("Wat gebeurt er bijvoorbeeld als de arrestatie van de dichter in het nieuws komt?");
 			} else if (mm.story3Attribution == Story3Attribution.KATJA) {
 				cw.AddPlayerBubble("Wat gebeurt er bijvoorbeeld als de arrestatie van Katja in het nieuws komt?");
 			} else if (mm.story3Attribution == Story3Attribution.ANONYMOUS) {
@@ -255,25 +255,25 @@ public class OfficerResponse3 : MonoBehaviour {
 	public void ShowQuestion() {
 		cw.AddNPCBubble("Maar… we kunnen iedereen toch niet zomaar zijn gang laten gaan?");
 
-		GameObject button1 = cw.AddButton ("Orde");
+		GameObject button1 = cw.AddButton ("Dat kan best");
 		button1.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 
-			cw.AddPlayerBubble("Orde is belangrijk. Maar niet zo belangrijk dat mensen hun vrijheid ervoor moeten opgeven.");
+			cw.AddPlayerBubble("Dat kan best! Orde is belangrijk. Maar niet zo belangrijk dat mensen hun vrijheid ervoor moeten opgeven.");
 			
 			Invoke ("ShowResponse", 0.5f);
 		});
 
-		GameObject button2 = cw.AddButton ("Vrijheid");
+		GameObject button2 = cw.AddButton ("Niet ten koste van alles");
 		button2.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 
-			cw.AddPlayerBubble("Hier in het museum zie je wat er gebeurt als mensen hun vrijheid moeten opgeven. Dan maar iets minder orde!");
+			cw.AddPlayerBubble("Niet ten koste van alles! Hier in het museum zie je wat er gebeurt als mensen hun vrijheid moeten opgeven. Dan maar iets minder orde!");
 			
 			Invoke ("ShowResponse", 0.5f);
 		});
 
-		GameObject button3 = cw.AddButton ("Bang");
+		GameObject button3 = cw.AddButton ("U bent gewoon bang");
 		button3.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 
@@ -323,11 +323,12 @@ public class OfficerResponse3 : MonoBehaviour {
 
 		if (mm.officer3Response == Officer3Response.DISAGREE) {
 			cw.AddNPCBubble("Wat brutaal. U gaat duidelijk met de verkeerde mensen om. Dit gesprek moest maar eens voorbij zijn.");
+			cw.AddNPCBubble("Ik moet u eigenlijk niet meer helpen, maar gaat u nu terug naar het geweer?");
 		} else if (mm.officer3Response == Officer3Response.UNDERSTAND) {
 			cw.AddNPCBubble("Dat waardeer ik. De vogelproblematiek is pittig.");
+			cw.AddNPCBubble("Gaat u terug naar het geweer als u klaar bent in het museum?");
 		}
 
-		cw.AddNPCBubble("Gaat u terug naar het geweer als u klaar bent in het museum?");
 
 		GameObject button = cw.AddButton ("Oké");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {

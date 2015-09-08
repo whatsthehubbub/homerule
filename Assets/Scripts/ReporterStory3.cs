@@ -396,10 +396,10 @@ public class ReporterStory3 : MonoBehaviour {
 			cw.AddNPCBubble("Die agent is niet blij. Maar hij kan niks doen! En de mensen weten nu van de vrije vogels.");
 		}
 
-		GameObject button = cw.AddButton("Oh Jee PLACEHOLDER");
+		GameObject button = cw.AddButton("Jemig");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble("Oh jee.");
+			cw.AddPlayerBubble("Jemig!");
 			
 			Invoke ("ShowResultConclusion", 0.5f);
 		});
@@ -407,7 +407,7 @@ public class ReporterStory3 : MonoBehaviour {
 
 	public void ShowResultConclusion() {
 		if (mm.story3Attribution == Story3Attribution.FRANK) {
-			cw.AddNPCBubble("Jemig! Door op te schrijven wat er gebeurt, veranderen er dingen. En niet zo'n beetje ook.");
+			cw.AddNPCBubble("Ja, jemig! Door op te schrijven wat er gebeurt, veranderen er dingen. En niet zo'n beetje ook.");
 			cw.AddNPCBubble("Hopelijk komt het goed met Frank. Kijk jij ondertussen nog even rond in het museum?");
 		} else if (mm.story3Attribution == Story3Attribution.KATJA) {
 			cw.AddNPCBubble("Katja heeft iets goeds gedaan. En is daar de dupe van geworden!");

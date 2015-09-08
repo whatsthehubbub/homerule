@@ -17,6 +17,7 @@ public class MuseumKids : MonoBehaviour {
 
 	public string email;
 
+	public string accountstatus;
 	public string authtoken;
 	public string sessiontoken;
 
@@ -67,9 +68,10 @@ public class MuseumKids : MonoBehaviour {
 
 		Debug.Log(www.text);
 
-//		XmlNode accountStatus = response.GetElementsByTagName("accountstatus")[0];
-		XmlNode authToken = response.GetElementsByTagName("authtoken")[0];
+		XmlNode accountStatus = response.GetElementsByTagName("accountstatus")[0];
+		this.accountstatus = accountStatus.InnerText;
 
+		XmlNode authToken = response.GetElementsByTagName("authtoken")[0];
 		this.authtoken = authToken.InnerText;
 	}
 

@@ -46,7 +46,14 @@ public class MuseumkidsOverlay : MonoBehaviour {
 		this.loggedin.SetActive(true);
 		this.shared.SetActive(false);
 
-		GameObject.Find("LoggedInExplanation").GetComponentInChildren<Text>().text = "Welkom terug " + m.email + ". Je bent ingelogd en je kunt nu berichten delen.";
+		var text = "";
+		if (m.accountstatus.Equals("ACCOUNT_NEW")) {
+			text = "Gelukt. Je bent nu geregistreerd met e-mailadres " + m.email + "en we hebben je ingelogd. \n\nJe kunt nu berichten delen op Museumkids.";
+		} else if (m.accountstatus.Equals("ACCOUNT_REGISTERED")) {
+			text = "Welkom terug " + m.email + ". Je bent ingelogd en je kunt nu berichten delen.";
+		}
+
+		GameObject.Find("LoggedInExplanation").GetComponentInChildren<Text>().text = text;
 	}
 
 	public void ShowSharePanel() {

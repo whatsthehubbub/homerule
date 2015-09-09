@@ -468,12 +468,12 @@ public class ReporterStory1 : MonoBehaviour {
 
 	public void ShowResultClose() {
 		cw.AddNPCBubble("Leuk zeg. Door op te schrijven wat er gebeurt, veranderen er dingen.");
-		cw.AddNPCBubble("Ik bel als ik je nodig heb. In het museum is van alles te zien, dus kijk rustig rond.");
+		cw.AddNPCBubble("Ik bel als ik je nodig heb. Kijk jij nog even rond?");
 
-		GameObject ok = cw.AddButton("Tot ziens");
+		GameObject ok = cw.AddButton("Doe ik");
 		ok.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble("Tot ziens, Katja!");
+			cw.AddPlayerBubble("Doe ik. Tot ziens, Katja!");
 			
 			mm.callBusy = false;
 

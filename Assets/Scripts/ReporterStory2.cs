@@ -440,7 +440,7 @@ public class ReporterStory2 : MonoBehaviour {
 	public void ShowResultClose() {
 		cw.AddNPCBubble("Heftig! Door op te schrijven wat er gebeurt, veranderen er dingen.");
 		
-		cw.AddNPCBubble("Ik bel als ik je nodig heb. Kijk rustig rond in het museum.");
+		cw.AddNPCBubble("Ik bel als ik je nodig heb. Tot ziens!");
 
 		GameObject ok = cw.AddButton("Tot ziens");
 		ok.GetComponentInChildren<Button>().onClick.AddListener(() => {

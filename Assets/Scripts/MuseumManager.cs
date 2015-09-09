@@ -102,12 +102,12 @@ public class MuseumManager : MonoBehaviour {
 	private List<int> locations = new List<int>(new int[] {53868, 48618, 22290, 48174});
 
 	public Dictionary<string, float> callDelays = new Dictionary<string, float> {
-		{"OFFICERRESPONSE1", 1.2f},
+		{"OFFICERRESPONSE1", 120.0f},
 		{"REPORTERRESPONSE1", 10.0f},
-		{"OFFICERRESPONSE2", 5.0f},
-		{"ARTISTRESPONSE1", 4.0f},
-		{"REPORTERRESPONSE2", 4.5f},
-		{"OFFICERRESPONSE3", 6.1f}
+		{"OFFICERRESPONSE2", 30.0f},
+		{"ARTISTRESPONSE1", 10.0f},
+		{"REPORTERRESPONSE2", 30.0f},
+		{"OFFICERRESPONSE3", 10.0f}
 	};
 
 	public bool forceCalls = false;
@@ -479,7 +479,7 @@ public class MuseumManager : MonoBehaviour {
 	}
 
 	public void TakeCall() {
-		// Do the check and if we have a call to show, then block and invoke that in 10 seconds
+		// Do the check and if we have a call to show, then block and invoke that in number of seconds equal to the delay set for that call
 		if (!this.callBusy && !this.waitingForCall && this.storyQueue.Count > 0) {
 			this.waitingForCall = true;
 

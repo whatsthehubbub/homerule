@@ -474,6 +474,9 @@ public class ReporterStory1 : MonoBehaviour {
 		ok.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 			cw.AddPlayerBubble("Doe ik. Tot ziens, Katja!");
+
+			cw.EnableBack();
+			chat.SetActive(false);
 			
 			mm.callBusy = false;
 

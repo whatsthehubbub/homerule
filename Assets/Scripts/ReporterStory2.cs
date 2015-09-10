@@ -184,7 +184,7 @@ public class ReporterStory2 : MonoBehaviour {
 				cw.ClearButtons();
 
 				// Create a blank texture
-				Sprite tempSprite = Resources.Load<Sprite>("Sprites/Locaties/bord");
+				Sprite tempSprite = Resources.Load<Sprite>("Sprites/Locaties/placeholder");
 				mm.story2Image = tempSprite.texture;
 
 				Invoke ("ShowFindObjectResponse", 0.5f);

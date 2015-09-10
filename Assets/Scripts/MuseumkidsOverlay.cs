@@ -48,9 +48,9 @@ public class MuseumkidsOverlay : MonoBehaviour {
 
 		var text = "";
 		if (m.accountstatus.Equals("ACCOUNT_NEW")) {
-			text = "Gelukt. Je bent nu geregistreerd met e-mailadres " + m.email + "en we hebben je ingelogd. \n\nJe kunt nu berichten delen op Museumkids.";
+			text = "We hebben een account aangemaakt met " + m.email + ". We hebben je ook een e-mail gestuurd.";
 		} else if (m.accountstatus.Equals("ACCOUNT_REGISTERED")) {
-			text = "Welkom terug " + m.email + ". Je bent ingelogd en je kunt nu berichten delen.";
+			text = "Welkom terug! Je bent ingelogd als " + m.email + ".";
 		}
 
 		GameObject.Find("LoggedInExplanation").GetComponentInChildren<Text>().text = text;

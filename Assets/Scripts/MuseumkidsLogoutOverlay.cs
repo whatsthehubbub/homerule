@@ -16,7 +16,7 @@ public class MuseumkidsLogoutOverlay : MonoBehaviour {
 
 		mm.callBusy = true;
 
-		GameObject.Find("LogoutExplanation").GetComponentInChildren<Text>().text = "Weet je zeker dat je " + m.email + "wilt uitloggen?";
+		GameObject.Find("LogoutExplanation").GetComponentInChildren<Text>().text = "Weet je zeker dat je " + m.email + " wilt uitloggen?";
 	}
 
 //	// Update is called once per frame

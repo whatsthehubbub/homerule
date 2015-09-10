@@ -15,6 +15,8 @@ public class Underway : MonoBehaviour {
 	public GameObject post2;
 	public GameObject post3;
 
+	public GameObject logoutPanel;
+
 	// Use this for initialization
 	void Start () {
 		GameObject main = GameObject.Find("Main");
@@ -106,11 +108,37 @@ public class Underway : MonoBehaviour {
 			this.post3.transform.Find ("PostText").GetComponent<Text>().text = mm.story3Text;
 			this.post3.transform.Find("PostImage").GetComponent<Image>().sprite = Sprite.Create (mm.story3Image, new Rect(0, 0, mm.story3Image.width, mm.story3Image.height), new Vector2(0.5f, 0.5f));
 		}
+
+		// Check whether we need to display the museumkids logged in thing
+		MuseumKids m = GameObject.Find("MuseumkidsHolder").GetComponent<MuseumKids>();
+
+		MuseumKids.onMuseumkidsLoggedIn += LoggedIn;
+		
+		if (m.LoggedIn()) {
+			logoutPanel.SetActive(true);
+			
+			GameObject.Find ("LoggedInText").GetComponent<Text>().text = "Ingelogd als: " + m.email;
+		} else {
+			logoutPanel.SetActive(false);
+		}
+	}
+
+	public void LoggedIn() {
+		this.logoutPanel.SetActive(true);
 	}
 
 	public void LogoutButton() {
-		MuseumKids m = GameObject.Find ("MuseumkidsHolder").GetComponent<MuseumKids>();
+		MuseumKids.onMuseumkidsLoggedOut += LogoutCompleted;
+		
+		GameObject login = (GameObject)Instantiate(Resources.Load ("Prefabs/MuseumkidsLogoutOverlay"));
+		login.name = "MuseumkidsLogoutOverlay";
+		
+		login.transform.SetParent(GameObject.Find ("Canvas").transform, false);
+	}
 
-		m.Logout();
+	public void LogoutCompleted() {
+		MuseumKids.onMuseumkidsLoggedOut -= LogoutCompleted;
+
+		logoutPanel.SetActive(false);
 	}
 }

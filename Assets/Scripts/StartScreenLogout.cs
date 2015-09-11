@@ -15,7 +15,7 @@ public class StartScreenLogout : MonoBehaviour {
 		if (m.LoggedIn()) {
 			logoutPanel.SetActive(true);
 
-			GameObject.Find ("LoggedInText").GetComponent<Text>().text = "Ingelogd als " + m.email;
+			GameObject.Find ("LoggedInText").GetComponent<Text>().text = "Ingelogd als: " + m.email;
 		} else {
 			logoutPanel.SetActive(false);
 		}

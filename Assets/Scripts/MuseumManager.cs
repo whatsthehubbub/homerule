@@ -585,6 +585,18 @@ public class MuseumManager : MonoBehaviour {
 	}
 
 	public void QuitGame() {
+		// Reset the state in the MuseumkidsHolder
+		MuseumKids m = GameObject.Find ("MuseumkidsHolder").GetComponent<MuseumKids>();
+		m.story1Shared = false;
+		m.story2Shared = false;
+		m.story3Shared = false;
+
+		m.storyToShare = -1;
+		m.textToShare = "";
+		m.imageToShare = null;
+
+
+
 		Destroy (this.reporterChatHistory);
 		Destroy (this.officerChatHistory);
 		Destroy (this.artistChatHistory);

@@ -518,7 +518,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Log uit
+  m_Text: Ik weet het zeker
 --- !u!114 &11486462
 MonoBehaviour:
   m_ObjectHideFlags: 1

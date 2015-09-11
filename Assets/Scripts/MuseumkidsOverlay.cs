@@ -38,6 +38,9 @@ public class MuseumkidsOverlay : MonoBehaviour {
 		this.share.SetActive(false);
 		this.loggedin.SetActive(false);
 		this.shared.SetActive(false);
+
+		// Disable button
+		GameObject.Find ("LoginButton").GetComponent<Button>().interactable = true;
 	}
 
 	public void ShowLoggedinPanel() {
@@ -80,6 +83,9 @@ public class MuseumkidsOverlay : MonoBehaviour {
 		Sprite s = Sprite.Create (m.imageToShare, new Rect(0, 0, m.imageToShare.width, m.imageToShare.height), new Vector2(0.5f, 0.5f));
 		GameObject.Find ("ShareImage").GetComponentInChildren<Image>().sprite = s;
 		GameObject.Find ("ShareText").GetComponentInChildren<Text>().text = m.textToShare;
+
+		// Disable current share button
+		GameObject.Find ("ShareButton").GetComponent<Button>().interactable = true;
 	}
 
 	public void ShowSharedPanel() {
@@ -114,6 +120,9 @@ public class MuseumkidsOverlay : MonoBehaviour {
 	public IEnumerator LoginSequence() {
 		// Show progress?
 
+		// Disable button
+		GameObject.Find ("LoginButton").GetComponent<Button>().interactable = false;
+
 		yield return StartCoroutine(m.DoLogin());
 		yield return StartCoroutine(m.GetSessionToken());
 
@@ -130,7 +139,9 @@ public class MuseumkidsOverlay : MonoBehaviour {
 	public IEnumerator ShareSequence() {
 		yield return StartCoroutine(m.DoPost());
 
-		// TODO return a message that we succeeded
+		// Disable current share button
+		GameObject.Find ("ShareButton").GetComponent<Button>().interactable = false;
+
 
 		// Disable the share button that this is about
 		GameObject.Find ("Share" + m.storyToShare + "Button").GetComponent<Button>().interactable = false;

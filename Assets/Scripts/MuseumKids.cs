@@ -76,7 +76,7 @@ public class MuseumKids : MonoBehaviour {
 	}
 
 	public IEnumerator GetSessionToken() {
-		var url = "http://museumkids.ijspreview.nl/api/usersession/tikkit/Shachi/" + this.authtoken;
+		var url = "http://museumkids.ijspreview.nl/api/usersession/tikkit/Vrijevogels/" + this.authtoken;
 		
 		Debug.Log ("Retrieve URL: " + url);
 

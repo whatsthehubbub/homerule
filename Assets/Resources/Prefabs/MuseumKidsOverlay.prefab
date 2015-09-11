@@ -1425,7 +1425,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Ik weet het zeker
+  m_Text: Bericht delen
 --- !u!114 &11462512
 MonoBehaviour:
   m_ObjectHideFlags: 1

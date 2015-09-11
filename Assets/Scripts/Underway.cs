@@ -131,19 +131,19 @@ public class Underway : MonoBehaviour {
 		}
 
 		// Check whether we need to display the museumkids logged in thing
-		MuseumKids.onMuseumkidsLoggedIn += LoggedIn;
+		MuseumKids.onMuseumkidsLoggedIn += ShowLogoutPanel;
 		
 		if (m.LoggedIn()) {
-			logoutPanel.SetActive(true);
-			
-			GameObject.Find ("LoggedInText").GetComponent<Text>().text = "Ingelogd als: " + m.email;
+			ShowLogoutPanel();
 		} else {
 			logoutPanel.SetActive(false);
 		}
 	}
 
-	public void LoggedIn() {
+	public void ShowLogoutPanel() {
 		this.logoutPanel.SetActive(true);
+
+		GameObject.Find ("LoggedInText").GetComponent<Text>().text = "Ingelogd als: " + m.email;
 	}
 
 	public void LogoutButton() {

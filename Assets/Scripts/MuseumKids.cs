@@ -72,11 +72,16 @@ public class MuseumKids : MonoBehaviour {
 
 		Debug.Log(www.text);
 
-		XmlNode accountStatus = response.GetElementsByTagName("accountstatus")[0];
-		this.accountstatus = accountStatus.InnerText;
+		try {
+			XmlNode accountStatus = response.GetElementsByTagName("accountstatus")[0];
+			this.accountstatus = accountStatus.InnerText;
 
-		XmlNode authToken = response.GetElementsByTagName("authtoken")[0];
-		this.authtoken = authToken.InnerText;
+			XmlNode authToken = response.GetElementsByTagName("authtoken")[0];
+			this.authtoken = authToken.InnerText;
+		} catch (System.NullReferenceException nre) {
+			Debug.Log (nre.ToString());
+			// If we typed in the wrong e-mail or something, above code throws an error
+		}
 	}
 
 	public IEnumerator GetSessionToken() {

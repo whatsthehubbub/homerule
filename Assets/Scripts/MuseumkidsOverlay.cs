@@ -39,7 +39,7 @@ public class MuseumkidsOverlay : MonoBehaviour {
 		this.loggedin.SetActive(false);
 		this.shared.SetActive(false);
 
-		// Disable button
+		// Enable button
 		GameObject.Find ("LoginButton").GetComponent<Button>().interactable = true;
 	}
 
@@ -124,12 +124,19 @@ public class MuseumkidsOverlay : MonoBehaviour {
 		GameObject.Find ("LoginButton").GetComponent<Button>().interactable = false;
 
 		yield return StartCoroutine(m.DoLogin());
-		yield return StartCoroutine(m.GetSessionToken());
 
-		// Close login screen
-		ShowLoggedinPanel();
+		if (string.IsNullOrEmpty(m.authtoken)) {
+			// If we didn't get an auth token, login failed.
+			// Do nothing.
 
-		// Go on with Sharing
+			// Re enable button
+			GameObject.Find ("LoginButton").GetComponent<Button>().interactable = true;
+		} else {
+			yield return StartCoroutine(m.GetSessionToken());
+
+			// Close login screen
+			ShowLoggedinPanel();
+		}
 	}
 
 	public void ShareButtonPressed() {

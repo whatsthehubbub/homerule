@@ -137,7 +137,7 @@ public class MuseumManager : MonoBehaviour {
 	public Story1OpinionDescription story1OpinionDescription;
 	public string story1Text = "";
 	public bool story1Done = false;
-	[System.NonSerialized] public Texture2D story1Image;
+	public Texture2D story1Image;
 
 	public OfficerResponse1Answer officer1Answer;
 

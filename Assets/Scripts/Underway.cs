@@ -7,6 +7,7 @@ using UnityEngine.Analytics;
 public class Underway : MonoBehaviour {
 
 	private MuseumManager mm;
+	private MuseumKids m;
 
 	public GameObject postHistoryContainer;
 	public GameObject chatHistoryContainer;
@@ -21,6 +22,8 @@ public class Underway : MonoBehaviour {
 	void Start () {
 		GameObject main = GameObject.Find("Main");
 		mm = main.GetComponentInChildren<MuseumManager>();
+
+		m = GameObject.Find("MuseumkidsHolder").GetComponent<MuseumKids>();
 
 		//Added custom event to test if code was getting stripped out
 		Analytics.CustomEvent("Start", new Dictionary<string, object> { {"Starting", 0 } });
@@ -93,6 +96,12 @@ public class Underway : MonoBehaviour {
 			
 			this.post1.transform.Find("PostText").GetComponent<Text>().text = mm.story1Text;
 			this.post1.transform.Find("PostImage").GetComponent<Image>().sprite = Sprite.Create (mm.story1Image, new Rect(0, 0, mm.story1Image.width, mm.story1Image.height), new Vector2(0.5f, 0.5f));
+
+			if (m.story1Shared) {
+				GameObject.Find ("Share1Button").GetComponent<Button>().interactable = false;
+			} else {
+				GameObject.Find ("Share1Button").GetComponent<Button>().interactable = true;
+			}
 		}
 
 		if (mm.story2Done) {
@@ -100,6 +109,12 @@ public class Underway : MonoBehaviour {
 
 			this.post2.transform.Find("PostText").GetComponent<Text>().text = mm.story2Text;
 			this.post2.transform.Find("PostImage").GetComponent<Image>().sprite = Sprite.Create (mm.story2Image, new Rect(0, 0, mm.story2Image.width, mm.story2Image.height), new Vector2(0.5f, 0.5f));
+		
+			if (m.story2Shared) {
+				GameObject.Find ("Share2Button").GetComponent<Button>().interactable = false;
+			} else {
+				GameObject.Find ("Share2Button").GetComponent<Button>().interactable = true;
+			}
 		}
 
 		if (mm.story3Done) {
@@ -107,11 +122,15 @@ public class Underway : MonoBehaviour {
 
 			this.post3.transform.Find ("PostText").GetComponent<Text>().text = mm.story3Text;
 			this.post3.transform.Find("PostImage").GetComponent<Image>().sprite = Sprite.Create (mm.story3Image, new Rect(0, 0, mm.story3Image.width, mm.story3Image.height), new Vector2(0.5f, 0.5f));
+
+			if (m.story3Shared) {
+				GameObject.Find ("Share3Button").GetComponent<Button>().interactable = false;
+			} else {
+				GameObject.Find ("Share3Button").GetComponent<Button>().interactable = true;
+			}
 		}
 
 		// Check whether we need to display the museumkids logged in thing
-		MuseumKids m = GameObject.Find("MuseumkidsHolder").GetComponent<MuseumKids>();
-
 		MuseumKids.onMuseumkidsLoggedIn += LoggedIn;
 		
 		if (m.LoggedIn()) {
@@ -140,5 +159,7 @@ public class Underway : MonoBehaviour {
 		MuseumKids.onMuseumkidsLoggedOut -= LogoutCompleted;
 
 		logoutPanel.SetActive(false);
+
+		ShowPostHistory();
 	}
 }

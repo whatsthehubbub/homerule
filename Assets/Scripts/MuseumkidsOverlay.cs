@@ -142,8 +142,6 @@ public class MuseumkidsOverlay : MonoBehaviour {
 		// Disable current share button
 		GameObject.Find ("ShareButton").GetComponent<Button>().interactable = false;
 
-
-		// Disable the share button that this is about
 		GameObject.Find ("Share" + m.storyToShare + "Button").GetComponent<Button>().interactable = false;
 
 		ShowSharedPanel();

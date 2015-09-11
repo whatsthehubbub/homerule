@@ -21,6 +21,10 @@ public class MuseumKids : MonoBehaviour {
 	public string authtoken;
 	public string sessiontoken;
 
+	public bool story1Shared = false;
+	public bool story2Shared = false;
+	public bool story3Shared = false;
+
 	public int storyToShare;
 	public string textToShare;
 	public Texture2D imageToShare;
@@ -108,9 +112,14 @@ public class MuseumKids : MonoBehaviour {
 
 		var item_id = 91; // Behang
 
-		if (storyToShare == 2) {
+		if (storyToShare == 1) {
+			story1Shared = true;
+			item_id = 91;
+		} else if (storyToShare == 2) {
+			story2Shared = true;
 			item_id = 92; // Bord
 		} else if (storyToShare == 3) {
+			story3Shared = true;
 			item_id = 93; // Wilhelmina
 		}
 
@@ -133,6 +142,10 @@ public class MuseumKids : MonoBehaviour {
 		this.email = "";
 		this.sessiontoken = "";
 		this.authtoken = "";
+
+		this.story1Shared = false;
+		this.story2Shared = false;
+		this.story3Shared = false;
 
 		if (onMuseumkidsLoggedOut != null) {
 			onMuseumkidsLoggedOut();

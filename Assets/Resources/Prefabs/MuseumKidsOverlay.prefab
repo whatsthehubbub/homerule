@@ -1198,7 +1198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: .972549021, g: .972549021, b: .972549021, a: 1}
   m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
@@ -1292,20 +1292,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: b68e93d494d667047b932adb8d7e2a9b, type: 3}
-    m_FontSize: 60
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '[Bericht dat naar Museumkids gaat]'
+  m_Text: '[Bericht dat naar Museumkids gaat.]'
 --- !u!114 &11455932
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1425,7 +1425,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Ik weet het zeker\t"
+  m_Text: Ik weet het zeker
 --- !u!114 &11462512
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1629,9 +1629,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Aanmelden
-
-'
+  m_Text: Aanmelden
 --- !u!114 &11470140
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1843,13 +1841,13 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 147226}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: .103}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
@@ -1930,8 +1928,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Om je bericht te delen op de Museumkids website, moet je je aanmelden met
-    een e-mailadres. Heb je al een account? Dan word je automatisch ingelogd.
+  m_Text: "Om je bericht te delen op de Museumkids site moet je je aanmelden met een
+    e-mailadres. \n\nHeb je al een account? Dan word je automatisch ingelogd."
 --- !u!114 &11489808
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2590,12 +2588,12 @@ RectTransform:
   m_Children:
   - {fileID: 22486456}
   m_Father: {fileID: 22478670}
-  m_RootOrder: 3
-  m_AnchorMin: {x: 0, y: .5}
-  m_AnchorMax: {x: 1, y: .5}
-  m_AnchoredPosition: {x: 0, y: -460}
-  m_SizeDelta: {x: -256, y: 500}
-  m_Pivot: {x: .5, y: .5}
+  m_RootOrder: 2
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 320}
+  m_SizeDelta: {x: -256, y: 1280}
+  m_Pivot: {x: .5, y: 0}
 --- !u!224 &22427566
 RectTransform:
   m_ObjectHideFlags: 1
@@ -2607,11 +2605,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 22478670}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: 100}
-  m_SizeDelta: {x: 500, y: 500}
+  m_AnchoredPosition: {x: 0, y: 128}
+  m_SizeDelta: {x: 800, y: 800}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22427954
 RectTransform:
@@ -2682,10 +2680,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 22498114}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0, y: .5}
-  m_AnchorMax: {x: 1, y: .5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22438838
 RectTransform:
@@ -2699,10 +2697,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 22446174}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0, y: .5}
-  m_AnchorMax: {x: 1, y: .5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22440334
 RectTransform:
@@ -2753,8 +2751,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -256}
-  m_SizeDelta: {x: -256, y: 360}
+  m_AnchoredPosition: {x: 0, y: -230}
+  m_SizeDelta: {x: -256, y: 200}
   m_Pivot: {x: .5, y: 1}
 --- !u!224 &22446174
 RectTransform:
@@ -2790,7 +2788,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 200}
-  m_SizeDelta: {x: -120, y: 200}
+  m_SizeDelta: {x: 0, y: 200}
   m_Pivot: {x: .5, y: 0}
 --- !u!224 &22450156
 RectTransform:
@@ -2841,10 +2839,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 22450156}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0, y: .5}
-  m_AnchorMax: {x: 1, y: .5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22458042
 RectTransform:
@@ -2860,8 +2858,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.52587891e-05, y: 10}
-  m_SizeDelta: {x: 0, y: 20}
+  m_AnchoredPosition: {x: -1.52587891e-05, y: 15}
+  m_SizeDelta: {x: 0, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22462050
 RectTransform:
@@ -2878,7 +2876,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -120, y: -120}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22465426
 RectTransform:
@@ -2910,11 +2908,11 @@ RectTransform:
   - {fileID: 22440334}
   m_Father: {fileID: 22494706}
   m_RootOrder: 2
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: -20}
+  m_AnchorMin: {x: .5, y: 0}
+  m_AnchorMax: {x: .5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 128}
   m_SizeDelta: {x: 1280, y: 200}
-  m_Pivot: {x: .5, y: .5}
+  m_Pivot: {x: .5, y: 0}
 --- !u!224 &22476052
 RectTransform:
   m_ObjectHideFlags: 1
@@ -2930,8 +2928,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -256}
-  m_SizeDelta: {x: -256, y: 440}
+  m_AnchoredPosition: {x: 0, y: -230}
+  m_SizeDelta: {x: -256, y: 500}
   m_Pivot: {x: .5, y: 1}
 --- !u!224 &22478670
 RectTransform:
@@ -2945,8 +2943,8 @@ RectTransform:
   m_Children:
   - {fileID: 22425938}
   - {fileID: 22442762}
-  - {fileID: 22427566}
   - {fileID: 22427360}
+  - {fileID: 22427566}
   - {fileID: 22430572}
   m_Father: {fileID: 22427954}
   m_RootOrder: 2
@@ -2986,8 +2984,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -120, y: -120}
+  m_AnchoredPosition: {x: 0, y: -420}
+  m_SizeDelta: {x: -120, y: -960}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22487864
 RectTransform:
@@ -3094,10 +3092,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 22442762}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0, y: .5}
-  m_AnchorMax: {x: 1, y: .5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -120, y: 200}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22498114
 RectTransform:
@@ -3134,7 +3132,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -256}
-  m_SizeDelta: {x: -256, y: 600}
+  m_SizeDelta: {x: -256, y: 1400}
   m_Pivot: {x: .5, y: 1}
 --- !u!224 &22499984
 RectTransform:
@@ -3151,7 +3149,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -120, y: -120}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!1001 &100100000
 Prefab:

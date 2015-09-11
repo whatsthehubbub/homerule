@@ -106,12 +106,12 @@ public class MuseumKids : MonoBehaviour {
 	public IEnumerator DoPost() {
 		var url = "http://museumkids.ijspreview.nl/api/setItemWithUserdata";
 
-		var item_id = 90; // Behang
+		var item_id = 91; // Behang
 
 		if (storyToShare == 2) {
-			item_id = 91; // Bord
+			item_id = 92; // Bord
 		} else if (storyToShare == 3) {
-			item_id = 92; // Wilhelmina
+			item_id = 93; // Wilhelmina
 		}
 
 		Debug.Log ("Post to URL: " + url + " with session: " + this.sessiontoken + " item: " + item_id + " and text: " + textToShare);

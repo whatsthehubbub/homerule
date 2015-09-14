@@ -500,7 +500,7 @@ public class MuseumManager : MonoBehaviour {
 		// We can become busy between TakeCall and TakeCallDelayed (like for instance when sharing)
 		// Don't take a call then but call this method again in a bit
 		if (this.callBusy) {
-			Debug.Log ("Busy now. Trying later.");
+			Debug.Log ("Busy and can't take a delayed call. Trying later.");
 
 			Invoke ("TakeCallDelayed", 10.0f);
 			return;

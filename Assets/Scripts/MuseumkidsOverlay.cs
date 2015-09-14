@@ -51,7 +51,7 @@ public class MuseumkidsOverlay : MonoBehaviour {
 
 		var text = "";
 		if (m.accountstatus.Equals("ACCOUNT_NEW")) {
-			text = "We hebben een account aangemaakt met " + m.email + ". We hebben je ook een e-mail gestuurd.";
+			text = "We hebben een account aangemaakt met " + m.email + " en je bent ingelogd. Je kan je aanmelding later afmaken op de Museumkids website.";
 		} else if (m.accountstatus.Equals("ACCOUNT_REGISTERED")) {
 			text = "Welkom terug! Je bent ingelogd als " + m.email + ".";
 		}

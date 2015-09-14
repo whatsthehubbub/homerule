@@ -145,7 +145,7 @@ public class MuseumkidsOverlay : MonoBehaviour {
 			GameObject.Find ("LoginButton").GetComponent<Button>().interactable = true;
 
 			// Show a message that logging in failed
-			GameObject.Find ("MuseumkidsExplanation").GetComponentInChildren<Text>().text = "LOGIN NIET GELUKT PROBEER HET NOG EENS TEKST";
+			GameObject.Find ("MuseumkidsExplanation").GetComponentInChildren<Text>().text = "Sorry, het aanmelden is niet gelukt. Probeer het nog eens?";
 		}
 	}
 
@@ -178,7 +178,7 @@ public class MuseumkidsOverlay : MonoBehaviour {
 			// Reenable current share button
 			GameObject.Find ("ShareButton").GetComponent<Button>().interactable = true;
 
-			GameObject.Find ("ConfirmationText").GetComponentInChildren<Text>().text = "DELEN NIET GELUKT PROBEER HET NOG EENS";
+			GameObject.Find ("ConfirmationText").GetComponentInChildren<Text>().text = "Sorry, het delen is niet gelukt. Probeer het nog eens?";
 		}
 	}
 }

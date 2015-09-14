@@ -67,48 +67,57 @@ public class MuseumKids : MonoBehaviour {
 
 		yield return www;
 
-		XmlDocument response = new XmlDocument();
-		response.LoadXml(www.text);
-
-		Debug.Log(www.text);
-
-		try {
-			XmlNode accountStatus = response.GetElementsByTagName("accountstatus")[0];
-			this.accountstatus = accountStatus.InnerText;
-
-			XmlNode authToken = response.GetElementsByTagName("authtoken")[0];
-			this.authtoken = authToken.InnerText;
-		} catch (System.NullReferenceException nre) {
-			Debug.Log (nre.ToString());
-			// If we typed in the wrong e-mail or something, above code throws an error
+		// Check whether the request succeeded
+		if (www.isDone && string.IsNullOrEmpty(www.error)) {
+			XmlDocument response = new XmlDocument();
+			response.LoadXml(www.text);
+			
+			Debug.Log(www.text);
+			
+			try {
+				XmlNode accountStatus = response.GetElementsByTagName("accountstatus")[0];
+				this.accountstatus = accountStatus.InnerText;
+				
+				XmlNode authToken = response.GetElementsByTagName("authtoken")[0];
+				this.authtoken = authToken.InnerText;
+			} catch (System.NullReferenceException nre) {
+				Debug.Log (nre.ToString());
+				// If we typed in the wrong e-mail or something, above code throws an error
+			}
 		}
 	}
 
 	public IEnumerator GetSessionToken() {
-		var url = "http://museumkids.ijspreview.nl/api/usersession/tikkit/Vrijevogels/" + this.authtoken;
-		
-		Debug.Log ("Retrieve URL: " + url);
+		// Authtoken could be empty if the previous request failed
+		// Then don't try to do this stuff
+		if (!string.IsNullOrEmpty(this.authtoken)) {
+			var url = "http://museumkids.ijspreview.nl/api/usersession/tikkit/Vrijevogels/" + this.authtoken;
+			
+			Debug.Log ("Retrieve URL: " + url);
+			
+			// I have no idea why this is a GET request
+			WWW www = new WWW(url);
+			
+			yield return www;
 
-		// I have no idea why this is a GET request
-		WWW www = new WWW(url);
-		
-		yield return www;
-
-		// The response document contains all kind of stuff, like my name, e-mail and score for this game
-
-		Debug.Log(www.text);
-
-		XmlDocument response = new XmlDocument();
-		response.LoadXml(www.text);
-		
-		XmlNode session = response.GetElementsByTagName("session")[0];
-		
-		Debug.Log (session.InnerText);
-		
-		this.sessiontoken = session.InnerText;
-
-		if (onMuseumkidsLoggedIn != null) {
-			onMuseumkidsLoggedIn();
+			// Check for the success of the request
+			if (www.isDone && string.IsNullOrEmpty(www.error)) {
+				// The response document contains all kind of stuff, like my name, e-mail and score for this game
+				Debug.Log(www.text);
+				
+				XmlDocument response = new XmlDocument();
+				response.LoadXml(www.text);
+				
+				XmlNode session = response.GetElementsByTagName("session")[0];
+				
+				Debug.Log (session.InnerText);
+				
+				this.sessiontoken = session.InnerText;
+				
+				if (onMuseumkidsLoggedIn != null) {
+					onMuseumkidsLoggedIn();
+				}
+			}
 		}
 	}
 
@@ -118,29 +127,37 @@ public class MuseumKids : MonoBehaviour {
 		var item_id = 91; // Behang
 
 		if (storyToShare == 1) {
-			story1Shared = true;
 			item_id = 91;
 		} else if (storyToShare == 2) {
-			story2Shared = true;
 			item_id = 92; // Bord
 		} else if (storyToShare == 3) {
-			story3Shared = true;
 			item_id = 93; // Wilhelmina
 		}
 
-		Debug.Log ("Post to URL: " + url + " with session: " + this.sessiontoken + " item: " + item_id + " and text: " + textToShare);
+		if (!string.IsNullOrEmpty(this.sessiontoken)) {
+			Debug.Log ("Post to URL: " + url + " with session: " + this.sessiontoken + " item: " + item_id + " and text: " + textToShare);
+			
+			WWWForm form = new WWWForm();
+			form.AddField("gamesession_hash", this.sessiontoken);
+			form.AddField("item_id", item_id);
+			form.AddField("text", textToShare);
+			form.AddBinaryData("file", imageToShare.EncodeToJPG(), "foto.jpg", "image/jpeg");
+			
+			WWW www = new WWW(url, form);
+			
+			yield return www;
 
-		WWWForm form = new WWWForm();
-		form.AddField("gamesession_hash", this.sessiontoken);
-		form.AddField("item_id", item_id);
-		form.AddField("text", textToShare);
-		form.AddBinaryData("file", imageToShare.EncodeToJPG(), "foto.jpg", "image/jpeg");
-
-		WWW www = new WWW(url, form);
-
-		yield return www;
-
-		Debug.Log (www.text);
+			if (www.isDone && string.IsNullOrEmpty(www.error)) {
+				if (storyToShare == 1) {
+					story1Shared = true;
+				} else if (storyToShare == 2) {
+					story2Shared = true;
+				} else if (storyToShare == 3) {
+					story3Shared = true;
+				}
+				Debug.Log (www.text);
+			}
+		}
 	}
 
 	public void Logout() {

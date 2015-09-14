@@ -123,19 +123,29 @@ public class MuseumkidsOverlay : MonoBehaviour {
 		// Disable button
 		GameObject.Find ("LoginButton").GetComponent<Button>().interactable = false;
 
+		bool success = true;
+
 		yield return StartCoroutine(m.DoLogin());
 
 		if (string.IsNullOrEmpty(m.authtoken)) {
-			// If we didn't get an auth token, login failed.
-			// Do nothing.
-
-			// Re enable button
-			GameObject.Find ("LoginButton").GetComponent<Button>().interactable = true;
+			success = false;
 		} else {
 			yield return StartCoroutine(m.GetSessionToken());
 
+			if (string.IsNullOrEmpty(m.sessiontoken)) {
+				success = false;
+			}
+		}
+
+		if (success) {
 			// Close login screen
 			ShowLoggedinPanel();
+		} else {
+			// Turn button back on
+			GameObject.Find ("LoginButton").GetComponent<Button>().interactable = true;
+
+			// Show a message that logging in failed
+			GameObject.Find ("MuseumkidsExplanation").GetComponentInChildren<Text>().text = "LOGIN NIET GELUKT PROBEER HET NOG EENS TEKST";
 		}
 	}
 
@@ -144,13 +154,31 @@ public class MuseumkidsOverlay : MonoBehaviour {
 	}
 
 	public IEnumerator ShareSequence() {
-		yield return StartCoroutine(m.DoPost());
-
 		// Disable current share button
 		GameObject.Find ("ShareButton").GetComponent<Button>().interactable = false;
 
-		GameObject.Find ("Share" + m.storyToShare + "Button").GetComponent<Button>().interactable = false;
 
-		ShowSharedPanel();
+		yield return StartCoroutine(m.DoPost());
+
+		bool success = true;
+
+		if (m.storyToShare == 1 && !m.story1Shared) {
+			success = false;
+		} else if (m.storyToShare == 2 && !m.story2Shared) {
+			success = false;
+		} else if (m.storyToShare == 3 && !m.story3Shared) {
+			success = false;
+		}
+
+		if (success) {
+			GameObject.Find ("Share" + m.storyToShare + "Button").GetComponent<Button>().interactable = false;
+			
+			ShowSharedPanel();
+		} else {
+			// Reenable current share button
+			GameObject.Find ("ShareButton").GetComponent<Button>().interactable = true;
+
+			GameObject.Find ("ConfirmationText").GetComponentInChildren<Text>().text = "DELEN NIET GELUKT PROBEER HET NOG EENS";
+		}
 	}
 }

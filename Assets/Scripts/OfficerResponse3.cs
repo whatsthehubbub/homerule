@@ -322,8 +322,8 @@ public class OfficerResponse3 : MonoBehaviour {
 		displayImage.GetComponentInChildren<Image>().sprite = videoCallSprite;
 
 		if (mm.officer3Response == Officer3Response.DISAGREE) {
-			cw.AddNPCBubble("Wat brutaal. U gaat duidelijk met de verkeerde mensen om. Dit gesprek moest maar eens voorbij zijn.");
-			cw.AddNPCBubble("Ik moet u eigenlijk niet meer helpen, maar gaat u nu terug naar het geweer?");
+			cw.AddNPCBubble("Wat brutaal. U gaat duidelijk met de verkeerde mensen om.");
+			cw.AddNPCBubble("Ik help u toch nog even, dat is mijn plicht als agent. U moet terug naar het geweer.");
 		} else if (mm.officer3Response == Officer3Response.UNDERSTAND) {
 			cw.AddNPCBubble("Dat waardeer ik. De vogelproblematiek is pittig.");
 			cw.AddNPCBubble("Gaat u terug naar het geweer als u klaar bent in het museum?");

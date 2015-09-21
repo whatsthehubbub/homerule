@@ -25,7 +25,7 @@ public class Underway : MonoBehaviour {
 
 		m = GameObject.Find("MuseumkidsHolder").GetComponent<MuseumKids>();
 
-		//Added custom event to test if code was getting stripped out
+		// Added custom event to test if code was getting stripped out
 		Analytics.CustomEvent("Start", new Dictionary<string, object> { {"Starting", 0 } });
 	}
 	

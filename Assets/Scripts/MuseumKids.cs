@@ -5,10 +5,10 @@ using System.Xml;
 
 public class MuseumKids : MonoBehaviour {
 
-	// Class to do the API calls on https://www.museumkids.nl/api/tester/
+	// Class to do the API calls on http://museumkids.ijspreview.nl/api/tester/
 
 	// Site on the staging site.
-	// https://www.museumkids.nl/game-info/shachi/20
+	// http://museumkids.ijspreview.nl/game-info/shachi/20
 
 	public delegate void MuseumkidsHandler();
 	public static event MuseumkidsHandler onMuseumkidsLoggedIn;

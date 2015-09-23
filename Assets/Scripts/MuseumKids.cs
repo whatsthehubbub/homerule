@@ -5,10 +5,10 @@ using System.Xml;
 
 public class MuseumKids : MonoBehaviour {
 
-	// Class to do the API calls on http://museumkids.ijspreview.nl/api/tester/
+	// Class to do the API calls on https://www.museumkids.nl/api/tester/
 
 	// Site on the staging site.
-	// http://museumkids.ijspreview.nl/game-info/shachi/20
+	// https://www.museumkids.nl/game-info/shachi/20
 
 	public delegate void MuseumkidsHandler();
 	public static event MuseumkidsHandler onMuseumkidsLoggedIn;
@@ -53,7 +53,7 @@ public class MuseumKids : MonoBehaviour {
 	}
 
 	public IEnumerator DoLogin() {
-		var url = "http://museumkids.ijspreview.nl/api/login";
+		var url = "https://www.museumkids.nl/api/login";
 
 		WWWForm form = new WWWForm();
 		form.AddField("email", this.email);
@@ -91,7 +91,7 @@ public class MuseumKids : MonoBehaviour {
 		// Authtoken could be empty if the previous request failed
 		// Then don't try to do this stuff
 		if (!string.IsNullOrEmpty(this.authtoken)) {
-			var url = "http://museumkids.ijspreview.nl/api/usersession/tikkit/Vrijevogels/" + this.authtoken;
+			var url = "https://www.museumkids.nl/api/usersession/tikkit/Vrijevogels/" + this.authtoken;
 			
 			Debug.Log ("Retrieve URL: " + url);
 			
@@ -122,7 +122,7 @@ public class MuseumKids : MonoBehaviour {
 	}
 
 	public IEnumerator DoPost() {
-		var url = "http://museumkids.ijspreview.nl/api/setItemWithUserdata";
+		var url = "https://www.museumkids.nl/api/setItemWithUserdata";
 
 		var item_id = 91; // Behang
 

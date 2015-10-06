@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UnityAppController.h>
 
-@interface LocalNotifications : NSObject
+@interface LocalNotifications : UnityAppController
+
+-(bool)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;
+-(void)application:(UIApplication*)application didReceiveLocalNotification:(UILocalNotification *)notification;
 
 @end

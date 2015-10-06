@@ -222,11 +222,19 @@ public class ChatWindow : MonoBehaviour {
 	}
 
 	public void DisableBack() {
+		// Disable the button
 		this.gameObject.transform.Find ("TopBar/Back").GetComponent<Button>().interactable = false;
+
+		// Change its scale to 0 to hide it
+		this.gameObject.transform.Find ("TopBar/Back").transform.localScale = new Vector3(0, 0, 0);
 	}
 
 	public void EnableBack() {
+		// Enable the button
 		this.gameObject.transform.Find ("TopBar/Back").GetComponent<Button>().interactable = true;
+
+		// Change its scale back to 1
+		this.gameObject.transform.Find ("TopBar/Back").transform.localScale = new Vector3(1, 1, 1);
 	}
 
 }

@@ -7,6 +7,9 @@ public class MuseumKids : MonoBehaviour {
 
 	// Class to do the API calls on http://museumkids.ijspreview.nl/api/tester/
 
+	// API call URL example on the staging site (different domain and https not really supported):
+	// http://museumkids.ijspreview.nl/api/login
+
 	// Site on the staging site.
 	// http://museumkids.ijspreview.nl/game-info/shachi/20
 

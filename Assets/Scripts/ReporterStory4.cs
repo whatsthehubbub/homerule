@@ -16,8 +16,6 @@ public class ReporterStory4 : MonoBehaviour {
 		GameObject main = GameObject.Find("Main");
 		mm = main.GetComponentInChildren<MuseumManager>();
 
-		mm.reporterChatHistory.GetComponent<ChatWindow>().FlushChildren();
-		
 		GameObject call = (GameObject)Instantiate(Resources.Load ("Prefabs/ReporterCalling"));
 		call.transform.SetParent(GameObject.Find ("Canvas").transform, false);
 		call.name = "Reporter Calling";
@@ -53,7 +51,7 @@ public class ReporterStory4 : MonoBehaviour {
 		Sprite videoCallSprite = Resources.Load<Sprite>("Sprites/portrait katja wide");
 		displayImage.GetComponentInChildren<Image>().sprite = videoCallSprite;
 
-//		cw.AddDivider();
+		cw.AddDivider();
 
 		cw.AddNPCBubble("Hé, hoi.");
 

@@ -501,7 +501,7 @@ public class MuseumManager : MonoBehaviour {
 
 //			if (Application.platform == RuntimePlatform.OSXEditor) {
 //				// Remove this for testing on desktop
-//				delay = 5.0f;
+//				delay = 2.0f;
 //			}
 
 			Debug.Log ("Going to take a call in: " + delay);

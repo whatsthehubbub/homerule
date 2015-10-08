@@ -88,6 +88,8 @@ public class OfficerResponse3 : MonoBehaviour {
 		Image storyImage = imageObject.GetComponentInChildren<Image>();
 		storyImage.sprite = Sprite.Create (mm.story3Image, new Rect(0, 0, mm.story3Image.width, mm.story3Image.height), new Vector2(0.5f, 0.5f));
 
+		yield return new WaitForSeconds(0.5f);
+
 		cw.AddArticleBubble(mm.story3Text);
 
 		yield return new WaitForSeconds(0.5f);
@@ -169,35 +171,44 @@ public class OfficerResponse3 : MonoBehaviour {
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 			
-			cw.AddPlayerBubble("U weet vast nog wel dat de dichter graffiti had gespoten.");
-
-			// Boiler plate to include the story
-
-			GameObject imageBubble = cw.AddArticleImageBubble();
-			GameObject imageObject = imageBubble.transform.Find ("Bubble/BubbleImage").gameObject;
-			Image storyImage = imageObject.GetComponentInChildren<Image>();
-			storyImage.sprite = Sprite.Create (mm.story1Image, new Rect(0, 0, mm.story1Image.width, mm.story1Image.height), new Vector2(0.5f, 0.5f));
-			
-			cw.AddArticleBubble(mm.story1Text);
-
-			string resultText = "";
-			
-			switch (mm.story1Opinion) {
-				case Story1OpinionAnswer.CLEAN:
-					resultText = "moest hij de muur boenen";
-					break;
-				case Story1OpinionAnswer.LEAVE:
-					resultText = "mocht de graffiti blijven staan";
-					break;
-				case Story1OpinionAnswer.DISPLAY:
-					resultText = "werd hij beroemd";
-					break;
-			}
-
-			cw.AddPlayerBubble("Door wat wij schreven " + resultText + ".");
-			
-			StartCoroutine(PlayerRecap2());
+			StartCoroutine(PlayerRecap1Coroutine());
 		});
+	}
+
+	public IEnumerator PlayerRecap1Coroutine() {
+		cw.AddPlayerBubble("U weet vast nog wel dat de dichter graffiti had gespoten.");
+
+		yield return new WaitForSeconds(0.5f);
+		
+		// Boiler plate to include the story
+		GameObject imageBubble = cw.AddArticleImageBubble();
+		GameObject imageObject = imageBubble.transform.Find ("Bubble/BubbleImage").gameObject;
+		Image storyImage = imageObject.GetComponentInChildren<Image>();
+		storyImage.sprite = Sprite.Create (mm.story1Image, new Rect(0, 0, mm.story1Image.width, mm.story1Image.height), new Vector2(0.5f, 0.5f));
+
+		yield return new WaitForSeconds(0.5f);
+
+		cw.AddArticleBubble(mm.story1Text);
+		
+		string resultText = "";
+		
+		switch (mm.story1Opinion) {
+		case Story1OpinionAnswer.CLEAN:
+			resultText = "moest hij de muur boenen";
+			break;
+		case Story1OpinionAnswer.LEAVE:
+			resultText = "mocht de graffiti blijven staan";
+			break;
+		case Story1OpinionAnswer.DISPLAY:
+			resultText = "werd hij beroemd";
+			break;
+		}
+
+		yield return new WaitForSeconds(0.5f);
+		
+		cw.AddPlayerBubble("Door wat wij schreven " + resultText + ".");
+		
+		StartCoroutine(PlayerRecap2());
 	}
 
 	public IEnumerator PlayerRecap2() {
@@ -211,33 +222,43 @@ public class OfficerResponse3 : MonoBehaviour {
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 			
-			cw.AddPlayerBubble("En u weet vast ook nog wat we schreven over de huizen van de vogels.");
-			
-			// Boiler plate to include the story
-			GameObject imageBubble = cw.AddArticleImageBubble();
-			GameObject imageObject = imageBubble.transform.Find ("Bubble/BubbleImage").gameObject;
-			Image storyImage = imageObject.GetComponentInChildren<Image>();
-			storyImage.sprite = Sprite.Create (mm.story2Image, new Rect(0, 0, mm.story2Image.width, mm.story2Image.height), new Vector2(0.5f, 0.5f));
-			
-			cw.AddArticleBubble(mm.story2Text);
-
-			string resultText = "";
-			switch (mm.story2FinalOpinion) {
-				case Story2OpinionAnswer.GOOD:
-					resultText = "het rustig bleef";
-					break;
-				case Story2OpinionAnswer.SAD:
-					resultText = "er extra voor de mensen werd gezorgd";
-					break;
-				case Story2OpinionAnswer.WRONG:
-					resultText = "er rellen uitbraken";
-					break;
-			}
-
-			cw.AddPlayerBubble("Dat zorgde ervoor dat " + resultText + ".");
-			
-			StartCoroutine(PlayerRecapClose());
+			StartCoroutine(PlayerRecap2Coroutine());
 		});
+	}
+
+	public IEnumerator PlayerRecap2Coroutine() {
+		cw.AddPlayerBubble("En u weet vast ook nog wat we schreven over de huizen van de vogels.");
+
+		yield return new WaitForSeconds(0.5f);
+		
+		// Boiler plate to include the story
+		GameObject imageBubble = cw.AddArticleImageBubble();
+		GameObject imageObject = imageBubble.transform.Find ("Bubble/BubbleImage").gameObject;
+		Image storyImage = imageObject.GetComponentInChildren<Image>();
+		storyImage.sprite = Sprite.Create (mm.story2Image, new Rect(0, 0, mm.story2Image.width, mm.story2Image.height), new Vector2(0.5f, 0.5f));
+
+		yield return new WaitForSeconds(0.5f);
+
+		cw.AddArticleBubble(mm.story2Text);
+		
+		string resultText = "";
+		switch (mm.story2FinalOpinion) {
+		case Story2OpinionAnswer.GOOD:
+			resultText = "het rustig bleef";
+			break;
+		case Story2OpinionAnswer.SAD:
+			resultText = "er extra voor de mensen werd gezorgd";
+			break;
+		case Story2OpinionAnswer.WRONG:
+			resultText = "er rellen uitbraken";
+			break;
+		}
+
+		yield return new WaitForSeconds(0.5f);
+		
+		cw.AddPlayerBubble("Dat zorgde ervoor dat " + resultText + ".");
+		
+		StartCoroutine(PlayerRecapClose());
 	}
 
 	public IEnumerator PlayerRecapClose() {

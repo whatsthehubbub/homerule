@@ -60,12 +60,14 @@ public class OfficerResponse2 : MonoBehaviour {
 			cw.ClearButtons();
 			cw.AddPlayerBubble("Ja hoor.");
 			
-			Invoke ("ShowChatButton", 0.5f);
+			StartCoroutine(ShowChatButton());
 		});
 	}
 	
 	
-	public void ShowChatButton() {
+	public IEnumerator ShowChatButton() {
+		yield return new WaitForSeconds(0.5f);
+
 		GameObject.Destroy(chat);
 	
 		chat = mm.officerChatHistory;
@@ -75,6 +77,8 @@ public class OfficerResponse2 : MonoBehaviour {
 		cw.DisableBack();
 		
 		cw.AddNPCBubble("Fijn. Wij zien net dit bericht.");
+
+		yield return new WaitForSeconds(0.5f);
 		
 		// Display the story image
 		GameObject imageBubble = cw.AddArticleImageBubble();
@@ -83,29 +87,46 @@ public class OfficerResponse2 : MonoBehaviour {
 		storyImage.sprite = Sprite.Create (mm.story2Image, new Rect(0, 0, mm.story2Image.width, mm.story2Image.height), new Vector2(0.5f, 0.5f));
 		
 		cw.AddArticleBubble(mm.story2Text);
+
+		yield return new WaitForSeconds(0.5f);
 		
 		GameObject button = cw.AddButton ("OK");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 			cw.AddPlayerBubble("OK.");
 			
-			Invoke ("ShowPossibilities", 0.5f);
+			StartCoroutine(ShowPossibilities());
 		});
 	}
 	
-	public void ShowPossibilities() {
+	public IEnumerator ShowPossibilities() {
+		yield return new WaitForSeconds(0.5f);
+
 		if (mm.story2FinalOpinion == Story2OpinionAnswer.SAD) {
 			cw.AddNPCBubble("Door dit bericht hebben wij extra werk. Wat een toestand! Was die extra zorg echt nodig?");
+
+			yield return new WaitForSeconds(0.5f);
+
 			cw.AddNPCBubble("Het zou fijn zijn als de verslaggever ons voortaan vraagt of het bericht in orde is.");
 		} else if (mm.story2FinalOpinion == Story2OpinionAnswer.GOOD) {
 			cw.AddNPCBubble("Dit bericht heeft geholpen. De mensen luisterden naar ons, ze gingen netjes hun huizen uit.");
+
+			yield return new WaitForSeconds(0.5f);
+
 			cw.AddNPCBubble("Toch zou het fijn zijn als de verslaggever eerst aan ons vraagt of het bericht in orde is.");
 		} else if (mm.story2FinalOpinion == Story2OpinionAnswer.WRONG) {
 			cw.AddNPCBubble("Dit bericht is heel vervelend. Nu luisteren de mensen niet meer naar ons!");
+
+			yield return new WaitForSeconds(0.5f);
+
 			cw.AddNPCBubble("We zijn ze nog steeds uit hun huizen aan het halen. Wat een ellende!");
+
+			yield return new WaitForSeconds(0.5f);
+
 			cw.AddNPCBubble("Voortaan moet de verslaggever eerst aan ons vragen of het bericht in orde is.");
 		}
-		
+
+		yield return new WaitForSeconds(0.5f);
 
 		GameObject agree = cw.AddButton ("Mee eens");
 		agree.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -114,7 +135,7 @@ public class OfficerResponse2 : MonoBehaviour {
 
 			mm.officer2Opinion = OfficerResponse2Opinion.AGREE;
 			
-			Invoke ("ShowOpinionResponse", 0.5f);
+			StartCoroutine(ShowOpinionResponse());
 		});
 		
 		GameObject neutral = cw.AddButton ("Als u dat zegt");
@@ -124,7 +145,7 @@ public class OfficerResponse2 : MonoBehaviour {
 
 			mm.officer2Opinion = OfficerResponse2Opinion.NEUTRAL;
 			
-			Invoke ("ShowOpinionResponse", 0.5f);
+			StartCoroutine(ShowOpinionResponse());
 		});
 		
 		GameObject disagree = cw.AddButton ("Niet mee eens");
@@ -134,11 +155,13 @@ public class OfficerResponse2 : MonoBehaviour {
 
 			mm.officer2Opinion = OfficerResponse2Opinion.DISAGREE;
 			
-			Invoke ("ShowOpinionResponse", 0.5f);
+			StartCoroutine(ShowOpinionResponse());
 		});
 	}
 	
-	public void ShowOpinionResponse() {
+	public IEnumerator ShowOpinionResponse() {
+		yield return new WaitForSeconds(0.5f);
+
 		if (mm.officer2Opinion == OfficerResponse2Opinion.AGREE) {
 			cw.AddNPCBubble("Natuurlijk! Goed dat u het ook zo ziet. Tot later.");
 		}
@@ -148,12 +171,9 @@ public class OfficerResponse2 : MonoBehaviour {
 		else if (mm.officer2Opinion == OfficerResponse2Opinion.DISAGREE) {
 			cw.AddNPCBubble("O ja? Vindt u dat? Dat is goed om te weten. Wij houden u in de gaten…");
 		}
-		
-		Invoke ("ShowOfficerBye", 0.5f);
-	}
-		
-	public void ShowOfficerBye() {
-		
+
+		yield return new WaitForSeconds(0.5f);
+
 		GameObject button = cw.AddButton ("Tot ziens");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
@@ -164,10 +184,10 @@ public class OfficerResponse2 : MonoBehaviour {
 	}
 	
 	public void Done() {
-		mm.callBusy = false;
-
 		cw.EnableBack();
 		chat.SetActive(false);
+
+		mm.callBusy = false;
 
 		GameObject.Destroy (this);
 	}

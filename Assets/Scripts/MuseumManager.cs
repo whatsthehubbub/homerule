@@ -112,6 +112,20 @@ public class MuseumManager : MonoBehaviour {
 
 	public bool forceCalls = false;
 
+	/*
+	 * The stories will be processed in this order (some of them depending on a beacon being present.
+	 * ReporterStory0
+	 * ReporterStory1
+	 * OfficerResponse1
+	 * ReporterResponse1
+	 * ReporterStory2
+	 * OfficerResponse2
+	 * ArtistResponse1
+	 * ReporterResponse2
+	 * ReporterStory3
+	 * OfficerResponse3
+	 * ReporterStory4
+	 */
 	public Queue<string> storyQueue = new Queue<string>();
 	public bool waitingForCall = false;
 	public bool callBusy = false;
@@ -487,7 +501,7 @@ public class MuseumManager : MonoBehaviour {
 
 //			if (Application.platform == RuntimePlatform.OSXEditor) {
 //				// Remove this for testing on desktop
-//				delay = 5.0f;
+//				delay = 2.0f;
 //			}
 
 			Debug.Log ("Going to take a call in: " + delay);

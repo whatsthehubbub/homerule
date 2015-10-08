@@ -33,7 +33,7 @@ public class OfficerResponse1 : MonoBehaviour {
 			audioSource.Stop ();
 
 			GameObject.Destroy(call);
-			ShowVideoCall();
+			StartCoroutine(ShowVideoCall());
 		});
 	}
 	
@@ -42,7 +42,7 @@ public class OfficerResponse1 : MonoBehaviour {
 //		
 //	}
 
-	public void ShowVideoCall() {
+	public IEnumerator ShowVideoCall() {
 		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
 		chat.transform.SetParent(GameObject.Find ("Canvas").transform, false);
 		chat.name = "VideoCall";
@@ -61,8 +61,12 @@ public class OfficerResponse1 : MonoBehaviour {
 		
 		cw = chat.GetComponent<ChatWindow>();
 		cw.SetArchivalChat(mm.officerChatHistory.GetComponent<ChatWindow>());
+
+		yield return new WaitForSeconds(0.5f);
 		
 		cw.AddNPCBubble("Wolfsen. Aangenaam. Kunnen wij u spreken?");
+
+		yield return new WaitForSeconds(0.5f);
 		
 		GameObject what = cw.AddButton ("Wat is er?");
 		what.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -70,11 +74,11 @@ public class OfficerResponse1 : MonoBehaviour {
 
 			cw.AddPlayerBubble("Wat is er aan de hand?");
 			
-			Invoke ("ShowChatButton", 0.5f);
+			StartCoroutine(ShowChatButton());
 		});
 	}
 
-	public void ShowChatButton() {
+	public IEnumerator ShowChatButton() {
 		GameObject.Destroy(chat);
 		
 		chat = mm.officerChatHistory;
@@ -82,9 +86,16 @@ public class OfficerResponse1 : MonoBehaviour {
 
 		cw = chat.GetComponent<ChatWindow>();
 		cw.DisableBack();
+
+		yield return new WaitForSeconds(0.5f);
 		
 		cw.AddNPCBubble("Weinig, gelukkig. Die kladderaar is opgefladderd.");
+
+		yield return new WaitForSeconds(0.5f);
+
 		cw.AddNPCBubble("Wij willen alleen nog weten of u deze verslaggever kent.");
+
+		yield return new WaitForSeconds(0.5f);
 		
 		GameObject imageBubble = cw.AddNPCImageBubble();
 		Sprite katjaPhotoSprite = Resources.Load<Sprite>("Sprites/katja foto");
@@ -128,11 +139,13 @@ public class OfficerResponse1 : MonoBehaviour {
 		
 		cw.AddPlayerBubble(playerResponseText);
 		
-		Invoke("ShowOfficerResponse", 0.8f);
+		StartCoroutine(ShowOfficerResponse());
 	}
 	
 
-	public void ShowOfficerResponse() {
+	public IEnumerator ShowOfficerResponse() {
+		yield return new WaitForSeconds(0.5f);
+
 		string officerResponseText = "";
 		
 		if (mm.officer1Answer == OfficerResponse1Answer.NEVER_SEEN) {
@@ -145,23 +158,31 @@ public class OfficerResponse1 : MonoBehaviour {
 		
 		cw.AddNPCBubble(officerResponseText);
 		
-		Invoke ("ShowOfficerCommand", 0.5f);
+		StartCoroutine(ShowOfficerCommand());
 	}
 
-	public void ShowOfficerCommand() {
+	public IEnumerator ShowOfficerCommand() {
+		yield return new WaitForSeconds(0.5f);
+
 		cw.AddNPCBubble("Komt u haar tegen, laat haar dan contact opnemen met ons.");
+
+		yield return new WaitForSeconds(0.5f);
 		
 		GameObject ok = cw.AddButton ("Oké");
 		ok.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.AddPlayerBubble("Oké…");
 			cw.ClearButtons();
 			
-			Invoke ("ShowOfficerCloseOff", 0.5f);
+			StartCoroutine(ShowOfficerCloseOff());
 		});
 	}
 
-	public void ShowOfficerCloseOff() {
+	public IEnumerator ShowOfficerCloseOff() {
+		yield return new WaitForSeconds(0.5f);
+
 		cw.AddNPCBubble("Bedankt voor uw tijd. Nog een fijne dag.");
+
+		yield return new WaitForSeconds(0.5f);
 		
 		GameObject ok = cw.AddButton ("Tot ziens");
 		ok.GetComponentInChildren<Button>().onClick.AddListener(() => {

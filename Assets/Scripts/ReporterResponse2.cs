@@ -30,7 +30,7 @@ public class ReporterResponse2 : MonoBehaviour {
 			audioSource.Stop ();
 
 			GameObject.Destroy(call);
-			ShowVideoCall();
+			StartCoroutine(ShowVideoCall());
 		});
 	}
 	
@@ -39,7 +39,7 @@ public class ReporterResponse2 : MonoBehaviour {
 //		
 //	}
 
-	public void ShowVideoCall() {
+	public IEnumerator ShowVideoCall() {
 		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
 		chat.transform.SetParent(GameObject.Find ("Canvas").transform, false);
 		chat.name = "VideoCall";
@@ -54,7 +54,12 @@ public class ReporterResponse2 : MonoBehaviour {
 		cw.AddDivider();
 		
 		cw.AddNPCBubble("Hoi, ik verveel me! Niks om over te schrijven.");
+
+		yield return new WaitForSeconds(0.5f);
+
 		cw.AddNPCBubble("Heb jij nog nieuws?");
+
+		yield return new WaitForSeconds(0.5f);
 
 		GameObject button = cw.AddButton ("Vogels");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -62,12 +67,16 @@ public class ReporterResponse2 : MonoBehaviour {
 
 			cw.AddPlayerBubble("Ik hoorde dat die mensen niet uit hun huis zijn gezet vanwege de veiligheid.");
 			
-			Invoke ("ShowMotivation", 0.5f);
+			StartCoroutine(ShowMotivation());
 		});
 	}
 
-	public void ShowMotivation() {
+	public IEnumerator ShowMotivation() {
+		yield return new WaitForSeconds(0.5f);
+
 		cw.AddNPCBubble("Waarom dan wel?");
+
+		yield return new WaitForSeconds(0.5f);
 
 		GameObject button = cw.AddButton ("Vrijheid");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -75,11 +84,11 @@ public class ReporterResponse2 : MonoBehaviour {
 
 			cw.AddPlayerBubble("Omdat ze lastig zijn. Omdat ze van vrijheid houden.");
 			
-			Invoke ("ShowChat", 0.5f);
+			StartCoroutine(ShowChat());
 		});
 	}
 	
-	public void ShowChat() {
+	public IEnumerator ShowChat() {
 		GameObject.Destroy(chat);
 		
 		chat = mm.reporterChatHistory;
@@ -87,8 +96,12 @@ public class ReporterResponse2 : MonoBehaviour {
 		
 		cw = chat.GetComponent<ChatWindow>();
 		cw.DisableBack();
+
+		yield return new WaitForSeconds(0.5f);
 		
 		cw.AddNPCBubble("Als dat klopt, moeten we erover schrijven! Maar hoe weet je dat?");
+
+		yield return new WaitForSeconds(0.5f);
 		
 		GameObject button1 = cw.AddButton("Frank");
 		button1.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -107,7 +120,7 @@ public class ReporterResponse2 : MonoBehaviour {
 
 			cw.ClearButtons();
 
-			Invoke ("ShowAnswer", 0.5f);
+			StartCoroutine(ShowAnswer());
 		});
 
 		GameObject button2 = cw.AddButton("Zelf ontdekt");
@@ -118,7 +131,7 @@ public class ReporterResponse2 : MonoBehaviour {
 
 			cw.ClearButtons();
 
-			Invoke ("ShowAnswer", 0.5f);
+			StartCoroutine(ShowAnswer());
 		});
 
 		GameObject button3 = cw.AddButton("Geheime bron");
@@ -129,12 +142,16 @@ public class ReporterResponse2 : MonoBehaviour {
 
 			cw.ClearButtons();
 
-			Invoke ("ShowAnswer", 0.5f);
+			StartCoroutine(ShowAnswer());
 		});
 	}
 
-	public void ShowAnswer() {
+	public IEnumerator ShowAnswer() {
+		yield return new WaitForSeconds(0.5f);
+
 		cw.AddNPCBubble("Oké, ik begrijp het.");
+
+		yield return new WaitForSeconds(0.5f);
 
 		GameObject button = cw.AddButton ("Wat nu?");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -142,12 +159,16 @@ public class ReporterResponse2 : MonoBehaviour {
 
 			cw.AddPlayerBubble("Wat moeten we nu doen?");
 			
-			Invoke ("ShowGoal", 0.5f);
+			StartCoroutine(ShowGoal());
 		});
 	}
 
-	public void ShowGoal() {
+	public IEnumerator ShowGoal() {
+		yield return new WaitForSeconds(0.5f);
+
 		cw.AddNPCBubble("Ik heb een idee. Kun je op zoek gaan naar de foto van koningin Wilhelmina? Ik leg het straks wel uit.");
+
+		yield return new WaitForSeconds(0.5f);
 
 		GameObject button = cw.AddButton ("Oké");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {

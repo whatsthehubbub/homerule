@@ -139,12 +139,14 @@ public class ReporterStory0 : MonoBehaviour {
 			cw.ClearButtons();
 
 			cw.AddPlayerBubble("Oké, ik ga het behang zoeken.");
-			
-			Invoke ("ShowClose", 0.5f);
+
+			StartCoroutine (ShowClose());
 		});
 	}
 
-	public void ShowClose() {
+	public IEnumerator ShowClose() {
+		yield return new WaitForSeconds(0.5f);
+
 		cw.AddNPCBubble("Super! Tot zo.");
 
 		GameObject bye = cw.AddButton("Tot zo");

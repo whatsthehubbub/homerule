@@ -30,7 +30,7 @@ public class OfficerResponse3 : MonoBehaviour {
 			audioSource.Stop ();
 
 			GameObject.Destroy(call);
-			ShowVideoCall();
+			StartCoroutine(ShowVideoCall());
 		});
 	}
 	
@@ -39,7 +39,7 @@ public class OfficerResponse3 : MonoBehaviour {
 //		
 //	}
 
-	public void ShowVideoCall() {
+	public IEnumerator ShowVideoCall() {
 		chat = (GameObject)Instantiate(Resources.Load ("Prefabs/VideoCall"));
 		chat.transform.SetParent(GameObject.Find ("Canvas").transform, false);
 		chat.name = "VideoCall";
@@ -54,18 +54,20 @@ public class OfficerResponse3 : MonoBehaviour {
 		cw.AddDivider();
 		
 		cw.AddNPCBubble("Ahum. Ik wil toch nog even met u spreken.");
+
+		yield return new WaitForSeconds(0.5f);
 		
 		GameObject button = cw.AddButton ("Vooruit");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 
 			cw.AddPlayerBubble("Vooruit dan.");
-			
-			Invoke ("ShowArticle", 0.5f);
+
+			StartCoroutine(ShowArticle());
 		});
 	}
 
-	public void ShowArticle() {
+	public IEnumerator ShowArticle() {
 		// Change to Chat UI
 		GameObject.Destroy (chat);
 
@@ -75,7 +77,11 @@ public class OfficerResponse3 : MonoBehaviour {
 		cw = chat.GetComponent<ChatWindow>();
 		cw.DisableBack();
 
+		yield return new WaitForSeconds(0.5f);
+
 		cw.AddNPCBubble("Fijn. Dit bericht hebt u vast eerder gezien.");
+
+		yield return new WaitForSeconds(0.5f);
 
 		GameObject imageBubble = cw.AddArticleImageBubble();
 		GameObject imageObject = imageBubble.transform.Find ("Bubble/BubbleImage").gameObject;
@@ -84,53 +90,59 @@ public class OfficerResponse3 : MonoBehaviour {
 
 		cw.AddArticleBubble(mm.story3Text);
 
+		yield return new WaitForSeconds(0.5f);
+
 		if (mm.story3Attribution == Story3Attribution.FRANK) {
 			cw.AddNPCBubble("Die flierefluiters zorgden voor onrust. Daarom hebben we de dichter gearresteerd.");
-
-			Invoke ("ShowStatement1", 0.5f);
 		} else if (mm.story3Attribution == Story3Attribution.KATJA) {
 			cw.AddNPCBubble("Dit soort nieuws zorgt voor onrust. We konden die schrijvende pers niet laten lopen.");
-
-			Invoke ("ShowStatement1", 0.5f);
 		} else if (mm.story3Attribution == Story3Attribution.ANONYMOUS) {
 			cw.AddNPCBubble("U weet donders goed wie hierachter zit! We houden u in de gaten.");
-
-			Invoke ("ShowStatement1", 0.5f);
 		}
-	}
 
-	public void ShowStatement1() {
+		yield return new WaitForSeconds(0.5f);
+
 		cw.AddNPCBubble("We moeten hard optreden. Dan kunnen we dit gedoe voortaan voorkomen.");
+
+		yield return new WaitForSeconds(0.5f);
 
 		GameObject disagreeButton = cw.AddButton ("Oneens");
 		disagreeButton.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 			cw.AddPlayerBubble("Daar ben ik het niet mee eens.");
-
-			mm.officer3Response = Officer3Response.DISAGREE;
 			
-			Invoke ("OfficerQuestionWhy1", 0.5f);
-		});
+			mm.officer3Response = Officer3Response.DISAGREE;
 
+			StartCoroutine(OfficerQuestionWhy1());
+		});
+		
 		GameObject understandButton = cw.AddButton ("Snap ik");
 		understandButton.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 			cw.AddPlayerBubble("Ik snap dat u dat zegt.");
-
-			mm.officer3Response = Officer3Response.UNDERSTAND;
 			
-			Invoke ("OfficerQuestionWhy2", 0.5f);
+			mm.officer3Response = Officer3Response.UNDERSTAND;
+
+			StartCoroutine(OfficerQuestionWhy2());
 		});
 	}
 
-	public void OfficerQuestionWhy1() {
+	public IEnumerator OfficerQuestionWhy1() {
+		yield return new WaitForSeconds(0.5f);
+
 		cw.AddNPCBubble("O nee, waarom dan niet?");
+
+		yield return new WaitForSeconds(0.5f);
 
 		StartPlayerRecap();
 	}
 
-	public void OfficerQuestionWhy2() {
+	public IEnumerator OfficerQuestionWhy2() {
+		yield return new WaitForSeconds(0.5f);
+
 		cw.AddNPCBubble("Fijn! Hoe kijkt u hier zelf tegenaan?");
+
+		yield return new WaitForSeconds(0.5f);
 
 		StartPlayerRecap();
 	}
@@ -142,12 +154,16 @@ public class OfficerResponse3 : MonoBehaviour {
 
 			cw.AddPlayerBubble("De berichten van de afgelopen tijd zeggen eigenlijk alles.");
 
-			Invoke ("PlayerRecap1", 0.5f);
+			StartCoroutine(PlayerRecap1());
 		});
 	}
 
-	public void PlayerRecap1() {
+	public IEnumerator PlayerRecap1() {
+		yield return new WaitForSeconds(0.5f);
+
 		cw.AddNPCBubble("Hoe bedoelt u?");
+
+		yield return new WaitForSeconds(0.5f);
 
 		GameObject button = cw.AddButton ("Graffiti");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -180,12 +196,16 @@ public class OfficerResponse3 : MonoBehaviour {
 
 			cw.AddPlayerBubble("Door wat wij schreven " + resultText + ".");
 			
-			Invoke ("PlayerRecap2", 0.5f);
+			StartCoroutine(PlayerRecap2());
 		});
 	}
 
-	public void PlayerRecap2() {
+	public IEnumerator PlayerRecap2() {
+		yield return new WaitForSeconds(0.5f);
+
 		cw.AddNPCBubble("Ja…");
+
+		yield return new WaitForSeconds(0.5f);
 
 		GameObject button = cw.AddButton ("Huizen");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -216,12 +236,16 @@ public class OfficerResponse3 : MonoBehaviour {
 
 			cw.AddPlayerBubble("Dat zorgde ervoor dat " + resultText + ".");
 			
-			Invoke ("PlayerRecapClose", 0.5f);
+			StartCoroutine(PlayerRecapClose());
 		});
 	}
 
-	public void PlayerRecapClose() {
+	public IEnumerator PlayerRecapClose() {
+		yield return new WaitForSeconds(0.5f);
+
 		cw.AddNPCBubble("Dat weet ik nog wel, ja!");
+
+		yield return new WaitForSeconds(0.5f);
 
 		GameObject button = cw.AddButton ("Niet te stoppen");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -229,12 +253,16 @@ public class OfficerResponse3 : MonoBehaviour {
 			
 			cw.AddPlayerBubble("Verslaggevers zijn niet te stoppen. Ze zullen altijd schrijven over wat er gebeurt. Daar moet de politie rekening mee houden.");
 			
-			Invoke ("ShowStatement3", 0.5f);
+			StartCoroutine(ShowStatement3());
 		});
 	}
 
-	public void ShowStatement3() {
+	public IEnumerator ShowStatement3() {
+		yield return new WaitForSeconds(0.5f);
+
 		cw.AddNPCBubble("Maar…");
+
+		yield return new WaitForSeconds(0.5f);
 		
 		GameObject button = cw.AddButton ("Wat nu gebeurt");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -248,12 +276,16 @@ public class OfficerResponse3 : MonoBehaviour {
 				cw.AddPlayerBubble("Wat gebeurt er bijvoorbeeld als ik opschrijf wat u net zei over hard optreden?");
 			}
 
-			Invoke ("ShowQuestion", 0.5f);
+			StartCoroutine(ShowQuestion());
 		});
 	}
 
-	public void ShowQuestion() {
+	public IEnumerator ShowQuestion() {
+		yield return new WaitForSeconds(0.5f);
+
 		cw.AddNPCBubble("Maar… we kunnen iedereen toch niet zomaar zijn gang laten gaan?");
+
+		yield return new WaitForSeconds(0.5f);
 
 		GameObject button1 = cw.AddButton ("Dat kan best");
 		button1.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -261,7 +293,7 @@ public class OfficerResponse3 : MonoBehaviour {
 
 			cw.AddPlayerBubble("Dat kan best! Orde is belangrijk. Maar niet zo belangrijk dat mensen hun vrijheid ervoor moeten opgeven.");
 			
-			Invoke ("ShowResponse", 0.5f);
+			StartCoroutine(ShowResponse());
 		});
 
 		GameObject button2 = cw.AddButton ("Niet ten koste van alles");
@@ -270,7 +302,7 @@ public class OfficerResponse3 : MonoBehaviour {
 
 			cw.AddPlayerBubble("Niet ten koste van alles! Hier in het museum zie je wat er gebeurt als mensen hun vrijheid moeten opgeven. Dan maar iets minder orde!");
 			
-			Invoke ("ShowResponse", 0.5f);
+			StartCoroutine(ShowResponse());
 		});
 
 		GameObject button3 = cw.AddButton ("U bent gewoon bang");
@@ -279,12 +311,16 @@ public class OfficerResponse3 : MonoBehaviour {
 
 			cw.AddPlayerBubble("U bent gewoon bang dat het een rommeltje wordt. Maar zo'n vaart zal het niet lopen.");
 			
-			Invoke ("ShowResponse", 0.5f);
+			StartCoroutine(ShowResponse());
 		});
 	}
 
-	public void ShowResponse() {
+	public IEnumerator ShowResponse() {
+		yield return new WaitForSeconds(0.5f);
+
 		cw.AddNPCBubble("Ik weet het niet… Ik volg ook maar gewoon de regels.");
+
+		yield return new WaitForSeconds(0.5f);
 
 		GameObject button = null;
 		if (mm.officer3Response == Officer3Response.DISAGREE) {
@@ -302,11 +338,11 @@ public class OfficerResponse3 : MonoBehaviour {
 				cw.AddPlayerBubble("Dat begrijp ik. U doet uw best.");
 			}
 			
-			Invoke ("ShowConclusion", 0.5f);
+			StartCoroutine(ShowConclusion());
 		});
 	}
 
-	public void ShowConclusion() {
+	public IEnumerator ShowConclusion() {
 		cw.EnableBack();
 		chat.SetActive(false);
 
@@ -321,13 +357,23 @@ public class OfficerResponse3 : MonoBehaviour {
 		Sprite videoCallSprite = Resources.Load<Sprite>("Sprites/portrait agent wide");
 		displayImage.GetComponentInChildren<Image>().sprite = videoCallSprite;
 
+		yield return new WaitForSeconds(0.5f);
+
 		if (mm.officer3Response == Officer3Response.DISAGREE) {
 			cw.AddNPCBubble("Wat brutaal. U gaat duidelijk met de verkeerde mensen om.");
+
+			yield return new WaitForSeconds(0.5f);
+
 			cw.AddNPCBubble("Ik help u toch nog even, dat is mijn plicht als agent. U moet terug naar het geweer.");
 		} else if (mm.officer3Response == Officer3Response.UNDERSTAND) {
 			cw.AddNPCBubble("Dat waardeer ik. De vogelproblematiek is pittig.");
+
+			yield return new WaitForSeconds(0.5f);
+
 			cw.AddNPCBubble("Gaat u terug naar het geweer als u klaar bent in het museum?");
 		}
+
+		yield return new WaitForSeconds(0.5f);
 
 
 		GameObject button = cw.AddButton ("Oké");

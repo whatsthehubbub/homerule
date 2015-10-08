@@ -499,10 +499,10 @@ public class MuseumManager : MonoBehaviour {
 
 			float delay = callDelays[this.storyQueue.Peek ()];
 
-			if (Application.platform == RuntimePlatform.OSXEditor) {
-				// Remove this for testing on desktop
-				delay = 5.0f;
-			}
+//			if (Application.platform == RuntimePlatform.OSXEditor) {
+//				// Remove this for testing on desktop
+//				delay = 5.0f;
+//			}
 
 			Debug.Log ("Going to take a call in: " + delay);
 

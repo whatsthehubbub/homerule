@@ -469,7 +469,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: eb5b47b08880548c795ced5f38c9e001, type: 2}
       propertyPath: otherTrackingCode
-      value: UA-9616026-4
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: eb5b47b08880548c795ced5f38c9e001, type: 2}
       propertyPath: productName

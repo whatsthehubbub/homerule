@@ -114,17 +114,17 @@ public class MuseumManager : MonoBehaviour {
 
 	/*
 	 * The stories will be processed in this order (some of them depending on a beacon being present.
-	 * ReporterStory0
-	 * ReporterStory1
+	 * ReporterStory0 - Introductie van Katja
+	 * ReporterStory1 - Het gedoe met de graffiti
 	 * OfficerResponse1
 	 * ReporterResponse1
-	 * ReporterStory2
+	 * ReporterStory2 - De herrie rond de huizen
 	 * OfficerResponse2
 	 * ArtistResponse1
 	 * ReporterResponse2
-	 * ReporterStory3
+	 * ReporterStory3 - Het vraagstuk over vrijheid
 	 * OfficerResponse3
-	 * ReporterStory4
+	 * ReporterStory4 - Afscheid van Katja
 	 */
 	public Queue<string> storyQueue = new Queue<string>();
 	public bool waitingForCall = false;

@@ -75,9 +75,6 @@ public abstract class Museum {
 	
 	public Goal GetStartGoal() {
 		Goal g = default(Goal);
-
-	public Goal GetStartGoal() {
-		Goal g = new Goal();
 		g.goalText = this.startGoalText;
 		g.overlayText = this.startGoalOverlayText;
 		g.locationSprite = this.startGoalLocationSprite;

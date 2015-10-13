@@ -104,11 +104,7 @@ public class ReporterResponse1 : MonoBehaviour {
 
 			mm.callBusy = false;
 
-			Goal g = default(Goal);
-			g.goalText = "Zoek het bord";
-			g.overlayText = "Ga op zoek naar het bord “Verboden Arnhem te betreden”. Dit hangt op de begane grond.";
-			g.locationSprite = "bord";
-			mm.goal = g;
+			mm.goal = mm.museum.GetLocation2Goal();
 			
 			chat.SetActive(false);
 			GameObject.Destroy(this);

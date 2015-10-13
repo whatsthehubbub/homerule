@@ -410,11 +410,7 @@ public class OfficerResponse3 : MonoBehaviour {
 	public void ShowClose() {
 		mm.callBusy = false;
 
-		Goal g = default(Goal);
-		g.goalText = "Ga terug naar het geweer";
-		g.overlayText = "Ga terug naar het geweer op de eerste verdieping.";
-		g.locationSprite = "geweer";
-		mm.goal = g;
+		mm.goal = mm.museum.GetBackToStartGoal();
 		
 		GameObject.Destroy(chat);
 		GameObject.Destroy(this);

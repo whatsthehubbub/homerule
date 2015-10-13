@@ -158,11 +158,7 @@ public class ReporterStory0 : MonoBehaviour {
 			
 			mm.story0Done = true;
 
-			Goal g = default(Goal);
-			g.goalText = "Zoek het behang";
-			g.overlayText = "Ga op zoek naar het behang. Dat hangt op de eerste verdieping.";
-			g.locationSprite = "behang";
-			mm.goal = g;
+			mm.goal = mm.museum.GetLocation1Goal();
 
 
 			cw.EnableBack();

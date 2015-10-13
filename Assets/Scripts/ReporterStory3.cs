@@ -523,11 +523,7 @@ public class ReporterStory3 : MonoBehaviour {
 
 		mm.callBusy = false;
 
-		Goal g = default(Goal);
-		g.goalText = "Verken het museum";
-		g.overlayText = "Voel je vrij om het museum te verkennen. Je wordt gebeld als iemand je nodig heeft.";
-		g.locationSprite = "";
-		mm.goal = g;
+		mm.goal = mm.museum.GetIdleGoal();
 		
 		mm.storyQueue.Enqueue("OFFICERRESPONSE3");
 

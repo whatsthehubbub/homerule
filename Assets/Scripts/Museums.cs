@@ -18,6 +18,8 @@ public struct Goal {
 
 
 public abstract class Museum {
+	public string museumName;
+
 	public int major;
 
 	// TODO put the delays in here
@@ -110,6 +112,8 @@ public class DummyMuseum : Museum {
 
 public class AirborneMuseum : Museum {
 	public AirborneMuseum() {
+		this.museumName = "het Airborne Museum";
+
 		this.startGoalText = "Zoek het geweer";
 		this.startGoalOverlayText = "Ga op zoek naar het geweer. Het staat op de eerste verdieping.";
 		this.startGoalLocationSprite = "geweer";

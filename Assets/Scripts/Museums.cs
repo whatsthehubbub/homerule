@@ -75,6 +75,9 @@ public abstract class Museum {
 	
 	public Goal GetStartGoal() {
 		Goal g = default(Goal);
+
+	public Goal GetStartGoal() {
+		Goal g = new Goal();
 		g.goalText = this.startGoalText;
 		g.overlayText = this.startGoalOverlayText;
 		g.locationSprite = this.startGoalLocationSprite;
@@ -255,7 +258,6 @@ public class AirborneMuseum : Museum {
 			"Ik denk dat ze bang waren dat mensen zich zouden organiseren.",
 			new string[] {"Klopt! De Duitse bezetter was bang dat mensen met dezelfde politieke ideeën zich zouden organiseren. Bijvoorbeeld in verzetsgroepen."}
 		);
-
 
 	}
 

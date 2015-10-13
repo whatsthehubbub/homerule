@@ -107,6 +107,11 @@ public abstract class Museum {
 
 public class DummyMuseum : Museum {
 	public DummyMuseum() {
+		this.museumName = "het Dummy Museum";
+
+		this.startGoalText = "Zoek het DUMMY begin";
+		this.startGoalOverlayText = "Ga op zoek naar het DUMMY begin. Het staat op de DUMMY verdieping.";
+		this.startGoalLocationSprite = ""; // TODO create dummy images
 	}
 }
 

@@ -576,30 +576,30 @@ public class MuseumManager : MonoBehaviour {
 				case 0:
 					this.gameObject.AddComponent<ReporterStory0>();
 
-					googleAnalytics.LogEvent("Main", "Story 0", "Reporter story 0 started", 0);
+					googleAnalytics.LogEvent("Call", "Reporter Story 0", "Reporter story 0 started", 0);
 					break;
 				case 1:
 					this.gameObject.AddComponent<ReporterStory1>();
 
-					googleAnalytics.LogEvent("Main", "Story 1", "Reporter story 1 started", 0);
+					googleAnalytics.LogEvent("Call", "Reporter Story 1", "Reporter story 1 started", 0);
 
 					break;
 				case 2:
 					this.gameObject.AddComponent<ReporterStory2>();
 
-					googleAnalytics.LogEvent("Main", "Story 2", "Reporter story 2 started", 0);
+					googleAnalytics.LogEvent("Call", "Reporter Story 2", "Reporter story 2 started", 0);
 
 					break;
 				case 3:
 					this.gameObject.AddComponent<ReporterStory3>();
 
-					googleAnalytics.LogEvent("Main", "Story 3", "Reporter story 3 started", 0);
+					googleAnalytics.LogEvent("Call", "Reporter Story 3", "Reporter story 3 started", 0);
 
 					break;
 				case 4:
 					this.gameObject.AddComponent<ReporterStory4>();
 
-					googleAnalytics.LogEvent("Main", "Story 4", "Reporter story 4 started", 0);
+					googleAnalytics.LogEvent("Call", "Reporter Story 4", "Reporter story 4 started", 0);
 
 					break;
 				}

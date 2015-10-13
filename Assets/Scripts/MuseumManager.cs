@@ -76,21 +76,6 @@ public enum Officer3Response {
 	UNDERSTAND
 }
 
-public struct Goal {
-	public string goalText;
-	public string overlayText;
-	public string locationSprite;
-	
-	public string GetGoalText() {
-		return this.goalText;
-	}
-
-	public string GetOverlayText() {
-		return this.overlayText;
-	}
-}
-
-
 
 public class MuseumManager : MonoBehaviour {
 	/* In order these are:
@@ -130,6 +115,9 @@ public class MuseumManager : MonoBehaviour {
 	public bool waitingForCall = false;
 	public bool callBusy = false;
 
+	public Museum museum;
+	public Goal goal;
+
 	[Header("Interface objects")]
 	public GameObject canvas;
 
@@ -140,8 +128,6 @@ public class MuseumManager : MonoBehaviour {
 	public GameObject reporterChatHistory;
 	public GameObject officerChatHistory;
 	public GameObject artistChatHistory;
-	
-	public Goal goal;
 
 	[Header("Story data")]
 	public bool story0Done = false;
@@ -199,11 +185,10 @@ public class MuseumManager : MonoBehaviour {
 
 		this.callBusy = true;
 
-		Goal g = new Goal();
-		g.goalText = "Zoek het geweer";
-		g.overlayText = "Ga op zoek naar het geweer. Het staat op de eerste verdieping.";
-		g.locationSprite = "geweer";
-		this.goal = g;
+		this.museum = new AirborneMuseum();
+
+		this.goal = museum.GetStartGoal();
+
 
 		// Initialization
 		this.story0Done = false;

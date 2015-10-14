@@ -56,6 +56,16 @@ public abstract class Museum {
 	public Eppy.Tuple<string, string, string[]>[] story1QuestionAnswerResponse;
 	public string story1QuestionOutro;
 
+	public string story2QuestionPre;
+	public string[] story2QuestionIntro;
+	public Eppy.Tuple<string, string, string[]>[] story2QuestionAnswerResponse;
+	public string story2QuestionOutro;
+
+	public string story3QuestionPre;
+	public string[] story3QuestionIntro;
+	public Eppy.Tuple<string, string, string[]>[] story3QuestionAnswerResponse;
+	public string story3QuestionOutro;
+
 
 	// TODO put the museum kids abstraction stuff in here
 	
@@ -176,6 +186,33 @@ public class AirborneMuseum : Museum {
 		this.story1QuestionOutro = "Lelijke woorden hè? Maar voor de soldaat was het een belangrijke tekst.";
 
 		/* Story 2 */
+
+		this.story2QuestionPre = "Ik weet iets. Maak jij een foto van het bord met “verboden Arnhem te betreden”?";
+
+		this.story2QuestionIntro = new string[] {
+			"De inwoners van Arnhem moesten ook hun huis uit.",
+			"Waarom denk jij dat de Duitse bezetter dat wilde? Als je samen speelt, kun je overleggen.",
+			"Was dat (1) omdat het er gevaarlijk was, (2) zodat inwoners de geallieerden niet konden helpen, of (3) zodat de Duitsers hun spullen konden stelen?"
+		};
+
+		this.story2QuestionAnswerResponse = new Eppy.Tuple<string, string, string[]>[3];
+		this.story2QuestionAnswerResponse[0] = new Eppy.Tuple<string, string, string[]>(
+			"Gevaarlijk",
+			"Ik denk omdat het er gevaarlijk was. Er werd gevochten en gebombardeerd.",
+			new string[] {"Klopt! Maar de Duitse bezetter was ook bang dat inwoners de geallieerden zouden helpen."}
+		);
+		this.story2QuestionAnswerResponse[1] = new Eppy.Tuple<string, string, string[]>(
+			"Geallieerden helpen",
+			"Ik denk zodat inwoners de geallieerden niet konden helpen.",
+			new string[] {"Klopt! Daarnaast was het er gevaarlijk. Er werd gevochten en gebombardeerd."}
+		);
+		this.story2QuestionAnswerResponse[2] = new Eppy.Tuple<string, string, string[]>(
+			"Spullen stelen",
+			"Ik denk zodat de Duitsers hun spullen konden stelen.",
+			new string[] {"Dat was niet de reden, maar het gebeurde wel. Er werden spullen gestolen door Duitsers én door burgers in nood.",
+						"Maar de mensen moesten weg omdat het er gevaarlijk was. Er werd gevochten en gebombardeerd."}
+		);
+
 
 
 		/* Story 3 */

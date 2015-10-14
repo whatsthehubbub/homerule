@@ -29,12 +29,6 @@ public enum Story2OpinionAnswer {
 	WRONG
 }
 
-public enum Story2FactAnswer {
-	FIGHTING,
-	HELPING,
-	STEALING
-}
-
 public enum OfficerResponse2Opinion {
 	AGREE,
 	NEUTRAL,
@@ -136,7 +130,7 @@ public class MuseumManager : MonoBehaviour {
 	public OfficerResponse1Answer officer1Answer;
 
 	public Story2OpinionAnswer story2Opinion;
-	public Story2FactAnswer story2Fact;
+	public int story2FactAnswer;
 	public Story2OpinionAnswer story2FinalOpinion;
 	public string story2Text = "";
 	public bool story2Done = false;

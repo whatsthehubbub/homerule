@@ -330,7 +330,7 @@ public class OfficerResponse3 : MonoBehaviour {
 		button3.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 
-			cw.AddPlayerBubble("U bent gewoon bang dat het een rommeltje wordt. Maar zo'n vaart zal het niet lopen.");
+			cw.AddPlayerBubble("U bent gewoon bang dat het een rommeltje wordt. Maar zo’n vaart zal het niet lopen.");
 			
 			StartCoroutine(ShowResponse());
 		});

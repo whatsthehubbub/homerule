@@ -292,7 +292,7 @@ public class ReporterStory3 : MonoBehaviour {
 
 		yield return new WaitForSeconds(0.5f);
 		
-		cw.AddNPCBubble("Daarom verdween de vrijheid om je politieke ideeën te laten zien. Zelfs foto's van de koningin werden verboden.");
+		cw.AddNPCBubble("Daarom verdween de vrijheid om je politieke ideeën te laten zien. Zelfs foto’s van de koningin werden verboden.");
 			
 		yield return new WaitForSeconds(0.5f);
 
@@ -485,7 +485,7 @@ public class ReporterStory3 : MonoBehaviour {
 		yield return new WaitForSeconds(0.5f);
 
 		if (mm.story3Attribution == Story3Attribution.FRANK) {
-			cw.AddNPCBubble("Ja, jemig! Door op te schrijven wat er gebeurt, veranderen er dingen. En niet zo'n beetje ook.");
+			cw.AddNPCBubble("Ja, jemig! Door op te schrijven wat er gebeurt, veranderen er dingen. En niet zo’n beetje ook.");
 
 			yield return new WaitForSeconds(0.5f);
 
@@ -497,7 +497,7 @@ public class ReporterStory3 : MonoBehaviour {
 
 			cw.AddNPCBubble("Hopelijk komt het goed. Loop jij ondertussen nog even rond?");
 		} else if (mm.story3Attribution == Story3Attribution.ANONYMOUS) {
-			cw.AddNPCBubble("Dit is geweldig! Door op te schrijven wat er gebeurt, veranderen er dingen. En niet zo'n beetje ook.");
+			cw.AddNPCBubble("Dit is geweldig! Door op te schrijven wat er gebeurt, veranderen er dingen. En niet zo’n beetje ook.");
 
 			yield return new WaitForSeconds(0.5f);
 

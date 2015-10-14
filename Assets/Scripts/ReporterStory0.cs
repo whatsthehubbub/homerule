@@ -84,7 +84,7 @@ public class ReporterStory0 : MonoBehaviour {
 
 		yield return new WaitForSeconds(0.5f);
 
-		cw.AddNPCBubble("Je bent in het Airborne Museum! Da's cool.");
+		cw.AddNPCBubble("Je bent in het Airborne Museum! Da’s cool.");
 
 		yield return new WaitForSeconds(1.0f);
 

@@ -25,6 +25,10 @@ public abstract class Museum {
 
 	// TODO put the delays in here
 
+	/* Introduction Screens */
+
+	public string museumScope;
+
 	/* Goal texts and images. */
 	public string startGoalText;
 	public string startGoalOverlayText;
@@ -128,6 +132,8 @@ public class DummyMuseum : Museum {
 	public DummyMuseum() {
 		this.museumName = "het Dummy Museum";
 
+		this.museumScope = "De tablet weet waar je bent in het museum. Je hoeft alleen te zoeken op bepaalde plaatsen van het <b>Dummy Museum</b>.";
+
 		this.startGoalText = "Zoek het DUMMY begin";
 		this.startGoalOverlayText = "Ga op zoek naar het DUMMY begin. Het staat op de DUMMY verdieping.";
 		this.startGoalLocationSprite = "dummy/placeholder-foto-locatie-0"; // TODO create dummy images
@@ -137,6 +143,8 @@ public class DummyMuseum : Museum {
 public class AirborneMuseum : Museum {
 	public AirborneMuseum() {
 		this.museumName = "het Airborne Museum";
+
+		this.museumScope = "De tablet weet waar je bent in het museum. Je hoeft alleen te zoeken op de begane grond en de eerste verdieping van het <b>Airborne Museum</b>.";
 
 		this.startGoalText = "Zoek het geweer";
 		this.startGoalOverlayText = "Ga op zoek naar het geweer. Het staat op de eerste verdieping.";

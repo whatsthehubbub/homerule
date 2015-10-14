@@ -168,6 +168,7 @@ public class MuseumManager : MonoBehaviour {
 		this.callBusy = true;
 
 		this.museum = new AirborneMuseum();
+//		this.museum = new DummyMuseum();
 
 		this.goal = museum.GetStartGoal();
 

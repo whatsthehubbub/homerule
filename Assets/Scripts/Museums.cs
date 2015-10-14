@@ -130,7 +130,7 @@ public class DummyMuseum : Museum {
 
 		this.startGoalText = "Zoek het DUMMY begin";
 		this.startGoalOverlayText = "Ga op zoek naar het DUMMY begin. Het staat op de DUMMY verdieping.";
-		this.startGoalLocationSprite = ""; // TODO create dummy images
+		this.startGoalLocationSprite = "dummy/placeholder-foto-locatie-0"; // TODO create dummy images
 	}
 }
 
@@ -140,11 +140,11 @@ public class AirborneMuseum : Museum {
 
 		this.startGoalText = "Zoek het geweer";
 		this.startGoalOverlayText = "Ga op zoek naar het geweer. Het staat op de eerste verdieping.";
-		this.startGoalLocationSprite = "geweer";
+		this.startGoalLocationSprite = "airborne/geweer";
 
 		this.location1GoalText = "Zoek het behang";
 		this.location1GoalOverlayText = "Ga op zoek naar het behang. Dat hangt op de eerste verdieping.";
-		this.location1LocationSprite = "behang";
+		this.location1LocationSprite = "airborne/behang";
 
 		this.idleGoalText = "Verken het museum";
 		this.idleGoalOverlayText = "Voel je vrij om het museum te verkennen. Je wordt gebeld als iemand je nodig heeft.";
@@ -152,15 +152,15 @@ public class AirborneMuseum : Museum {
 
 		this.location2GoalText = "Zoek het bord";
 		this.location2GoalOverlayText = "Ga op zoek naar het bord “Verboden Arnhem te betreden”. Dit hangt op de begane grond.";
-		this.location2LocationSprite = "bord";
+		this.location2LocationSprite = "airborne/bord";
 
 		this.location3GoalText = "Zoek de foto";
 		this.location3GoalOverlayText = "Ga op zoek naar de foto van koningin Wilhelmina. Deze hangt bij de trap tussen de eerste verdieping en de begane grond.";
-		this.location3LocationSprite = "wilhelmina";
+		this.location3LocationSprite = "airborne/wilhelmina";
 
 		this.backToStartGoalText = "Ga terug naar het geweer";
 		this.backToStartGoalOverlayText = "Ga terug naar het geweer op de eerste verdieping.";
-		this.backToStartGoalLocationSprite = "geweer";
+		this.backToStartGoalLocationSprite = "airborne/geweer";
 
 		/* Story 1 */
 		this.story1QuestionPre = "Ik weet iets. Maak jij een foto van het stuk behang in het museum?";

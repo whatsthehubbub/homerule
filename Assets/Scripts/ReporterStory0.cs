@@ -126,7 +126,7 @@ public class ReporterStory0 : MonoBehaviour {
 		GameObject imageBubble = cw.AddNPCImageBubble();
 		GameObject imageObject = imageBubble.transform.Find ("Bubble/BubbleImage").gameObject;
 		Image storyImage = imageObject.GetComponentInChildren<Image>();
-		storyImage.sprite = Resources.Load<Sprite>("Sprites/Locaties/behang");
+		storyImage.sprite = Resources.Load<Sprite>("Sprites/Locaties/airborne/behang");
 
 		yield return new WaitForSeconds(0.5f);
 

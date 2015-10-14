@@ -60,7 +60,7 @@ public class Underway : MonoBehaviour {
 			GameObject.Find ("GoalImage").GetComponentInChildren<Image>().sprite = null;
 			GameObject.Find ("GoalImage").GetComponentInChildren<Image>().color = Color.clear;
 		} else {
-			GameObject.Find ("GoalImage").GetComponentInChildren<Image>().sprite = Resources.Load<Sprite>("Sprites/locaties/" + mm.goal.locationSprite);
+			GameObject.Find ("GoalImage").GetComponentInChildren<Image>().sprite = Resources.Load<Sprite>("Sprites/Locaties/" + mm.goal.locationSprite);
 //			GameObject.Find ("GoalImage").GetComponentInChildren<Image>().color = Color.white;
 		}
 

@@ -217,6 +217,37 @@ public class AirborneMuseum : Museum {
 
 		/* Story 3 */
 
+		this.story3QuestionPre = "Kun je een foto maken van koningin Wilhelmina? Een foto van de foto?";
+
+		this.story3QuestionIntro = new string[] {
+			"In de oorlog mocht je niet laten zien dat je van het koningshuis hield.",
+			"Waarom, denk jij? Je mag overleggen!",
+			"Was dit omdat de Duitsers (1) tegen koningin Wilhelmina waren, (2) wilden dat je voor Hitler was, of (3) bang waren dat mensen zich zouden organiseren."
+		};
+
+		this.story3QuestionAnswerResponse = new Eppy.Tuple<string, string, string[]>[3];
+		this.story3QuestionAnswerResponse[0] = new Eppy.Tuple<string, string, string[]>(
+			"Tegen de koningin",
+			"Ik denk omdat de Duitsers tegen koningin Wilhelmina waren.",
+			new string[] {
+				"Klopt! De Duitse bezetter was de baas. De koningin was gevlucht naar Engeland.",
+				"Maar ze waren ook bang dat mensen met dezelfde politieke ideeën zich zouden organiseren. Bijvoorbeeld in verzetsgroepen."
+			}
+		);
+		this.story3QuestionAnswerResponse[1] = new Eppy.Tuple<string, string, string[]>(
+			"Voor Hitler",
+			"Ik denk omdat ze wilden dat je voor Hitler was, hun leider.",
+			new string[] {
+				"Klopt! De Duitse bezetter was de baas.",
+				"Maar ze waren ook bang dat mensen met dezelfde politieke ideeën zich zouden organiseren. Bijvoorbeeld in verzetsgroepen."
+			}
+		);
+		this.story3QuestionAnswerResponse[2] = new Eppy.Tuple<string, string, string[]>(
+			"Organiseren",
+			"Ik denk dat ze bang waren dat mensen zich zouden organiseren.",
+			new string[] {"Klopt! De Duitse bezetter was bang dat mensen met dezelfde politieke ideeën zich zouden organiseren. Bijvoorbeeld in verzetsgroepen."}
+		);
+
 
 	}
 

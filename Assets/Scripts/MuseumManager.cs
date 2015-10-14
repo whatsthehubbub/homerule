@@ -47,12 +47,6 @@ public enum Reporter2Source {
 	ANONYMOUS
 }
 
-public enum Story3FactAnswer {
-	QUEEN,
-	HITLER,
-	ORGANIZATION
-}
-
 public enum Story3Attribution {
 	FRANK,
 	KATJA,
@@ -142,7 +136,7 @@ public class MuseumManager : MonoBehaviour {
 
 	public Reporter2Source reporter2Source;
 
-	public Story3FactAnswer story3Fact;
+	public int story3FactAnswer;
 	public Story3Attribution story3Attribution;
 	public string story3Text = "";
 	public bool story3Done = false;

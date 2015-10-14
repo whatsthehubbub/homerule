@@ -157,7 +157,7 @@ public class ReporterStory3 : MonoBehaviour {
 	public IEnumerator ShowTakePicture() {
 		yield return new WaitForSeconds(0.5f);
 
-		cw.AddNPCBubble("Kun je een foto maken van koningin Wilhelmina? Een foto van de foto?");
+		cw.AddNPCBubble(mm.museum.story3QuestionPre);
 
 		yield return new WaitForSeconds(0.5f);
 
@@ -209,72 +209,50 @@ public class ReporterStory3 : MonoBehaviour {
 
 		yield return new WaitForSeconds(0.5f);
 
-		cw.AddNPCBubble("In de oorlog mocht je niet laten zien dat je van het koningshuis hield.");
 
-		yield return new WaitForSeconds(0.5f);
+		// Lift the intro phrases from the museum object
+		foreach (var phrase in mm.museum.story3QuestionIntro) {
+			cw.AddNPCBubble(phrase);
+			
+			yield return new WaitForSeconds(0.5f);
+		}
 
-		cw.AddNPCBubble("Waarom, denk jij? Je mag overleggen!");
 
-		yield return new WaitForSeconds(0.5f);
+		// Lift the potential answers and the player responses also from the museum object
+		for (int i = 0; i < mm.museum.story3QuestionAnswerResponse.Length; i++) {
+			System.Action doIt = () => {
+				var localIndex = i;
+				
+				GameObject button = cw.AddButton(mm.museum.story3QuestionAnswerResponse[localIndex].Item1);
+				
+				button.GetComponentInChildren<Button>().onClick.AddListener(() => {
+					cw.ClearButtons();
+					
+					cw.AddPlayerBubble(mm.museum.story3QuestionAnswerResponse[localIndex].Item2);
 
-		cw.AddNPCBubble("Was dit omdat de Duitsers (1) tegen koningin Wilhelmina waren, (2) wilden dat je voor Hitler was, of (3) bang waren dat mensen zich zouden organiseren.");
-
-		yield return new WaitForSeconds(0.5f);
-
-		GameObject button1 = cw.AddButton("Tegen de koningin");
-		button1.GetComponentInChildren<Button>().onClick.AddListener(() => {
-			cw.ClearButtons();
-			cw.AddPlayerBubble("Ik denk omdat de Duitsers tegen koningin Wilhelmina waren.");
-
-			mm.story3Fact = Story3FactAnswer.QUEEN;
-
-			StartCoroutine(ShowFactAnswer());
-		});
-
-		GameObject button2 = cw.AddButton("Voor Hitler");
-		button2.GetComponentInChildren<Button>().onClick.AddListener(() => {
-			cw.ClearButtons();
-			cw.AddPlayerBubble("Ik denk omdat ze wilden dat je voor Hitler was, hun leider.");
-
-			mm.story3Fact = Story3FactAnswer.HITLER;
-
-			StartCoroutine(ShowFactAnswer());
-		});
-
-		GameObject button3 = cw.AddButton("Organiseren");
-		button3.GetComponentInChildren<Button>().onClick.AddListener(() => {
-			cw.ClearButtons();
-			cw.AddPlayerBubble("Ik denk dat ze bang waren dat mensen zich zouden organiseren.");
-
-			mm.story3Fact = Story3FactAnswer.ORGANIZATION;
-
-			StartCoroutine(ShowFactAnswer());
-		});
-
+					mm.story3FactAnswer = localIndex;
+					
+					StartCoroutine(ShowFactAnswer());
+				});
+			};
+			
+			doIt();
+		}
 	}
 
 	public IEnumerator ShowFactAnswer() {
 		yield return new WaitForSeconds(0.5f);
 
-		if (mm.story3Fact == Story3FactAnswer.QUEEN) {
-			cw.AddNPCBubble("Klopt! De Duitse bezetter was de baas. De koningin was gevlucht naar Engeland.");
 
+		// Get the response from Katja based on the answer the player gave
+		var tuple = mm.museum.story3QuestionAnswerResponse[mm.story3FactAnswer];
+		
+		foreach (var response in tuple.Item3) {
+			cw.AddNPCBubble(response);
+			
 			yield return new WaitForSeconds(0.5f);
-
-			cw.AddNPCBubble("Maar ze waren ook bang dat mensen met dezelfde politieke ideeën zich zouden organiseren. Bijvoorbeeld in verzetsgroepen.");
-
-		} else if (mm.story3Fact == Story3FactAnswer.HITLER) {
-			cw.AddNPCBubble("Klopt! De Duitse bezetter was de baas.");
-
-			yield return new WaitForSeconds(0.5f);
-
-			cw.AddNPCBubble("Maar ze waren ook bang dat mensen met dezelfde politieke ideeën zich zouden organiseren. Bijvoorbeeld in verzetsgroepen.");
-
-		} else if (mm.story3Fact == Story3FactAnswer.ORGANIZATION) {
-			cw.AddNPCBubble("Klopt! De Duitse bezetter was bang dat mensen met dezelfde politieke ideeën zich zouden organiseren. Bijvoorbeeld in verzetsgroepen.");
 		}
 
-		yield return new WaitForSeconds(0.5f);
 
 		GameObject button = cw.AddButton("Waarom?");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {

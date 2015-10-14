@@ -114,17 +114,17 @@ public class MuseumManager : MonoBehaviour {
 
 	/*
 	 * The stories will be processed in this order (some of them depending on a beacon being present.
-	 * ReporterStory0
-	 * ReporterStory1
+	 * ReporterStory0 - Introductie van Katja
+	 * ReporterStory1 - Het gedoe met de graffiti
 	 * OfficerResponse1
 	 * ReporterResponse1
-	 * ReporterStory2
+	 * ReporterStory2 - De herrie rond de huizen
 	 * OfficerResponse2
 	 * ArtistResponse1
 	 * ReporterResponse2
-	 * ReporterStory3
+	 * ReporterStory3 - Het vraagstuk over vrijheid
 	 * OfficerResponse3
-	 * ReporterStory4
+	 * ReporterStory4 - Afscheid van Katja
 	 */
 	public Queue<string> storyQueue = new Queue<string>();
 	public bool waitingForCall = false;
@@ -178,8 +178,14 @@ public class MuseumManager : MonoBehaviour {
 
 	public Officer3Response officer3Response;
 
+	[Header("Beacon stuff")]
+
 	private List<Beacon> mybeacons = new List<Beacon>();
 	private bool scanning = true;
+
+	[Header("Google Analytics")]
+
+	public GoogleAnalyticsV4 googleAnalytics;
 
 	/**
 	 * MuseumManager general beacon housekeeping.
@@ -265,6 +271,7 @@ public class MuseumManager : MonoBehaviour {
 	
 	void Awake() {
 		DontDestroyOnLoad(this.gameObject);
+		DontDestroyOnLoad(GameObject.Find ("GAv4"));
 	}
 	
 	
@@ -568,21 +575,31 @@ public class MuseumManager : MonoBehaviour {
 				switch (episodeNumber) {
 				case 0:
 					this.gameObject.AddComponent<ReporterStory0>();
+
+					googleAnalytics.LogEvent("Call", "Reporter Story 0", "Reporter story 0 started", 0);
 					break;
 				case 1:
 					this.gameObject.AddComponent<ReporterStory1>();
+
+					googleAnalytics.LogEvent("Call", "Reporter Story 1", "Reporter story 1 started", 0);
 
 					break;
 				case 2:
 					this.gameObject.AddComponent<ReporterStory2>();
 
+					googleAnalytics.LogEvent("Call", "Reporter Story 2", "Reporter story 2 started", 0);
+
 					break;
 				case 3:
 					this.gameObject.AddComponent<ReporterStory3>();
 
+					googleAnalytics.LogEvent("Call", "Reporter Story 3", "Reporter story 3 started", 0);
+
 					break;
 				case 4:
 					this.gameObject.AddComponent<ReporterStory4>();
+
+					googleAnalytics.LogEvent("Call", "Reporter Story 4", "Reporter story 4 started", 0);
 
 					break;
 				}
@@ -596,6 +613,8 @@ public class MuseumManager : MonoBehaviour {
 		Application.LoadLevel ("Underway");
 
 		this.callBusy = false;
+
+		googleAnalytics.LogEvent("Main", "Game Started", "Start game button pressed", 0);
 	}
 
 	public void QuitGame() {
@@ -625,6 +644,9 @@ public class MuseumManager : MonoBehaviour {
 
 		Destroy (this);
 
+
+		googleAnalytics.LogEvent("Main", "Game Quit", "Player ended game", 0);
+		Destroy (GameObject.Find ("GAv4"));
 
 		Application.LoadLevel ("Start Scene");
 	}

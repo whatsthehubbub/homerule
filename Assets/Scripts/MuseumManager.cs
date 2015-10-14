@@ -11,12 +11,6 @@ public enum Story1OpinionAnswer {
 	DISPLAY
 }
 
-public enum Story1FactAnswer {
-	COUNT,
-	FEAR,
-	VANDALISM
-}
-
 public enum Story1OpinionDescription {
 	VANDAL,
 	CITIZEN,
@@ -133,7 +127,7 @@ public class MuseumManager : MonoBehaviour {
 	public bool story0Done = false;
 
 	public Story1OpinionAnswer story1Opinion;
-	public Story1FactAnswer story1Fact;
+	public int story1FactAnswer;
 	public Story1OpinionDescription story1OpinionDescription;
 	public string story1Text = "";
 	public bool story1Done = false;

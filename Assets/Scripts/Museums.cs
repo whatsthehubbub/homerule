@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 
 
 public struct Goal {
@@ -24,6 +25,7 @@ public abstract class Museum {
 
 	// TODO put the delays in here
 
+	/* Goal texts and images. */
 	public string startGoalText;
 	public string startGoalOverlayText;
 	public string startGoalLocationSprite;
@@ -47,6 +49,13 @@ public abstract class Museum {
 	public string backToStartGoalText;
 	public string backToStartGoalOverlayText;
 	public string backToStartGoalLocationSprite;
+
+	/* Story questions and answers. */
+	public string story1QuestionPre;
+	public string[] story1QuestionIntro;
+	public Eppy.Tuple<string, string, string[]>[] story1QuestionAnswerResponse;
+	public string story1QuestionOutro;
+
 
 	// TODO put the museum kids abstraction stuff in here
 	
@@ -142,6 +151,36 @@ public class AirborneMuseum : Museum {
 		this.backToStartGoalText = "Ga terug naar het geweer";
 		this.backToStartGoalOverlayText = "Ga terug naar het geweer op de eerste verdieping.";
 		this.backToStartGoalLocationSprite = "geweer";
+
+		/* Story 1 */
+		this.story1QuestionPre = "Ik weet iets. Maak jij een foto van het stuk behang in het museum?";
+
+		this.story1QuestionIntro = new string[] {
+			"Een Engelse soldaat schreef in de oorlog op dat behang.", 
+			"Waarom deed hij dat, denk jij? Je mag overleggen!", 
+			"Was dat (1) om te tellen hoeveel Duitsers hij had neergeschoten, (2) omdat hij bang was, of (3) omdat hij graag muren bekladde?"};
+
+		this.story1QuestionAnswerResponse = new Eppy.Tuple<string, string, string[]>[3];
+		this.story1QuestionAnswerResponse[0] = new Eppy.Tuple<string, string, string[]>("Tellen", 
+		                                                                                "Ik denk om te tellen hoeveel Duitsers hij had neergeschoten.", 
+		                                                                                new string[] {"Klopt! De soldaat telde hoeveel Duitsers hij neerschoot.",
+			"Bedenk wel: hij zat in een gevaarlijke situatie. Hij praatte zichzelf hiermee ook moed in."});
+		this.story1QuestionAnswerResponse[1] = new Eppy.Tuple<string, string, string[]>("Bang", 
+		                                                                                "Ik denk omdat hij bang was.", 
+		                                                                                new string[] {"Klopt! De soldaat zat in een gevaarlijke situatie. Hij praatte zichzelf hiermee moed in."});
+		this.story1QuestionAnswerResponse[2] = new Eppy.Tuple<string, string, string[]>("Kladden", 
+		                                                                                "Ik denk omdat hij graag muren bekladde.", 
+		                                                                                new string[] {"Dat was niet de reden. De soldaat schaamt zich er nu zelfs voor.", 
+			"Hij zat in een gevaarlijke situatie. Hij praatte zichzelf hiermee moed in."});
+
+		this.story1QuestionOutro = "Lelijke woorden hè? Maar voor de soldaat was het een belangrijke tekst.";
+
+		/* Story 2 */
+
+
+		/* Story 3 */
+
+
 	}
 
 

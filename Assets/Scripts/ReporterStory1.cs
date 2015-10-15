@@ -199,7 +199,7 @@ public class ReporterStory1 : MonoBehaviour {
 	public IEnumerator TakePhotoOfObject() {
 		yield return new WaitForSeconds(0.5f);
 
-		cw.AddNPCBubble("Ik weet iets. Maak jij een foto van het stuk behang in het museum?");
+		cw.AddNPCBubble(mm.museum.story1QuestionPre);
 
 		yield return new WaitForSeconds(0.5f);
 
@@ -237,7 +237,6 @@ public class ReporterStory1 : MonoBehaviour {
 			
 			StartCoroutine(FactQuestion());
 		}
-
 	}
 
 	public IEnumerator FactQuestion() {
@@ -247,78 +246,45 @@ public class ReporterStory1 : MonoBehaviour {
 
 		yield return new WaitForSeconds(0.5f);
 
-		cw.AddNPCBubble("Een Engelse soldaat schreef in de oorlog op dat behang.");
-
-		yield return new WaitForSeconds(0.5f);
-
-		cw.AddNPCBubble("Waarom deed hij dat, denk jij? Je mag overleggen!");
-
-		yield return new WaitForSeconds(0.5f);
-
-		cw.AddNPCBubble("Was dat (1) om te tellen hoeveel Duitsers hij had neergeschoten, (2) omdat hij bang was, of (3) omdat hij graag muren bekladde?");
-
-		yield return new WaitForSeconds(0.5f);
-
-		GameObject count = cw.AddButton("Tellen");
-		count.GetComponentInChildren<Button>().onClick.AddListener(() => {
-			cw.ClearButtons();
-			cw.AddPlayerBubble("Ik denk om te tellen hoeveel Duitsers hij had neergeschoten.");
-
-			mm.story1Fact = Story1FactAnswer.COUNT;
-
-			StartCoroutine(FactAnswer());
-		});
-
-		GameObject fear = cw.AddButton("Bang");
-		fear.GetComponentInChildren<Button>().onClick.AddListener(() => {
-			cw.ClearButtons();
-			cw.AddPlayerBubble("Ik denk omdat hij bang was.");
-
-			mm.story1Fact = Story1FactAnswer.FEAR;
+		// Lift the intro phrases from the museum object
+		foreach (var phrase in mm.museum.story1QuestionIntro) {
+			cw.AddNPCBubble(phrase);
 			
-			StartCoroutine(FactAnswer());
-		});
+			yield return new WaitForSeconds(0.5f);
+		}
 
-		GameObject vandalism = cw.AddButton("Kladden");
-		vandalism.GetComponentInChildren<Button>().onClick.AddListener(() => {
-			cw.ClearButtons();
-			cw.AddPlayerBubble("Ik denk omdat hij graag muren bekladde.");
+		// Lift the potential answers and the player responses also from the museum object
+		for (int i = 0; i < mm.museum.story1QuestionAnswerResponse.Length; i++) {
+			System.Action doIt = () => {
+				var localIndex = i;
 
-			mm.story1Fact = Story1FactAnswer.VANDALISM;
-			
-			StartCoroutine(FactAnswer());
-		});
+				GameObject button = cw.AddButton(mm.museum.story1QuestionAnswerResponse[localIndex].Item1);
+
+				button.GetComponentInChildren<Button>().onClick.AddListener(() => {
+					cw.ClearButtons();
+					
+					cw.AddPlayerBubble(mm.museum.story1QuestionAnswerResponse[localIndex].Item2);
+					
+					mm.story1FactAnswer = localIndex;
+					
+					StartCoroutine(FactAnswer());
+				});
+			};
+
+			doIt();
+		}
 	}
 
 	public IEnumerator FactAnswer() {
 		yield return new WaitForSeconds(0.5f);
 
-		switch (mm.story1Fact) {
-		case Story1FactAnswer.COUNT:
-			cw.AddNPCBubble("Klopt! De soldaat telde hoeveel Duitsers hij neerschoot.");
+		// Get the response from Katja based on the answer the player gave
+		var tuple = mm.museum.story1QuestionAnswerResponse[mm.story1FactAnswer];
+
+		foreach (var response in tuple.Item3) {
+			cw.AddNPCBubble(response);
 
 			yield return new WaitForSeconds(0.5f);
-
-			cw.AddNPCBubble("Bedenk wel: hij zat in een gevaarlijke situatie. Hij praatte zichzelf hiermee ook moed in.");
-
-			yield return new WaitForSeconds(0.5f);
-			break;
-		case Story1FactAnswer.FEAR:
-			cw.AddNPCBubble("Klopt! De soldaat zat in een gevaarlijke situatie. Hij praatte zichzelf hiermee moed in.");
-
-			yield return new WaitForSeconds(0.5f);
-
-			break;
-		case Story1FactAnswer.VANDALISM:
-			cw.AddNPCBubble("Dat was niet de reden. De soldaat schaamt zich er nu zelfs voor.");
-
-			yield return new WaitForSeconds(0.5f);
-
-			cw.AddNPCBubble("Hij zat in een gevaarlijke situatie. Hij praatte zichzelf hiermee moed in.");
-
-			yield return new WaitForSeconds(0.5f);
-
-			break;
 		}
 
 		GameObject aha = cw.AddButton ("Aha");
@@ -572,11 +538,7 @@ public class ReporterStory1 : MonoBehaviour {
 
 			mm.story1Done = true;
 
-			Goal g = default(Goal);
-			g.goalText = "Verken het museum";
-			g.overlayText = "Voel je vrij om het museum te verkennen. Je wordt gebeld als iemand je nodig heeft.";
-			g.locationSprite = "";
-			mm.goal = g;
+			mm.goal = mm.museum.GetIdleGoal();
 
 			mm.storyQueue.Enqueue("OFFICERRESPONSE1");
 			mm.storyQueue.Enqueue("REPORTERRESPONSE1");

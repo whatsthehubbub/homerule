@@ -56,11 +56,14 @@ public class Underway : MonoBehaviour {
 
 		goal.transform.SetParent(GameObject.Find ("Canvas").transform, false);
 
+		// Set the specific scope text for this museum in the overlay
+		GameObject.Find ("AreaText").GetComponent<Text>().text = mm.museum.museumOverlayScope;
+
 		if ("".Equals(mm.goal.locationSprite)) {
 			GameObject.Find ("GoalImage").GetComponentInChildren<Image>().sprite = null;
 			GameObject.Find ("GoalImage").GetComponentInChildren<Image>().color = Color.clear;
 		} else {
-			GameObject.Find ("GoalImage").GetComponentInChildren<Image>().sprite = Resources.Load<Sprite>("Sprites/locaties/" + mm.goal.locationSprite);
+			GameObject.Find ("GoalImage").GetComponentInChildren<Image>().sprite = Resources.Load<Sprite>("Sprites/Locaties/" + mm.goal.locationSprite);
 //			GameObject.Find ("GoalImage").GetComponentInChildren<Image>().color = Color.white;
 		}
 

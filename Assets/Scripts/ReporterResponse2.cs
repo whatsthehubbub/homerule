@@ -166,7 +166,7 @@ public class ReporterResponse2 : MonoBehaviour {
 	public IEnumerator ShowGoal() {
 		yield return new WaitForSeconds(0.5f);
 
-		cw.AddNPCBubble("Ik heb een idee. Kun je op zoek gaan naar de foto van koningin Wilhelmina? Ik leg het straks wel uit.");
+		cw.AddNPCBubble(mm.museum.goToThirdLocation);
 
 		yield return new WaitForSeconds(0.5f);
 
@@ -178,11 +178,7 @@ public class ReporterResponse2 : MonoBehaviour {
 			
 			mm.callBusy = false;
 
-			Goal g = default(Goal);
-			g.goalText = "Zoek de foto";
-			g.overlayText = "Ga op zoek naar de foto van koningin Wilhelmina. Deze hangt bij de trap tussen de eerste verdieping en de begane grond.";
-			g.locationSprite = "wilhelmina";
-			mm.goal = g;
+			mm.goal = mm.museum.GetLocation3Goal();
 
 			cw.EnableBack();
 			chat.SetActive(false);

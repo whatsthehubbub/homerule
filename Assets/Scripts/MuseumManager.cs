@@ -11,12 +11,6 @@ public enum Story1OpinionAnswer {
 	DISPLAY
 }
 
-public enum Story1FactAnswer {
-	COUNT,
-	FEAR,
-	VANDALISM
-}
-
 public enum Story1OpinionDescription {
 	VANDAL,
 	CITIZEN,
@@ -33,12 +27,6 @@ public enum Story2OpinionAnswer {
 	SAD,
 	GOOD,
 	WRONG
-}
-
-public enum Story2FactAnswer {
-	FIGHTING,
-	HELPING,
-	STEALING
 }
 
 public enum OfficerResponse2Opinion {
@@ -59,12 +47,6 @@ public enum Reporter2Source {
 	ANONYMOUS
 }
 
-public enum Story3FactAnswer {
-	QUEEN,
-	HITLER,
-	ORGANIZATION
-}
-
 public enum Story3Attribution {
 	FRANK,
 	KATJA,
@@ -75,21 +57,6 @@ public enum Officer3Response {
 	DISAGREE,
 	UNDERSTAND
 }
-
-public struct Goal {
-	public string goalText;
-	public string overlayText;
-	public string locationSprite;
-	
-	public string GetGoalText() {
-		return this.goalText;
-	}
-
-	public string GetOverlayText() {
-		return this.overlayText;
-	}
-}
-
 
 
 public class MuseumManager : MonoBehaviour {
@@ -130,6 +97,9 @@ public class MuseumManager : MonoBehaviour {
 	public bool waitingForCall = false;
 	public bool callBusy = false;
 
+	public Museum museum;
+	public Goal goal;
+
 	[Header("Interface objects")]
 	public GameObject canvas;
 
@@ -140,14 +110,12 @@ public class MuseumManager : MonoBehaviour {
 	public GameObject reporterChatHistory;
 	public GameObject officerChatHistory;
 	public GameObject artistChatHistory;
-	
-	public Goal goal;
 
 	[Header("Story data")]
 	public bool story0Done = false;
 
 	public Story1OpinionAnswer story1Opinion;
-	public Story1FactAnswer story1Fact;
+	public int story1FactAnswer;
 	public Story1OpinionDescription story1OpinionDescription;
 	public string story1Text = "";
 	public bool story1Done = false;
@@ -156,7 +124,7 @@ public class MuseumManager : MonoBehaviour {
 	public OfficerResponse1Answer officer1Answer;
 
 	public Story2OpinionAnswer story2Opinion;
-	public Story2FactAnswer story2Fact;
+	public int story2FactAnswer;
 	public Story2OpinionAnswer story2FinalOpinion;
 	public string story2Text = "";
 	public bool story2Done = false;
@@ -168,7 +136,7 @@ public class MuseumManager : MonoBehaviour {
 
 	public Reporter2Source reporter2Source;
 
-	public Story3FactAnswer story3Fact;
+	public int story3FactAnswer;
 	public Story3Attribution story3Attribution;
 	public string story3Text = "";
 	public bool story3Done = false;
@@ -199,11 +167,11 @@ public class MuseumManager : MonoBehaviour {
 
 		this.callBusy = true;
 
-		Goal g = new Goal();
-		g.goalText = "Zoek het geweer";
-		g.overlayText = "Ga op zoek naar het geweer. Het staat op de eerste verdieping.";
-		g.locationSprite = "geweer";
-		this.goal = g;
+		this.museum = new AirborneMuseum();
+//		this.museum = new DummyMuseum();
+
+		this.goal = museum.GetStartGoal();
+
 
 		// Initialization
 		this.story0Done = false;
@@ -506,10 +474,10 @@ public class MuseumManager : MonoBehaviour {
 
 			float delay = callDelays[this.storyQueue.Peek ()];
 
-//			if (Application.platform == RuntimePlatform.OSXEditor) {
-//				// Remove this for testing on desktop
-//				delay = 2.0f;
-//			}
+			if (Application.platform == RuntimePlatform.OSXEditor) {
+				// Remove this for testing on desktop
+				delay = 2.0f;
+			}
 
 			Debug.Log ("Going to take a call in: " + delay);
 

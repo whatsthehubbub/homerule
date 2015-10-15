@@ -203,7 +203,7 @@ public class ReporterStory2 : MonoBehaviour {
 	public IEnumerator ShowFindObject() {
 		yield return new WaitForSeconds(0.5f);
 
-		cw.AddNPCBubble("Ik weet iets. Maak jij een foto van het bord met “verboden Arnhem te betreden”?");
+		cw.AddNPCBubble(mm.museum.story2QuestionPre);
 
 		yield return new WaitForSeconds(0.5f);
 		
@@ -267,65 +267,48 @@ public class ReporterStory2 : MonoBehaviour {
 	public IEnumerator ShowObjectFacts() {
 		yield return new WaitForSeconds(0.5f);
 
-		cw.AddNPCBubble("De inwoners van Arnhem moesten ook hun huis uit.");
+		// Lift the intro phrases from the museum object
+		foreach (var phrase in mm.museum.story2QuestionIntro) {
+			cw.AddNPCBubble(phrase);
+			
+			yield return new WaitForSeconds(0.5f);
+		}
 
-		yield return new WaitForSeconds(0.5f);
 
-		cw.AddNPCBubble("Waarom denk jij dat de Duitse bezetter dat wilde? Als je samen speelt, kun je overleggen.");
-
-		yield return new WaitForSeconds(0.5f);
-		
-		cw.AddNPCBubble("Was dat (1) omdat het er gevaarlijk was, (2) zodat inwoners de geallieerden niet konden helpen, of (3) zodat de Duitsers hun spullen konden stelen?");
-
-		yield return new WaitForSeconds(0.5f);
-
-		GameObject answer1 = cw.AddButton("Gevaarlijk");
-		answer1.GetComponentInChildren<Button>().onClick.AddListener(() => {
-			cw.ClearButtons();
-			cw.AddPlayerBubble("Ik denk omdat het er gevaarlijk was. Er werd gevochten en gebombardeerd.");
+		// Lift the potential answers and the player responses also from the museum object
+		for (int i = 0; i < mm.museum.story2QuestionAnswerResponse.Length; i++) {
+			System.Action doIt = () => {
+				var localIndex = i;
+				
+				GameObject button = cw.AddButton(mm.museum.story2QuestionAnswerResponse[localIndex].Item1);
+				
+				button.GetComponentInChildren<Button>().onClick.AddListener(() => {
+					cw.ClearButtons();
+					
+					cw.AddPlayerBubble(mm.museum.story2QuestionAnswerResponse[localIndex].Item2);
+					
+					mm.story2FactAnswer = localIndex;
+					
+					StartCoroutine(ShowFactResponse());
+				});
+			};
 			
-			mm.story2Fact = Story2FactAnswer.FIGHTING;
-			
-			StartCoroutine(ShowFactResponse());
-		});
-		
-		GameObject answer2 = cw.AddButton("Geallieerden helpen");
-		answer2.GetComponentInChildren<Button>().onClick.AddListener(() => {
-			cw.ClearButtons();
-			cw.AddPlayerBubble("Ik denk zodat inwoners de geallieerden niet konden helpen.");
-			
-			mm.story2Fact = Story2FactAnswer.HELPING;
-			
-			StartCoroutine(ShowFactResponse());
-		});
-		
-		GameObject answer3 = cw.AddButton("Spullen stelen");
-		answer3.GetComponentInChildren<Button>().onClick.AddListener(() => {
-			cw.ClearButtons();
-			cw.AddPlayerBubble("Ik denk zodat de Duitsers hun spullen konden stelen.");
-			
-			mm.story2Fact = Story2FactAnswer.STEALING;
-			
-			StartCoroutine(ShowFactResponse());
-		});
+			doIt();
+		}
 	}
 	
 	public IEnumerator ShowFactResponse() {
 		yield return new WaitForSeconds(0.5f);
 
-		if (mm.story2Fact == Story2FactAnswer.FIGHTING) {
-			cw.AddNPCBubble("Klopt! Maar de Duitse bezetter was ook bang dat inwoners de geallieerden zouden helpen.");
-		} else if (mm.story2Fact == Story2FactAnswer.HELPING) {
-			cw.AddNPCBubble("Klopt! Daarnaast was het er gevaarlijk. Er werd gevochten en gebombardeerd.");
-		} else if (mm.story2Fact == Story2FactAnswer.STEALING) {
-			cw.AddNPCBubble("Dat was niet de reden, maar het gebeurde wel. Er werden spullen gestolen door Duitsers én door burgers in nood.");
-
+		// Get the response from Katja based on the answer the player gave
+		var tuple = mm.museum.story2QuestionAnswerResponse[mm.story2FactAnswer];
+		
+		foreach (var response in tuple.Item3) {
+			cw.AddNPCBubble(response);
+			
 			yield return new WaitForSeconds(0.5f);
-
-			cw.AddNPCBubble("Maar de mensen moesten weg omdat het er gevaarlijk was. Er werd gevochten en gebombardeerd.");
 		}
 
-		yield return new WaitForSeconds(0.5f);
 
 		GameObject button = cw.AddButton("Aha");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
@@ -543,11 +526,7 @@ public class ReporterStory2 : MonoBehaviour {
 
 			mm.story2Done = true;
 
-			Goal g = default(Goal);
-			g.goalText = "Verken het museum";
-			g.overlayText = "Voel je vrij om het museum te verkennen. Je wordt gebeld als iemand je nodig heeft.";
-			g.locationSprite = "";
-			mm.goal = g;
+			mm.goal = mm.museum.GetIdleGoal();
 
 			mm.storyQueue.Enqueue("OFFICERRESPONSE2");
 			mm.storyQueue.Enqueue("ARTISTRESPONSE1");

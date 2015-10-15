@@ -785,7 +785,7 @@ GameObject:
   - 222: {fileID: 668875782}
   - 114: {fileID: 668875781}
   m_Layer: 5
-  m_Name: Image
+  m_Name: StartLocationImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -844,6 +844,81 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 668875779}
+--- !u!1 &813727600
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 169312, guid: fb4343f437c6e1c4faa5a4811551bf77, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 813727601}
+  - 222: {fileID: 813727603}
+  - 114: {fileID: 813727602}
+  m_Layer: 5
+  m_Name: GoToLocationText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &813727601
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 22457494, guid: fb4343f437c6e1c4faa5a4811551bf77,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 813727600}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 842007191}
+  m_RootOrder: 3
+  m_AnchorMin: {x: .5, y: 1}
+  m_AnchorMax: {x: .5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -1109}
+  m_SizeDelta: {x: 1280, y: 800}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &813727602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11406008, guid: fb4343f437c6e1c4faa5a4811551bf77,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 813727600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: b68e93d494d667047b932adb8d7e2a9b, type: 3}
+    m_FontSize: 64
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 1
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1.20000005
+  m_Text: 'Ben je er klaar voor? Ga dan naar deze plek om het spel te beginnen:'
+--- !u!222 &813727603
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 22204536, guid: fb4343f437c6e1c4faa5a4811551bf77,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 813727600}
 --- !u!1 &842007190
 GameObject:
   m_ObjectHideFlags: 0
@@ -854,6 +929,7 @@ GameObject:
   - 224: {fileID: 842007191}
   - 222: {fileID: 842007193}
   - 114: {fileID: 842007192}
+  - 114: {fileID: 842007194}
   m_Layer: 5
   m_Name: Startlocatie
   m_TagString: Untagged
@@ -875,6 +951,7 @@ RectTransform:
   - {fileID: 668875780}
   - {fileID: 1778503388}
   - {fileID: 948507534}
+  - {fileID: 813727601}
   m_Father: {fileID: 291169101}
   m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
@@ -917,6 +994,17 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 842007190}
+--- !u!114 &842007194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 842007190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a1a582a9d7194b8eb7becb95d226d03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &897680599
 GameObject:
   m_ObjectHideFlags: 0
@@ -2215,21 +2303,21 @@ MonoBehaviour:
   artistChatHistory: {fileID: 0}
   story0Done: 0
   story1Opinion: 0
-  story1Fact: 0
+  story1FactAnswer: 0
   story1OpinionDescription: 0
   story1Text: 
   story1Done: 0
   story1Image: {fileID: 0}
   officer1Answer: 0
   story2Opinion: 0
-  story2Fact: 0
+  story2FactAnswer: 0
   story2FinalOpinion: 0
   story2Text: 
   story2Done: 0
   officer2Opinion: 0
   artist1Answer: 0
   reporter2Source: 0
-  story3Fact: 0
+  story3FactAnswer: 0
   story3Attribution: 0
   story3Text: 
   story3Done: 0
@@ -2744,7 +2832,7 @@ GameObject:
   - 222: {fileID: 1778503390}
   - 114: {fileID: 1778503389}
   m_Layer: 5
-  m_Name: Text
+  m_Name: LocationScopeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2800,11 +2888,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.20000005
-  m_Text: 'De tablet weet waar je bent in het museum. Je hoeft alleen te zoeken op
+  m_Text: De tablet weet waar je bent in het museum. Je hoeft alleen te zoeken op
     de begane grond en de eerste verdieping van het <b>Airborne Museum</b>.
-
-
-    Ben je er klaar voor? Ga dan naar deze plek om het spel te beginnen:'
 --- !u!222 &1778503390
 CanvasRenderer:
   m_ObjectHideFlags: 0

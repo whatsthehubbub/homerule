@@ -84,7 +84,7 @@ public class ReporterStory0 : MonoBehaviour {
 
 		yield return new WaitForSeconds(0.5f);
 
-		cw.AddNPCBubble("Je bent in het Airborne Museum! Da’s cool.");
+		cw.AddNPCBubble("Je bent in " + mm.museum.museumName + "! Da’s cool.");
 
 		yield return new WaitForSeconds(1.0f);
 
@@ -126,11 +126,11 @@ public class ReporterStory0 : MonoBehaviour {
 		GameObject imageBubble = cw.AddNPCImageBubble();
 		GameObject imageObject = imageBubble.transform.Find ("Bubble/BubbleImage").gameObject;
 		Image storyImage = imageObject.GetComponentInChildren<Image>();
-		storyImage.sprite = Resources.Load<Sprite>("Sprites/Locaties/behang");
+		storyImage.sprite = Resources.Load<Sprite>("Sprites/Locaties/" + mm.museum.GetStartGoal().locationSprite);
 
 		yield return new WaitForSeconds(0.5f);
 
-		cw.AddNPCBubble("Fijn. Ga je naar deze gang? Daar hangt een oud stuk behang.");
+		cw.AddNPCBubble(mm.museum.goToFirstLocation);
 
 		yield return new WaitForSeconds(0.5f);
 
@@ -138,7 +138,7 @@ public class ReporterStory0 : MonoBehaviour {
 		ok.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
 
-			cw.AddPlayerBubble("Oké, ik ga het behang zoeken.");
+			cw.AddPlayerBubble(mm.museum.confirmGoToFirstLocation);
 
 			StartCoroutine (ShowClose());
 		});
@@ -158,11 +158,7 @@ public class ReporterStory0 : MonoBehaviour {
 			
 			mm.story0Done = true;
 
-			Goal g = default(Goal);
-			g.goalText = "Zoek het behang";
-			g.overlayText = "Ga op zoek naar het behang. Dat hangt op de eerste verdieping.";
-			g.locationSprite = "behang";
-			mm.goal = g;
+			mm.goal = mm.museum.GetLocation1Goal();
 
 
 			cw.EnableBack();

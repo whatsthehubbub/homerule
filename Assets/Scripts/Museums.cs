@@ -224,8 +224,6 @@ public class AirborneMuseum : Museum {
 						"Maar de mensen moesten weg omdat het er gevaarlijk was. Er werd gevochten en gebombardeerd."}
 		);
 
-
-
 		/* Story 3 */
 
 		this.story3QuestionPre = "Kun je een foto maken van koningin Wilhelmina? Een foto van de foto?";

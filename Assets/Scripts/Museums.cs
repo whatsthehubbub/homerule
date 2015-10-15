@@ -130,9 +130,9 @@ public abstract class Museum {
 
 public class DummyMuseum : Museum {
 	public DummyMuseum() {
-		this.museumName = "het Dummy Museum";
+		this.museumName = "het DUMMY MUSEUM";
 
-		this.museumScope = "De tablet weet waar je bent in het museum. Je hoeft alleen te zoeken op bepaalde plaatsen van het <b>Dummy Museum</b>.";
+		this.museumScope = "De tablet weet waar je bent in het museum. Je hoeft alleen te zoeken op bepaalde plaatsen van het <b>DUMMY MUSEUM</b>.";
 
 		this.startGoalText = "Zoek het DUMMY begin";
 		this.startGoalOverlayText = "Ga op zoek naar het DUMMY begin. Het staat op de DUMMY verdieping.";

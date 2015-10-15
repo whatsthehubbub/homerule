@@ -70,6 +70,9 @@ public abstract class Museum {
 	public Eppy.Tuple<string, string, string[]>[] story3QuestionAnswerResponse;
 	public string story3QuestionOutro;
 
+	public string story3QuestionWhy;
+	public string[] story3QuestionWhyAnswer;
+
 
 	// TODO put the museum kids abstraction stuff in here
 	
@@ -256,7 +259,11 @@ public class AirborneMuseum : Museum {
 			new string[] {"Klopt! De Duitse bezetter was bang dat mensen met dezelfde politieke ideeën zich zouden organiseren. Bijvoorbeeld in verzetsgroepen."}
 		);
 
+		this.story3QuestionWhy = "Waarom waren de Duitsers daar bang voor?";
+
+		this.story3QuestionWhyAnswer = new string[] {
+			"Samen staan mensen sterk. Dat kon het Duitse gezag in gevaar brengen.",
+			"Daarom verdween de vrijheid om je politieke ideeën te laten zien. Zelfs foto’s van de koningin werden verboden."
+		};
 	}
-
-
 }

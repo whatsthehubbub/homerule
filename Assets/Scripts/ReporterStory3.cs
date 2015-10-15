@@ -257,7 +257,7 @@ public class ReporterStory3 : MonoBehaviour {
 		GameObject button = cw.AddButton("Waarom?");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble("Waarom waren de Duitsers daar bang voor?");
+			cw.AddPlayerBubble(mm.museum.story3QuestionWhy);
 
 			StartCoroutine(ShowMoreFacts());
 		});
@@ -266,13 +266,11 @@ public class ReporterStory3 : MonoBehaviour {
 	public IEnumerator ShowMoreFacts() {
 		yield return new WaitForSeconds(0.5f);
 
-		cw.AddNPCBubble("Samen staan mensen sterk. Dat kon het Duitse gezag in gevaar brengen.");
-
-		yield return new WaitForSeconds(0.5f);
-		
-		cw.AddNPCBubble("Daarom verdween de vrijheid om je politieke ideeën te laten zien. Zelfs foto’s van de koningin werden verboden.");
+		foreach (var whyAnswer in mm.museum.story3QuestionWhyAnswer) {
+			cw.AddNPCBubble(whyAnswer);
 			
-		yield return new WaitForSeconds(0.5f);
+			yield return new WaitForSeconds(0.5f);
+		}
 
 		GameObject button = cw.AddButton ("Jemig");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {

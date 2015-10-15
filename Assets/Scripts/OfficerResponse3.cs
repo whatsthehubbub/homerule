@@ -385,13 +385,13 @@ public class OfficerResponse3 : MonoBehaviour {
 
 			yield return new WaitForSeconds(0.5f);
 
-			cw.AddNPCBubble("Ik help u toch nog even, dat is mijn plicht als agent. U moet terug naar het geweer.");
+			cw.AddNPCBubble("Ik help u toch nog even, dat is mijn plicht als agent. " + mm.museum.backToStartAdversarial);
 		} else if (mm.officer3Response == Officer3Response.UNDERSTAND) {
 			cw.AddNPCBubble("Dat waardeer ik. De vogelproblematiek is pittig.");
 
 			yield return new WaitForSeconds(0.5f);
 
-			cw.AddNPCBubble("Gaat u terug naar het geweer als u klaar bent in het museum?");
+			cw.AddNPCBubble(mm.museum.backToStartFriendly);
 		}
 
 		yield return new WaitForSeconds(0.5f);

@@ -166,7 +166,7 @@ public class ReporterResponse2 : MonoBehaviour {
 	public IEnumerator ShowGoal() {
 		yield return new WaitForSeconds(0.5f);
 
-		cw.AddNPCBubble("Ik heb een idee. Kun je op zoek gaan naar de foto van koningin Wilhelmina? Ik leg het straks wel uit.");
+		cw.AddNPCBubble(mm.museum.goToThirdLocation);
 
 		yield return new WaitForSeconds(0.5f);
 

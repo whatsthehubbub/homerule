@@ -90,7 +90,7 @@ public class ReporterResponse1 : MonoBehaviour {
 
 		yield return new WaitForSeconds(0.5f);
 
-		cw.AddNPCBubble("Zeg, kun je in het museum zoeken naar het bord “Verboden Arnhem te betreden”?");
+		cw.AddNPCBubble(mm.museum.goToSecondLocation);
 
 		yield return new WaitForSeconds(0.5f);
 		

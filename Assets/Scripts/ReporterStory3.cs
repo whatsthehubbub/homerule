@@ -71,7 +71,7 @@ public class ReporterStory3 : MonoBehaviour {
 
 		yield return new WaitForSeconds(0.5f);
 
-		cw.AddNPCBubble("Ben je bij die foto?");
+		cw.AddNPCBubble(mm.museum.arrivedAtThirdLocation);
 
 		yield return new WaitForSeconds(0.5f);
 		

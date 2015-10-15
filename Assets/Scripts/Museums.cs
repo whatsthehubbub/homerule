@@ -61,6 +61,14 @@ public abstract class Museum {
 	public string goToFirstLocation;
 	public string confirmGoToFirstLocation;
 
+	public string goToSecondLocation;
+
+	public string goToThirdLocation;
+	public string arrivedAtThirdLocation;
+
+	public string backToStartAdversarial;
+	public string backToStartFriendly;
+
 	/* Story questions and answers. */
 	public string story1QuestionPre;
 	public string[] story1QuestionIntro;
@@ -187,6 +195,14 @@ public class AirborneMuseum : Museum {
 
 		this.goToFirstLocation = "Fijn. Ga je naar deze gang? Daar hangt een oud stuk behang.";
 		this.confirmGoToFirstLocation = "Oké, ik ga het behang zoeken.";
+
+		this.goToSecondLocation = "Zeg, kun je in het museum zoeken naar het bord “Verboden Arnhem te betreden”?";
+
+		this.goToThirdLocation = "Ik heb een idee. Kun je op zoek gaan naar de foto van koningin Wilhelmina? Ik leg het straks wel uit.";
+		this.arrivedAtThirdLocation = "Ben je bij die foto?";
+
+		this.backToStartAdversarial = "U moet terug naar het geweer.";
+		this.backToStartFriendly = "Gaat u terug naar het geweer als u klaar bent in het museum?";
 
 		/* Story 1 */
 		this.story1QuestionPre = "Ik weet iets. Maak jij een foto van het stuk behang in het museum?";

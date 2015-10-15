@@ -19,8 +19,6 @@ public struct Goal {
 
 
 public abstract class Museum {
-	public string museumName;
-
 	public int major;
 
 	// TODO put the delays in here
@@ -55,6 +53,10 @@ public abstract class Museum {
 	public string backToStartGoalLocationSprite;
 
 	/* Story questions and answers. */
+
+	// Currently only used in ReporterStory0
+	public string museumName;
+
 	public string story1QuestionPre;
 	public string[] story1QuestionIntro;
 	public Eppy.Tuple<string, string, string[]>[] story1QuestionAnswerResponse;
@@ -133,20 +135,18 @@ public abstract class Museum {
 
 public class DummyMuseum : Museum {
 	public DummyMuseum() {
-		this.museumName = "het DUMMY MUSEUM";
-
 		this.museumScope = "De tablet weet waar je bent in het museum. Je hoeft alleen te zoeken op bepaalde plaatsen van het <b>DUMMY MUSEUM</b>.";
 
 		this.startGoalText = "Zoek het DUMMY begin";
 		this.startGoalOverlayText = "Ga op zoek naar het DUMMY begin. Het staat op de DUMMY verdieping.";
 		this.startGoalLocationSprite = "dummy/placeholder-foto-locatie-0";
+
+		this.museumName = "het DUMMY MUSEUM";
 	}
 }
 
 public class AirborneMuseum : Museum {
 	public AirborneMuseum() {
-		this.museumName = "het Airborne Museum";
-
 		this.museumScope = "De tablet weet waar je bent in het museum. Je hoeft alleen te zoeken op de begane grond en de eerste verdieping van het <b>Airborne Museum</b>.";
 
 		this.startGoalText = "Zoek het geweer";
@@ -172,6 +172,9 @@ public class AirborneMuseum : Museum {
 		this.backToStartGoalText = "Ga terug naar het geweer";
 		this.backToStartGoalOverlayText = "Ga terug naar het geweer op de eerste verdieping.";
 		this.backToStartGoalLocationSprite = "airborne/geweer";
+
+		/* Story 0 */
+		this.museumName = "het Airborne Museum";
 
 		/* Story 1 */
 		this.story1QuestionPre = "Ik weet iets. Maak jij een foto van het stuk behang in het museum?";

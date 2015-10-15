@@ -54,11 +54,14 @@ public abstract class Museum {
 	public string backToStartGoalOverlayText;
 	public string backToStartGoalLocationSprite;
 
+	/* Story routing */
+	
+	public string museumName; // ReporterStory0
+
+	public string goToFirstLocation;
+	public string confirmGoToFirstLocation;
+
 	/* Story questions and answers. */
-
-	// Currently only used in ReporterStory0
-	public string museumName;
-
 	public string story1QuestionPre;
 	public string[] story1QuestionIntro;
 	public Eppy.Tuple<string, string, string[]>[] story1QuestionAnswerResponse;
@@ -181,6 +184,9 @@ public class AirborneMuseum : Museum {
 
 		/* Story 0 */
 		this.museumName = "het Airborne Museum";
+
+		this.goToFirstLocation = "Fijn. Ga je naar deze gang? Daar hangt een oud stuk behang.";
+		this.confirmGoToFirstLocation = "Oké, ik ga het behang zoeken.";
 
 		/* Story 1 */
 		this.story1QuestionPre = "Ik weet iets. Maak jij een foto van het stuk behang in het museum?";

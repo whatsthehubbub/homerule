@@ -136,7 +136,7 @@ public class DummyMuseum : Museum {
 
 		this.startGoalText = "Zoek het DUMMY begin";
 		this.startGoalOverlayText = "Ga op zoek naar het DUMMY begin. Het staat op de DUMMY verdieping.";
-		this.startGoalLocationSprite = "dummy/placeholder-foto-locatie-0"; // TODO create dummy images
+		this.startGoalLocationSprite = "dummy/placeholder-foto-locatie-0";
 	}
 }
 

@@ -25,7 +25,9 @@ public abstract class Museum {
 
 	/* Introduction Screens */
 
-	public string museumScope;
+	public string museumIntroScope;
+
+	public string museumOverlayScope;
 
 	/* Goal texts and images. */
 	public string startGoalText;
@@ -135,7 +137,9 @@ public abstract class Museum {
 
 public class DummyMuseum : Museum {
 	public DummyMuseum() {
-		this.museumScope = "De tablet weet waar je bent in het museum. Je hoeft alleen te zoeken op bepaalde plaatsen van het <b>DUMMY MUSEUM</b>.";
+		this.museumIntroScope = "De tablet weet waar je bent in het museum. Je hoeft alleen te zoeken op bepaalde plaatsen van het <b>DUMMY MUSEUM</b>.";
+
+		this.museumOverlayScope = "Dit spel zich af in een deel van het <b>DUMMY MUSEUM</b>. Blijf daar.";
 
 		this.startGoalText = "Zoek het DUMMY begin";
 		this.startGoalOverlayText = "Ga op zoek naar het DUMMY begin. Het staat op de DUMMY verdieping.";
@@ -147,7 +151,9 @@ public class DummyMuseum : Museum {
 
 public class AirborneMuseum : Museum {
 	public AirborneMuseum() {
-		this.museumScope = "De tablet weet waar je bent in het museum. Je hoeft alleen te zoeken op de begane grond en de eerste verdieping van het <b>Airborne Museum</b>.";
+		this.museumIntroScope = "De tablet weet waar je bent in het museum. Je hoeft alleen te zoeken op de begane grond en de eerste verdieping van het <b>Airborne Museum</b>.";
+
+		this.museumOverlayScope = "Dit spel speelt zich alleen af op de begane grond en de eerste verdieping van het <b>Airborne Museum</b>. Daarbuiten hoef je dus niet te zoeken.";
 
 		this.startGoalText = "Zoek het geweer";
 		this.startGoalOverlayText = "Ga op zoek naar het geweer. Het staat op de eerste verdieping.";

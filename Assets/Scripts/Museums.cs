@@ -156,7 +156,145 @@ public class DummyMuseum : Museum {
 		this.startGoalOverlayText = "Ga op zoek naar het DUMMY begin. Het staat op de DUMMY verdieping.";
 		this.startGoalLocationSprite = "dummy/placeholder-foto-locatie-0";
 
+		this.location1GoalText = "Zoek het OBJECT 1";
+		this.location1GoalOverlayText = "Ga op zoek naar OBJECT 1. Dat hangt op de eerste verdieping.";
+		this.location1LocationSprite = "dummy/placeholder-foto-locatie-1";
+		
+		this.idleGoalText = "Verken het museum";
+		this.idleGoalOverlayText = "Voel je vrij om het museum te verkennen. Je wordt gebeld als iemand je nodig heeft.";
+		this.idleGoalLocationSprite = "";
+		
+		this.location2GoalText = "Zoek het OBJECT 2";
+		this.location2GoalOverlayText = "Ga op zoek naar OBJECT 2. Dit hangt ERGENS.";
+		this.location2LocationSprite = "dummy/placeholder-foto-locatie-2";
+		
+		this.location3GoalText = "Zoek OBJECT 3";
+		this.location3GoalOverlayText = "Ga op zoek naar OBJECT 3. Deze hangt bij de trap in DUMMY.";
+		this.location3LocationSprite = "dummy/placeholder-foto-locatie-3";
+		
+		this.backToStartGoalText = "Ga terug naar het DUMMY";
+		this.backToStartGoalOverlayText = "Ga terug naar DUMMY op de verdieping.";
+		this.backToStartGoalLocationSprite = "dummy/placeholder-foto-locatie-0";
+
+
 		this.museumName = "het DUMMY MUSEUM";
+
+		this.goToFirstLocation = "Fijn. Ga je naar deze gang? Daar hangt OBJECT 1.";
+		this.confirmGoToFirstLocation = "Oké, ik ga OBJECT 1 zoeken.";
+		
+		this.goToSecondLocation = "Zeg, kun je in het museum zoeken naar OBJECT 2?";
+		
+		this.goToThirdLocation = "Ik heb een idee. Kun je op zoek gaan naar OBJECT 3? Ik leg het straks wel uit.";
+		this.arrivedAtThirdLocation = "Ben je bij OBJECT 3?";
+		
+		this.backToStartAdversarial = "U moet terug naar het BEGIN.";
+		this.backToStartFriendly = "Gaat u terug naar het BEGIN als u klaar bent in het museum?";
+
+
+		/* Story 1 */
+		this.story1QuestionPre = "Ik weet iets. Maak jij een foto van OBJECT 1?";
+		
+		this.story1QuestionIntro = new string[] {
+			"INTRO bij OBJECT 1", 
+			"INTRO bij OBJECT 1", 
+			"Vraag bij OBJECT 1"};
+		
+		this.story1QuestionAnswerResponse = new Eppy.Tuple<string, string, string[]>[3];
+		this.story1QuestionAnswerResponse[0] = new Eppy.Tuple<string, string, string[]>("AW 1", 
+		                                                                                "Antwoord 1", 
+		                                                                                new string[] {
+			"FEEDBACK BIJ ANTWOORD 1",
+			"FEEDBACK BIJ ANTWOORD 1",
+			"FEEDBACK BIJ ANTWOORD 1",
+			"FEEDBACK BIJ ANTWOORD 1"
+		});
+		this.story1QuestionAnswerResponse[1] = new Eppy.Tuple<string, string, string[]>("AW 2", 
+		                                                                                "Antwoord 2", 
+		                                                                                new string[] {
+			"FEEDBACK BIJ ANTWOORD 2"
+		});
+		this.story1QuestionAnswerResponse[2] = new Eppy.Tuple<string, string, string[]>("AW 3", 
+		                                                                                "Antwoord 3", 
+		                                                                                new string[] {
+			"FEEDBACK BIJ ANTWOORD 3", 
+			"FEEDBACK BIJ ANTWOORD 3"
+		});
+		
+		this.story1QuestionOutro = "UITLEIDING BIJ OBJECT 1";
+		
+		/* Story 2 */
+		this.story2QuestionPre = "Ik weet iets. Maak jij een foto van OBJECT 2?";
+		
+		this.story2QuestionIntro = new string[] {
+			"INTRO bij OBJECT 2",
+			"INTRO bij OBJECT 2",
+			"Vraag bij OBJECT 2"
+		};
+		
+		this.story2QuestionAnswerResponse = new Eppy.Tuple<string, string, string[]>[3];
+		this.story2QuestionAnswerResponse[0] = new Eppy.Tuple<string, string, string[]>(
+			"AW 1",
+			"Antwoord 1",
+			new string[] {
+			"FEEDBACK BIJ ANTWOORD 1"
+			}
+		);
+		this.story2QuestionAnswerResponse[1] = new Eppy.Tuple<string, string, string[]>(
+			"AW 2",
+			"Antwoord 2",
+			new string[] {
+				"FEEDBACK BIJ ANTWOORD 2"
+			}
+		);
+		this.story2QuestionAnswerResponse[2] = new Eppy.Tuple<string, string, string[]>(
+			"AW 3",
+			"Antwoord 3",
+			new string[] {
+				"FEEDBACK BIJ ANTWOORD 3",
+				"FEEDBACK BIJ ANTWOORD 3"
+			}
+		);
+		
+		/* Story 3 */
+		this.story3QuestionPre = "Ik weet iets. Maak jij een foto van OBJECT 3?";
+		
+		this.story3QuestionIntro = new string[] {
+			"INTRO bij OBJECT 3",
+			"INTRO bij OBJECT 3",
+			"Vraag bij OBJECT 3"
+		};
+		
+		this.story3QuestionAnswerResponse = new Eppy.Tuple<string, string, string[]>[3];
+		this.story3QuestionAnswerResponse[0] = new Eppy.Tuple<string, string, string[]>(
+			"AW 1",
+			"Antwoord 1",
+			new string[] {
+				"FEEDBACK BIJ ANTWOORD 1",
+				"FEEDBACK BIJ ANTWOORD 1"
+			}
+		);
+		this.story3QuestionAnswerResponse[1] = new Eppy.Tuple<string, string, string[]>(
+			"AW 2",
+			"Antwoord 2",
+			new string[] {
+				"FEEDBACK BIJ ANTWOORD 2",
+				"FEEDBACK BIJ ANTWOORD 2"
+			}
+		);
+		this.story3QuestionAnswerResponse[2] = new Eppy.Tuple<string, string, string[]>(
+			"AW 3",
+			"Antwoord 3",
+			new string[] {
+				"FEEDBACK BIJ ANTWOORD 3"
+			}
+		);
+		
+		this.story3QuestionWhy = "OBJECT 3 Waarom";
+		
+		this.story3QuestionWhyAnswer = new string[] {
+			"OBJECT 3 REDEN",
+			"OBJECT 3 REDEN"
+		};
 	}
 }
 

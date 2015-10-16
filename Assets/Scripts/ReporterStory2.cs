@@ -322,7 +322,7 @@ public class ReporterStory2 : MonoBehaviour {
 	public IEnumerator ShowFactResponseClose() {
 		yield return new WaitForSeconds(0.5f);
 
-		cw.AddNPCBubble("Je moest binnen twee dagen weg. Daarna was Arnhem verboden terrein.");
+		cw.AddNPCBubble(mm.museum.story2QuestionOutro);
 
 		yield return new WaitForSeconds(0.5f);
 		

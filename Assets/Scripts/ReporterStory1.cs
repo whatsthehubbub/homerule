@@ -300,7 +300,7 @@ public class ReporterStory1 : MonoBehaviour {
 	public IEnumerator PieceOpinion() {
 		yield return new WaitForSeconds(0.5f);
 		
-		cw.AddNPCBubble("Lelijke woorden hè? Maar voor de soldaat was het een belangrijke tekst.");
+		cw.AddNPCBubble(mm.museum.story1QuestionOutro);
 		
 		yield return new WaitForSeconds(0.5f);
 		

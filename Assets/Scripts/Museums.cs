@@ -78,12 +78,11 @@ public abstract class Museum {
 	public string story2QuestionPre;
 	public string[] story2QuestionIntro;
 	public Eppy.Tuple<string, string, string[]>[] story2QuestionAnswerResponse;
-	public string story2QuestionOutro; // TODO hook this up below, at the moment it is not being set
+	public string story2QuestionOutro;
 
 	public string story3QuestionPre;
 	public string[] story3QuestionIntro;
 	public Eppy.Tuple<string, string, string[]>[] story3QuestionAnswerResponse;
-	public string story3QuestionOutro; // TODO hook this up below, at the moment it is not being set
 
 	public string story3QuestionWhy;
 	public string[] story3QuestionWhyAnswer;
@@ -254,6 +253,8 @@ public class DummyMuseum : Museum {
 				"FEEDBACK BIJ ANTWOORD 3"
 			}
 		);
+
+		this.story2QuestionOutro = "Je moest binnen twee dagen weg. Daarna was Arnhem verboden terrein.";
 		
 		/* Story 3 */
 		this.story3QuestionPre = "Ik weet iets. Maak jij een foto van OBJECT 3?";

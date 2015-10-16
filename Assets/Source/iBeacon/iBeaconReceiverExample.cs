@@ -6,7 +6,7 @@ using System;
 public class iBeaconReceiverExample : MonoBehaviour {
 	private Vector2 scrolldistance;
 	private List<Beacon> mybeacons = new List<Beacon>();
-	private bool scanning = true;
+//	private bool scanning = true;
 	// Use this for initialization
 	void Start () {
 		iBeaconReceiver.BeaconRangeChangedEvent += OnBeaconRangeChanged;

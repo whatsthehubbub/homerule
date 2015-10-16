@@ -87,6 +87,8 @@ public abstract class Museum {
 	public string story3QuestionWhy;
 	public string[] story3QuestionWhyAnswer;
 
+	public string story3QuestionOutro;
+
 
 	// TODO put the museum kids abstraction stuff in here
 	
@@ -254,7 +256,7 @@ public class DummyMuseum : Museum {
 			}
 		);
 
-		this.story2QuestionOutro = "Je moest binnen twee dagen weg. Daarna was Arnhem verboden terrein.";
+		this.story2QuestionOutro = "Dummy outro";
 		
 		/* Story 3 */
 		this.story3QuestionPre = "Ik weet iets. Maak jij een foto van OBJECT 3?";
@@ -296,6 +298,8 @@ public class DummyMuseum : Museum {
 			"OBJECT 3 REDEN",
 			"OBJECT 3 REDEN"
 		};
+
+		this.story3QuestionOutro = "DUMMY Outro";
 	}
 }
 
@@ -394,6 +398,8 @@ public class AirborneMuseum : Museum {
 						"Maar de mensen moesten weg omdat het er gevaarlijk was. Er werd gevochten en gebombardeerd."}
 		);
 
+		this.story2QuestionOutro = "Je moest binnen twee dagen weg. Daarna was Arnhem verboden terrein.";
+
 		/* Story 3 */
 
 		this.story3QuestionPre = "Kun je een foto maken van koningin Wilhelmina? Een foto van de foto?";
@@ -433,5 +439,7 @@ public class AirborneMuseum : Museum {
 			"Samen staan mensen sterk. Dat kon het Duitse gezag in gevaar brengen.",
 			"Daarom verdween de vrijheid om je politieke ideeën te laten zien. Zelfs foto’s van de koningin werden verboden."
 		};
+
+		this.story3QuestionOutro = "De mensen konden niet meer zichzelf zijn. Net als de vogels nu. En de politie liegt erover!";
 	}
 }

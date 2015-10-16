@@ -284,7 +284,7 @@ public class ReporterStory3 : MonoBehaviour {
 	public IEnumerator SharePicture() {
 		yield return new WaitForSeconds(0.5f);
 
-		cw.AddNPCBubble("De mensen konden niet meer zichzelf zijn. Net als de vogels nu. En de politie liegt erover!");
+		cw.AddNPCBubble(mm.museum.story3QuestionOutro);
 
 		yield return new WaitForSeconds(0.5f);
 

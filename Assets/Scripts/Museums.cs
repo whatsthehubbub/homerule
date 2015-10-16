@@ -74,11 +74,13 @@ public abstract class Museum {
 	public string[] story1QuestionIntro;
 	public Eppy.Tuple<string, string, string[]>[] story1QuestionAnswerResponse;
 	public string story1QuestionOutro;
+	public string story1ArticleIntro;
 
 	public string story2QuestionPre;
 	public string[] story2QuestionIntro;
 	public Eppy.Tuple<string, string, string[]>[] story2QuestionAnswerResponse;
 	public string story2QuestionOutro;
+	public string story2ArticleIntro;
 
 	public string story3QuestionPre;
 	public string[] story3QuestionIntro;
@@ -88,6 +90,7 @@ public abstract class Museum {
 	public string[] story3QuestionWhyAnswer;
 
 	public string story3QuestionOutro;
+	public string story3ArticleIntro;
 
 
 	// TODO put the museum kids abstraction stuff in here
@@ -222,6 +225,8 @@ public class DummyMuseum : Museum {
 		});
 		
 		this.story1QuestionOutro = "UITLEIDING BIJ OBJECT 1";
+
+		this.story1ArticleIntro = "DUMMY artikel inleiding";
 		
 		/* Story 2 */
 		this.story2QuestionPre = "Ik weet iets. Maak jij een foto van OBJECT 2?";
@@ -257,6 +262,8 @@ public class DummyMuseum : Museum {
 		);
 
 		this.story2QuestionOutro = "Dummy outro";
+
+		this.story2ArticleIntro = "DUMMY artikel inleiding";
 		
 		/* Story 3 */
 		this.story3QuestionPre = "Ik weet iets. Maak jij een foto van OBJECT 3?";
@@ -300,6 +307,8 @@ public class DummyMuseum : Museum {
 		};
 
 		this.story3QuestionOutro = "DUMMY Outro";
+
+		this.story3ArticleIntro = "DUMMY inleiding van het artikel";
 	}
 }
 
@@ -369,6 +378,7 @@ public class AirborneMuseum : Museum {
 			"Hij zat in een gevaarlijke situatie. Hij praatte zichzelf hiermee moed in."});
 
 		this.story1QuestionOutro = "Lelijke woorden hè? Maar voor de soldaat was het een belangrijke tekst.";
+		this.story1ArticleIntro = "Als iemand op een muur schrijft, is dat niet altijd slecht bedoeld.";
 
 		/* Story 2 */
 
@@ -399,6 +409,8 @@ public class AirborneMuseum : Museum {
 		);
 
 		this.story2QuestionOutro = "Je moest binnen twee dagen weg. Daarna was Arnhem verboden terrein.";
+
+		this.story2ArticleIntro = "De inwoners van Arnhem moesten hun huis uit vanwege gevaar, net als nu.";
 
 		/* Story 3 */
 
@@ -441,5 +453,7 @@ public class AirborneMuseum : Museum {
 		};
 
 		this.story3QuestionOutro = "De mensen konden niet meer zichzelf zijn. Net als de vogels nu. En de politie liegt erover!";
+
+		this.story3ArticleIntro = "Vrije vogel of koningsgezind, je moet jezelf kunnen zijn!";
 	}
 }

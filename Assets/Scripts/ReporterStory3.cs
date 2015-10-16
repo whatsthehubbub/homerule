@@ -341,7 +341,7 @@ public class ReporterStory3 : MonoBehaviour {
 
 		cw.AddNPCBubble("Mee eens. Ik heb dit bericht geschreven:");
 
-		string message = "Vrije vogel of koningsgezind, je moet jezelf kunnen zijn! Ook als de politie je dan lastig vindt. Was getekend… ";
+		string message = mm.museum.story3ArticleIntro + " Ook als de politie je dan lastig vindt. Was getekend… ";
 
 		if (mm.story3Attribution == Story3Attribution.FRANK) {
 			message += "Frank de dichter";

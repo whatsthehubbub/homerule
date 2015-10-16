@@ -401,7 +401,7 @@ public class ReporterStory2 : MonoBehaviour {
 			argument = "verkeerd, want je moet zelf kunnen bepalen of je weggaat of niet. Mensen die willen blijven moeten niet naar de politie luisteren.";
 		}
 
-		string storyText = "De inwoners van Arnhem moesten hun huis uit vanwege gevaar, net als nu." +
+		string storyText = mm.museum.story2ArticleIntro +
 			"\n" + "Dat is " + argument;
 		mm.story2Text = storyText;
 

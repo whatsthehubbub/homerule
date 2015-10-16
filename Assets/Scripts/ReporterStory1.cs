@@ -364,7 +364,7 @@ public class ReporterStory1 : MonoBehaviour {
 
 		yield return new WaitForSeconds(0.5f);
 
-		string message = "Als iemand op een muur schrijft, is dat niet altijd slecht bedoeld. ";
+		string message = mm.museum.story1ArticleIntro + " ";
 
 		switch (mm.story1OpinionDescription) {
 		case Story1OpinionDescription.VANDAL:

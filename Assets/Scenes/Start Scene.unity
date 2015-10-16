@@ -1744,7 +1744,7 @@ GameObject:
   - 114: {fileID: 1003486669}
   - 114: {fileID: 1003486668}
   m_Layer: 5
-  m_Name: Start
+  m_Name: PickMuseumButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1809,31 +1809,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1279754208}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 1
-      - m_Target: {fileID: 1747590809}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 990988314}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1747590813}
+        m_MethodName: MuseumPicked
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3865,6 +3843,7 @@ GameObject:
   - 224: {fileID: 1747590810}
   - 222: {fileID: 1747590812}
   - 114: {fileID: 1747590811}
+  - 114: {fileID: 1747590813}
   m_Layer: 5
   m_Name: MuseumPicker
   m_TagString: Untagged
@@ -3931,6 +3910,18 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1747590809}
+--- !u!114 &1747590813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1747590809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbcca44d105bd4a42866d7eb717d1e0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  titleScreen: {fileID: 1088705862}
 --- !u!1 &1754394771
 GameObject:
   m_ObjectHideFlags: 0
@@ -3942,7 +3933,7 @@ GameObject:
   - 222: {fileID: 1754394774}
   - 114: {fileID: 1754394773}
   m_Layer: 5
-  m_Name: Subtitel
+  m_Name: Headline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3998,7 +3989,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Kies het museum waar je wi spelen
+  m_Text: Kies het museum waar je wil spelen
 --- !u!222 &1754394774
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -149,7 +149,6 @@ public class MuseumManager : MonoBehaviour {
 	[Header("Beacon stuff")]
 
 	private List<Beacon> mybeacons = new List<Beacon>();
-	private bool scanning = true;
 
 	[Header("Google Analytics")]
 

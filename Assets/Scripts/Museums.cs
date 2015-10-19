@@ -23,6 +23,8 @@ public abstract class Museum {
 
 	public Dictionary<string, float> callDelays;
 
+	public string museumCode;
+
 	/* Introduction Screens */
 
 	public string museumIntroScope;
@@ -162,6 +164,8 @@ public class DummyMuseum : Museum {
 			{"REPORTERRESPONSE2", 10.0f},
 			{"OFFICERRESPONSE3", 10.0f}
 		};
+
+		this.museumCode = "Dummy";
 
 		this.museumIntroScope = "De tablet weet waar je bent in het museum. Je hoeft alleen te zoeken op bepaalde plaatsen van het <b>DUMMY MUSEUM</b>.";
 
@@ -335,6 +339,8 @@ public class AirborneMuseum : Museum {
 			{"REPORTERRESPONSE2", 30.0f},
 			{"OFFICERRESPONSE3", 10.0f}
 		};
+
+		this.museumCode = "Airborne";
 
 		this.museumIntroScope = "De tablet weet waar je bent in het museum. Je hoeft alleen te zoeken op de begane grond en de eerste verdieping van het <b>Airborne Museum</b>.";
 

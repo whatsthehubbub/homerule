@@ -67,16 +67,7 @@ public class MuseumManager : MonoBehaviour {
 	 * - wilhelmina
 	 */
 	private List<int> locations = new List<int>(new int[] {53868, 48618, 22290, 48174});
-
-	public Dictionary<string, float> callDelays = new Dictionary<string, float> {
-		{"OFFICERRESPONSE1", 120.0f},
-		{"REPORTERRESPONSE1", 10.0f},
-		{"OFFICERRESPONSE2", 30.0f},
-		{"ARTISTRESPONSE1", 10.0f},
-		{"REPORTERRESPONSE2", 30.0f},
-		{"OFFICERRESPONSE3", 10.0f}
-	};
-
+	
 	public bool forceCalls = false;
 
 	/*
@@ -167,7 +158,7 @@ public class MuseumManager : MonoBehaviour {
 		this.callBusy = true;
 
 		this.museum = new AirborneMuseum();
-//		this.museum = new DummyMuseum();
+		this.museum = new DummyMuseum();
 
 		this.goal = museum.GetStartGoal();
 
@@ -471,12 +462,12 @@ public class MuseumManager : MonoBehaviour {
 		if (!this.callBusy && !this.waitingForCall && this.storyQueue.Count > 0) {
 			this.waitingForCall = true;
 
-			float delay = callDelays[this.storyQueue.Peek ()];
+			float delay = this.museum.callDelays[this.storyQueue.Peek ()];
 
-			if (Application.platform == RuntimePlatform.OSXEditor) {
-				// Remove this for testing on desktop
-				delay = 2.0f;
-			}
+//			if (Application.platform == RuntimePlatform.OSXEditor) {
+//				// Remove this for testing on desktop
+//				delay = 2.0f;
+//			}
 
 			Debug.Log ("Going to take a call in: " + delay);
 

@@ -21,7 +21,7 @@ public struct Goal {
 public abstract class Museum {
 	public int major;
 
-	// TODO put the delays in here
+	public Dictionary<string, float> callDelays;
 
 	/* Introduction Screens */
 
@@ -152,6 +152,15 @@ public abstract class Museum {
 
 public class DummyMuseum : Museum {
 	public DummyMuseum() {
+		this.callDelays = new Dictionary<string, float> {
+			{"OFFICERRESPONSE1", 10.0f},
+			{"REPORTERRESPONSE1", 10.0f},
+			{"OFFICERRESPONSE2", 10.0f},
+			{"ARTISTRESPONSE1", 10.0f},
+			{"REPORTERRESPONSE2", 10.0f},
+			{"OFFICERRESPONSE3", 10.0f}
+		};
+
 		this.museumIntroScope = "De tablet weet waar je bent in het museum. Je hoeft alleen te zoeken op bepaalde plaatsen van het <b>DUMMY MUSEUM</b>.";
 
 		this.museumOverlayScope = "Dit spel zich af in een deel van het <b>DUMMY MUSEUM</b>. Blijf daar.";
@@ -314,6 +323,15 @@ public class DummyMuseum : Museum {
 
 public class AirborneMuseum : Museum {
 	public AirborneMuseum() {
+		this.callDelays = new Dictionary<string, float> {
+			{"OFFICERRESPONSE1", 120.0f},
+			{"REPORTERRESPONSE1", 10.0f},
+			{"OFFICERRESPONSE2", 30.0f},
+			{"ARTISTRESPONSE1", 10.0f},
+			{"REPORTERRESPONSE2", 30.0f},
+			{"OFFICERRESPONSE3", 10.0f}
+		};
+
 		this.museumIntroScope = "De tablet weet waar je bent in het museum. Je hoeft alleen te zoeken op de begane grond en de eerste verdieping van het <b>Airborne Museum</b>.";
 
 		this.museumOverlayScope = "Dit spel speelt zich alleen af op de begane grond en de eerste verdieping van het <b>Airborne Museum</b>. Daarbuiten hoef je dus niet te zoeken.";

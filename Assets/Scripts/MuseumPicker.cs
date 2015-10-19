@@ -58,23 +58,19 @@ public class MuseumPicker : MonoBehaviour {
 	public void MuseumPicked() {
 		Toggle active = toggleGroup.ActiveToggles().FirstOrDefault();
 
-		Museum m;
 		if (active.gameObject.name.Equals("AirborneToggle")) {
-			m = new AirborneMuseum();
-
-			mc.museumPicked = m.museumCode;
+			mc.museumPicked = "Airborne";
 		} else if (active.gameObject.name.Equals("DummyToggle")) {
-			m = new DummyMuseum();
-			mc.museumPicked = m.museumCode;
-		} else {
-			m = null;
+			mc.museumPicked = "Dummy";
 		}
-		mm.museum = m;
-
 		GoToNextScreen();
 	}
 
 	public void GoToNextScreen() {
+		mm.museum = mc.GetMuseum();
+
+		mm.goal = mm.museum.GetStartGoal();
+
 		this.titleScreen.SetActive(true);
 		this.gameObject.SetActive(false);
 	}

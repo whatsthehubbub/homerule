@@ -28,4 +28,19 @@ public class MuseumChoice : MonoBehaviour {
 	void Update () {
 	
 	}
+
+	public Museum GetMuseum() {
+		Museum m;
+
+		if (museumPicked.Equals("Airborne")) {
+			m = new AirborneMuseum();
+		} else if (museumPicked.Equals("Dummy")) {
+			m = new DummyMuseum();
+		} else {
+			m = null;
+		}
+
+		return m;
+	}
+
 }

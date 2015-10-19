@@ -158,7 +158,7 @@ public class MuseumManager : MonoBehaviour {
 		this.callBusy = true;
 
 		this.museum = new AirborneMuseum();
-		this.museum = new DummyMuseum();
+//		this.museum = new DummyMuseum();
 
 		this.goal = museum.GetStartGoal();
 
@@ -348,36 +348,22 @@ public class MuseumManager : MonoBehaviour {
 		
 		bool found = false;
 		foreach (Beacon b in mybeacons) {
-			if (b.range == BeaconRange.NEAR || b.range == BeaconRange.IMMEDIATE || b.range == BeaconRange.FAR) {
-//			if (b.range == BeaconRange.IMMEDIATE) {
+			if (this.museum != null && b.major == this.museum.major) {
+				if (b.range == BeaconRange.NEAR || b.range == BeaconRange.IMMEDIATE || b.range == BeaconRange.FAR) {
+	//			if (b.range == BeaconRange.IMMEDIATE) {
 
-				if (locations.IndexOf(b.minor) != -1) {
+					if (locations.IndexOf(b.minor) != -1) {
+						found = true;
+
+	//					Debug.Log ("Moved into beacon range " + b.minor);
+
+						MovedIntoBeaconRange(b.minor);
+					}
+				} else if (b.range == BeaconRange.FAR) {
+	//			} else if (b.range == BeaconRange.FAR || b.range == BeaconRange.NEAR) {
+					// We want to keep it at this location unless another one is nearer
 					found = true;
-
-//					Debug.Log ("Moved into beacon range " + b.minor);
-
-					MovedIntoBeaconRange(b.minor);
 				}
-				
-//				foreach(KeyValuePair<int, Location> entry in locations) {
-//					if (entry.Value.minor == b.minor) {
-//						found = true;
-//
-//						MovedIntoBeaconRange(entry.Value.minor);
-//
-////						if (playerLocation != entry.Value.name) {
-////							NewEvent(entry.Value.name);
-////						}
-//
-////						if (!this.playerState.Equals (entry.Value.name)) {
-////							NewLocation(entry.Value.name);
-////						}
-//					}
-//				}
-			} else if (b.range == BeaconRange.FAR) {
-//			} else if (b.range == BeaconRange.FAR || b.range == BeaconRange.NEAR) {
-				// We want to keep it at this location unless another one is nearer
-				found = true;
 			}
 		}
 

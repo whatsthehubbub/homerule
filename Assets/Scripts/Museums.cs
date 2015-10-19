@@ -152,6 +152,8 @@ public abstract class Museum {
 
 public class DummyMuseum : Museum {
 	public DummyMuseum() {
+		this.major = 51895;
+
 		this.callDelays = new Dictionary<string, float> {
 			{"OFFICERRESPONSE1", 10.0f},
 			{"REPORTERRESPONSE1", 10.0f},
@@ -323,6 +325,8 @@ public class DummyMuseum : Museum {
 
 public class AirborneMuseum : Museum {
 	public AirborneMuseum() {
+		this.major = 47042;
+
 		this.callDelays = new Dictionary<string, float> {
 			{"OFFICERRESPONSE1", 120.0f},
 			{"REPORTERRESPONSE1", 10.0f},

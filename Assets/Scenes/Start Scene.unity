@@ -3782,7 +3782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfd9dc0ab8ef447c0be01e49d5b4cce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  museumPicked: 
+  museumPicked: Airborne
   pickMuseum: 1
 --- !u!4 &1576850050
 Transform:
@@ -4164,6 +4164,7 @@ MonoBehaviour:
   toggleGroup: {fileID: 367840308}
   mm: {fileID: 0}
   mc: {fileID: 0}
+  checkOnce: 0
 --- !u!1 &1754394771
 GameObject:
   m_ObjectHideFlags: 0

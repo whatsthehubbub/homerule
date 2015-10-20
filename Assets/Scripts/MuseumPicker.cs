@@ -11,6 +11,8 @@ public class MuseumPicker : MonoBehaviour {
 	public MuseumManager mm;
 	public MuseumChoice mc;
 
+	public bool checkOnce;
+
 	void Awake() {
 		GameObject main = GameObject.Find("Main");
 		mm = main.GetComponentInChildren<MuseumManager>();
@@ -20,31 +22,32 @@ public class MuseumPicker : MonoBehaviour {
 	}
 
 	// Use this for initialization
-	void Start () {
-		CheckWhetherToDisplayOurselves();
-	}
+//	void Start () {
+//		Debug.Log("CALL START");
+//	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		// We need to do this check once but only when the entire GameObject is running
+		// This seems to be the most consistent way to achieve that
+		if (checkOnce) {
+			checkOnce = false;
+
+			CheckWhetherToDisplayOurselves();
+		}
 	}
 
 	void OnEnable() {
-		CheckWhetherToDisplayOurselves();
+		// Set the variable that says we need to do the check once
+		checkOnce = true;
 	}
 
 	public void CheckWhetherToDisplayOurselves() {
 		if (mc.pickMuseum) {
 			// Show this screen to allow the player to pick a museum
-
-			// Disable this control since the player will have to set a museum now
-			mc.pickMuseum = false;
-
-			// Deselect all toggles
-			foreach (var toggle in toggleGroup.ActiveToggles()) {
-				toggle.isOn = false;
-			}
-
+			
+			toggleGroup.SetAllTogglesOff();
+			
 			// Select the toggle that the user had previously picked
 			try {
 				GameObject.Find (mc.museumPicked + "Toggle").GetComponentInChildren<Toggle>().isOn = true;
@@ -56,6 +59,9 @@ public class MuseumPicker : MonoBehaviour {
 	}
 
 	public void MuseumPicked() {
+		// Disable this control since the player will have to set a museum now
+		mc.pickMuseum = false;
+
 		Toggle active = toggleGroup.ActiveToggles().FirstOrDefault();
 
 		if (active.gameObject.name.Equals("AirborneToggle")) {

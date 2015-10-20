@@ -368,13 +368,13 @@ public class ReporterStory1 : MonoBehaviour {
 
 		switch (mm.story1OpinionDescription) {
 		case Story1OpinionDescription.VANDAL:
-			message += "Maar soms wel! Vandalen moeten gestraft worden. In de oorlog en nu.";
+			message += "Maar soms wel! Vandalen moeten gestraft worden.";
 			break;
 		case Story1OpinionDescription.CITIZEN:
-			message += "Mensen zijn mensen, in de oorlog en nu. Er zit vast een diepere reden achter.";
+			message += "Mensen zijn mensen. Er zit vast een diepere reden achter.";
 			break;
 		case Story1OpinionDescription.ARTIST:
-			message += "Het behang van de soldaat hangt in een museum. De graffiti over vrije vogels hoort daar ook thuis!";
+			message += "Integendeel! Die graffiti over vrije vogels hoort in een museum.";
 			break;
 		}
 

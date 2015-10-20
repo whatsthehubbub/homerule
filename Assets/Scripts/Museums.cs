@@ -396,7 +396,7 @@ public class AirborneMuseum : Museum {
 			"Hij zat in een gevaarlijke situatie. Hij praatte zichzelf hiermee moed in."});
 
 		this.story1QuestionOutro = "Lelijke woorden hè? Maar voor de soldaat was het een belangrijke tekst.";
-		this.story1ArticleIntro = "Als iemand op een muur schrijft, is dat niet altijd slecht bedoeld.";
+		this.story1ArticleIntro = "Als iemand op een muur schrijft, in de oorlog en nu, is dat niet altijd slecht bedoeld.";
 
 		/* Story 2 */
 

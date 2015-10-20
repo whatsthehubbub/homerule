@@ -27,4 +27,10 @@ public class OpenSplashScreen : MonoBehaviour {
 		this.gameObject.SetActive(false);
 		this.museumPicker.SetActive(true);
 	}
+
+	public void ColofonButtonPressed() {
+		GameObject colofon = (GameObject)Instantiate(Resources.Load ("Prefabs/ColofonOverlay"));
+		colofon.transform.SetParent(GameObject.Find ("Start UI").transform, false);
+		colofon.name = "ColofonOverlay";
+	}
 }

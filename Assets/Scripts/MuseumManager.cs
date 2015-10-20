@@ -370,8 +370,6 @@ public class MuseumManager : MonoBehaviour {
 		if (!found) {
 			Debug.Log ("Moved out of beacon range");
 			MovedOutOfBeaconRange();
-//			ShowIdle ();
-//			NewLocation("UNDERWAY");
 		}
 	}
 

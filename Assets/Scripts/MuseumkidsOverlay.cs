@@ -118,10 +118,9 @@ public class MuseumkidsOverlay : MonoBehaviour {
 	}
 
 	public IEnumerator LoginSequence() {
-		// Show progress?
-
-		// Disable button
-		GameObject.Find ("LoginButton").GetComponent<Button>().interactable = false;
+		// Hide button, show spinner
+		GameObject.Find ("LoginButton").transform.localScale = new Vector3(0, 0, 0);
+		GameObject.Find ("Spinner").transform.localScale = new Vector3(1, 1, 1);
 
 		bool success = true;
 
@@ -137,13 +136,15 @@ public class MuseumkidsOverlay : MonoBehaviour {
 			}
 		}
 
+		// Show button, Hide spinner
+		// We do this anyway, because we want to leave this view in a state that it can be used again.
+		GameObject.Find ("LoginButton").transform.localScale = new Vector3(1, 1, 1);
+		GameObject.Find ("Spinner").transform.localScale = new Vector3(0, 0, 0);
+
 		if (success) {
 			// Close login screen
 			ShowLoggedinPanel();
 		} else {
-			// Turn button back on
-			GameObject.Find ("LoginButton").GetComponent<Button>().interactable = true;
-
 			// Show a message that logging in failed
 			GameObject.Find ("MuseumkidsExplanation").GetComponentInChildren<Text>().text = "Sorry, het aanmelden is niet gelukt. Probeer het nog eens?";
 		}

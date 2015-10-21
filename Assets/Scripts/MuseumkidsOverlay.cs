@@ -155,9 +155,9 @@ public class MuseumkidsOverlay : MonoBehaviour {
 	}
 
 	public IEnumerator ShareSequence() {
-		// Disable current share button
-		GameObject.Find ("ShareButton").GetComponent<Button>().interactable = false;
-
+		// Hide button, show spinner
+		GameObject.Find ("ShareButton").transform.localScale = new Vector3(0, 0, 0);
+		GameObject.Find ("Spinner").transform.localScale = new Vector3(1, 1, 1);
 
 		yield return StartCoroutine(m.DoPost());
 
@@ -171,14 +171,16 @@ public class MuseumkidsOverlay : MonoBehaviour {
 			success = false;
 		}
 
+		// Show button, Hide spinner
+		// We do this anyway, because we want to leave this view in a state that it can be used again.
+		GameObject.Find ("ShareButton").transform.localScale = new Vector3(1, 1, 1);
+		GameObject.Find ("Spinner").transform.localScale = new Vector3(0, 0, 0);
+
 		if (success) {
 			GameObject.Find ("Share" + m.storyToShare + "Button").GetComponent<Button>().interactable = false;
 			
 			ShowSharedPanel();
 		} else {
-			// Reenable current share button
-			GameObject.Find ("ShareButton").GetComponent<Button>().interactable = true;
-
 			GameObject.Find ("ConfirmationText").GetComponentInChildren<Text>().text = "Sorry, het delen is niet gelukt. Probeer het nog eens?";
 		}
 	}

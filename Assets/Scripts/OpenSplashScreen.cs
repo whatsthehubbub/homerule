@@ -18,7 +18,7 @@ public class OpenSplashScreen : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		changeMuseumButton.GetComponentInChildren<Text>().text = "je speelt nu in " + mm.museum.museumName;
+		changeMuseumButton.GetComponentInChildren<Text>().text = "je speelt nu in <b>" + mm.museum.museumName + "</b>";
 	}
 
 	public void ChangeMuseumButtonPressed() {

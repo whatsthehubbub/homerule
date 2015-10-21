@@ -146,7 +146,7 @@ public class Underway : MonoBehaviour {
 	public void ShowLogoutPanel() {
 		this.logoutPanel.SetActive(true);
 
-		GameObject.Find ("LoggedInText").GetComponent<Text>().text = "Ingelogd als: " + m.email;
+		GameObject.Find ("LoggedInText").GetComponent<Text>().text = "je bent ingelogd als " + m.email;
 	}
 
 	public void LogoutButton() {

@@ -157,10 +157,15 @@ public class MuseumManager : MonoBehaviour {
 
 		this.callBusy = true;
 
-		this.museum = new AirborneMuseum();
+
+//		GameObject mch = GameObject.Find ("MuseumChoiceHolder");
+//		MuseumChoice mc = mch.GetComponentInChildren<MuseumChoice>();
+
+//		this.museum = mc.GetMuseum();
 //		this.museum = new DummyMuseum();
 
-		this.goal = museum.GetStartGoal();
+//		Debug.Log ("Museum: " + this.museum);
+//
 
 
 		// Initialization

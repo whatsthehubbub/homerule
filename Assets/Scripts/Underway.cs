@@ -38,6 +38,12 @@ public class Underway : MonoBehaviour {
 		}
 	}
 
+	void OnDestroy() {
+		// We need to clean up this event handler otherwise all kind of nastiness will happen when it still hangs around after a new game
+		MuseumKids.onMuseumkidsLoggedIn -= ShowLogoutPanel;
+		MuseumKids.onMuseumkidsLoggedOut -= LogoutCompleted;
+	}
+
 	public void ShowJournalistChats() {
 		mm.reporterChatHistory.SetActive(true);
 	}

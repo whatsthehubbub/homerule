@@ -664,7 +664,6 @@ GameObject:
   - 223: {fileID: 291169104}
   - 114: {fileID: 291169103}
   - 114: {fileID: 291169102}
-  - 114: {fileID: 291169105}
   m_Layer: 5
   m_Name: Start UI
   m_TagString: Untagged
@@ -688,7 +687,6 @@ RectTransform:
   - {fileID: 1279754209}
   - {fileID: 1174392247}
   - {fileID: 842007191}
-  - {fileID: 990988315}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
@@ -753,18 +751,6 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingLayerID: 0
   m_SortingOrder: 10
---- !u!114 &291169105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 291169100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14501568871c04e3a8e8c259b41077c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  logoutPanel: {fileID: 990988314}
 --- !u!1001 &340005687
 Prefab:
   m_ObjectHideFlags: 0
@@ -2024,8 +2010,8 @@ RectTransform:
   m_Children:
   - {fileID: 1596567087}
   - {fileID: 625606766}
-  m_Father: {fileID: 291169101}
-  m_RootOrder: 5
+  m_Father: {fileID: 1088705863}
+  m_RootOrder: 7
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -2478,6 +2464,7 @@ GameObject:
   - 222: {fileID: 1088705865}
   - 114: {fileID: 1088705864}
   - 114: {fileID: 1088705866}
+  - 114: {fileID: 1088705867}
   m_Layer: 5
   m_Name: Splash screen
   m_TagString: Untagged
@@ -2503,6 +2490,7 @@ RectTransform:
   - {fileID: 1067354185}
   - {fileID: 279928339}
   - {fileID: 251498121}
+  - {fileID: 990988315}
   m_Father: {fileID: 291169101}
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
@@ -2558,6 +2546,18 @@ MonoBehaviour:
   mm: {fileID: 0}
   changeMuseumButton: {fileID: 279928338}
   museumPicker: {fileID: 1747590809}
+--- !u!114 &1088705867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1088705862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14501568871c04e3a8e8c259b41077c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  logoutPanel: {fileID: 990988314}
 --- !u!1 &1111721780
 GameObject:
   m_ObjectHideFlags: 0
@@ -2841,7 +2841,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 291169105}
+      - m_Target: {fileID: 1088705867}
         m_MethodName: LogoutButton
         m_Mode: 1
         m_Arguments:

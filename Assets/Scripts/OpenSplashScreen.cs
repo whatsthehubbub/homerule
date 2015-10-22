@@ -23,7 +23,7 @@ public class OpenSplashScreen : MonoBehaviour {
 	public void UpdateChangeMuseumButton() {
 		GameObject button = GameObject.Find ("ChangeMuseumButton");
 
-		if (button) {
+		if (button != null && mm != null) {
 			button.GetComponentInChildren<Text>().text = "je speelt nu in <b>" + mm.museum.museumName + "</b>";
 		}
 	}

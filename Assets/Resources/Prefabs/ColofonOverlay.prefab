@@ -146,6 +146,7 @@ GameObject:
   - 224: {fileID: 22439636}
   - 222: {fileID: 22259026}
   - 114: {fileID: 11455542}
+  - 114: {fileID: 11469998}
   m_Layer: 5
   m_Name: Airborne Museum logo
   m_TagString: Untagged
@@ -298,6 +299,7 @@ GameObject:
   - 224: {fileID: 22434218}
   - 222: {fileID: 22221702}
   - 114: {fileID: 11469944}
+  - 114: {fileID: 11437640}
   m_Layer: 5
   m_Name: Museumvereniging logo
   m_TagString: Untagged
@@ -315,6 +317,7 @@ GameObject:
   - 224: {fileID: 22448302}
   - 222: {fileID: 22299644}
   - 114: {fileID: 11478506}
+  - 114: {fileID: 11493858}
   m_Layer: 5
   m_Name: Hubbub logo
   m_TagString: Untagged
@@ -502,6 +505,7 @@ GameObject:
   - 224: {fileID: 22435074}
   - 222: {fileID: 22216510}
   - 114: {fileID: 11483716}
+  - 114: {fileID: 11492166}
   m_Layer: 5
   m_Name: Mondriaanfonds logo
   m_TagString: Untagged
@@ -936,6 +940,24 @@ MonoBehaviour:
   m_Spacing: 20
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
+--- !u!114 &11437640
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1679637790, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: 512
+  m_PreferredHeight: 100
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
 --- !u!114 &11439948
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1250,6 +1272,24 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11469998
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 122582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1679637790, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: 480
+  m_PreferredHeight: 256
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
 --- !u!114 &11471798
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1544,6 +1584,42 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: www.mondriaanfonds.nl
+--- !u!114 &11492166
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1679637790, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: 170
+  m_PreferredHeight: 256
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+--- !u!114 &11493858
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1679637790, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: 512
+  m_PreferredHeight: 98
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
 --- !u!222 &22200624
 CanvasRenderer:
   m_ObjectHideFlags: 1

@@ -21,11 +21,6 @@ public class MuseumPicker : MonoBehaviour {
 		mc = mch.GetComponentInChildren<MuseumChoice>();
 	}
 
-	// Use this for initialization
-//	void Start () {
-//		Debug.Log("CALL START");
-//	}
-	
 	// Update is called once per frame
 	void Update () {
 		// We need to do this check once but only when the entire GameObject is running

@@ -6,19 +6,26 @@ public class OpenSplashScreen : MonoBehaviour {
 
 	public MuseumManager mm;
 
-	public GameObject changeMuseumButton;
-
 	public GameObject museumPicker;
 
 	// Use this for initialization
 	void Start () {
 		GameObject main = GameObject.Find("Main");
 		mm = main.GetComponentInChildren<MuseumManager>();
+
+		UpdateChangeMuseumButton();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		changeMuseumButton.GetComponentInChildren<Text>().text = "je speelt nu in <b>" + mm.museum.museumName + "</b>";
+
+	void OnEnable() {
+		UpdateChangeMuseumButton();
+	}
+
+	public void UpdateChangeMuseumButton() {
+		GameObject button = GameObject.Find ("ChangeMuseumButton");
+
+		if (button) {
+			button.GetComponentInChildren<Text>().text = "je speelt nu in <b>" + mm.museum.museumName + "</b>";
+		}
 	}
 
 	public void ChangeMuseumButtonPressed() {

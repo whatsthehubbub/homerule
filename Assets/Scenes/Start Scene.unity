@@ -1542,7 +1542,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 94fd425fd19da4d0db55a668978d3f19, type: 3}
   m_Type: 0
-  m_PreserveAspect: 1
+  m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -1569,7 +1569,7 @@ MonoBehaviour:
   m_IgnoreLayout: 0
   m_MinWidth: -1
   m_MinHeight: -1
-  m_PreferredWidth: -1
+  m_PreferredWidth: 1280
   m_PreferredHeight: 768
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
@@ -2602,7 +2602,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mm: {fileID: 0}
-  changeMuseumButton: {fileID: 279928338}
   museumPicker: {fileID: 1747590809}
 --- !u!114 &1088705867
 MonoBehaviour:

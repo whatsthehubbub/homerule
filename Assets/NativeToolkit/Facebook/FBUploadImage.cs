@@ -22,10 +22,11 @@ public class FBUploadImage : MonoBehaviour {
 		foreach (GameObject obj in FindObjectsOfType(typeof(GameObject)))
 			if(obj.GetComponent<EventSystem>())
 				eventSystems.Add(obj);
-
+	
 		if(eventSystems.Count == 0)
 		{
 			eventSystem = new GameObject();
+			eventSystem.name = "EventSystem";
 			eventSystem.AddComponent<EventSystem>();
 			eventSystem.AddComponent<TouchInputModule>();
 			eventSystem.AddComponent<StandaloneInputModule>();
@@ -47,13 +48,17 @@ public class FBUploadImage : MonoBehaviour {
 	public void OnOkPress()
 	{
 		FBWrapper.Instance.UploadImage(callback, image, messageField.text);
-		if(eventSystem != null) Destroy (eventSystem);
-		Destroy(gameObject);
+		Close ();
 	}
 
 	public void OnCancelPress()
 	{
-		if(eventSystem != null) Destroy (eventSystem);
+		Close ();
+	}
+
+	void Close()
+	{
+		if(eventSystem != null) Destroy(eventSystem);
 		Destroy(gameObject);
 	}
 

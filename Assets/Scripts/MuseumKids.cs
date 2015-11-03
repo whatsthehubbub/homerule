@@ -124,17 +124,17 @@ public class MuseumKids : MonoBehaviour {
 		}
 	}
 
-	public IEnumerator DoPost() {
+	public IEnumerator DoPost(Museum m) {
 		var url = "https://www.museumkids.nl/api/setItemWithUserdata";
 
-		var item_id = 91; // Behang
+		var item_id = m.museumKidsStory1ItemId;
 
 		if (storyToShare == 1) {
-			item_id = 91;
+			item_id = m.museumKidsStory1ItemId;
 		} else if (storyToShare == 2) {
-			item_id = 92; // Bord
+			item_id = m.museumKidsStory2ItemId;
 		} else if (storyToShare == 3) {
-			item_id = 93; // Wilhelmina
+			item_id = m.museumKidsStory3ItemId;
 		}
 
 		if (!string.IsNullOrEmpty(this.sessiontoken)) {

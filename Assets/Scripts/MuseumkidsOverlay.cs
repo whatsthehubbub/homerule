@@ -159,7 +159,7 @@ public class MuseumkidsOverlay : MonoBehaviour {
 		GameObject.Find ("ShareButton").transform.localScale = new Vector3(0, 0, 0);
 		GameObject.Find ("Spinner").transform.localScale = new Vector3(1, 1, 1);
 
-		yield return StartCoroutine(m.DoPost());
+		yield return StartCoroutine(m.DoPost(mm.museum));
 
 		bool success = true;
 

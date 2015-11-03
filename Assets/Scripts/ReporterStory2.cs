@@ -83,12 +83,14 @@ public class ReporterStory2 : MonoBehaviour {
 			cw.ClearButtons();
 			cw.AddPlayerBubble("Wat dan?");
 			
-			ShowReporterResponse1();
+			StartCoroutine(ShowReporterResponse1());
 		});
 		
 	}
 	
-	public void ShowReporterResponse1() {
+	public IEnumerator ShowReporterResponse1() {
+		yield return new WaitForSeconds(0.5f);
+
 		Sprite introSprite = Resources.Load<Sprite>("Sprites/S2 intro wide");
 
 		// Show the situation in an image overlay
@@ -404,6 +406,8 @@ public class ReporterStory2 : MonoBehaviour {
 		string storyText = mm.museum.story2ArticleIntro +
 			"\n" + "Dat is " + argument;
 		mm.story2Text = storyText;
+
+		yield return new WaitForSeconds(0.5f);
 
 		cw.AddArticleBubble(storyText);
 		

@@ -74,7 +74,7 @@ public class ChatWindow : MonoBehaviour {
 			GameObject chatButton = GameObject.Find (this.lastMessageDisplay + "ChatsButton");
 
 			if (chatButton != null) {
-				GameObject lastMessageText = chatButton.transform.Find ("SenderLastMessageText").gameObject;
+				GameObject lastMessageText = chatButton.transform.Find ("TextContainer/SenderLastMessageText").gameObject;
 				
 				lastMessageText.GetComponentInChildren<Text>().text = text;
 			}

@@ -165,7 +165,14 @@ public class ChatWindow : MonoBehaviour {
 		GameObject scrollView = this.gameObject.transform.Find("ScrollView").gameObject;
 		ScrollRect rect = scrollView.GetComponent<ScrollRect>();
 
-		rect.verticalNormalizedPosition = 0.0f;
+		float lerpTime = 1.0f;
+		float startPos = rect.verticalNormalizedPosition;
+		float endPos = 0.0f;
+
+		for(float currentLerpTime = 0.0f; currentLerpTime < lerpTime; currentLerpTime += Time.deltaTime) {
+			float perc = currentLerpTime / lerpTime;
+			rect.verticalNormalizedPosition = Mathf.Lerp(startPos, endPos, perc);
+		}
 	}
 
 	/*

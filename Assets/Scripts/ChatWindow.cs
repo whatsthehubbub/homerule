@@ -57,7 +57,7 @@ public class ChatWindow : MonoBehaviour {
 
 		ScrollToBottom();
 
-		GameObject scrollContent = this.gameObject.transform.Find("ScrollView/ScrollContent").gameObject;
+		GameObject scrollContent = this.gameObject.transform.Find("ScrollView/Viewport/Content").gameObject;
 		
 		GameObject bubble = (GameObject)Instantiate(Resources.Load (prefabName));
 		bubble.name = party + "Bubble";
@@ -74,7 +74,7 @@ public class ChatWindow : MonoBehaviour {
 			GameObject chatButton = GameObject.Find (this.lastMessageDisplay + "ChatsButton");
 
 			if (chatButton != null) {
-				GameObject lastMessageText = chatButton.transform.Find ("SenderLastMessageText").gameObject;
+				GameObject lastMessageText = chatButton.transform.Find ("TextContainer/SenderLastMessageText").gameObject;
 				
 				lastMessageText.GetComponentInChildren<Text>().text = text;
 			}
@@ -128,7 +128,7 @@ public class ChatWindow : MonoBehaviour {
 		GameObject imageBubble = (GameObject)Instantiate(Resources.Load (prefabName));
 		imageBubble.name = party + " ImageBubble";
 
-		GameObject scrollContent = this.gameObject.transform.Find("ScrollView/ScrollContent").gameObject;
+		GameObject scrollContent = this.gameObject.transform.Find("ScrollView/Viewport/Content").gameObject;
 		imageBubble.transform.SetParent (scrollContent.transform, false);
 		
 		return imageBubble;
@@ -172,7 +172,7 @@ public class ChatWindow : MonoBehaviour {
 	 * Removes all the chat bubbles in the chat window.
 	 */
 	public void FlushChildren() {
-		GameObject scrollContent = this.gameObject.transform.Find ("ScrollView/ScrollContent").gameObject;
+		GameObject scrollContent = this.gameObject.transform.Find ("ScrollView/Viewport/Content").gameObject;
 
 		List<GameObject> children = new List<GameObject>();
 
@@ -191,7 +191,7 @@ public class ChatWindow : MonoBehaviour {
 			GameObject divider = (GameObject)Instantiate(Resources.Load("Prefabs/NewMessages"));
 			divider.name = "Divider";
 			
-			GameObject scrollContent = this.gameObject.transform.Find("ScrollView/ScrollContent").gameObject;
+			GameObject scrollContent = this.gameObject.transform.Find("ScrollView/Viewport/Content").gameObject;
 			divider.transform.SetParent (scrollContent.transform, false);
 			
 			return divider;

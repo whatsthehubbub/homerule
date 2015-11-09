@@ -82,11 +82,13 @@ public class ReporterStory1 : MonoBehaviour {
 			cw.ClearButtons();
 			cw.AddPlayerBubble("Wat dan?");
 			
-			ShowStorySituation();
+			StartCoroutine(ShowStorySituation());
 		});
 	}
 
-	public void ShowStorySituation() {
+	public IEnumerator ShowStorySituation() {
+		yield return new WaitForSeconds(0.5f);
+
 		Sprite introSprite = Resources.Load<Sprite>("Sprites/S1 intro wide");
 
 		// Show the situation in an image overlay
@@ -406,6 +408,8 @@ public class ReporterStory1 : MonoBehaviour {
 	}
 
 	public IEnumerator SendPiece() {
+		yield return new WaitForSeconds(0.5f);
+
 		// Re enable the chat history's back button and hide it
 		cw.EnableBack();
 		chat.SetActive(false);
@@ -436,11 +440,13 @@ public class ReporterStory1 : MonoBehaviour {
 			cw.ClearButtons();
 			cw.AddPlayerBubble("Laat zien!");
 			
-			ShowResultImage();
+			StartCoroutine(ShowResultImage());
 		});
 	}
 
-	public void ShowResultImage() {
+	public IEnumerator ShowResultImage() {
+		yield return new WaitForSeconds(0.5f);
+
 		string spriteString = "";
 
 		switch (mm.story1OpinionDescription) {

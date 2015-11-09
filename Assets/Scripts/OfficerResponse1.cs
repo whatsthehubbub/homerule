@@ -98,7 +98,7 @@ public class OfficerResponse1 : MonoBehaviour {
 		yield return new WaitForSeconds(0.5f);
 		
 		GameObject imageBubble = cw.AddNPCImageBubble();
-		Sprite katjaPhotoSprite = Resources.Load<Sprite>("Sprites/katja foto");
+		Sprite katjaPhotoSprite = Resources.Load<Sprite>("Sprites/katja foto crop");
 		imageBubble.transform.Find("Bubble/BubbleImage").GetComponentInChildren<Image>().sprite = katjaPhotoSprite;
 		
 		GameObject nooit = cw.AddButton("Nooit gezien");

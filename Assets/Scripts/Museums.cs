@@ -156,8 +156,8 @@ public abstract class Museum {
 
 	public Goal GetEndGameGoal() {
 		Goal g = default(Goal);
-		g.goalText = "";
-		g.overlayText = "";
+		g.goalText = "Het spel is voorbij";
+		g.overlayText = "Je hebt het einde van het spel bereikt. Bedankt voor het spelen!";
 		g.locationSprite = "";
 
 		return g;

@@ -94,6 +94,9 @@ public abstract class Museum {
 	public string story3QuestionOutro;
 	public string story3ArticleIntro;
 
+	/* End game text */
+	public string endGameText;
+
 
 	// TODO put the museum kids abstraction stuff in here
 
@@ -333,6 +336,9 @@ public class DummyMuseum : Museum {
 		this.story3QuestionOutro = "DUMMY OUTRO";
 
 		this.story3ArticleIntro = "DUMMY INLEIDING VAN HET ARTIKEL";
+
+		/* End game text */
+		this.endGameText = "DUMMY EINDE SPEL TEKST";
 	}
 }
 
@@ -492,5 +498,8 @@ public class AirborneMuseum : Museum {
 		this.story3QuestionOutro = "De mensen konden niet meer zichzelf zijn. Net als de vogels nu. En de politie liegt erover!";
 
 		this.story3ArticleIntro = "Vrije vogel of koningsgezind, je moet jezelf kunnen zijn!";
+
+		/* End game text */
+		this.endGameText = "Hoe vond je Vrije Vogels? Dit spel is nog in de testfase. We horen heel graag jouw mening. Wil je bij de receptie de enquête invullen en ons laten weten wat je er van vindt?";
 	}
 }

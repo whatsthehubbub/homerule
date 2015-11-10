@@ -20,7 +20,7 @@ public class GoalScript : MonoBehaviour {
 			GameObject.Find ("GoalImage").SetActive(false);
 
 			this.endGameMessage.SetActive(true);
-			this.endGameMessage.GetComponentInChildren<Text>().text = "";
+			this.endGameMessage.GetComponentInChildren<Text>().text = mm.museum.endGameText;
 		}
 	}
 	

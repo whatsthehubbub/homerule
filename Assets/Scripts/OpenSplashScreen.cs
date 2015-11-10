@@ -36,8 +36,8 @@ public class OpenSplashScreen : MonoBehaviour {
 	}
 
 	public void ColofonButtonPressed() {
-		GameObject colofon = (GameObject)Instantiate(Resources.Load ("Prefabs/ColofonOverlay"));
-		colofon.transform.SetParent(GameObject.Find ("Start UI").transform, false);
-		colofon.name = "ColofonOverlay";
+//		GameObject colofon = (GameObject)Instantiate(Resources.Load ("Prefabs/ColofonOverlay"));
+//		colofon.transform.SetParent(GameObject.Find ("Start UI").transform, false);
+//		colofon.name = "ColofonOverlay";
 	}
 }

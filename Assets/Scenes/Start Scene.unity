@@ -4805,6 +4805,7 @@ GameObject:
   - 222: {fileID: 1747590812}
   - 114: {fileID: 1747590811}
   - 114: {fileID: 1747590813}
+  - 95: {fileID: 1747590814}
   m_Layer: 5
   m_Name: MuseumPicker
   m_TagString: Untagged
@@ -4884,6 +4885,23 @@ MonoBehaviour:
   mm: {fileID: 0}
   mc: {fileID: 0}
   checkOnce: 0
+--- !u!95 &1747590814
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1747590809}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 307bbe1d196224bf3b37a6475bf1f9e4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1754394771
 GameObject:
   m_ObjectHideFlags: 0

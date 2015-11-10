@@ -203,10 +203,9 @@ public class ReporterStory4 : MonoBehaviour {
 
 		mm.story4Done = true;
 		mm.callBusy = false;
+
+		mm.goal = mm.museum.GetEndGameGoal();
 		
 		GameObject.Destroy(this);
-
-		GameObject endGame = (GameObject)Instantiate(Resources.Load ("Prefabs/EndgameOverlay"));
-		endGame.transform.SetParent(GameObject.Find ("Canvas").transform, false);
 	}
 }

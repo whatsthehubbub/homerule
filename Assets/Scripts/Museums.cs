@@ -150,6 +150,15 @@ public abstract class Museum {
 
 		return g;
 	}
+
+	public Goal GetEndGameGoal() {
+		Goal g = default(Goal);
+		g.goalText = "";
+		g.overlayText = "";
+		g.locationSprite = "";
+
+		return g;
+	}
 }
 
 public class DummyMuseum : Museum {

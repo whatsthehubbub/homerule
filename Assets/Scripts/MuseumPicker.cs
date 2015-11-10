@@ -72,7 +72,7 @@ public class MuseumPicker : MonoBehaviour {
 
 		mm.goal = mm.museum.GetStartGoal();
 
-		this.titleScreen.SetActive(true);
-		this.gameObject.SetActive(false);
+//		this.titleScreen.SetActive(true);
+//		this.gameObject.SetActive(false);
 	}
 }

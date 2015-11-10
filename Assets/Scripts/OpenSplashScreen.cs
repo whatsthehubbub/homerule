@@ -31,8 +31,8 @@ public class OpenSplashScreen : MonoBehaviour {
 	public void ChangeMuseumButtonPressed() {
 		GameObject.Find("MuseumChoiceHolder").GetComponentInChildren<MuseumChoice>().pickMuseum = true;
 
-		this.gameObject.SetActive(false);
-		this.museumPicker.SetActive(true);
+//		this.gameObject.SetActive(false);
+//		this.museumPicker.SetActive(true);
 	}
 
 	public void ColofonButtonPressed() {

@@ -10,11 +10,7 @@ GameObject:
   - 224: {fileID: 22434074}
   - 222: {fileID: 22249672}
   - 114: {fileID: 11499774}
-<<<<<<< HEAD
-  - 95: {fileID: 9510460}
-=======
   - 114: {fileID: 11428780}
->>>>>>> develop
   m_Layer: 5
   m_Name: NPCChatbubble
   m_TagString: Untagged

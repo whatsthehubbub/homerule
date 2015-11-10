@@ -29,6 +29,7 @@ GameObject:
   - 222: {fileID: 22270746}
   - 114: {fileID: 11497416}
   - 114: {fileID: 11429062}
+  - 95: {fileID: 9563964}
   m_Layer: 5
   m_Name: ArticleChatbubble
   m_TagString: Untagged
@@ -53,6 +54,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &9563964
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144488}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ae17dc15b6051432a9d424491bbfec11, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11406170
 MonoBehaviour:
   m_ObjectHideFlags: 1

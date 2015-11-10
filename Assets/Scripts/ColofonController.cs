@@ -14,6 +14,6 @@ public class ColofonController : MonoBehaviour {
 	}
 
 	public void CloseButtonPressed() {
-		Destroy(this.gameObject);
+//		Destroy(this.gameObject);
 	}
 }

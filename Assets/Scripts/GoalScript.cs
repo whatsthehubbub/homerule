@@ -14,13 +14,20 @@ public class GoalScript : MonoBehaviour {
 		GameObject main = GameObject.Find("Main");
 		mm = main.GetComponentInChildren<MuseumManager>();
 
-
 		if (mm.story4Done) {
 			// This is the end of the game and we need to do some special things here
-			GameObject.Find ("GoalImage").SetActive(false);
 
-			this.endGameMessage.SetActive(true);
-			this.endGameMessage.GetComponentInChildren<Text>().text = mm.museum.endGameText;
+			// Disable the goal image object to make space
+			GameObject goalImage = GameObject.Find ("GoalImage");
+			if (goalImage != null) {
+				goalImage.SetActive(false);
+			}
+
+			// Enable teh end game message and set it to a specific text
+			if (this.endGameMessage != null) {
+				this.endGameMessage.SetActive(true);
+				this.endGameMessage.GetComponentInChildren<Text>().text = mm.museum.endGameText;
+			}
 		}
 	}
 	

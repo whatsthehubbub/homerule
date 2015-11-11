@@ -453,10 +453,11 @@ public class MuseumManager : MonoBehaviour {
 
 			float delay = this.museum.callDelays[this.storyQueue.Peek ()];
 
-//			if (Application.platform == RuntimePlatform.OSXEditor) {
-//				// Remove this for testing on desktop
-//				delay = 2.0f;
-//			}
+			if (Application.platform == RuntimePlatform.OSXEditor) {
+				// Remove this for testing on desktop
+				delay = 2.0f;
+				Debug.Log ("We're not waiting the full duration for testing.");
+			}
 
 			Debug.Log ("Going to take a call in: " + delay);
 

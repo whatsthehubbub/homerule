@@ -187,9 +187,9 @@ public class DummyMuseum : Museum {
 
 
 		/* MuseumKids Objects */
-		museumKidsStory1ItemId = 997;
-		museumKidsStory2ItemId = 998;
-		museumKidsStory3ItemId = 999;
+		museumKidsStory1ItemId = 94;
+		museumKidsStory2ItemId = 95;
+		museumKidsStory3ItemId = 96;
 
 
 		this.museumIntroScope = "DE TABLET WEET WAAR JE BENT IN HET MUSEUM. JE HOEFT ALLEEN TE ZOEKEN OP BEPAALDE PLAATSEN VAN HET <B>DUMMY MUSEUM</B>.";

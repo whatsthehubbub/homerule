@@ -289,7 +289,7 @@ public class MuseumManager : MonoBehaviour {
 			officerChatWindow.SetNPCAvatar("agent");
 			officerChatWindow.SetLastMessageDisplay("Officer");
 			
-			officerChatHistory.transform.Find("TopBar/Title").GetComponent<Text>().text = "Agent";
+			officerChatHistory.transform.Find("TopBar/Title").GetComponent<Text>().text = "Agent Wolfsen";
 			officerChatHistory.SetActive(false);
 			
 			

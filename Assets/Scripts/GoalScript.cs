@@ -23,7 +23,7 @@ public class GoalScript : MonoBehaviour {
 				goalImage.SetActive(false);
 			}
 
-			// Enable teh end game message and set it to a specific text
+			// Enable the end game message and set it to a specific text
 			if (this.endGameMessage != null) {
 				this.endGameMessage.SetActive(true);
 				this.endGameMessage.GetComponentInChildren<Text>().text = mm.museum.endGameText;

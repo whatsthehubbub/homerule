@@ -56,7 +56,8 @@ public class MuseumKids : MonoBehaviour {
 	}
 
 	public IEnumerator DoLogin() {
-		var url = "https://www.museumkids.nl/api/login";
+//		var url = "https://www.museumkids.nl/api/login";
+		var url = "http://museumkids.ijspreview.nl/api/login";
 
 		WWWForm form = new WWWForm();
 		form.AddField("email", this.email);
@@ -94,7 +95,8 @@ public class MuseumKids : MonoBehaviour {
 		// Authtoken could be empty if the previous request failed
 		// Then don't try to do this stuff
 		if (!string.IsNullOrEmpty(this.authtoken)) {
-			var url = "https://www.museumkids.nl/api/usersession/tikkit/Vrijevogels/" + this.authtoken;
+//			var url = "https://www.museumkids.nl/api/usersession/tikkit/Vrijevogels/" + this.authtoken;
+			var url = "http://museumkids.ijspreview.nl/api/usersession/tikkit/Vrijevogels/" + this.authtoken;
 			
 			Debug.Log ("Retrieve URL: " + url);
 			
@@ -124,17 +126,18 @@ public class MuseumKids : MonoBehaviour {
 		}
 	}
 
-	public IEnumerator DoPost() {
-		var url = "https://www.museumkids.nl/api/setItemWithUserdata";
+	public IEnumerator DoPost(Museum m) {
+//		var url = "https://www.museumkids.nl/api/setItemWithUserdata";
+		var url = "http://museumkids.ijspreview.nl/api/setItemWithUserdata";
 
-		var item_id = 91; // Behang
+		var item_id = m.museumKidsStory1ItemId;
 
 		if (storyToShare == 1) {
-			item_id = 91;
+			item_id = m.museumKidsStory1ItemId;
 		} else if (storyToShare == 2) {
-			item_id = 92; // Bord
+			item_id = m.museumKidsStory2ItemId;
 		} else if (storyToShare == 3) {
-			item_id = 93; // Wilhelmina
+			item_id = m.museumKidsStory3ItemId;
 		}
 
 		if (!string.IsNullOrEmpty(this.sessiontoken)) {

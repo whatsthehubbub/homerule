@@ -165,7 +165,6 @@ public class MuseumManager : MonoBehaviour {
 //		this.museum = new DummyMuseum();
 
 //		Debug.Log ("Museum: " + this.museum);
-//
 
 
 		// Initialization

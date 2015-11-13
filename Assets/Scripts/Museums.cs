@@ -25,6 +25,12 @@ public abstract class Museum {
 
 	public string museumCode;
 
+	/* MuseumKids Objects */
+
+	public int museumKidsStory1ItemId;
+	public int museumKidsStory2ItemId;
+	public int museumKidsStory3ItemId;
+
 	/* Introduction Screens */
 
 	public string museumIntroScope;
@@ -178,6 +184,13 @@ public class DummyMuseum : Museum {
 		};
 
 		this.museumCode = "DUMMY";
+
+
+		/* MuseumKids Objects */
+		museumKidsStory1ItemId = 94;
+		museumKidsStory2ItemId = 95;
+		museumKidsStory3ItemId = 96;
+
 
 		this.museumIntroScope = "DE TABLET WEET WAAR JE BENT IN HET MUSEUM. JE HOEFT ALLEEN TE ZOEKEN OP BEPAALDE PLAATSEN VAN HET <B>DUMMY MUSEUM</B>.";
 
@@ -356,6 +369,13 @@ public class AirborneMuseum : Museum {
 		};
 
 		this.museumCode = "Airborne";
+
+
+		/* MuseumKids Objects */
+		museumKidsStory1ItemId = 91; // Behang
+		museumKidsStory2ItemId = 92; // Bord
+		museumKidsStory3ItemId = 93; // Wilhelmina
+
 
 		this.museumIntroScope = "De tablet weet waar je bent in het museum. Je hoeft alleen te zoeken op de begane grond en de eerste verdieping van het <b>Airborne Museum</b>.";
 

@@ -520,6 +520,6 @@ public class AirborneMuseum : Museum {
 		this.story3ArticleIntro = "Vrije vogel of koningsgezind, je moet jezelf kunnen zijn!";
 
 		/* End game text */
-		this.endGameText = "Hoe vond je Vrije Vogels? Dit spel is nog in de testfase. We horen heel graag jouw mening. Wil je bij de receptie de enquête invullen en ons laten weten wat je er van vindt?";
+		this.endGameText = "Je kunt nu de rest van het museum bekijken. Vergeet vooral niet ook de ondergrondse Airborne Experience te bezoeken!";
 	}
 }

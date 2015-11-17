@@ -11,7 +11,7 @@ GameObject:
   - 222: {fileID: 22250776}
   - 114: {fileID: 11457326}
   m_Layer: 5
-  m_Name: Text
+  m_Name: MuseumkidsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70,6 +70,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &127708
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 22436790}
+  - 222: {fileID: 22271138}
+  - 114: {fileID: 11456368}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &143478
 GameObject:
   m_ObjectHideFlags: 1
@@ -81,7 +98,6 @@ GameObject:
   - 114: {fileID: 11485240}
   - 222: {fileID: 22236018}
   - 114: {fileID: 11412532}
-  - 114: {fileID: 11448380}
   m_Layer: 5
   m_Name: EndGameMessage
   m_TagString: Untagged
@@ -711,24 +727,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11448380
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 143478}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1679637790, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreLayout: 0
-  m_MinWidth: -1
-  m_MinHeight: -1
-  m_PreferredWidth: 1280
-  m_PreferredHeight: 853.333313
-  m_FlexibleWidth: -1
-  m_FlexibleHeight: -1
 --- !u!114 &11451692
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -781,6 +779,39 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &11456368
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 127708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: b68e93d494d667047b932adb8d7e2a9b, type: 3}
+    m_FontSize: 60
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 1
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Je kunt nu de rest van het museum bekijken. Vergeet vooral niet ook de ondergrondse
+    Airborne Experience te bezoeken!
 --- !u!114 &11457326
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -812,9 +843,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Hoe vond je Vrije Vogels? Dit spel is nog in de testfase. We horen heel
-    graag jouw mening. Wil je bij de receptie de enqu\xEAte invullen en ons laten
-    weten wat je er van vindt?"
+  m_Text: Voor meer leuke games en tips interessante musea speciaal voor jou kun je
+    terecht op museumkids.nl.
 --- !u!114 &11462636
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1172,7 +1202,7 @@ MonoBehaviour:
     m_Top: 40
     m_Bottom: 40
   m_ChildAlignment: 4
-  m_Spacing: 0
+  m_Spacing: 40
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
 --- !u!114 &11495874
@@ -1308,6 +1338,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 112132}
+--- !u!222 &22271138
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 127708}
 --- !u!222 &22273904
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -1548,6 +1584,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
+--- !u!224 &22436790
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 127708}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 22463524}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 640, y: -150.239227}
+  m_SizeDelta: {x: 1200, y: 220.47847}
+  m_Pivot: {x: .5, y: .5}
 --- !u!224 &22440828
 RectTransform:
   m_ObjectHideFlags: 1
@@ -1610,13 +1663,14 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 22436790}
   - {fileID: 22476270}
   m_Father: {fileID: 22401974}
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 640, y: -712.171631}
-  m_SizeDelta: {x: 1280, y: 853.333313}
+  m_AnchoredPosition: {x: 640, y: -721.550232}
+  m_SizeDelta: {x: 1280, y: 560.956909}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22476270
 RectTransform:
@@ -1629,11 +1683,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 22463524}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 640, y: -426.666656}
-  m_SizeDelta: {x: 1200, y: 354.851471}
+  m_AnchoredPosition: {x: 640, y: -410.717682}
+  m_SizeDelta: {x: 1200, y: 220.47847}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22478540
 RectTransform:

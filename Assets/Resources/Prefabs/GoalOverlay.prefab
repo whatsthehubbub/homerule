@@ -843,8 +843,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Voor meer leuke games en tips interessante musea speciaal voor jou kun je
-    terecht op museumkids.nl.
+  m_Text: Voor meer leuke games, tips en interessante musea speciaal voor jou kun
+    je terecht op museumkids.nl.
 --- !u!114 &11462636
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -272,10 +272,10 @@ public class ReporterStory3 : MonoBehaviour {
 			yield return new WaitForSeconds(0.5f);
 		}
 
-		GameObject button = cw.AddButton ("Jemig");
+		GameObject button = cw.AddButton ("Poeh");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble("Jemig, wat een verhaal.");
+			cw.AddPlayerBubble("Poeh, wat een verhaal.");
 
 			StartCoroutine(SharePicture());
 		});
@@ -448,10 +448,10 @@ public class ReporterStory3 : MonoBehaviour {
 
 		yield return new WaitForSeconds(0.5f);
 
-		GameObject button = cw.AddButton("Jemig");
+		GameObject button = cw.AddButton("Tjonge");
 		button.GetComponentInChildren<Button>().onClick.AddListener(() => {
 			cw.ClearButtons();
-			cw.AddPlayerBubble("Jemig!");
+			cw.AddPlayerBubble("Tjonge!");
 			
 			StartCoroutine(ShowResultConclusion());
 		});
@@ -461,7 +461,7 @@ public class ReporterStory3 : MonoBehaviour {
 		yield return new WaitForSeconds(0.5f);
 
 		if (mm.story3Attribution == Story3Attribution.FRANK) {
-			cw.AddNPCBubble("Ja, jemig! Door op te schrijven wat er gebeurt, veranderen er dingen. En niet zo’n beetje ook.");
+			cw.AddNPCBubble("Ja, tjonge! Door op te schrijven wat er gebeurt, veranderen er dingen. En niet zo’n beetje ook.");
 
 			yield return new WaitForSeconds(0.5f);
 

@@ -46,11 +46,11 @@ TextureImporter:
   spriteBorder: {x: 48, y: 48, z: 48, w: 48}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
-  textureType: 8
+  textureType: 5
   buildTargetSettings:
   - buildTarget: iPhone
     maxTextureSize: 512
-    textureFormat: -1
+    textureFormat: 32
     compressionQuality: 50
     allowsAlphaSplitting: 0
   spriteSheet:

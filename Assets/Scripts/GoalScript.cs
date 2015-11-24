@@ -8,6 +8,7 @@ public class GoalScript : MonoBehaviour {
 
 	public GameObject stopOverlay;
 	public GameObject endGameMessage;
+	public GameObject endGameMuseumkidsText;
 
 	// Use this for initialization
 	void Start () {
@@ -27,6 +28,17 @@ public class GoalScript : MonoBehaviour {
 			if (this.endGameMessage != null) {
 				this.endGameMessage.SetActive(true);
 				this.endGameMessage.GetComponentInChildren<Text>().text = mm.museum.endGameText;
+			}
+
+			// Turn off area text
+			GameObject areaText = GameObject.Find ("AreaText");
+			if (areaText != null) {
+				areaText.SetActive(false);
+			}
+
+			// Enable the museum kids notice
+			if (this.endGameMuseumkidsText != null) {
+				this.endGameMuseumkidsText.SetActive(true);
 			}
 		}
 	}

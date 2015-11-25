@@ -263,6 +263,10 @@ public class MuseumManager : MonoBehaviour {
 	
 	void OnLevelWasLoaded(int level) {
 		if (Application.loadedLevelName.Equals("Underway")) {
+
+			// Extra call to Bluetooth Init here just in case
+			iBeaconReceiver.Init();
+
 			this.canvas = GameObject.Find ("Canvas");
 
 			// Create the chat windows to keep the history in (and make sure they don't get destroyed on scene change)

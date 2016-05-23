@@ -377,9 +377,9 @@ public class AirborneMuseum : Museum {
 		museumKidsStory3ItemId = 93; // Wilhelmina
 
 
-		this.museumIntroScope = "De tablet weet waar je bent in het museum. Je hoeft alleen te zoeken op de begane grond en de eerste verdieping van het <b>Airborne Museum</b>.";
+		this.museumIntroScope = "De tablet weet waar je bent in het museum. Je hoeft alleen te zoeken op de eerste verdieping van het <b>Airborne Museum</b>.";
 
-		this.museumOverlayScope = "Dit spel speelt zich alleen af op de begane grond en de eerste verdieping van het <b>Airborne Museum</b>. Daarbuiten hoef je dus niet te zoeken.";
+		this.museumOverlayScope = "Dit spel speelt zich alleen af op de eerste verdieping van het <b>Airborne Museum</b>. Daarbuiten hoef je dus niet te zoeken.";
 
 		this.startGoalText = "Zoek het geweer";
 		this.startGoalOverlayText = "Ga op zoek naar het geweer. Het staat op de eerste verdieping.";

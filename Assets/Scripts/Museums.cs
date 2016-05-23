@@ -394,7 +394,7 @@ public class AirborneMuseum : Museum {
 		this.idleGoalLocationSprite = "";
 
 		this.location2GoalText = "Zoek het bord";
-		this.location2GoalOverlayText = "Ga op zoek naar het bord “Verboden Arnhem te betreden”. Dit hangt op de begane grond.";
+		this.location2GoalOverlayText = "Ga op zoek naar het bord “Verboden Arnhem te betreden”. Dit hangt op de eerste verdieping.";
 		this.location2LocationSprite = "airborne/bord";
 
 		this.location3GoalText = "Zoek de foto";
